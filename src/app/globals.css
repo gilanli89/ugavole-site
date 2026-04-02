@@ -1,26 +1,82 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
+/* ── Light mode (default) ─────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ugbg:       #F5F5F0;
+  --ugsurface:  #FFFFFF;
+  --ugsurface2: #F0F0EB;
+  --ugborder:   #E8E8E0;
+  --ugtext:     #0A0A0A;
+  --ugbody:     #1A1A1A;
+  --ugmuted:    #666666;
 }
 
+/* ── Dark mode ────────────────────────────── */
+.dark {
+  --ugbg:       #0A0A0A;
+  --ugsurface:  #141414;
+  --ugsurface2: #1E1E1E;
+  --ugborder:   #2A2A2A;
+  --ugtext:     #F0F0F0;
+  --ugbody:     #C0C0C0;
+  --ugmuted:    #888888;
+}
+
+/* ── Tailwind v4 @theme ───────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-ugavole-yellow:      #F5C518;
+  --color-ugavole-yellow-dark: #D4A017;
+
+  /* Semantic — değişkenlerden türetilir, dark mode otomatik çalışır */
+  --color-ugavole-bg:       var(--ugbg);
+  --color-ugavole-surface:  var(--ugsurface);
+  --color-ugavole-surface-2:var(--ugsurface2);
+  --color-ugavole-border:   var(--ugborder);
+  --color-ugavole-text:     var(--ugtext);
+  --color-ugavole-body:     var(--ugbody);
+  --color-ugavole-muted:    var(--ugmuted);
+}
+
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ugbg);
+  color: var(--ugbody);
+  font-family: var(--font-geist-sans, Arial, Helvetica, sans-serif);
 }
+
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker 40s linear infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.animate-blink {
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+.prose img { border-radius: 12px; }
+.prose a   { color: #D4A017; text-decoration: underline; }
