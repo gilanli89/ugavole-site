@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FooterFeedback from "@/components/FooterFeedback";
 
 export default function Footer() {
   return (
@@ -78,6 +79,7 @@ export default function Footer() {
               <li><Link href="/gizlilik" className="hover:text-ugavole-yellow transition-colors">Gizlilik Politikası</Link></li>
               <li><Link href="/kullanim-kosullari" className="hover:text-ugavole-yellow transition-colors">Kullanım Koşulları</Link></li>
               <li><Link href="/cerez-politikasi" className="hover:text-ugavole-yellow transition-colors">Çerez Politikası</Link></li>
+              <li><FooterFeedback /></li>
             </ul>
           </div>
         </div>
