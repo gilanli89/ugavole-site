@@ -2,15 +2,43 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { fetchAllNews } from "@/lib/api/news";
-import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/seo";
 import { ArrowRight, Trophy, Newspaper } from "lucide-react";
 import type { Article } from "@/lib/api/news";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Spor",
-  description: "KKTC spor haberleri, KTFF Süper Lig puan tablosu, Kıbrıs Türk futbolu ve diğer sporlar.",
-  path: "/spor",
-});
+export const metadata: Metadata = {
+  title: "KKTC Spor Haberleri & KTFF Süper Lig Puan Tablosu 2024-25",
+  description:
+    "Kuzey Kıbrıs spor haberleri, KTFF Süper Lig 2024-25 puan tablosu, Kıbrıs Türk futbolu, maç sonuçları ve sıralamalar. Mağusa T. Gücü, Çetinkaya, Dumlupınar ve tüm takımlar.",
+  keywords: [
+    "KTFF Süper Lig puan tablosu",
+    "KKTC spor haberleri",
+    "Kuzey Kıbrıs futbol",
+    "KTFF 2024-25",
+    "Kıbrıs Türk futbolu",
+    "KKTC futbol",
+    "Mağusa T. Gücü",
+    "Çetinkaya Türk SK",
+    "Dumlupınar",
+    "KTFF puan durumu",
+    "Kuzey Kıbrıs spor",
+  ],
+  alternates: { canonical: "https://ugavole.com/spor" },
+  openGraph: {
+    title: "KKTC Spor & KTFF Süper Lig Puan Tablosu 2024-25",
+    description:
+      "KTFF Süper Lig 2024-25 puan tablosu ve Kuzey Kıbrıs spor haberleri. Tüm takımlar, maç istatistikleri ve sıralamalar.",
+    url: "https://ugavole.com/spor",
+    siteName: "ugavole",
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KKTC Spor & KTFF Süper Lig Puan Tablosu",
+    description: "KTFF Süper Lig 2024-25 puan tablosu ve Kuzey Kıbrıs spor haberleri.",
+  },
+};
 
 const KTFF_TAKIM = [
   { sira: 1,  takim: "Mağusa T. Gücü",   o: 26, g: 18, b: 5,  m: 3,  puan: 59 },
@@ -33,24 +61,76 @@ function articleSlug(a: Article) {
   return a.source_url.replace(/\/$/, "").split("/").pop()!;
 }
 
+function buildSchemas() {
+  const breadcrumb = breadcrumbSchema([
+    { name: "Ana Sayfa", url: "https://ugavole.com" },
+    { name: "Spor", url: "https://ugavole.com/spor" },
+  ]);
+
+  const sportsOrg = {
+    "@context": "https://schema.org",
+    "@type": "SportsOrganization",
+    "name": "KTFF — Kıbrıs Türk Futbol Federasyonu",
+    "url": "https://ktff.org",
+    "sport": "Soccer",
+    "location": {
+      "@type": "Place",
+      "name": "Kuzey Kıbrıs Türk Cumhuriyeti",
+      "addressCountry": "CY",
+    },
+  };
+
+  const faq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "KTFF Süper Lig 2024-25 puan tablosunda lider kim?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "KTFF Süper Lig 2024-25 sezonunda Mağusa Türk Gücü 59 puanla lider konumdadır. Çetinkaya Türk SK 55 puan ile ikinci, Dumlupınar 48 puanla üçüncü sıradadır.",
+        },
+      },
+      {
+        "@type": "Question",
+        "name": "KKTC'de futbol ligi nasıl işliyor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kuzey Kıbrıs'ta futbol Kıbrıs Türk Futbol Federasyonu (KTFF) tarafından organize edilmektedir. En üst lig KTFF Süper Lig olup 14 takımdan oluşmaktadır. KTFF, FIFA ve UEFA üyesi olmayıp CONIFA bünyesinde uluslararası turnuvalara katılmaktadır.",
+        },
+      },
+      {
+        "@type": "Question",
+        "name": "KTFF Süper Lig'de hangi takımlar var?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "KTFF Süper Lig 2024-25 sezonunda Mağusa T. Gücü, Çetinkaya Türk SK, Dumlupınar, Küçük Kaymaklı, Gençlik Gücü, Girne Halk Evi, Ozanköy, L. Kaymaklı, Lapta SK, Aloa FK, Cihangir, Akdoğan, Binatlı ve Baf Ülkü Yurdu yer almaktadır.",
+        },
+      },
+    ],
+  };
+
+  return [breadcrumb, sportsOrg, faq];
+}
+
 export default async function SporPage() {
   const allArticles = await fetchAllNews().catch(() => []);
   const sporHaberleri = allArticles
     .filter((a) => a.category.toLowerCase() === "spor")
     .slice(0, 6);
 
-  const schema = breadcrumbSchema([
-    { name: "Ana Sayfa", url: "https://ugavole.com" },
-    { name: "Spor", url: "https://ugavole.com/spor" },
-  ]);
+  const schemas = buildSchemas();
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      {schemas.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
 
       <div className="mb-8">
-        <h1 className="text-3xl font-black text-ugavole-text">Spor</h1>
-        <p className="text-ugavole-muted mt-1">KKTC spor haberleri ve KTFF Süper Lig puan tablosu</p>
+        <h1 className="text-3xl font-black text-ugavole-text">KKTC Spor Haberleri</h1>
+        <p className="text-ugavole-muted mt-1">KTFF Süper Lig 2024-25 puan tablosu ve Kuzey Kıbrıs&apos;tan spor gelişmeleri</p>
       </div>
 
       {/* KTFF Puan Tablosu — her zaman tam genişlikte */}
@@ -111,6 +191,28 @@ export default async function SporPage() {
             </span>
             <span className="text-xs text-ugavole-muted ml-auto">Kaynak: ktff.org</span>
           </div>
+        </div>
+      </section>
+
+      {/* SEO metin bloğu */}
+      <section className="mb-10 bg-ugavole-surface border border-ugavole-border rounded-2xl p-6">
+        <h2 className="font-black text-ugavole-text text-lg mb-3">Kuzey Kıbrıs Futbolu Hakkında</h2>
+        <div className="prose prose-sm max-w-none text-ugavole-body space-y-2">
+          <p>
+            <strong>KTFF Süper Lig</strong>, Kuzey Kıbrıs Türk Cumhuriyeti&apos;nin en üst düzey profesyonel futbol ligıdır.
+            Kıbrıs Türk Futbol Federasyonu (KTFF) tarafından organize edilen lig, 14 takımın mücadele ettiği
+            rekabetçi bir yapıya sahiptir.
+          </p>
+          <p>
+            2024-25 sezonunda <strong>Mağusa Türk Gücü</strong> liderliğini sürdürürken
+            <strong> Çetinkaya Türk SK</strong> ve <strong>Dumlupınar</strong> yakın takipte yer almaktadır.
+            Puan tablosunun alt sıralarındaki takımlar ise düşme hattından kurtulmak için mücadele etmektedir.
+          </p>
+          <p>
+            KTFF, FIFA ve UEFA bünyesinde tanınmamakla birlikte CONIFA (Confederation of Independent Football Associations)
+            üyesi olarak uluslararası turnuvalara katılmaktadır. <strong>Kuzey Kıbrıs Milli Takımı</strong>,
+            CONIFA Dünya Kupası&apos;nda ülkeyi temsil etmektedir.
+          </p>
         </div>
       </section>
 
