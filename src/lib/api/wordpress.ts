@@ -1,5 +1,6 @@
 import type { Article } from "./news";
 import { extractFirstImage } from "@/lib/content";
+import { LOCAL_ARTICLES } from "./local-articles";
 
 type WPPost = {
   id: number;
@@ -55,8 +56,7 @@ function stripHtml(html: string): string {
 }
 
 async function fetchItems(baseUrl: string, type: "posts" | "pages"): Promise<Article[]> {
-  const fields = "id,slug,date,title,excerpt,content,featured_media,categories,link,type,_embedded";
-  const url = `${baseUrl}/${type}?per_page=100&_embed=1&_fields=${fields}`;
+  const url = `${baseUrl}/${type}?per_page=100&_embed=1`;
 
   const res = await fetch(url, {
     headers: { "User-Agent": "ugavole-bot/1.0" },
@@ -109,13 +109,14 @@ async function fetchFromEndpoint(baseUrl: string): Promise<Article[]> {
 }
 
 export async function fetchWordPressPosts(): Promise<Article[]> {
+  let wpArticles: Article[] = [];
   for (const endpoint of WP_ENDPOINTS) {
     try {
       const items = await fetchFromEndpoint(endpoint);
-      if (items.length > 0) return items;
+      if (items.length > 0) { wpArticles = items; break; }
     } catch {
       // bir sonraki endpoint'i dene
     }
   }
-  return [];
+  return [...LOCAL_ARTICLES, ...wpArticles];
 }
