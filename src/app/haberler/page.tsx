@@ -8,7 +8,7 @@ import PharmacyWidget from "@/components/widgets/PharmacyWidget";
 import HeadlinesPanel from "@/components/news/HeadlinesPanel";
 import { fetchAllNews } from "@/lib/api/news";
 import BuzzCard from "@/components/news/BuzzCard";
-import { Trophy } from "lucide-react";
+import { Sparkles, Trophy } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Haberler",
@@ -19,12 +19,13 @@ export default async function HaberlerPage() {
   const topArticles = await fetchAllNews().then((a) => a.slice(0, 10)).catch(() => []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
+    <div className="mx-auto max-w-[1240px] px-4 py-8 sm:px-6 sm:py-11">
       <BreakingTicker />
 
-      <div className="mb-6">
-        <h1 className="text-[#1A1A1A] font-black text-3xl">Son Haberler</h1>
-        <p className="text-gray-500 text-sm mt-1">Kuzey ve Güney Kıbrıs&apos;tan dakika dakika gelişmeler</p>
+      <div className="mb-8 mt-7 max-w-3xl">
+        <p className="mb-2 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[0.14em] text-ugavole-yellow-dark"><Sparkles className="h-4 w-4" /> Ada gündemi</p>
+        <h1 className="font-editorial text-5xl font-bold leading-none tracking-[-0.035em] text-ugavole-text sm:text-6xl">Son haberler</h1>
+        <p className="mt-3 text-sm font-medium text-ugavole-muted sm:text-base">Kuzey ve Güney Kıbrıs&apos;tan günün öne çıkan gelişmeleri.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -42,12 +43,12 @@ export default async function HaberlerPage() {
           <PharmacyWidget />
 
           {topArticles.length > 0 && (
-            <div className="bg-white rounded-2xl border border-[#E8E8E0] overflow-hidden shadow-sm">
-              <div className="bg-[#1A1A1A] text-white px-4 py-3 flex items-center gap-2">
+            <div className="overflow-hidden rounded-[22px] border border-ugavole-border bg-ugavole-surface shadow-sm">
+              <div className="flex items-center gap-2 border-b border-ugavole-border px-5 py-4 text-ugavole-text">
                 <Trophy className="w-4 h-4 text-ugavole-yellow" />
-                <h2 className="font-black text-sm uppercase tracking-wider">Son Eklenenler</h2>
+                <h2 className="font-editorial text-xl font-bold">Son eklenenler</h2>
               </div>
-              <div className="p-2 divide-y divide-[#E8E8E0]">
+              <div className="divide-y divide-ugavole-border p-2">
                 {topArticles.map((article, i) => (
                   <BuzzCard
                     key={`top-${article.id}-${i}`}

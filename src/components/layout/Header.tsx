@@ -42,16 +42,16 @@ export default function Header() {
   const closeDropdown = () => { dropdownTimer.current = setTimeout(() => setDropdownOpen(false), 120); };
 
   const linkCls = (active: boolean) =>
-    `relative px-3 py-2 text-sm font-semibold rounded-lg transition-colors whitespace-nowrap ${
+    `relative px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.08em] rounded-lg transition-colors whitespace-nowrap ${
       active
-        ? "text-[#F5C518]"
-        : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5"
+        ? "text-ugavole-yellow-dark dark:text-ugavole-yellow"
+        : "text-ugavole-muted hover:text-ugavole-text hover:bg-ugavole-surface-2"
     }`;
 
   return (
-    <header className="bg-white dark:bg-[#111111] sticky top-0 z-50 border-b border-gray-200 dark:border-[#2A2A2A]">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-14 gap-4">
+    <header className="sticky top-0 z-50 border-b border-t-[3px] border-b-ugavole-border border-t-ugavole-yellow bg-ugavole-surface/95 shadow-[0_5px_24px_rgba(32,29,21,0.04)] backdrop-blur-xl">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
+        <div className="flex h-16 items-center justify-between gap-4">
           <Logo size="md" />
 
           {/* Desktop Nav */}
@@ -75,7 +75,7 @@ export default function Header() {
                 className={`flex items-center gap-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
                   isKesfetActive
                     ? "text-[#F5C518]"
-                    : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5"
+                    : "text-ugavole-muted hover:bg-ugavole-surface-2 hover:text-ugavole-text"
                 }`}
               >
                 Keşfet
@@ -87,7 +87,7 @@ export default function Header() {
 
               {dropdownOpen && (
                 <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 w-44 bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#2A2A2A] rounded-2xl shadow-xl py-1.5 z-50"
+                className="absolute left-1/2 top-full z-50 mt-1.5 w-48 -translate-x-1/2 rounded-2xl border border-ugavole-border bg-ugavole-surface py-1.5 shadow-2xl"
                   onMouseEnter={openDropdown}
                   onMouseLeave={closeDropdown}
                 >
@@ -99,7 +99,7 @@ export default function Header() {
                       className={`flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
                         isActive(item.href)
                           ? "text-[#F5C518] font-semibold bg-[#F5C518]/5"
-                          : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5"
+                          : "text-ugavole-muted hover:bg-ugavole-surface-2 hover:text-ugavole-text"
                       }`}
                     >
                       <span className="text-base leading-none">{item.emoji}</span>
@@ -115,20 +115,22 @@ export default function Header() {
           <div className="flex items-center gap-1.5 flex-shrink-0">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg transition-colors"
+              className="rounded-xl p-2 text-ugavole-muted transition-colors hover:bg-ugavole-surface-2 hover:text-ugavole-text"
+              aria-label="Aramayı aç"
             >
               <Search className="w-5 h-5" />
             </button>
             <ThemeToggle />
             <Link
               href="/haber-yukle"
-              className="hidden sm:flex items-center gap-1.5 bg-[#F5C518] hover:bg-[#D4A017] text-black px-4 py-2 rounded-full text-sm font-bold transition-colors"
+              className="hidden items-center gap-1.5 rounded-xl bg-ugavole-yellow px-4 py-2.5 text-xs font-extrabold text-black transition-all hover:-translate-y-0.5 hover:bg-[#DCAE12] sm:flex"
             >
               <PenLine className="w-3.5 h-3.5" />
-              Paylaş
+              Yazını gönder
             </Link>
             <button
-              className="lg:hidden p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg transition-colors"
+              className="rounded-xl p-2 text-ugavole-muted transition-colors hover:bg-ugavole-surface-2 lg:hidden"
+              aria-label="Menüyü aç"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -140,14 +142,14 @@ export default function Header() {
         {searchOpen && (
           <div className="pb-3">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ugavole-muted" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Haber, konu veya etiket ara..."
                 autoFocus
-                className="w-full bg-gray-100 dark:bg-white/5 border-2 border-gray-200 dark:border-[#2A2A2A] focus:border-[#F5C518] rounded-xl pl-10 pr-4 py-2.5 text-sm outline-none transition-colors text-gray-900 dark:text-white"
+                className="w-full rounded-xl border border-ugavole-border bg-ugavole-surface-2 py-2.5 pl-10 pr-4 text-sm text-ugavole-text outline-none transition-colors focus:border-ugavole-yellow"
               />
             </div>
           </div>
@@ -155,7 +157,7 @@ export default function Header() {
 
         {/* Mobil menü */}
         {menuOpen && (
-          <nav className="lg:hidden pb-4 pt-2 border-t border-gray-200 dark:border-[#2A2A2A]">
+          <nav className="border-t border-ugavole-border pb-4 pt-2 lg:hidden">
             <div className="space-y-0.5 mb-3">
               {NAV_LINKS.map((item) => (
                 <Link
@@ -165,7 +167,7 @@ export default function Header() {
                   className={`flex items-center px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
                     isActive(item.href)
                       ? "bg-[#F5C518]/10 text-[#F5C518]"
-                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5"
+                      : "text-ugavole-muted hover:bg-ugavole-surface-2 hover:text-ugavole-text"
                   }`}
                 >
                   {item.label}
@@ -179,14 +181,14 @@ export default function Header() {
                   className={`w-full flex items-center justify-between px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
                     isKesfetActive
                       ? "bg-[#F5C518]/10 text-[#F5C518]"
-                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5"
+                      : "text-ugavole-muted hover:bg-ugavole-surface-2 hover:text-ugavole-text"
                   }`}
                 >
                   Keşfet
                   <ChevronDown className={`w-4 h-4 transition-transform ${kesfetOpen ? "rotate-180" : ""}`} />
                 </button>
                 {kesfetOpen && (
-                  <div className="ml-3 mt-0.5 border-l-2 border-gray-200 dark:border-[#2A2A2A] pl-3 space-y-0.5">
+                  <div className="ml-3 mt-0.5 space-y-0.5 border-l-2 border-ugavole-border pl-3">
                     {KESFET_ITEMS.map((item) => (
                       <Link
                         key={item.href}
@@ -195,7 +197,7 @@ export default function Header() {
                         className={`flex items-center gap-3 px-3 py-2 text-sm rounded-xl transition-colors ${
                           isActive(item.href)
                             ? "text-[#F5C518] font-semibold"
-                            : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5"
+                            : "text-ugavole-muted hover:bg-ugavole-surface-2 hover:text-ugavole-text"
                         }`}
                       >
                         <span>{item.emoji}</span>
@@ -207,11 +209,11 @@ export default function Header() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between pt-3 border-t border-gray-200 dark:border-[#2A2A2A]">
+            <div className="flex items-center justify-between border-t border-ugavole-border pt-3">
               <Link
                 href="/haber-yukle"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-2 bg-[#F5C518] text-black px-5 py-2.5 rounded-full text-sm font-bold hover:bg-[#D4A017] transition-colors"
+                className="flex items-center gap-2 rounded-xl bg-ugavole-yellow px-5 py-2.5 text-sm font-extrabold text-black transition-colors hover:bg-[#DCAE12]"
               >
                 <PenLine className="w-4 h-4" />
                 Haber Paylaş

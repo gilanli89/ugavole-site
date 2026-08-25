@@ -3,17 +3,17 @@ import { ConsentSettingsButton } from "@/components/privacy/ConsentProvider";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#111111] text-gray-400 mt-16 border-t border-[#2A2A2A]">
-      <div className="max-w-7xl mx-auto px-4 py-10">
+    <footer className="mt-20 border-t-[3px] border-ugavole-yellow bg-[#11110F] text-gray-400">
+      <div className="mx-auto max-w-[1240px] px-4 py-12 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Marka */}
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-1 font-black text-xl mb-3">
+            <Link href="/" className="mb-3 flex items-center gap-1 font-editorial text-3xl font-bold tracking-tight">
               <span className="text-white">uga</span>
               <span className="text-[#F5C518]">vole</span>
             </Link>
-            <p className="text-sm text-gray-500 leading-relaxed mb-4">
-              Kıbrıs&apos;ın en eğlenceli köşesi
+            <p className="mb-4 max-w-[220px] text-sm leading-relaxed text-gray-500">
+              Adanın merak uyandıran hikâyeleri, keşifleri ve yerel gündemi.
             </p>
             <Link href="/sosyal-medya" className="text-sm font-bold text-[#F5C518] hover:underline">
               Doğrulanmış sosyal hesaplar →

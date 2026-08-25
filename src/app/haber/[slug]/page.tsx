@@ -6,7 +6,7 @@ import { getPublishedArticle, getRelatedArticles, listPublishedArticles } from "
 import { buildMetadata, articleSchema, breadcrumbSchema, serializeJsonLd } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 import { cleanLegacyHtmlContent, readingTime, categorySlug } from "@/lib/content";
-import { ArrowLeft, Clock, ExternalLink, Tag } from "lucide-react";
+import { ArrowLeft, Clock, ExternalLink, Sparkles, Tag } from "lucide-react";
 import type { Article } from "@/lib/api/news";
 import ShareButtons from "@/components/ShareButtons";
 import AdBanner from "@/components/AdBanner";
@@ -88,70 +88,77 @@ export default async function HaberDetayPage({ params }: Props) {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className="mx-auto max-w-[1180px] px-4 py-8 sm:px-6 sm:py-12">
       {schema.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(s) }} />
       ))}
 
-      {/* Geri */}
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-sm text-ugavole-muted hover:text-ugavole-text mb-8 transition-colors"
+        className="mb-7 inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.12em] text-ugavole-muted transition-colors hover:text-ugavole-text"
       >
         <ArrowLeft className="w-4 h-4" />
-        Ana Sayfaya Dön
+        Ana sayfa
       </Link>
 
-      <article>
-        {/* Kategori + meta */}
-        <div className="flex flex-wrap items-center gap-3 mb-5">
-          <Link
-            href={`/kategori/${catSlug}`}
-            className={`flex items-center gap-1 text-xs font-bold px-3 py-1 rounded-full transition-colors ${badgeCls}`}
-          >
-            <Tag className="w-3 h-3" />
-            {post.category}
-          </Link>
-          <div className="flex items-center gap-1 text-xs text-ugavole-muted">
-            <Clock className="w-3 h-3" />
-            <time dateTime={post.published_at}>{formatDate(post.published_at)}</time>
-          </div>
-          {rTime && (
-            <span className="text-xs text-ugavole-muted">{rTime}</span>
+      <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,780px)_300px]">
+        <article className="overflow-hidden rounded-[28px] border border-ugavole-border bg-ugavole-surface shadow-[0_20px_70px_rgba(32,29,21,0.07)]">
+          <header className="px-5 pb-7 pt-6 sm:px-9 sm:pb-9 sm:pt-8">
+            <div className="mb-5 flex flex-wrap items-center gap-3">
+              <Link
+                href={`/kategori/${catSlug}`}
+                className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.1em] transition-colors ${badgeCls}`}
+              >
+                <Tag className="h-3 w-3" />
+                {post.category}
+              </Link>
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-ugavole-muted">
+                <Clock className="h-3.5 w-3.5" />
+                <time dateTime={post.published_at}>{formatDate(post.published_at)}</time>
+              </div>
+              {rTime && <span className="text-xs font-semibold text-ugavole-muted">· {rTime}</span>}
+            </div>
+
+            <h1 className="max-w-[720px] font-editorial text-[2.65rem] font-bold leading-[0.98] tracking-[-0.035em] text-ugavole-text sm:text-[3.55rem]">
+              {post.title}
+            </h1>
+
+            {post.excerpt && (
+              <p className="mt-6 max-w-[680px] text-base font-medium leading-7 text-ugavole-body sm:text-lg sm:leading-8">
+                {post.excerpt}
+              </p>
+            )}
+
+            <div className="mt-6 flex items-center gap-3 border-t border-ugavole-border pt-5">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-ugavole-yellow font-editorial text-xl font-bold text-black">
+                {(post.author || "u").slice(0, 1).toUpperCase()}
+              </div>
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-ugavole-muted">Hazırlayan</p>
+                <p className="text-sm font-extrabold text-ugavole-text">{post.author || "ugavole editörleri"}</p>
+              </div>
+            </div>
+          </header>
+
+          {post.cover_image && (
+            <div className="relative aspect-[16/9] w-full bg-ugavole-surface-2">
+              <Image
+                src={post.cover_image}
+                alt={post.title}
+                fill
+                className="object-cover"
+                loading="eager"
+                fetchPriority="high"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AJQAB/9k="
+                sizes="(max-width: 1024px) 100vw, 780px"
+              />
+            </div>
           )}
-        </div>
 
-        {/* Başlık */}
-        <h1 className="text-3xl md:text-4xl font-black text-ugavole-text leading-tight mb-6">
-          {post.title}
-        </h1>
-
-        {/* Özet */}
-        {post.excerpt && (
-          <p className="text-lg text-ugavole-body leading-relaxed mb-6 max-w-2xl">
-            {post.excerpt}
-          </p>
-        )}
-
-        {/* Kapak görseli */}
-        {post.cover_image && (
-          <div className="relative aspect-video w-full rounded-2xl overflow-hidden mb-8 bg-ugavole-surface-2">
-            <Image
-              src={post.cover_image}
-              alt={post.title}
-              fill
-              className="object-cover"
-              priority
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAACf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AJQAB/9k="
-              sizes="(max-width: 768px) 100vw, 768px"
-            />
-          </div>
-        )}
-
-        {/* İçerik */}
-        {post.content_blocks && post.content_blocks.length > 0 ? (
-          <div className="prose prose-lg dark:prose-invert max-w-none">
+          <div className="px-5 py-8 sm:px-10 sm:py-11">
+          {post.content_blocks && post.content_blocks.length > 0 ? (
+          <div className="editorial-prose">
             {post.content_blocks.map((block, index) => {
               if (block.type === "heading") {
                 return block.level === 3 ? (
@@ -183,42 +190,25 @@ export default async function HaberDetayPage({ params }: Props) {
           </div>
         ) : cleanedContent ? (
           <div
-            className="
-              prose prose-lg dark:prose-invert max-w-none
-              prose-headings:font-black prose-headings:text-black dark:prose-headings:text-white
-              prose-headings:leading-tight prose-headings:mt-10 prose-headings:mb-4
-              prose-h2:text-2xl prose-h3:text-xl
-              prose-p:text-black dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-base md:prose-p:text-lg
-              prose-strong:text-black dark:prose-strong:text-white
-              prose-img:rounded-xl prose-img:mx-auto prose-img:shadow-lg
-              prose-a:text-[#D4A017] dark:prose-a:text-[#F5C518] prose-a:no-underline hover:prose-a:underline
-              prose-ul:text-black dark:prose-ul:text-gray-300
-              prose-ol:text-black dark:prose-ol:text-gray-300
-              prose-li:leading-relaxed
-              prose-blockquote:border-l-4 prose-blockquote:border-ugavole-yellow prose-blockquote:not-italic
-              prose-blockquote:text-gray-700 dark:prose-blockquote:text-gray-400
-            "
+            className="editorial-prose"
             dangerouslySetInnerHTML={{ __html: cleanedContent }}
           />
         ) : (
           <p className="text-lg text-ugavole-body leading-relaxed">{post.excerpt}</p>
         )}
 
-        {/* Reklam — içerik sonu */}
-        <AdBanner eligible={post.ad_eligible === true} className="mt-10 rounded-xl" />
+          <AdBanner eligible={post.ad_eligible === true} className="mt-10 rounded-2xl" />
 
-        {/* Paylaş */}
-        <div className="mt-8 pt-6 border-t border-ugavole-border">
-          <p className="text-sm font-bold text-ugavole-muted uppercase tracking-wider mb-4">Bu yazıyı paylaş</p>
+          <div className="mt-10 border-t border-ugavole-border pt-6">
+          <p className="mb-4 text-[11px] font-extrabold uppercase tracking-[0.14em] text-ugavole-muted">Bu yazıyı paylaş</p>
           <ShareButtons
             text={`${post.title} — ugavole #KKTC`}
             url={articleUrl}
           />
-        </div>
+          </div>
 
-        {/* Orijinal kaynak */}
-        {post.original_source_url && (
-          <div className="mt-4 pt-4 border-t border-ugavole-border">
+          {post.original_source_url && (
+          <div className="mt-5 border-t border-ugavole-border pt-5">
             <a
               href={post.original_source_url}
               target="_blank"
@@ -229,39 +219,43 @@ export default async function HaberDetayPage({ params }: Props) {
               Orijinal kaynağa git
             </a>
           </div>
-        )}
-      </article>
+          )}
+          </div>
+        </article>
 
-      {/* İlgili yazılar */}
-      {related.length > 0 && (
-        <aside className="mt-14">
-          <h2 className="font-black text-ugavole-text text-lg mb-5">Bunları da oku</h2>
-          <div className="space-y-4">
+        {related.length > 0 && (
+        <aside className="rounded-[24px] border border-ugavole-border bg-ugavole-surface p-5 lg:sticky lg:top-24">
+          <div className="mb-5 flex items-center gap-2">
+            <Sparkles className="h-4 w-4 text-ugavole-yellow-dark" />
+            <h2 className="font-editorial text-2xl font-bold tracking-tight text-ugavole-text">Ada&apos;da sıradaki</h2>
+          </div>
+          <div className="divide-y divide-ugavole-border">
             {related.map((r) => {
               const rSlug = r.source_url.replace(/\/$/, "").split("/").pop()!;
               return (
                 <Link
                   key={r.id}
                   href={`/haber/${rSlug}`}
-                  className="flex gap-4 group p-3 rounded-2xl hover:bg-ugavole-surface-2 transition-colors"
+                  className="group flex gap-3 py-4 first:pt-0 last:pb-0"
                 >
                   {r.cover_image && (
-                    <div className="relative flex-shrink-0 w-20 h-16 rounded-xl overflow-hidden">
-                      <Image src={r.cover_image} alt={r.title} fill className="object-cover" loading="lazy" sizes="80px" />
+                    <div className="relative h-16 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-ugavole-surface-2">
+                      <Image src={r.cover_image} alt={r.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" sizes="80px" />
                     </div>
                   )}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-ugavole-text text-sm leading-snug group-hover:text-ugavole-yellow-dark transition-colors line-clamp-2">
+                    <h3 className="line-clamp-3 font-editorial text-base font-bold leading-[1.15] text-ugavole-text transition-colors group-hover:text-ugavole-yellow-dark">
                       {r.title}
                     </h3>
-                    <p className="text-xs text-ugavole-muted mt-1">{formatDate(r.published_at)}</p>
+                    <p className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-ugavole-muted">{formatDate(r.published_at)}</p>
                   </div>
                 </Link>
               );
             })}
           </div>
         </aside>
-      )}
+        )}
+      </div>
     </div>
   );
 }

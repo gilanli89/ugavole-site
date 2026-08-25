@@ -77,17 +77,20 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
       {children}
       <MarketingScripts consent={consent} />
       {consent === null && (
-        <aside className="fixed inset-x-3 bottom-3 z-[100] mx-auto max-w-3xl rounded-2xl border border-ugavole-border bg-ugavole-surface p-4 shadow-2xl" aria-label="Çerez tercihi">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <p className="flex-1 text-sm leading-relaxed text-ugavole-body">
-              Zorunlu çerezler siteyi çalıştırır. Ölçüm ve reklam teknolojileri yalnız izninle yüklenir.
-              Ayrıntılar <Link href="/cerez-politikasi" className="font-bold underline">çerez politikasında</Link>.
-            </p>
-            <div className="flex gap-2">
-              <button type="button" onClick={() => saveConsent("denied")} className="rounded-xl border border-ugavole-border px-4 py-2 text-sm font-bold text-ugavole-text">
+        <aside className="fixed inset-x-3 bottom-4 z-[100] mx-auto max-w-4xl rounded-[20px] border border-ugavole-border bg-ugavole-surface/95 p-3.5 shadow-[0_24px_70px_rgba(17,17,14,0.18)] backdrop-blur-xl sm:px-5" aria-label="Çerez tercihi">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="flex-1">
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-ugavole-yellow-dark">Gizlilik tercihin</p>
+              <p className="mt-1 text-xs font-medium leading-5 text-ugavole-body sm:text-[13px]">
+              Ölçüm ve reklam teknolojileri yalnız izninle yüklenir. Zorunlu çerezler siteyi çalıştırır.
+              Ayrıntılar <Link href="/cerez-politikasi" className="font-bold underline underline-offset-2">çerez politikasında</Link>.
+              </p>
+            </div>
+            <div className="flex gap-2 sm:flex-shrink-0">
+              <button type="button" onClick={() => saveConsent("denied")} className="rounded-xl border border-ugavole-border px-4 py-2.5 text-xs font-extrabold text-ugavole-text transition-colors hover:bg-ugavole-surface-2">
                 Reddet
               </button>
-              <button type="button" onClick={() => saveConsent("granted")} className="rounded-xl bg-black px-4 py-2 text-sm font-bold text-white dark:bg-white dark:text-black">
+              <button type="button" onClick={() => saveConsent("granted")} className="rounded-xl bg-ugavole-text px-4 py-2.5 text-xs font-extrabold text-ugavole-surface transition-transform hover:-translate-y-0.5">
                 İzin ver
               </button>
             </div>

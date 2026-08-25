@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Manrope, Newsreader } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -7,7 +7,17 @@ import ThemeProvider from "@/components/ThemeProvider";
 import { ConsentProvider } from "@/components/privacy/ConsentProvider";
 import { serializeJsonLd, websiteSchema, siteLinksSearchBoxSchema } from "@/lib/seo";
 
-const geist = Geist({ subsets: ["latin"] });
+const manrope = Manrope({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-ugavole-sans",
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-ugavole-editorial",
+  display: "swap",
+});
 
 const BASE = "https://ugavole.com";
 
@@ -28,10 +38,19 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     type: "website",
     url: BASE,
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ugavole — Adanın merak uyandıran hikâyeleri burada.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     site: process.env.NEXT_PUBLIC_X_HANDLE || undefined,
+    images: ["/og.jpg"],
   },
   robots: {
     index: true,
@@ -49,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" suppressHydrationWarning>
+    <html lang="tr" className={`${manrope.variable} ${newsreader.variable}`} suppressHydrationWarning>
       <head>
         {/* JSON-LD: WebSite schema */}
         <script
@@ -62,7 +81,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteLinksSearchBoxSchema()) }}
         />
       </head>
-      <body className={`${geist.className} bg-ugavole-bg min-h-screen`} suppressHydrationWarning>
+      <body className="bg-ugavole-bg min-h-screen font-sans" suppressHydrationWarning>
         <ConsentProvider>
           <ThemeProvider>
             <Header />

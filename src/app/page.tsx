@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, BookOpen, Zap } from "lucide-react";
+import { ArrowRight, Compass, Sparkles } from "lucide-react";
 import { listPublishedArticles } from "@/lib/data/content";
 import { serializeJsonLd, siteNavigationSchema } from "@/lib/seo";
+import { formatDate } from "@/lib/utils";
 import type { Article } from "@/lib/api/news";
 import type { Metadata } from "next";
 
@@ -36,29 +37,47 @@ function HeroCard({ article }: { article: Article }) {
   const slug = articleSlug(article);
   const meta = catMeta(article.category);
   return (
-    <Link href={`/haber/${slug}`} className="group relative rounded-3xl overflow-hidden block h-72 md:h-96 bg-ugavole-surface-2">
-      {article.cover_image && (
-        <Image
-          src={article.cover_image}
-          alt={article.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-700"
-          priority
-          placeholder="blur"
-          blurDataURL={BLUR_URL}
-          sizes="(max-width: 768px) 100vw, 1200px"
-        />
-      )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 p-6">
-        <span className={`inline-flex items-center gap-1 text-xs font-black px-2.5 py-1 rounded-full mb-3 ${meta.bg} ${meta.color}`}>
-          {meta.emoji} {article.category}
+    <article className="grid overflow-hidden rounded-[30px] border border-ugavole-border bg-ugavole-surface shadow-[0_22px_70px_rgba(32,29,21,0.08)] lg:grid-cols-[1.18fr_0.82fr]">
+      <Link href={`/haber/${slug}`} className="group relative block min-h-[320px] overflow-hidden bg-ugavole-surface-2 sm:min-h-[410px]">
+        {article.cover_image && (
+          <Image
+            src={article.cover_image}
+            alt={article.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+            loading="eager"
+            fetchPriority="high"
+            placeholder="blur"
+            blurDataURL={BLUR_URL}
+            sizes="(max-width: 1024px) 100vw, 700px"
+          />
+        )}
+        <span className="absolute left-5 top-5 rounded-full bg-black/75 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.13em] text-white backdrop-blur-md">
+          Öne çıkan
         </span>
-        <h2 className="text-white font-black text-xl md:text-2xl leading-tight group-hover:text-ugavole-yellow transition-colors line-clamp-3">
-          {article.title}
-        </h2>
+      </Link>
+      <div className="flex flex-col justify-center p-6 sm:p-9 lg:p-10">
+        <div className="mb-5 flex items-center gap-2">
+          <span className={`rounded-full px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] ${meta.bg} ${meta.color}`}>
+            {article.category}
+          </span>
+          <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-ugavole-muted">{formatDate(article.published_at)}</span>
+        </div>
+        <Link href={`/haber/${slug}`} className="group">
+          <h2 className="font-editorial text-[2.55rem] font-bold leading-[1.02] tracking-[-0.035em] text-ugavole-text transition-colors group-hover:text-ugavole-yellow-dark sm:text-[3.25rem]">
+            {article.title}
+          </h2>
+        </Link>
+        {article.excerpt && (
+          <p className="mt-5 line-clamp-4 text-sm font-medium leading-7 text-ugavole-body sm:text-base">
+            {article.excerpt}
+          </p>
+        )}
+        <Link href={`/haber/${slug}`} className="mt-7 inline-flex w-fit items-center gap-2 text-xs font-extrabold uppercase tracking-[0.11em] text-ugavole-text transition-colors hover:text-ugavole-yellow-dark">
+          Hikâyeyi oku <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
-    </Link>
+    </article>
   );
 }
 
@@ -69,17 +88,17 @@ function ArticleCard({ article, priority = false }: { article: Article; priority
   return (
     <Link
       href={`/haber/${slug}`}
-      className="group bg-ugavole-surface border border-ugavole-border rounded-2xl overflow-hidden flex flex-col hover:border-ugavole-yellow hover:shadow-lg transition-all duration-300"
+      className="group flex flex-col overflow-hidden rounded-[22px] border border-ugavole-border bg-ugavole-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(32,29,21,0.09)]"
     >
-      <div className="relative h-44 bg-ugavole-surface-2 overflow-hidden flex-shrink-0">
+      <div className="relative aspect-[4/3] flex-shrink-0 overflow-hidden bg-ugavole-surface-2">
         {article.cover_image ? (
           <Image
             src={article.cover_image}
             alt={article.title}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-500"
-            priority={priority}
             loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : "auto"}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
@@ -87,21 +106,22 @@ function ArticleCard({ article, priority = false }: { article: Article; priority
             {meta.emoji}
           </div>
         )}
-        <span className={`absolute top-3 left-3 text-xs font-black px-2.5 py-1 rounded-full ${meta.bg} ${meta.color}`}>
-          {meta.emoji} {article.category}
+        <span className="absolute left-3 top-3 rounded-full bg-black/75 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[0.1em] text-white backdrop-blur-md">
+          {article.category}
         </span>
       </div>
-      <div className="p-4 flex flex-col flex-1">
-        <h3 className="font-black text-ugavole-text text-sm leading-snug group-hover:text-ugavole-yellow-dark transition-colors line-clamp-3 mb-2 flex-1">
+      <div className="flex flex-1 flex-col p-5">
+        <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.1em] text-ugavole-muted">{formatDate(article.published_at)}</p>
+        <h3 className="mb-3 line-clamp-3 flex-1 font-editorial text-[1.55rem] font-bold leading-[1.08] tracking-[-0.02em] text-ugavole-text transition-colors group-hover:text-ugavole-yellow-dark">
           {article.title}
         </h3>
         {article.excerpt && (
-          <p className="text-ugavole-muted text-xs leading-relaxed line-clamp-2 mb-3">
-            {article.excerpt.slice(0, 120)}
+          <p className="mb-4 line-clamp-3 text-sm font-medium leading-6 text-ugavole-muted">
+            {article.excerpt}
           </p>
         )}
-        <span className="text-ugavole-yellow-dark text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
-          Devamını oku <ArrowRight className="w-3 h-3" />
+        <span className="flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-[0.1em] text-ugavole-text transition-all group-hover:gap-2">
+          Devamını oku <ArrowRight className="h-3.5 w-3.5" />
         </span>
       </div>
     </Link>
@@ -119,60 +139,65 @@ export default async function HomePage() {
 
   const [hero, ...rest] = sorted;
 
-  let cardIdx = 0;
-
-  // Kategoriye göre grupla
-  const byCategory = rest.reduce<Record<string, Article[]>>((acc, a) => {
-    if (!acc[a.category]) acc[a.category] = [];
-    acc[a.category].push(a);
-    return acc;
-  }, {});
-
-  const categoryOrder = ["Gezi", "Kültür", "Eğlence", "Yemek", "Yaşam", "Genel"];
-
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-
-      {/* ── Hero Badge ──────────────────────────────── */}
-      <div className="text-center mb-8">
-        <h1 className="inline-flex items-center gap-2 bg-ugavole-yellow/20 text-ugavole-yellow-dark text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest">
-          <Zap className="w-3.5 h-3.5" />
-          Kıbrıs&apos;ın Sosyal İçerik Platformu
+    <div className="mx-auto max-w-[1240px] px-4 py-9 sm:px-6 sm:py-12">
+      <div className="mb-9 max-w-4xl">
+        <div className="mb-4 flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.16em] text-ugavole-yellow-dark">
+          <Sparkles className="h-4 w-4" />
+          Kıbrıs&apos;tan, Kıbrıslılar için
+        </div>
+        <h1 className="font-editorial text-[3.25rem] font-bold leading-[0.98] tracking-[-0.04em] text-ugavole-text sm:text-[4.7rem]">
+          Adanın merak uyandıran hikâyeleri burada.
         </h1>
+        <p className="mt-5 max-w-2xl text-base font-medium leading-7 text-ugavole-muted sm:text-lg">
+          Yerel hayat, kültür, keşif ve eğlence; özenle seçilmiş, kolay okunan ve paylaşmaya değer içeriklerle.
+        </p>
       </div>
 
-      {/* ── Öne Çıkan Haber ─────────────────────────── */}
       {hero && (
-        <div className="mb-10">
+        <div className="mb-14">
           <HeroCard article={hero} />
         </div>
       )}
 
-      {/* ── Kategorili Grid ─────────────────────────── */}
-      {categoryOrder.map((cat) => {
-        const items = byCategory[cat];
-        if (!items || items.length === 0) return null;
-        const meta = catMeta(cat);
-        return (
-          <section key={cat} className="mb-10">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xl">{meta.emoji}</span>
-              <h2 className="font-black text-ugavole-text text-lg">{cat}</h2>
-              <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${meta.bg} ${meta.color}`}>
-                {items.length} yazı
-              </span>
-              <div className="flex-1 h-px bg-ugavole-border" />
+      {rest.length > 0 && (
+        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_310px]">
+          <section>
+            <div className="mb-6 flex items-end justify-between gap-4 border-b border-ugavole-border pb-4">
+              <div>
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-ugavole-yellow-dark">Yeni yayınlananlar</p>
+                <h2 className="mt-1 font-editorial text-4xl font-bold tracking-tight text-ugavole-text">Ada gündeminden seçkiler</h2>
+              </div>
+              <Link href="/haberler" className="hidden items-center gap-1.5 text-xs font-extrabold uppercase tracking-[0.08em] text-ugavole-muted transition-colors hover:text-ugavole-text sm:flex">
+                Tümünü gör <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {items.map((article) => {
-                const isPriority = cardIdx < 3;
-                cardIdx++;
-                return <ArticleCard key={article.id} article={article} priority={isPriority} />;
-              })}
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              {rest.map((article, index) => (
+                <ArticleCard key={article.id} article={article} priority={index < 2} />
+              ))}
             </div>
           </section>
-        );
-      })}
+
+          <aside className="rounded-[24px] border border-ugavole-border bg-ugavole-surface p-5 lg:sticky lg:top-24">
+            <div className="mb-5 flex items-center gap-2">
+              <Sparkles className="h-4 w-4 text-ugavole-yellow-dark" />
+              <h2 className="font-editorial text-2xl font-bold text-ugavole-text">Editörün seçtikleri</h2>
+            </div>
+            <div className="divide-y divide-ugavole-border">
+              {rest.slice(0, 5).map((article, index) => (
+                <Link key={article.id} href={`/haber/${articleSlug(article)}`} className="group grid grid-cols-[34px_1fr] gap-3 py-4 first:pt-0 last:pb-0">
+                  <span className="font-editorial text-3xl font-bold leading-none text-ugavole-yellow-dark">{index + 1}</span>
+                  <div>
+                    <h3 className="line-clamp-3 font-editorial text-[1.08rem] font-bold leading-[1.15] text-ugavole-text transition-colors group-hover:text-ugavole-yellow-dark">{article.title}</h3>
+                    <p className="mt-1.5 text-[9px] font-bold uppercase tracking-[0.1em] text-ugavole-muted">{article.category}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </aside>
+        </div>
+      )}
 
       {/* Hiç içerik yoksa fallback */}
       {sorted.length === 0 && (
@@ -187,13 +212,12 @@ export default async function HomePage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(s) }} />
       ))}
 
-      {/* ── Ana Navigasyon Grid ──────────────────────── */}
-      <nav aria-label="Ana bölümler" className="mt-6">
-        <div className="flex items-center gap-2 mb-4">
-          <BookOpen className="w-4 h-4 text-ugavole-yellow" />
-          <h2 className="font-black text-ugavole-text text-sm uppercase tracking-wider">Tüm Bölümler</h2>
+      <nav aria-label="Ana bölümler" className="mt-16 border-t border-ugavole-border pt-9">
+        <div className="mb-5 flex items-center gap-2">
+          <Compass className="h-4 w-4 text-ugavole-yellow-dark" />
+          <h2 className="font-editorial text-3xl font-bold text-ugavole-text">Kıbrıs&apos;ı keşfet</h2>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {[
             { href: "/haberler",         label: "Son Haberler",         emoji: "📰", desc: "Güncel KKTC haberleri"     },
             { href: "/quiz",             label: "Quiz",                 emoji: "🎯", desc: "Kıbrıs bilgi yarışması"    },
@@ -207,12 +231,12 @@ export default async function HomePage() {
             <Link
               key={item.href}
               href={item.href}
-              className="group flex items-center gap-3 bg-ugavole-surface hover:bg-ugavole-surface-2 border border-ugavole-border hover:border-ugavole-yellow rounded-xl p-3 transition-all"
+              className="group flex items-center gap-3 rounded-2xl border border-ugavole-border bg-ugavole-surface p-4 transition-all hover:-translate-y-0.5 hover:border-ugavole-yellow hover:shadow-lg"
             >
               <span className="text-2xl flex-shrink-0" role="img" aria-hidden="true">{item.emoji}</span>
               <div className="min-w-0">
-                <p className="font-black text-ugavole-text text-sm leading-tight group-hover:text-ugavole-yellow-dark transition-colors">{item.label}</p>
-                <p className="text-ugavole-muted text-xs leading-snug mt-0.5 hidden sm:block">{item.desc}</p>
+                <p className="font-editorial text-base font-bold leading-tight text-ugavole-text transition-colors group-hover:text-ugavole-yellow-dark">{item.label}</p>
+                <p className="mt-1 hidden text-[11px] font-medium leading-snug text-ugavole-muted sm:block">{item.desc}</p>
               </div>
             </Link>
           ))}

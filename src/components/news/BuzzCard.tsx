@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { Check, Share2, Flame, Zap } from "lucide-react";
-import { formatRelativeTime } from "@/lib/utils";
+import { useState, useSyncExternalStore } from "react";
+import { Check, Share2 } from "lucide-react";
+import { formatDate, formatRelativeTime } from "@/lib/utils";
 import type { Article } from "@/lib/api/news";
 
 type Props = {
@@ -57,22 +57,16 @@ const CATEGORY_COLORS: Record<string, string> = {
   Diğer: "bg-gray-400",
 };
 
-const BADGE_REFERENCE_TIME = Date.now();
+const subscribeToHydration = () => () => undefined;
 
-function Badge({ article }: { article: Article }) {
-  const age = BADGE_REFERENCE_TIME - new Date(article.published_at).getTime();
-  const hours = age / 3_600_000;
-  if (hours < 2) return (
-    <span className="flex items-center gap-1 bg-ugavole-yellow text-black text-xs font-black px-2 py-0.5 rounded-full">
-      <Zap className="w-3 h-3" /> YENİ
-    </span>
+function RelativeTime({ value }: { value: string }) {
+  const isHydrated = useSyncExternalStore(subscribeToHydration, () => true, () => false);
+
+  return (
+    <time dateTime={value} title={formatDate(value)}>
+      {isHydrated ? formatRelativeTime(value) : formatDate(value)}
+    </time>
   );
-  if (hours < 12) return (
-    <span className="flex items-center gap-1 bg-orange-500 text-white text-xs font-black px-2 py-0.5 rounded-full">
-      <Flame className="w-3 h-3" /> SICAK
-    </span>
-  );
-  return null;
 }
 
 export default function BuzzCard({ article, variant = "card", rank }: Props) {
@@ -128,7 +122,8 @@ export default function BuzzCard({ article, variant = "card", rank }: Props) {
             src={article.cover_image}
             alt={article.title}
             fill
-            priority
+            loading="eager"
+            fetchPriority="high"
             className="object-cover group-hover:scale-105 transition-transform duration-700"
             sizes="(max-width: 768px) 100vw, 800px"
           />
@@ -142,10 +137,9 @@ export default function BuzzCard({ article, variant = "card", rank }: Props) {
             <span className={`${catColor} text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide`}>
               {article.category}
             </span>
-            <Badge article={article} />
           </div>
           <Link {...linkProps}>
-            <h2 className="text-white font-black text-2xl md:text-3xl leading-tight hover:text-ugavole-yellow transition-colors line-clamp-3 mb-3">
+            <h2 className="mb-3 line-clamp-3 font-editorial text-3xl font-bold leading-[1.05] tracking-[-0.025em] text-white transition-colors hover:text-ugavole-yellow md:text-4xl">
               {article.title}
             </h2>
           </Link>
@@ -153,7 +147,7 @@ export default function BuzzCard({ article, variant = "card", rank }: Props) {
             <div className="flex items-center gap-3 text-white/60 text-sm">
               <span>{article.source_name}</span>
               <span>·</span>
-              <span>{formatRelativeTime(article.published_at)}</span>
+              <RelativeTime value={article.published_at} />
             </div>
             <button
               type="button"
@@ -174,8 +168,8 @@ export default function BuzzCard({ article, variant = "card", rank }: Props) {
   // ── LIST ─────────────────────────────────────
   if (variant === "list") {
     return (
-      <Link {...linkProps} className="flex gap-4 group p-3 hover:bg-ugavole-surface-2 rounded-2xl transition-colors">
-        <div className="flex-shrink-0 w-12 h-12 bg-ugavole-yellow text-black rounded-xl flex items-center justify-center font-black text-xl">
+      <Link {...linkProps} className="group flex gap-3 rounded-2xl p-3 transition-colors hover:bg-ugavole-surface-2">
+        <div className="flex h-10 w-9 flex-shrink-0 items-center justify-center font-editorial text-3xl font-bold text-ugavole-yellow-dark">
           {rank}
         </div>
         <div className="flex items-center gap-4 flex-1 min-w-0">
@@ -188,10 +182,10 @@ export default function BuzzCard({ article, variant = "card", rank }: Props) {
             <p className={`text-xs font-black uppercase tracking-wide mb-1 ${catColor.replace("bg-", "text-")}`}>
               {article.category}
             </p>
-            <h3 className="font-bold text-ugavole-text text-sm leading-snug group-hover:text-ugavole-yellow-dark transition-colors line-clamp-2">
+            <h3 className="line-clamp-2 font-editorial text-base font-bold leading-[1.12] text-ugavole-text transition-colors group-hover:text-ugavole-yellow-dark">
               {article.title}
             </h3>
-            <p className="text-xs text-gray-400 mt-1">{formatRelativeTime(article.published_at)}</p>
+            <p className="text-xs text-gray-400 mt-1"><RelativeTime value={article.published_at} /></p>
           </div>
         </div>
       </Link>
@@ -208,10 +202,10 @@ export default function BuzzCard({ article, variant = "card", rank }: Props) {
           </div>
         )}
         <div className="flex-1 min-w-0">
-          <h3 className="text-xs font-bold text-ugavole-text group-hover:text-ugavole-yellow-dark line-clamp-3 leading-snug transition-colors">
+          <h3 className="line-clamp-3 font-editorial text-sm font-bold leading-[1.15] text-ugavole-text transition-colors group-hover:text-ugavole-yellow-dark">
             {article.title}
           </h3>
-          <p className="text-xs text-gray-400 mt-1">{formatRelativeTime(article.published_at)}</p>
+          <p className="text-xs text-gray-400 mt-1"><RelativeTime value={article.published_at} /></p>
         </div>
       </Link>
     );
@@ -219,7 +213,7 @@ export default function BuzzCard({ article, variant = "card", rank }: Props) {
 
   // ── CARD (default) ────────────────────────────
   return (
-    <div className="bg-ugavole-surface rounded-2xl overflow-hidden border border-ugavole-border hover:shadow-lg transition-all duration-300 group flex flex-col">
+    <div className="group flex flex-col overflow-hidden rounded-[22px] border border-ugavole-border bg-ugavole-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(32,29,21,0.09)]">
       <div className="relative h-48 bg-gray-100 overflow-hidden flex-shrink-0">
         {article.cover_image ? (
           <Image
@@ -237,32 +231,31 @@ export default function BuzzCard({ article, variant = "card", rank }: Props) {
           <span className={`${catColor} text-white text-xs font-black px-2.5 py-1 rounded-full uppercase`}>
             {article.category}
           </span>
-          <Badge article={article} />
         </div>
       </div>
 
       <div className="p-4 flex flex-col flex-1">
         <Link {...linkProps} className="flex-1">
-          <h3 className="font-black text-ugavole-text text-base leading-snug group-hover:text-ugavole-yellow-dark transition-colors line-clamp-3 mb-2">
+          <h3 className="mb-2 line-clamp-3 font-editorial text-2xl font-bold leading-[1.08] tracking-[-0.02em] text-ugavole-text transition-colors group-hover:text-ugavole-yellow-dark">
             {article.title}
           </h3>
         </Link>
         {article.excerpt && (
-          <p className="text-sm text-gray-500 line-clamp-2 mb-3 leading-relaxed">
+          <p className="mb-3 line-clamp-2 text-sm font-medium leading-relaxed text-ugavole-muted">
             {article.excerpt}
           </p>
         )}
 
         <div className="flex items-center justify-between pt-3 border-t border-ugavole-border mt-auto">
-          <div className="flex items-center gap-1.5 text-xs text-gray-400">
+          <div className="flex items-center gap-1.5 text-xs text-ugavole-muted">
             <span className="font-medium">{article.source_name}</span>
             <span>·</span>
-            <span>{formatRelativeTime(article.published_at)}</span>
+            <RelativeTime value={article.published_at} />
           </div>
           <button
             type="button"
             onClick={handleShare}
-            className="flex items-center gap-1 text-xs text-gray-400 hover:text-blue-500 transition-colors"
+            className="flex items-center gap-1 text-xs text-ugavole-muted transition-colors hover:text-ugavole-yellow-dark"
             aria-label={copied ? "Bağlantı kopyalandı" : "Haberi paylaş"}
             title={copied ? "Bağlantı kopyalandı" : "Haberi paylaş"}
           >

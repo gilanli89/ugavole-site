@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 const BASE_URL = "https://ugavole.com";
 const SITE_NAME = "ugavole";
-const DEFAULT_OG_IMAGE = "https://ugavole.com/opengraph-image";
+const DEFAULT_OG_IMAGE = "https://ugavole.com/og.jpg";
 
 export function serializeJsonLd(value: unknown): string {
   return JSON.stringify(value)

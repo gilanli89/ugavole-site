@@ -1,32 +1,33 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* ── Light mode (default) ─────────────────── */
 :root {
-  --ugbg:       #F5F5F0;
+  --ugbg:       #F3F1EC;
   --ugsurface:  #FFFFFF;
-  --ugsurface2: #F0F0EB;
-  --ugborder:   #E8E8E0;
-  --ugtext:     #0A0A0A;
-  --ugbody:     #1A1A1A;
-  --ugmuted:    #666666;
+  --ugsurface2: #EAE7DF;
+  --ugborder:   #DDD8CD;
+  --ugtext:     #171713;
+  --ugbody:     #373630;
+  --ugmuted:    #747168;
 }
 
 /* ── Dark mode ────────────────────────────── */
 .dark {
-  --ugbg:       #0A0A0A;
-  --ugsurface:  #141414;
-  --ugsurface2: #1E1E1E;
-  --ugborder:   #2A2A2A;
-  --ugtext:     #F0F0F0;
-  --ugbody:     #C0C0C0;
-  --ugmuted:    #888888;
+  --ugbg:       #10100E;
+  --ugsurface:  #181815;
+  --ugsurface2: #23231F;
+  --ugborder:   #34332D;
+  --ugtext:     #F4F1E8;
+  --ugbody:     #D0CDC4;
+  --ugmuted:    #969289;
 }
 
 /* ── Tailwind v4 @theme ───────────────────── */
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-ugavole-sans);
+  --font-editorial: var(--font-ugavole-editorial);
 }
 
 @theme {
@@ -53,7 +54,14 @@ html.dark {
 body {
   background: var(--ugbg);
   color: var(--ugbody);
-  font-family: var(--font-geist-sans, Arial, Helvetica, sans-serif);
+  font-family: var(--font-ugavole-sans, Arial, Helvetica, sans-serif);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #F5C518;
+  color: #171713;
 }
 
 @keyframes ticker {
@@ -78,5 +86,68 @@ body {
 }
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 
-.prose img { border-radius: 12px; }
-.prose a   { color: #D4A017; text-decoration: underline; }
+.editorial-prose {
+  color: var(--ugbody);
+  font-size: 1.0625rem;
+  line-height: 1.88;
+}
+
+.editorial-prose > :first-child { margin-top: 0; }
+.editorial-prose > :last-child  { margin-bottom: 0; }
+
+.editorial-prose p,
+.editorial-prose ul,
+.editorial-prose ol,
+.editorial-prose blockquote {
+  margin: 0 0 1.55rem;
+}
+
+.editorial-prose h2,
+.editorial-prose h3 {
+  color: var(--ugtext);
+  font-family: var(--font-ugavole-editorial), Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.editorial-prose h2 {
+  margin: 3.4rem 0 1.15rem;
+  font-size: clamp(1.85rem, 4vw, 2.55rem);
+}
+
+.editorial-prose h3 {
+  margin: 2.5rem 0 0.8rem;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+}
+
+.editorial-prose strong { color: var(--ugtext); }
+.editorial-prose a { color: #A97500; text-decoration: underline; text-underline-offset: 3px; }
+.dark .editorial-prose a { color: #F5C518; }
+
+.editorial-prose ul,
+.editorial-prose ol { padding-left: 1.4rem; }
+.editorial-prose li { margin: 0.35rem 0; padding-left: 0.3rem; }
+
+.editorial-prose blockquote {
+  border-left: 4px solid #F5C518;
+  color: var(--ugtext);
+  font-family: var(--font-ugavole-editorial), Georgia, serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1.55;
+  padding: 0.35rem 0 0.35rem 1.4rem;
+}
+
+.editorial-prose img {
+  border-radius: 1rem;
+  box-shadow: 0 18px 45px rgb(23 23 19 / 0.12);
+  margin: 2.25rem auto;
+}
+
+.editorial-prose figcaption {
+  color: var(--ugmuted);
+  font-size: 0.75rem;
+  margin-top: -1.5rem;
+  text-align: center;
+}

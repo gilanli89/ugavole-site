@@ -1,18 +1,18 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { Fragment, useEffect, useState, useCallback } from "react";
 import BuzzCard from "./BuzzCard";
 import AdBanner from "@/components/AdBanner";
 import type { Article } from "@/lib/api/news";
 import { Loader2, TrendingUp, Sparkles, RefreshCw } from "lucide-react";
 
 const TABS = [
-  { label: "🔥 Tümü", value: "tumu" },
-  { label: "⚡ Gündem", value: "gundem" },
-  { label: "💰 Ekonomi", value: "ekonomi" },
-  { label: "⚽ Spor", value: "spor" },
-  { label: "🎭 Kültür", value: "kultur" },
-  { label: "🤣 Eğlence", value: "eglence" },
+  { label: "Tümü", value: "tumu" },
+  { label: "Gündem", value: "gundem" },
+  { label: "Ekonomi", value: "ekonomi" },
+  { label: "Spor", value: "spor" },
+  { label: "Kültür", value: "kultur" },
+  { label: "Eğlence", value: "eglence" },
 ];
 
 export default function BuzzFeed() {
@@ -59,7 +59,7 @@ export default function BuzzFeed() {
           <button
             key={t.value}
             onClick={() => setTab(t.value)}
-            className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition-all ${
+            className={`flex-shrink-0 rounded-full px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.08em] transition-all ${
               tab === t.value
                 ? "bg-ugavole-yellow text-black shadow-sm"
                 : "bg-ugavole-surface text-ugavole-body hover:bg-ugavole-surface-2 border border-ugavole-border"
@@ -89,7 +89,7 @@ export default function BuzzFeed() {
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="w-4 h-4 text-ugavole-yellow-dark" />
-                <h2 className="font-black text-sm uppercase tracking-wider text-gray-600">Öne Çıkanlar</h2>
+                <h2 className="font-editorial text-2xl font-bold text-ugavole-text">Öne çıkanlar</h2>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {trending.map((a, i) => (
@@ -100,21 +100,21 @@ export default function BuzzFeed() {
           )}
 
           {/* UGC bandı */}
-          <div className="my-6 bg-ugavole-text rounded-2xl p-5 flex items-center justify-between gap-4">
+          <div className="my-7 flex items-center justify-between gap-4 rounded-[22px] bg-ugavole-text p-5 sm:p-6">
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <Sparkles className="w-4 h-4 text-ugavole-yellow" />
-                <span className="text-white font-black text-sm uppercase tracking-wider">Haberi sen yaz!</span>
+                <span className="font-editorial text-xl font-bold text-ugavole-bg">Hikâyeni sen anlat</span>
               </div>
               <p className="text-gray-400 text-sm">
-                Kıbrıs&apos;ta ne oluyor? Toplulukla paylaş, sesini duyur.
+                Kıbrıs&apos;ta gördüğünü editörlerle paylaş, sesini duyur.
               </p>
             </div>
             <a
               href="/haber-yukle"
-              className="flex-shrink-0 bg-ugavole-yellow text-black px-5 py-2.5 rounded-full font-black text-sm hover:bg-ugavole-yellow-dark transition-colors whitespace-nowrap"
+              className="flex-shrink-0 whitespace-nowrap rounded-xl bg-ugavole-yellow px-5 py-2.5 text-xs font-extrabold text-black transition-colors hover:bg-ugavole-yellow-dark"
             >
-              ✍️ Paylaş
+              Yazını gönder
             </a>
           </div>
 
@@ -125,14 +125,14 @@ export default function BuzzFeed() {
             {grid.map((a, i) => {
               const showAd = i > 0 && i % 6 === 0;
               return (
-                <>
+                <Fragment key={`grid-wrap-${a.id}-${i}`}>
                   {showAd && (
                     <div key={`ad-${i}`} className="sm:col-span-2 lg:col-span-3">
                       <AdBanner className="rounded-xl" />
                     </div>
                   )}
-                  <BuzzCard key={`grid-${a.id}-${i}`} article={a} variant="card" />
-                </>
+                  <BuzzCard article={a} variant="card" />
+                </Fragment>
               );
             })}
           </div>

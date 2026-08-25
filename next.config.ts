@@ -29,6 +29,7 @@ const RESERVED = [
   "_next",
   "favicon.ico",
   "logo.svg",
+  "og.jpg",
   "og-default.png",
   "opengraph-image",
   "icon",
