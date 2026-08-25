@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import UGCForm from "@/components/news/UGCForm";
-import { PenLine, Shield, Eye, Clock } from "lucide-react";
+import { PenLine, Shield, Eye } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Haber Yükle",
-  description: "Haberi sen yaz, toplulukla paylaş.",
+  title: "İçerik Gönder",
+  description: "Kıbrıs hikâyeni, liste veya quiz fikrini Ugavole editörlerine gönder.",
+  alternates: { canonical: "/haber-yukle" },
 };
 
 const STEPS = [
-  { icon: PenLine, title: "Haberi Yaz", desc: "Başlık, içerik ve kategori seç" },
-  { icon: Eye, title: "Editör İncelemesi", desc: "Ekibimiz haberi kontrol eder" },
-  { icon: Shield, title: "Yayınlanır", desc: "Onaylanan haber sitede görünür" },
+  { icon: PenLine, title: "Fikrini Anlat", desc: "Hikâye, liste, quiz veya ihbar seç" },
+  { icon: Eye, title: "Editör İnceler", desc: "Kaynak, haklar ve güvenlik kontrol edilir" },
+  { icon: Shield, title: "Onayla Yayınlanır", desc: "Yalnız onaylanan içerik dağıtılır" },
 ];
 
 export default function HaberYuklePage() {
@@ -20,14 +21,14 @@ export default function HaberYuklePage() {
       <div className="text-center mb-10">
         <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
           <PenLine className="w-4 h-4" />
-          Haber Yükle
+          İçerik Gönder
         </span>
         <h1 className="text-3xl font-bold text-gray-900 mb-3">
-          Kuzey Kıbrıs&apos;ın Sesine Ses Ol
+          Kıbrıs&apos;ta yaşananları sen anlat
         </h1>
         <p className="text-gray-500 max-w-lg mx-auto">
-          Çevrende olan gelişmeleri, önemli haberleri ve toplumu ilgilendiren konuları
-          ugavole topluluğuyla paylaş.
+          Yerel bir gözlem, hikâye, liste, quiz fikri veya doğrulanması gereken
+          bir ihbar gönder. Ugavole editörleri onu güvenli ve paylaşılabilir hale getirsin.
         </p>
       </div>
 
@@ -45,7 +46,7 @@ export default function HaberYuklePage() {
       </div>
 
       {/* Form */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+      <div className="bg-ugavole-surface rounded-2xl border border-ugavole-border p-6 shadow-sm">
         <UGCForm />
       </div>
     </div>

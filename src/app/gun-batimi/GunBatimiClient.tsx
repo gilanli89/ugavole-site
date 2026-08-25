@@ -1,18 +1,23 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Sun, Sunrise, Camera, MapPin, Upload, ArrowUpDown } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import ShareButtons from "@/components/ShareButtons";
 import Image from "next/image";
 
+const PHOTO_GALLERY_READY = Boolean(
+  process.env.NEXT_PUBLIC_SUPABASE_URL &&
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+);
+
 // ── Şehir Koordinatları ─────────────────────────────────────────
 const SEHIRLER = [
-  { id: "lefkosa",    label: "Lefkoşa",    lat: 35.1856, lng: 33.3823 },
-  { id: "girne",      label: "Girne",      lat: 35.3317, lng: 33.3192 },
-  { id: "gazimagusa", label: "Gazimağusa", lat: 35.1264, lng: 33.9419 },
-  { id: "guzelyurt",  label: "Güzelyurt",  lat: 35.2031, lng: 32.9961 },
-  { id: "iskele",     label: "İskele",     lat: 35.2867, lng: 33.8833 },
+  { id: "lefkosa",    label: "Lefkoşa" },
+  { id: "girne",      label: "Girne" },
+  { id: "gazimagusa", label: "Gazimağusa" },
+  { id: "guzelyurt",  label: "Güzelyurt" },
+  { id: "iskele",     label: "İskele" },
 ];
 
 const EN_IYI_NOKTALAR = [
@@ -94,14 +99,8 @@ export default function GunBatimiClient() {
   const [loadingSun, setLoadingSun] = useState(true);
   const [now, setNow]               = useState(new Date());
 
-  const [photos, setPhotos]         = useState<Photo[]>([]);
-  const [photoSort, setPhotoSort]   = useState<"oylar" | "yeni">("oylar");
-  const [voted, setVoted]           = useState<Set<string>>(new Set());
-
-  const [uploadFile, setUploadFile] = useState<File | null>(null);
-  const [form, setForm]             = useState({ konum: "", yukleyen_ad: "", aciklama: "" });
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [photos, setPhotos]       = useState<Photo[]>([]);
+  const [photoSort, setPhotoSort] = useState<"oylar" | "yeni">("oylar");
 
   // Her saniye güncelle
   useEffect(() => {
@@ -109,33 +108,22 @@ export default function GunBatimiClient() {
     return () => clearInterval(id);
   }, []);
 
-  // Daha önce oy verilen ID'leri yükle
-  useEffect(() => {
-    const stored = localStorage.getItem("gb_voted");
-    if (stored) setVoted(new Set(JSON.parse(stored)));
-  }, []);
-
   // Güneş verisi — sunrise-sunset.org
-  const fetchSun = useCallback(async (lat: number, lng: number) => {
+  const fetchSun = useCallback(async (cityId: string) => {
     setLoadingSun(true);
     setSunData(null);
     try {
-      const res  = await fetch(
-        `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today&tzid=Asia/Nicosia`
-      );
+      const res = await fetch(`/api/gunes?sehir=${encodeURIComponent(cityId)}`);
+      if (!res.ok) throw new Error("sun_data_unavailable");
       const data = await res.json();
-      if (data.status === "OK") {
-        const sunriseDate   = new Date(data.results.sunrise);
-        const sunsetDate    = new Date(data.results.sunset);
-        // civil_twilight_end = golden hour proxy
-        const goldenDate    = new Date(data.results.civil_twilight_end);
-        // golden hour ≈ 45 dk önce sunset (civil_twilight_end sunset'ten sonra gelir, kullanmayalım)
-        // Altın saat için sunset - 45 dk kullan
-        const goldenAlt     = new Date(sunsetDate.getTime() - 45 * 60 * 1000);
+      if (data.sunriseISO && data.sunsetISO && data.goldenHourISO) {
+        const sunriseDate = new Date(data.sunriseISO);
+        const sunsetDate = new Date(data.sunsetISO);
+        const goldenAlt = new Date(data.goldenHourISO);
         setSunData({
-          sunriseISO:    data.results.sunrise,
-          sunsetISO:     data.results.sunset,
-          goldenHourISO: goldenAlt.toISOString(),
+          sunriseISO: data.sunriseISO,
+          sunsetISO: data.sunsetISO,
+          goldenHourISO: data.goldenHourISO,
           sunriseDate,
           sunsetDate,
           goldenDate:    goldenAlt,
@@ -149,19 +137,29 @@ export default function GunBatimiClient() {
   }, []);
 
   useEffect(() => {
-    fetchSun(activeCity.lat, activeCity.lng);
+    fetchSun(activeCity.id);
   }, [activeCity, fetchSun]);
 
   // Fotoğrafları çek
   useEffect(() => {
+    if (!PHOTO_GALLERY_READY) {
+      setPhotos([]);
+      return;
+    }
+    let cancelled = false;
     const sb  = createClient();
     const col = photoSort === "oylar" ? "oylar" : "olusturulma";
     sb.from("gunbatimi_fotolar")
-      .select("*")
+      .select("id, gorsel_url, konum, yukleyen_ad, aciklama, oylar, olusturulma")
       .eq("aktif", true)
       .order(col, { ascending: false })
       .limit(20)
-      .then(({ data }) => { if (data) setPhotos(data as Photo[]); });
+      .then(({ data }) => {
+        if (!cancelled && data) setPhotos(data as Photo[]);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, [photoSort]);
 
   // ── Hesaplamalar ──────────────────────────────────────────────
@@ -184,55 +182,6 @@ export default function GunBatimiClient() {
     const urgent = countdownSecs <= 30 * 60;
     return { display: secsToDisplay(countdownSecs), sub: urgent ? "Hızlan! 🏃" : "Gün batımına kalan", urgent };
   })();
-
-  // ── Oy Ver ────────────────────────────────────────────────────
-  const oyVer = async (id: string, current: number) => {
-    if (voted.has(id)) return;
-    const sb = createClient();
-    await sb.from("gunbatimi_fotolar").update({ oylar: current + 1 }).eq("id", id);
-    setPhotos((prev) => prev.map((p) => p.id === id ? { ...p, oylar: p.oylar + 1 } : p));
-    const next = new Set([...voted, id]);
-    setVoted(next);
-    localStorage.setItem("gb_voted", JSON.stringify([...next]));
-  };
-
-  // ── Fotoğraf Yükle (Supabase Storage) ────────────────────────
-  const handleUpload = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!uploadFile) return;
-    setSubmitStatus("loading");
-    try {
-      const sb  = createClient();
-      const ext = uploadFile.name.split(".").pop() ?? "jpg";
-      const path = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
-
-      const { error: uploadErr } = await sb.storage
-        .from("sunset-photos")
-        .upload(path, uploadFile, { cacheControl: "3600", upsert: false });
-      if (uploadErr) throw uploadErr;
-
-      const { data: urlData } = sb.storage.from("sunset-photos").getPublicUrl(path);
-      const publicUrl = urlData.publicUrl;
-
-      const { error: dbErr } = await sb.from("gunbatimi_fotolar").insert({
-        gorsel_url:   publicUrl,
-        konum:        form.konum       || null,
-        yukleyen_ad:  form.yukleyen_ad || null,
-        aciklama:     form.aciklama    || null,
-        aktif:        false,
-      });
-      if (dbErr) throw dbErr;
-
-      setSubmitStatus("ok");
-      setUploadFile(null);
-      setForm({ konum: "", yukleyen_ad: "", aciklama: "" });
-      if (fileInputRef.current) fileInputRef.current.value = "";
-      setTimeout(() => setSubmitStatus("idle"), 4000);
-    } catch {
-      setSubmitStatus("err");
-      setTimeout(() => setSubmitStatus("idle"), 3000);
-    }
-  };
 
   // ── Render ─────────────────────────────────────────────────────
   return (
@@ -350,8 +299,8 @@ export default function GunBatimiClient() {
         {photos.length === 0 ? (
           <div className="text-center py-16 bg-ugavole-surface border border-ugavole-border rounded-2xl text-ugavole-muted">
             <div className="text-4xl mb-3">🌅</div>
-            <p className="font-bold mb-1">Henüz fotoğraf yok</p>
-            <p className="text-sm">İlk fotoğrafı sen paylaş!</p>
+            <p className="font-bold mb-1">Henüz onaylı fotoğraf yok</p>
+            <p className="text-sm">Onaylanan topluluk fotoğrafları burada gösterilecek.</p>
           </div>
         ) : (
           <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
@@ -359,7 +308,7 @@ export default function GunBatimiClient() {
               <div key={photo.id} className="break-inside-avoid bg-ugavole-surface border border-ugavole-border rounded-2xl overflow-hidden group">
                 <div className="relative">
                   <Image
-                    src={photo.gorsel_url}
+                    src={`/api/media/sunset/${photo.id}`}
                     alt={photo.konum ?? "Gün batımı"}
                     width={400}
                     height={300}
@@ -378,17 +327,12 @@ export default function GunBatimiClient() {
                   <p className="text-ugavole-body text-xs p-3 pb-1">{photo.aciklama}</p>
                 )}
                 <div className="flex items-center justify-between p-3 pt-2">
-                  <button
-                    onClick={() => oyVer(photo.id, photo.oylar)}
-                    disabled={voted.has(photo.id)}
-                    className={`flex items-center gap-1.5 text-xs font-bold rounded-full px-3 py-1.5 transition-colors ${
-                      voted.has(photo.id)
-                        ? "bg-ugavole-yellow/20 text-ugavole-yellow cursor-default"
-                        : "bg-ugavole-surface-2 text-ugavole-body hover:bg-ugavole-yellow hover:text-black"
-                    }`}
+                  <span
+                    className="flex items-center gap-1.5 rounded-full bg-ugavole-surface-2 px-3 py-1.5 text-xs font-bold text-ugavole-muted"
+                    title="Güvenli oylama akışı hazırlandığında yeniden açılacak"
                   >
-                    🌅 {photo.oylar}
-                  </button>
+                    🌅 {photo.oylar} oy
+                  </span>
                   {photo.yukleyen_ad && (
                     <span className="text-xs text-ugavole-muted">{photo.yukleyen_ad}</span>
                   )}
@@ -405,67 +349,16 @@ export default function GunBatimiClient() {
           <Upload className="w-5 h-5 text-ugavole-yellow" />
           <h2 className="font-black text-ugavole-text text-lg">Senin Gün Batımın</h2>
         </div>
-        <p className="text-ugavole-muted text-sm mb-5">
-          Kıbrıs&apos;ta çektiğin gün batımı fotoğrafını paylaş. Admin onayından sonra galeriye eklenir.
+        <p className="text-sm leading-relaxed text-ugavole-muted">
+          Fotoğrafları güvenli biçimde tarayıp editör onayına gönderecek yükleme akışı hazırlanıyor. Bu aşamada dosya veya kişisel bilgi toplamıyoruz.
         </p>
-
-        <form onSubmit={handleUpload} className="space-y-3">
-          {/* Dosya seçici */}
-          <label className="block w-full cursor-pointer">
-            <div className={`w-full bg-ugavole-surface-2 border-2 border-dashed rounded-xl px-4 py-6 text-center transition-colors ${
-              uploadFile ? "border-ugavole-yellow" : "border-ugavole-border hover:border-ugavole-yellow/50"
-            }`}>
-              {uploadFile ? (
-                <p className="text-ugavole-text text-sm font-bold">{uploadFile.name}</p>
-              ) : (
-                <>
-                  <Upload className="w-6 h-6 text-ugavole-muted mx-auto mb-2" />
-                  <p className="text-ugavole-muted text-sm">Fotoğraf seç (JPG, PNG, WEBP — max 10 MB)</p>
-                </>
-              )}
-            </div>
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/jpeg,image/png,image/webp"
-              className="sr-only"
-              onChange={(e) => setUploadFile(e.target.files?.[0] ?? null)}
-            />
-          </label>
-
-          <div className="grid grid-cols-2 gap-3">
-            <input
-              type="text"
-              value={form.konum}
-              onChange={(e) => setForm((f) => ({ ...f, konum: e.target.value }))}
-              placeholder="Konum (örn: Girne Limanı)"
-              className="w-full bg-ugavole-surface-2 border border-ugavole-border focus:border-ugavole-yellow rounded-xl px-4 py-2.5 text-ugavole-text text-sm outline-none transition-colors"
-            />
-            <input
-              type="text"
-              value={form.yukleyen_ad}
-              onChange={(e) => setForm((f) => ({ ...f, yukleyen_ad: e.target.value }))}
-              placeholder="Adın (opsiyonel)"
-              className="w-full bg-ugavole-surface-2 border border-ugavole-border focus:border-ugavole-yellow rounded-xl px-4 py-2.5 text-ugavole-text text-sm outline-none transition-colors"
-            />
-          </div>
-          <textarea
-            value={form.aciklama}
-            onChange={(e) => setForm((f) => ({ ...f, aciklama: e.target.value.slice(0, 150) }))}
-            placeholder="Kısa açıklama (opsiyonel, max 150 karakter)"
-            rows={2}
-            className="w-full bg-ugavole-surface-2 border border-ugavole-border focus:border-ugavole-yellow rounded-xl px-4 py-2.5 text-ugavole-text text-sm outline-none transition-colors resize-none"
-          />
-          <button
-            type="submit"
-            disabled={submitStatus === "loading" || !uploadFile}
-            className="bg-ugavole-yellow text-black px-6 py-2.5 rounded-full font-black text-sm hover:bg-ugavole-yellow-dark transition-colors disabled:opacity-50"
-          >
-            {submitStatus === "loading" ? "Yükleniyor..." : "Fotoğrafı Paylaş 🌅"}
-          </button>
-          {submitStatus === "ok"  && <p className="text-green-400 text-sm font-bold">✅ Gönderildi! Admin onayından sonra yayınlanacak.</p>}
-          {submitStatus === "err" && <p className="text-red-400 text-sm font-bold">❌ Hata oluştu. Tekrar dene.</p>}
-        </form>
+        <button
+          type="button"
+          disabled
+          className="mt-5 rounded-full bg-ugavole-surface-2 px-6 py-2.5 text-sm font-black text-ugavole-muted opacity-70"
+        >
+          Güvenli fotoğraf gönderimi yakında
+        </button>
       </div>
 
       {/* ── En İyi Noktalar ───────────────────────── */}

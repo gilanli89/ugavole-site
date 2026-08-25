@@ -4,6 +4,8 @@ import type { NextConfig } from "next";
 const RESERVED = [
   "api",
   "admin",
+  "giris",
+  "mfa",
   "haberler",
   "harita",
   "sozluk",
@@ -27,19 +29,40 @@ const RESERVED = [
   "_next",
   "favicon.ico",
   "og-default.png",
+  "opengraph-image",
+  "icon",
   "sitemap.xml",
   "robots.txt",
 ];
 
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'none'",
+  "form-action 'self'",
+  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""} https://challenges.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://*.googlesyndication.com https://*.doubleclick.net`,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https:",
+  "font-src 'self' data:",
+  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://www.google-analytics.com https://*.google-analytics.com https://pagead2.googlesyndication.com",
+  "frame-src https://challenges.cloudflare.com https://*.doubleclick.net https://*.googlesyndication.com",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
+  turbopack: {
+    root: process.cwd(),
+  },
   images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "**" },
-      { protocol: "http", hostname: "**" },
-    ],
-    formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // External editorial/RSS URLs are rendered directly. The server must never
+    // become an open image-fetch proxy for user-controlled hosts.
+    unoptimized: true,
+    dangerouslyAllowLocalIP: false,
+    maximumRedirects: 0,
   },
 
   async redirects() {
@@ -69,8 +92,11 @@ const nextConfig: NextConfig = {
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
-          { key: "X-XSS-Protection", value: "1; mode=block" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(self), payment=()" },
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
+          { key: "Content-Security-Policy", value: CONTENT_SECURITY_POLICY },
         ],
       },
     ];

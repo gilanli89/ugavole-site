@@ -1,10 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, BookOpen, Zap } from "lucide-react";
-import { fetchWordPressPosts } from "@/lib/api/wordpress";
-import { siteNavigationSchema } from "@/lib/seo";
-import AdBanner from "@/components/AdBanner";
+import { listPublishedArticles } from "@/lib/data/content";
+import { serializeJsonLd, siteNavigationSchema } from "@/lib/seo";
 import type { Article } from "@/lib/api/news";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://ugavole.com" },
+};
 
 // ── Kategori renk/ikon eşlemesi ──────────────────────────────────
 const CAT_META: Record<string, { color: string; bg: string; emoji: string }> = {
@@ -106,7 +110,7 @@ function ArticleCard({ article, priority = false }: { article: Article; priority
 
 // ── Ana Sayfa ────────────────────────────────────────────────────
 export default async function HomePage() {
-  const articles = await fetchWordPressPosts().catch(() => [] as Article[]);
+  const articles = await listPublishedArticles().catch(() => [] as Article[]);
 
   // Tarihe göre sırala (en yeni önce), yayımlananları filtrele
   const sorted = articles
@@ -131,10 +135,10 @@ export default async function HomePage() {
 
       {/* ── Hero Badge ──────────────────────────────── */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-2 bg-ugavole-yellow/20 text-ugavole-yellow-dark text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest">
+        <h1 className="inline-flex items-center gap-2 bg-ugavole-yellow/20 text-ugavole-yellow-dark text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest">
           <Zap className="w-3.5 h-3.5" />
           Kıbrıs&apos;ın Sosyal İçerik Platformu
-        </div>
+        </h1>
       </div>
 
       {/* ── Öne Çıkan Haber ─────────────────────────── */}
@@ -178,12 +182,9 @@ export default async function HomePage() {
         </div>
       )}
 
-      {/* Reklam — hero altı */}
-      <AdBanner className="mb-8 rounded-xl" />
-
       {/* JSON-LD: Site Navigation */}
       {siteNavigationSchema().map((s, i) => (
-        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(s) }} />
       ))}
 
       {/* ── Ana Navigasyon Grid ──────────────────────── */}

@@ -9,7 +9,7 @@ type Props = {
   variant?: "default" | "featured" | "compact";
 };
 
-// ugavole WordPress postları için iç link, diğerleri için dış link
+// Ugavole içerikleri için iç link, haber akışı kaynakları için dış link.
 function articleHref(article: Article): { href: string; external: boolean } {
   if (article.source_name === "ugavole") {
     const parts = article.source_url.replace(/\/$/, "").split("/");
@@ -70,15 +70,8 @@ export default function ArticleCard({ article, variant = "default", priority = f
 
   if (variant === "compact") {
     const { href, external } = articleHref(article);
-    const Wrapper = external
-      ? ({ children }: { children: React.ReactNode }) => (
-          <a href={href} target="_blank" rel="noopener noreferrer" className="flex gap-3 group hover:bg-gray-50 p-2 rounded-xl transition-colors">{children}</a>
-        )
-      : ({ children }: { children: React.ReactNode }) => (
-          <Link href={href} className="flex gap-3 group hover:bg-gray-50 p-2 rounded-xl transition-colors">{children}</Link>
-        );
-    return (
-      <Wrapper>
+    const compactContent = (
+      <>
         {article.cover_image && (
           <div className="relative w-20 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
             <Image
@@ -101,7 +94,17 @@ export default function ArticleCard({ article, variant = "default", priority = f
             <span>{formatRelativeTime(article.published_at)}</span>
           </div>
         </div>
-      </Wrapper>
+      </>
+    );
+
+    return external ? (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="flex gap-3 group hover:bg-gray-50 p-2 rounded-xl transition-colors">
+        {compactContent}
+      </a>
+    ) : (
+      <Link href={href} className="flex gap-3 group hover:bg-gray-50 p-2 rounded-xl transition-colors">
+        {compactContent}
+      </Link>
     );
   }
 

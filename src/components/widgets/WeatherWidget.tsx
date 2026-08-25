@@ -11,15 +11,29 @@ export default function WeatherWidget() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
+    let active = true;
+
     fetch(`/api/hava?city=${selectedCity}`)
       .then((r) => r.json())
       .then((data) => {
+        if (!active) return;
         setWeather(data);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => {
+        if (active) setLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
   }, [selectedCity]);
+
+  const selectCity = (cityId: string) => {
+    if (cityId === selectedCity) return;
+    setLoading(true);
+    setSelectedCity(cityId);
+  };
 
   const weatherEmoji = (icon: string) => {
     if (icon.startsWith("01")) return "☀️";
@@ -51,7 +65,7 @@ export default function WeatherWidget() {
         {KKTC_CITIES.map((city: City) => (
           <button
             key={city.id}
-            onClick={() => setSelectedCity(city.id)}
+            onClick={() => selectCity(city.id)}
             className={`px-2 py-1 rounded-full text-xs font-medium transition-all ${
               selectedCity === city.id
                 ? "bg-white text-blue-700"

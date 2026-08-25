@@ -103,8 +103,6 @@ function FlipCard({ entry }: { entry: SozlukEntry }) {
 export default function SozlukPage() {
   const [search, setSearch] = useState("");
   const [aktifKategori, setAktifKategori] = useState<string>("tümü");
-  const [quizScores, setQuizScores] = useState({ known: 0, unknown: 0 });
-
   const filtered = useMemo(() => {
     return sozlukData.filter((entry) => {
       const matchesSearch =

@@ -15,24 +15,52 @@ const FLAG: Record<string, string> = {
   CAD: "🇨🇦",
 };
 
+type ExchangeResponse = {
+  pairs?: RatePair[];
+  fetched_at?: string | null;
+};
+
+async function fetchRates(): Promise<ExchangeResponse> {
+  const response = await fetch("/api/doviz");
+  return response.json();
+}
+
 export default function ExchangeWidget() {
   const [pairs, setPairs] = useState<RatePair[]>([]);
   const [fetchedAt, setFetchedAt] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const load = () => {
+  const load = async () => {
     setLoading(true);
-    fetch("/api/doviz")
-      .then((r) => r.json())
-      .then((data) => {
-        setPairs(data.pairs ?? []);
-        setFetchedAt(data.fetched_at);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    try {
+      const data = await fetchRates();
+      setPairs(data.pairs ?? []);
+      setFetchedAt(data.fetched_at ?? null);
+    } catch {
+      // Mevcut veriyi koru; kullanıcı daha sonra tekrar deneyebilir.
+    } finally {
+      setLoading(false);
+    }
   };
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+    let active = true;
+
+    fetchRates()
+      .then((data) => {
+        if (!active) return;
+        setPairs(data.pairs ?? []);
+        setFetchedAt(data.fetched_at ?? null);
+        setLoading(false);
+      })
+      .catch(() => {
+        if (active) setLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const formatTime = (iso: string) =>
     new Date(iso).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });

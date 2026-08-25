@@ -34,7 +34,7 @@ export default function QuizHubPage() {
           🎯 Kıbrıs Quizleri
         </div>
         <h1 className="font-black text-ugavole-text text-4xl md:text-5xl mb-3">Ne kadar biliyorsun?</h1>
-        <p className="text-ugavole-muted text-lg">Kıbrıs'ı ne kadar iyi tanıdığını test et.</p>
+        <p className="text-ugavole-muted text-lg">Kıbrıs&apos;ı ne kadar iyi tanıdığını test et.</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

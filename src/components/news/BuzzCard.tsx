@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Heart, MessageCircle, Share2, Flame, Zap, TrendingUp } from "lucide-react";
+import { Check, Share2, Flame, Zap } from "lucide-react";
 import { formatRelativeTime } from "@/lib/utils";
 import type { Article } from "@/lib/api/news";
 
@@ -13,18 +13,36 @@ type Props = {
   rank?: number;
 };
 
-function pseudoCount(seed: string, max: number): number {
-  let hash = 0;
-  for (const c of seed) hash = (hash * 31 + c.charCodeAt(0)) & 0xffffffff;
-  return (Math.abs(hash) % max) + Math.floor(max * 0.1);
-}
-
 function articleHref(article: Article) {
   if (article.source_name === "ugavole") {
     const parts = article.source_url.replace(/\/$/, "").split("/");
-    return { href: `/haber/${parts[parts.length - 1]}`, external: false };
+    const slug = article.slug ?? parts[parts.length - 1];
+    return { href: `/haber/${slug}`, external: false };
   }
   return { href: article.source_url, external: true };
+}
+
+async function copyToClipboard(value: string) {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(value);
+      return;
+    }
+  } catch {
+    // Fall through to the legacy clipboard path when permission is denied.
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = value;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand("copy");
+  document.body.removeChild(textarea);
+
+  if (!copied) throw new Error("Bağlantı panoya kopyalanamadı");
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -39,8 +57,10 @@ const CATEGORY_COLORS: Record<string, string> = {
   Diğer: "bg-gray-400",
 };
 
+const BADGE_REFERENCE_TIME = Date.now();
+
 function Badge({ article }: { article: Article }) {
-  const age = Date.now() - new Date(article.published_at).getTime();
+  const age = BADGE_REFERENCE_TIME - new Date(article.published_at).getTime();
   const hours = age / 3_600_000;
   if (hours < 2) return (
     <span className="flex items-center gap-1 bg-ugavole-yellow text-black text-xs font-black px-2 py-0.5 rounded-full">
@@ -52,19 +72,11 @@ function Badge({ article }: { article: Article }) {
       <Flame className="w-3 h-3" /> SICAK
     </span>
   );
-  const views = pseudoCount(article.id, 5000);
-  if (views > 3000) return (
-    <span className="flex items-center gap-1 bg-purple-600 text-white text-xs font-black px-2 py-0.5 rounded-full">
-      <TrendingUp className="w-3 h-3" /> TREND
-    </span>
-  );
   return null;
 }
 
 export default function BuzzCard({ article, variant = "card", rank }: Props) {
-  const [liked, setLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(pseudoCount(article.id, 800));
-  const comments = pseudoCount(article.id + "c", 200);
+  const [copied, setCopied] = useState(false);
   const { href, external } = articleHref(article);
   const catColor = CATEGORY_COLORS[article.category] ?? "bg-gray-500";
 
@@ -72,10 +84,39 @@ export default function BuzzCard({ article, variant = "card", rank }: Props) {
     ? { href, target: "_blank", rel: "noopener noreferrer" }
     : { href };
 
-  const handleLike = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setLiked(!liked);
-    setLikeCount((n) => n + (liked ? -1 : 1));
+  const markCopied = () => {
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 2_000);
+  };
+
+  const handleShare = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const shareUrl = new URL(href, window.location.origin).toString();
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: article.title,
+          text: article.excerpt || article.title,
+          url: shareUrl,
+        });
+        return;
+      }
+
+      await copyToClipboard(shareUrl);
+      markCopied();
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+
+      try {
+        await copyToClipboard(shareUrl);
+        markCopied();
+      } catch {
+        // The browser denied both available share mechanisms.
+      }
+    }
   };
 
   // ── HERO ──────────────────────────────────────
@@ -114,19 +155,16 @@ export default function BuzzCard({ article, variant = "card", rank }: Props) {
               <span>·</span>
               <span>{formatRelativeTime(article.published_at)}</span>
             </div>
-            <div className="flex items-center gap-3">
-              <button
-                onClick={handleLike}
-                className={`flex items-center gap-1.5 text-sm font-bold transition-all ${liked ? "text-ugavole-yellow scale-110" : "text-white/70 hover:text-ugavole-yellow"}`}
-              >
-                <Heart className={`w-5 h-5 ${liked ? "fill-ugavole-yellow" : ""}`} />
-                {likeCount.toLocaleString("tr")}
-              </button>
-              <span className="flex items-center gap-1.5 text-sm text-white/70">
-                <MessageCircle className="w-5 h-5" />
-                {comments}
-              </span>
-            </div>
+            <button
+              type="button"
+              onClick={handleShare}
+              className="flex items-center gap-1.5 text-sm font-bold text-white/70 hover:text-ugavole-yellow transition-colors"
+              aria-label={copied ? "Bağlantı kopyalandı" : "Haberi paylaş"}
+              title={copied ? "Bağlantı kopyalandı" : "Haberi paylaş"}
+            >
+              {copied ? <Check className="w-5 h-5" /> : <Share2 className="w-5 h-5" />}
+              {copied ? "Kopyalandı" : "Paylaş"}
+            </button>
           </div>
         </div>
       </div>
@@ -221,22 +259,16 @@ export default function BuzzCard({ article, variant = "card", rank }: Props) {
             <span>·</span>
             <span>{formatRelativeTime(article.published_at)}</span>
           </div>
-          <div className="flex items-center gap-3">
-            <button
-              onClick={handleLike}
-              className={`flex items-center gap-1 text-xs font-bold transition-all ${liked ? "text-ugavole-yellow-dark scale-110" : "text-gray-400 hover:text-ugavole-yellow-dark"}`}
-            >
-              <Heart className={`w-4 h-4 ${liked ? "fill-ugavole-yellow" : ""}`} />
-              {likeCount.toLocaleString("tr")}
-            </button>
-            <span className="flex items-center gap-1 text-xs text-gray-400">
-              <MessageCircle className="w-4 h-4" />
-              {comments}
-            </span>
-            <button className="text-gray-400 hover:text-blue-500 transition-colors">
-              <Share2 className="w-4 h-4" />
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={handleShare}
+            className="flex items-center gap-1 text-xs text-gray-400 hover:text-blue-500 transition-colors"
+            aria-label={copied ? "Bağlantı kopyalandı" : "Haberi paylaş"}
+            title={copied ? "Bağlantı kopyalandı" : "Haberi paylaş"}
+          >
+            {copied ? <Check className="w-4 h-4" /> : <Share2 className="w-4 h-4" />}
+            {copied && <span>Kopyalandı</span>}
+          </button>
         </div>
       </div>
     </div>

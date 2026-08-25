@@ -160,6 +160,14 @@ export default async function ListeIcerikPage({ params }: { params: Promise<{ sl
 
 // İlgili listeler — server component
 async function RelatedLists({ currentId, kategori }: { currentId: string; kategori: string | null }) {
+  let data: Array<{
+    id: string;
+    slug: string;
+    baslik: string;
+    kapak_gorsel: string | null;
+    kategori: string | null;
+  }> | null = null;
+
   try {
     const sb = await createClient();
     let query = sb
@@ -169,33 +177,35 @@ async function RelatedLists({ currentId, kategori }: { currentId: string; katego
       .neq("id", currentId)
       .limit(3);
     if (kategori) query = query.eq("kategori", kategori);
-    const { data } = await query;
-    if (!data || data.length === 0) return null;
-
-    return (
-      <div className="mt-10">
-        <h3 className="font-black text-ugavole-text mb-4">Bunları da beğenebilirsin</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {data.map((item) => (
-            <Link
-              key={item.id}
-              href={`/liste/${item.slug}`}
-              className="bg-ugavole-surface border border-ugavole-border rounded-2xl overflow-hidden hover:border-ugavole-yellow transition-all group"
-            >
-              {item.kapak_gorsel && (
-                <div className="relative h-24 overflow-hidden">
-                  <Image src={item.kapak_gorsel} alt={item.baslik} fill className="object-cover group-hover:scale-105 transition-transform" loading="lazy" sizes="(max-width: 640px) 100vw, 33vw" />
-                </div>
-              )}
-              <p className="p-3 text-ugavole-text text-sm font-bold line-clamp-2 group-hover:text-ugavole-yellow transition-colors">
-                {item.baslik}
-              </p>
-            </Link>
-          ))}
-        </div>
-      </div>
-    );
+    const result = await query;
+    data = result.data;
   } catch {
     return null;
   }
+
+  if (!data || data.length === 0) return null;
+
+  return (
+    <div className="mt-10">
+      <h3 className="font-black text-ugavole-text mb-4">Bunları da beğenebilirsin</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        {data.map((item) => (
+          <Link
+            key={item.id}
+            href={`/liste/${item.slug}`}
+            className="bg-ugavole-surface border border-ugavole-border rounded-2xl overflow-hidden hover:border-ugavole-yellow transition-all group"
+          >
+            {item.kapak_gorsel && (
+              <div className="relative h-24 overflow-hidden">
+                <Image src={item.kapak_gorsel} alt={item.baslik} fill className="object-cover group-hover:scale-105 transition-transform" loading="lazy" sizes="(max-width: 640px) 100vw, 33vw" />
+              </div>
+            )}
+            <p className="p-3 text-ugavole-text text-sm font-bold line-clamp-2 group-hover:text-ugavole-yellow transition-colors">
+              {item.baslik}
+            </p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
 }

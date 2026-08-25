@@ -4,11 +4,15 @@ export function GET() {
   const body = `User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /giris
+Disallow: /mfa
 Disallow: /api/
 
 User-agent: Googlebot
 Allow: /
 Disallow: /admin
+Disallow: /giris
+Disallow: /mfa
 Disallow: /api/
 
 Sitemap: https://ugavole.com/sitemap.xml

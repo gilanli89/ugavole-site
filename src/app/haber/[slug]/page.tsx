@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { fetchWordPressPosts } from "@/lib/api/wordpress";
-import { buildMetadata, articleSchema, breadcrumbSchema } from "@/lib/seo";
+import { getPublishedArticle, getRelatedArticles, listPublishedArticles } from "@/lib/data/content";
+import { buildMetadata, articleSchema, breadcrumbSchema, serializeJsonLd } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
-import { cleanWordPressContent, readingTime, categorySlug } from "@/lib/content";
+import { cleanLegacyHtmlContent, readingTime, categorySlug } from "@/lib/content";
 import { ArrowLeft, Clock, ExternalLink, Tag } from "lucide-react";
 import type { Article } from "@/lib/api/news";
 import ShareButtons from "@/components/ShareButtons";
@@ -22,21 +22,11 @@ const CAT_BADGE: Record<string, string> = {
 };
 
 async function getPost(slug: string): Promise<Article | undefined> {
-  const posts = await fetchWordPressPosts();
-  return posts.find(
-    (p) =>
-      p.source_url.endsWith(`/${slug}/`) ||
-      p.source_url.endsWith(`/${slug}`) ||
-      p.id === `wp-post-${slug}` ||
-      p.id === `wp-page-${slug}`
-  );
+  return getPublishedArticle(slug);
 }
 
 async function getRelated(post: Article): Promise<Article[]> {
-  const posts = await fetchWordPressPosts();
-  return posts
-    .filter((p) => p.category === post.category && p.id !== post.id && p.title.length > 3)
-    .slice(0, 3);
+  return getRelatedArticles(post, 3);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -57,11 +47,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export async function generateStaticParams() {
   try {
-    const posts = await fetchWordPressPosts();
-    return posts.map((post) => {
-      const urlParts = post.source_url.replace(/\/$/, "").split("/");
-      return { slug: urlParts[urlParts.length - 1] };
-    });
+    const posts = await listPublishedArticles();
+    return posts.flatMap((post) => (post.slug ? [{ slug: post.slug }] : []));
   } catch {
     return [];
   }
@@ -75,8 +62,11 @@ export default async function HaberDetayPage({ params }: Props) {
 
   const [related] = await Promise.all([getRelated(post)]);
 
-  const cleanedContent = post.content ? cleanWordPressContent(post.content) : "";
-  const rTime = cleanedContent ? readingTime(cleanedContent) : null;
+  const cleanedContent = post.content ? cleanLegacyHtmlContent(post.content) : "";
+  const blockText = post.content_blocks?.map((block) =>
+    block.type === "image" ? "" : block.text
+  ).join(" ") ?? "";
+  const rTime = blockText || cleanedContent ? readingTime(blockText || cleanedContent) : null;
   const catSlug = categorySlug(post.category);
   const badgeCls = CAT_BADGE[post.category] ?? "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300";
   const articleUrl = `https://ugavole.com/haber/${slug}`;
@@ -100,7 +90,7 @@ export default async function HaberDetayPage({ params }: Props) {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       {schema.map((s, i) => (
-        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(s) }} />
       ))}
 
       {/* Geri */}
@@ -160,7 +150,38 @@ export default async function HaberDetayPage({ params }: Props) {
         )}
 
         {/* İçerik */}
-        {cleanedContent ? (
+        {post.content_blocks && post.content_blocks.length > 0 ? (
+          <div className="prose prose-lg dark:prose-invert max-w-none">
+            {post.content_blocks.map((block, index) => {
+              if (block.type === "heading") {
+                return block.level === 3 ? (
+                  <h3 key={index}>{block.text}</h3>
+                ) : (
+                  <h2 key={index}>{block.text}</h2>
+                );
+              }
+              if (block.type === "quote") {
+                return (
+                  <blockquote key={index}>
+                    <p>{block.text}</p>
+                    {block.attribution && <cite>{block.attribution}</cite>}
+                  </blockquote>
+                );
+              }
+              if (block.type === "image") {
+                return (
+                  <figure key={index}>
+                    {/* Approved editors control published image URLs. */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={block.url} alt={block.alt} loading="lazy" />
+                    {block.credit && <figcaption>{block.credit}</figcaption>}
+                  </figure>
+                );
+              }
+              return <p key={index}>{block.text}</p>;
+            })}
+          </div>
+        ) : cleanedContent ? (
           <div
             className="
               prose prose-lg dark:prose-invert max-w-none
@@ -184,7 +205,7 @@ export default async function HaberDetayPage({ params }: Props) {
         )}
 
         {/* Reklam — içerik sonu */}
-        <AdBanner className="mt-10 rounded-xl" />
+        <AdBanner eligible={post.ad_eligible === true} className="mt-10 rounded-xl" />
 
         {/* Paylaş */}
         <div className="mt-8 pt-6 border-t border-ugavole-border">
@@ -196,10 +217,10 @@ export default async function HaberDetayPage({ params }: Props) {
         </div>
 
         {/* Orijinal kaynak */}
-        {post.source_name !== "ugavole" && (
+        {post.original_source_url && (
           <div className="mt-4 pt-4 border-t border-ugavole-border">
             <a
-              href={post.source_url}
+              href={post.original_source_url}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-ugavole-muted hover:text-ugavole-yellow-dark transition-colors"

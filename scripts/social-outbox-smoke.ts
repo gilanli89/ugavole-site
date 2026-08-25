@@ -1,0 +1,60 @@
+import assert from "node:assert/strict";
+import { composeCaption, composeXText } from "../src/lib/social/format";
+import {
+  createCronSignature,
+  verifyCronSignature,
+} from "../src/lib/social/hmac";
+
+const secret = "0123456789abcdef0123456789abcdef";
+const timestamp = 1_800_000_000;
+const rawBody = '{"batchSize":1}';
+const signature = createCronSignature(secret, timestamp, rawBody);
+
+assert.equal(signature.length, 64);
+assert.deepEqual(
+  verifyCronSignature({
+    secret,
+    rawBody,
+    timestampHeader: String(timestamp),
+    signatureHeader: `v1=${signature}`,
+    nowSeconds: timestamp + 30,
+  }).ok,
+  true
+);
+assert.deepEqual(
+  verifyCronSignature({
+    secret,
+    rawBody: `${rawBody} `,
+    timestampHeader: String(timestamp),
+    signatureHeader: `v1=${signature}`,
+    nowSeconds: timestamp + 30,
+  }),
+  { ok: false, reason: "signature_invalid" }
+);
+assert.deepEqual(
+  verifyCronSignature({
+    secret,
+    rawBody,
+    timestampHeader: String(timestamp),
+    signatureHeader: `v1=${signature}`,
+    nowSeconds: timestamp + 301,
+  }),
+  { ok: false, reason: "timestamp_stale" }
+);
+
+const xText = composeXText("a".repeat(400), "https://ugavole.com/haber/ornek");
+assert.ok(Array.from(xText).length <= 250);
+assert.ok(xText.endsWith("https://ugavole.com/haber/ornek"));
+
+const emojiXText = composeXText("😀".repeat(300), "https://ugavole.com/haber/ornek");
+const emojiCaption = emojiXText.split("\n\n", 1)[0];
+assert.ok(Array.from(emojiCaption).length <= 125);
+
+const instagramCaption = composeCaption(
+  "Kıbrıs gündemi",
+  "https://ugavole.com/haber/ornek",
+  2_200
+);
+assert.equal(instagramCaption, "Kıbrıs gündemi\n\nhttps://ugavole.com/haber/ornek");
+
+console.log("social-outbox smoke: ok (no network calls)");

@@ -9,7 +9,7 @@ export async function GET() {
       { pairs, fetched_at, source: "sundoviz.com" },
       { headers: { "Cache-Control": "s-maxage=3600, stale-while-revalidate=7200" } }
     );
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Döviz kurları alınamadı" }, { status: 500 });
   }
 }

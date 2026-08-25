@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
+import { buildMetadata, breadcrumbSchema, serializeJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Günlük Burç Yorumları",
@@ -38,7 +38,7 @@ export default function BurclarPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />
 
       <div className="mb-8">
         <h1 className="text-3xl font-black text-ugavole-text">Günlük Burç Yorumları</h1>

@@ -1,17 +1,29 @@
 import type { Metadata } from "next";
-import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
+import { buildMetadata, breadcrumbSchema, serializeJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Sosyal Medya",
-  description: "ugavole sosyal medya hesapları — Instagram, YouTube, Facebook ve X'te bizi takip edin.",
+  description: "Ugavole'nin doğrulanmış sosyal medya hesapları ve yayın kanalları.",
   path: "/sosyal-medya",
 });
+
+function verifiedAccountUrl(value: string | undefined, allowedHosts: string[]): string | null {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && allowedHosts.includes(url.hostname.toLowerCase())
+      ? url.toString()
+      : null;
+  } catch {
+    return null;
+  }
+}
 
 const HESAPLAR = [
   {
     platform: "Instagram",
-    kullanici: "@ugavole.cyp",
-    url: "https://instagram.com/ugavole.cyp",
+    kullanici: process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE ?? "Instagram",
+    url: verifiedAccountUrl(process.env.NEXT_PUBLIC_INSTAGRAM_URL, ["instagram.com", "www.instagram.com"]),
     aciklama: "Kıbrıs'tan fotoğraflar, reels ve günlük içerikler",
     renk: "#E1306C",
     bg: "bg-[#E1306C]/10 hover:bg-[#E1306C]/20 dark:bg-[#E1306C]/10 dark:hover:bg-[#E1306C]/20",
@@ -24,8 +36,8 @@ const HESAPLAR = [
   },
   {
     platform: "YouTube",
-    kullanici: "@ugavole",
-    url: "https://youtube.com/ugavole",
+    kullanici: process.env.NEXT_PUBLIC_YOUTUBE_HANDLE ?? "YouTube",
+    url: verifiedAccountUrl(process.env.NEXT_PUBLIC_YOUTUBE_URL, ["youtube.com", "www.youtube.com"]),
     aciklama: "Kıbrıs videoları, vloglar ve belgeseller",
     renk: "#FF0000",
     bg: "bg-[#FF0000]/10 hover:bg-[#FF0000]/20 dark:bg-[#FF0000]/10 dark:hover:bg-[#FF0000]/20",
@@ -38,8 +50,8 @@ const HESAPLAR = [
   },
   {
     platform: "Facebook",
-    kullanici: "ugavole",
-    url: "https://facebook.com/ugavole",
+    kullanici: process.env.NEXT_PUBLIC_FACEBOOK_HANDLE ?? "Facebook",
+    url: verifiedAccountUrl(process.env.NEXT_PUBLIC_FACEBOOK_URL, ["facebook.com", "www.facebook.com"]),
     aciklama: "Haberler, etkinlikler ve Kıbrıs topluluğu",
     renk: "#1877F2",
     bg: "bg-[#1877F2]/10 hover:bg-[#1877F2]/20 dark:bg-[#1877F2]/10 dark:hover:bg-[#1877F2]/20",
@@ -52,8 +64,8 @@ const HESAPLAR = [
   },
   {
     platform: "X (Twitter)",
-    kullanici: "@ugavole",
-    url: "https://x.com/ugavole",
+    kullanici: process.env.NEXT_PUBLIC_X_HANDLE ?? "X",
+    url: verifiedAccountUrl(process.env.NEXT_PUBLIC_X_URL, ["x.com", "www.x.com"]),
     aciklama: "Anlık haberler, tartışmalar ve Kıbrıs gündemi",
     renk: "#000000",
     bg: "bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10",
@@ -74,17 +86,17 @@ export default function SosyalMedyaPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />
 
       <div className="text-center mb-10">
         <h1 className="text-3xl font-black text-ugavole-text mb-2">Bizi Takip Et</h1>
         <p className="text-ugavole-muted">
-          Kıbrıs&apos;ın en eğlenceli içerikleri için ugavole&apos;yi sosyal medyada takip edin
+          Yalnız hesabımıza bağlanıp doğruladığımız kanalları burada yayımlıyoruz.
         </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        {HESAPLAR.map((h) => (
+        {HESAPLAR.map((h) => h.url ? (
           <a
             key={h.platform}
             href={h.url}
@@ -100,13 +112,20 @@ export default function SosyalMedyaPage() {
               <p className="text-ugavole-muted text-xs mt-1 leading-snug">{h.aciklama}</p>
             </div>
           </a>
-        ))}
+        ) : null
+        )}
       </div>
+
+      {HESAPLAR.every((hesap) => !hesap.url) && (
+        <div className="rounded-2xl border border-dashed border-ugavole-border p-8 text-center text-sm text-ugavole-muted">
+          Sosyal hesap bağlantıları doğrulanıyor. Bağlantılar tamamlandığında bu sayfada görünecek.
+        </div>
+      )}
 
       <div className="mt-12 bg-ugavole-surface border border-ugavole-border rounded-2xl p-6 text-center">
         <p className="font-black text-ugavole-text text-lg mb-2">Haber Paylaş</p>
         <p className="text-ugavole-muted text-sm mb-4">
-          Kıbrıs&apos;tan önemli bir gelişme mi var? Hemen bize ilet, sitenin ana sayfasında yayınlayalım.
+          Kıbrıs&apos;tan önemli bir gelişme mi var? Editör incelemesine ilet; doğrulanan içerikler Ugavole&apos;de yayımlansın.
         </p>
         <a
           href="/haber-yukle"

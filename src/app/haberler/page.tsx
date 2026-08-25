@@ -45,7 +45,7 @@ export default async function HaberlerPage() {
             <div className="bg-white rounded-2xl border border-[#E8E8E0] overflow-hidden shadow-sm">
               <div className="bg-[#1A1A1A] text-white px-4 py-3 flex items-center gap-2">
                 <Trophy className="w-4 h-4 text-ugavole-yellow" />
-                <h2 className="font-black text-sm uppercase tracking-wider">En Çok Okunanlar</h2>
+                <h2 className="font-black text-sm uppercase tracking-wider">Son Eklenenler</h2>
               </div>
               <div className="p-2 divide-y divide-[#E8E8E0]">
                 {topArticles.map((article, i) => (

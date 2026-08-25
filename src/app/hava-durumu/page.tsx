@@ -27,11 +27,6 @@ export default async function HavaDurumuPage() {
     .filter((r): r is PromiseFulfilledResult<WeatherData> => r.status === "fulfilled")
     .map((r) => r.value);
 
-  const dayName = (dateStr: string) => {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString("tr-TR", { weekday: "long", day: "numeric", month: "short" });
-  };
-
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
       <div className="flex items-center gap-3 mb-8">

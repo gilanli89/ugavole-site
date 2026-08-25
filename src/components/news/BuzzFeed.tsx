@@ -89,7 +89,7 @@ export default function BuzzFeed() {
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="w-4 h-4 text-ugavole-yellow-dark" />
-                <h2 className="font-black text-sm uppercase tracking-wider text-gray-600">Trend</h2>
+                <h2 className="font-black text-sm uppercase tracking-wider text-gray-600">Öne Çıkanlar</h2>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {trending.map((a, i) => (

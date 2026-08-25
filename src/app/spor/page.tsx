@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { fetchAllNews } from "@/lib/api/news";
-import { breadcrumbSchema } from "@/lib/seo";
+import { breadcrumbSchema, serializeJsonLd } from "@/lib/seo";
 import { ArrowRight, Trophy, Newspaper } from "lucide-react";
 import type { Article } from "@/lib/api/news";
 
@@ -125,7 +125,7 @@ export default async function SporPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       {schemas.map((s, i) => (
-        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(s) }} />
       ))}
 
       <div className="mb-8">

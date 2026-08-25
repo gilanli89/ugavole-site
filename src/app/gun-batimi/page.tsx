@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import GunBatimiClient from "./GunBatimiClient";
+import { serializeJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Kıbrıs Gün Batımı Saati — Bugün KKTC'de Güneş Ne Zaman Batıyor? | ugavole",
@@ -62,7 +63,7 @@ export default function GunBatimiPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
       <GunBatimiClient />
     </>

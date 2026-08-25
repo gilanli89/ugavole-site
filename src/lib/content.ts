@@ -1,8 +1,6 @@
-/**
- * WordPress/Elementor içerik temizleme yardımcıları
- */
+/** Only use for trusted, repository-bundled legacy HTML. Never pass UGC here. */
 
-export function cleanWordPressContent(html: string): string {
+export function cleanLegacyHtmlContent(html: string): string {
   return html
     // Elementor section/column/widget wrapper div'lerini kaldır ama içeriği koru
     .replace(/<div[^>]*class="[^"]*elementor[^"]*"[^>]*>/gi, "")
@@ -13,7 +11,7 @@ export function cleanWordPressContent(html: string): string {
     .replace(/\\</g, "<")
     .replace(/\\>/g, ">")
     .replace(/\\"/g, '"')
-    // WordPress class'lı span'leri kaldır (içeriği koru)
+    // Eski tema class'lı span'leri kaldır (içeriği koru)
     .replace(/<span[^>]*class="[^"]*"[^>]*>/gi, "<span>")
     // wp-block-* class'lı figure'ları temizle (figure'ı koru, class'ı sil)
     .replace(/(<figure[^>]*)class="[^"]*"([^>]*>)/gi, "$1$2")

@@ -1,0 +1,115 @@
+"use client";
+
+import Script from "next/script";
+import Link from "next/link";
+import { createContext, useContext, useSyncExternalStore } from "react";
+
+type Consent = "granted" | "denied" | null;
+
+const EVENT_NAME = "ugavole-consent-change";
+const ConsentContext = createContext<Consent>(null);
+
+function readConsent(): Consent {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie.match(/(?:^|; )ugavole_consent=(granted|denied)(?:;|$)/);
+  return (match?.[1] as Consent) ?? null;
+}
+
+function subscribe(callback: () => void) {
+  window.addEventListener(EVENT_NAME, callback);
+  return () => window.removeEventListener(EVENT_NAME, callback);
+}
+
+function saveConsent(value: Exclude<Consent, null>) {
+  const previous = readConsent();
+  const secure = location.protocol === "https:" ? "; Secure" : "";
+  document.cookie = `ugavole_consent=${value}; Max-Age=31536000; Path=/; SameSite=Lax${secure}`;
+  if (previous === "granted" && value === "denied") {
+    location.reload();
+    return;
+  }
+  window.dispatchEvent(new Event(EVENT_NAME));
+}
+
+function clearConsent() {
+  const hadMarketingConsent = readConsent() === "granted";
+  const secure = location.protocol === "https:" ? "; Secure" : "";
+  document.cookie = `ugavole_consent=; Max-Age=0; Path=/; SameSite=Lax${secure}`;
+  if (hadMarketingConsent) {
+    location.reload();
+    return;
+  }
+  window.dispatchEvent(new Event(EVENT_NAME));
+}
+
+function MarketingScripts({ consent }: { consent: Consent }) {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  const adsClient = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID;
+  const certifiedCmpReady = process.env.NEXT_PUBLIC_GOOGLE_CERTIFIED_CMP_READY === "true";
+
+  if (consent !== "granted") return null;
+
+  return (
+    <>
+      {gtmId && (
+        <Script id="ugavole-gtm" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`}
+        </Script>
+      )}
+      {adsClient && certifiedCmpReady && (
+        <Script
+          id="ugavole-adsense"
+          strategy="afterInteractive"
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(adsClient)}`}
+          crossOrigin="anonymous"
+        />
+      )}
+    </>
+  );
+}
+
+export function ConsentProvider({ children }: { children: React.ReactNode }) {
+  const consent = useSyncExternalStore(subscribe, readConsent, () => null);
+
+  return (
+    <ConsentContext.Provider value={consent}>
+      {children}
+      <MarketingScripts consent={consent} />
+      {consent === null && (
+        <aside className="fixed inset-x-3 bottom-3 z-[100] mx-auto max-w-3xl rounded-2xl border border-ugavole-border bg-ugavole-surface p-4 shadow-2xl" aria-label="Çerez tercihi">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <p className="flex-1 text-sm leading-relaxed text-ugavole-body">
+              Zorunlu çerezler siteyi çalıştırır. Ölçüm ve reklam teknolojileri yalnız izninle yüklenir.
+              Ayrıntılar <Link href="/cerez-politikasi" className="font-bold underline">çerez politikasında</Link>.
+            </p>
+            <div className="flex gap-2">
+              <button type="button" onClick={() => saveConsent("denied")} className="rounded-xl border border-ugavole-border px-4 py-2 text-sm font-bold text-ugavole-text">
+                Reddet
+              </button>
+              <button type="button" onClick={() => saveConsent("granted")} className="rounded-xl bg-black px-4 py-2 text-sm font-bold text-white dark:bg-white dark:text-black">
+                İzin ver
+              </button>
+            </div>
+          </div>
+        </aside>
+      )}
+    </ConsentContext.Provider>
+  );
+}
+
+export function useConsent(): Consent {
+  return useContext(ConsentContext);
+}
+
+export function ConsentSettingsButton() {
+  return (
+    <button
+      type="button"
+      onClick={clearConsent}
+      className="text-sm text-gray-400 transition-colors hover:text-ugavole-yellow"
+    >
+      Çerez tercihleri
+    </button>
+  );
+}

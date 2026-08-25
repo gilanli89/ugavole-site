@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { fetchAllNews } from "@/lib/api/news";
-import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
+import { buildMetadata, breadcrumbSchema, serializeJsonLd } from "@/lib/seo";
 import ArticleCard from "@/components/news/ArticleCard";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -44,7 +44,7 @@ export default async function KategoriPage({ params }: Props) {
     <div className="max-w-7xl mx-auto px-4 py-8">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
       />
 
       <div className="mb-8">

@@ -7,6 +7,7 @@ import type { WeatherData } from "@/lib/api/weather";
 import type { RatePair } from "@/lib/api/exchange";
 import type { Pharmacy } from "@/lib/api/pharmacy";
 import GuncelEczane from "./GuncelEczane";
+import { serializeJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Güncel | KKTC Hava Durumu, Döviz Kurları, Nöbetçi Eczane",
@@ -112,7 +113,7 @@ export default async function GuncelPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 pb-16">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildSchema()) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(buildSchema()) }} />
 
       {/* Başlık */}
       <div className="mb-6">

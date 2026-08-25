@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 
 const BASE_URL = "https://ugavole.com";
 const SITE_NAME = "ugavole";
-const DEFAULT_OG_IMAGE = "https://ugavole.com/og-default.png";
+const DEFAULT_OG_IMAGE = "https://ugavole.com/opengraph-image";
+
+export function serializeJsonLd(value: unknown): string {
+  return JSON.stringify(value)
+    .replace(/</g, "\\u003c")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+}
 
 export function buildMetadata({
   title,

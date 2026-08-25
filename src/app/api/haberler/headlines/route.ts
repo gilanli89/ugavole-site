@@ -2,7 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { fetchHeadlines } from "@/lib/api/news";
 
 export async function GET(request: NextRequest) {
-  const region = request.nextUrl.searchParams.get("bolge") as "kuzey" | "guney" | "dunya" | undefined;
+  const rawRegion = request.nextUrl.searchParams.get("bolge");
+  if (rawRegion && rawRegion !== "kuzey" && rawRegion !== "guney" && rawRegion !== "dunya") {
+    return NextResponse.json(
+      { error: "Geçersiz bölge" },
+      { status: 400, headers: { "Cache-Control": "no-store" } }
+    );
+  }
+  const region = rawRegion as "kuzey" | "guney" | "dunya" | null;
 
   try {
     const articles = await fetchHeadlines(region ?? undefined);
