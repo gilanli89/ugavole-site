@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">ugavole</title>
+  <desc id="desc">Siyah zemin üzerinde sarı ugavole u harfi</desc>
+  <rect width="512" height="512" rx="112" fill="#0a0a0a"/>
+  <rect x="52" y="52" width="408" height="408" rx="92" fill="#f5c518"/>
+  <path d="M154 151v129c0 73 42 113 102 113s102-40 102-113V151h-68v126c0 35-11 53-34 53s-34-18-34-53V151z" fill="#0a0a0a"/>
+</svg>

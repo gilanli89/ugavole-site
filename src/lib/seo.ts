@@ -90,7 +90,7 @@ export function articleSchema({
       "@type": "Organization",
       name: "ugavole",
       url: BASE_URL,
-      logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.png` },
+      logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.svg` },
     },
     ...(image && { image: { "@type": "ImageObject", url: image } }),
   };
