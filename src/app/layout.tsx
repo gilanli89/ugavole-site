@@ -58,7 +58,9 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION ?? "",
+    google:
+      process.env.GOOGLE_SITE_VERIFICATION?.trim() ||
+      "ZU0sW7l6QpNf5AvXqoEoalnOSZhMtJm13rNIbh7ThZw",
   },
   other: {
     "google-adsense-account": "ca-pub-7117498587512923",
