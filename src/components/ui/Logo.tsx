@@ -14,7 +14,7 @@ export default function Logo({ size = "md", showText = true, className = "" }: P
 
   return (
     <Link href="/" className={`flex items-center gap-2.5 select-none ${className}`} aria-label="Ugavole ana sayfa">
-      <UgavoleMark size={d} />
+      <UgavoleMark size={d} className="text-ugavole-text" />
 
       {showText && (
         <span className={`font-extrabold lowercase leading-none tracking-[-0.055em] text-ugavole-text ${textSizes[size]}`}>
