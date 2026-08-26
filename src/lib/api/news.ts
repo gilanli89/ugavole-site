@@ -100,8 +100,12 @@ function httpsArticleUrl(value: string | undefined): string | undefined {
 
 export type NewsSource = CuratedRssSource;
 
-// RSS is a discovery/link layer. It never creates a public Ugavole article.
-export const NEWS_SOURCES: NewsSource[] = CURATED_RSS_SOURCES;
+// The live stream carries only Turkish, attributed local headlines. Foreign
+// sources are deliberately kept in the private editorial queue: a raw
+// translation is neither an Ugavole article nor a useful SEO result.
+export const NEWS_SOURCES: NewsSource[] = CURATED_RSS_SOURCES.filter(
+  (source) => source.lang === "tr" && source.use === "link_only"
+);
 
 async function fetchRSSFeed(source: NewsSource): Promise<Article[]> {
   try {
