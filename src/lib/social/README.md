@@ -97,6 +97,10 @@ Send it as `X-Ugavole-Signature: v1=<hex>` with `X-Ugavole-Timestamp: <unix-seco
 
 Keep `UGAVOLE_SOCIAL_WORKER_ENABLED=false` until migrations, account identities, scopes, media hosts, platform costs, and a staging dry run have been verified. Enabling the worker and making the first real post are production actions and require explicit owner approval.
 
+## RSS editorial handoff
+
+The RSS registry is a discovery layer, not a republishing license. Local and commercial publishers remain link-only. The small official-source pilot can create a private `pending` editorial draft only when `UGAVOLE_EDITORIAL_DRAFTS_ENABLED=true`, `EDITORIAL_CRON_SECRET`, `OPENAI_API_KEY`, and `UGAVOLE_EDITORIAL_MODEL` are configured. It sends only an RSS title and summary to the model, never downloads source article bodies or images. Each draft retains its source URL and must be edited, approved, and explicitly published before an ad or social job can exist.
+
 ## Provider contracts
 
 - Facebook Page publishing uses the version-pinned Graph API Page `/feed` endpoint with a Page access token.
