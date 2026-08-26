@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Link from "next/link";
 import { Search, RotateCcw, CheckCircle, XCircle, BookOpen } from "lucide-react";
 import { sozlukData, kategoriler, type SozlukEntry } from "@/lib/sozluk-data";
 
@@ -117,22 +118,27 @@ export default function SozlukPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
-      {/* Hero: Günün Kelimesi */}
+      <div className="mb-6">
+        <h1 className="text-gray-900 dark:text-white font-black text-3xl mb-1">🗣️ Kıbrıslıca Sözlük</h1>
+        <p className="text-gray-500">Kıbrıs Türkçesi kelimelerini, deyimlerini ve gündelik ifadelerini örnekleriyle keşfet.</p>
+        <Link
+          href="/quiz/kibrislica"
+          className="mt-3 inline-flex rounded-full border border-ugavole-yellow/40 px-4 py-2 text-sm font-black text-ugavole-yellow transition-colors hover:bg-ugavole-yellow hover:text-black"
+        >
+          Kıbrıslıca bilgisini quizde dene →
+        </Link>
+      </div>
+
+      {/* Öne çıkan kelime */}
       <div className="bg-white dark:bg-ugavole-surface border-2 border-ugavole-yellow/50 rounded-3xl p-8 mb-10 text-center">
         <div className="inline-flex items-center gap-2 bg-ugavole-yellow/10 text-ugavole-yellow text-xs font-black px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">
           <BookOpen className="w-3.5 h-3.5" />
-          Günün Kelimesi
+          Öne Çıkan Kelime
         </div>
         <div className="text-6xl mb-4">{GUNUN_KELIMESI.emoji}</div>
-        <h1 className="text-ugavole-yellow font-black text-5xl mb-3">{GUNUN_KELIMESI.kibrisca}</h1>
+        <h2 className="text-ugavole-yellow font-black text-5xl mb-3">{GUNUN_KELIMESI.kibrisca}</h2>
         <p className="text-gray-900 dark:text-gray-100 text-xl mb-2">{GUNUN_KELIMESI.anlam}</p>
         <p className="text-gray-500 dark:text-gray-400 text-base italic">&quot;{GUNUN_KELIMESI.cumle}&quot;</p>
-      </div>
-
-      {/* Başlık */}
-      <div className="mb-6">
-        <h2 className="text-gray-900 dark:text-white font-black text-3xl mb-1">🗣️ Kıbrıslıca Sözlük</h2>
-        <p className="text-gray-500">Kuzey Kıbrıs ağzını öğren, eğlen, paylaş</p>
       </div>
 
       {/* Arama + Filtre */}

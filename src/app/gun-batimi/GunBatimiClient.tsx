@@ -183,6 +183,19 @@ export default function GunBatimiClient() {
     return { display: secsToDisplay(countdownSecs), sub: urgent ? "Hızlan! 🏃" : "Gün batımına kalan", urgent };
   })();
 
+  const todayLabel = new Intl.DateTimeFormat("tr-TR", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Europe/Nicosia",
+  }).format(now);
+  const checkedAt = new Intl.DateTimeFormat("tr-TR", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Europe/Nicosia",
+  }).format(now);
+
   // ── Render ─────────────────────────────────────────────────────
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
@@ -192,8 +205,8 @@ export default function GunBatimiClient() {
         <div className="inline-flex items-center gap-2 bg-orange-500/10 text-orange-400 text-xs font-black px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">
           <Sun className="w-3.5 h-3.5" /> Bugünün Gün Batımı
         </div>
-        <h1 className="font-black text-ugavole-text text-3xl md:text-4xl mb-2">KKTC Gün Batımı Saati</h1>
-        <p className="text-ugavole-muted">Kuzey Kıbrıs&apos;ta bugün güneş ne zaman batıyor?</p>
+        <h1 className="font-black text-ugavole-text text-3xl md:text-4xl mb-2">Kıbrıs&apos;ta Bugün Gün Batımı Saat Kaçta?</h1>
+        <p className="text-ugavole-muted">{todayLabel} · Kuzey Kıbrıs&apos;ta güneş ne zaman batıyor?</p>
       </div>
 
       {/* ── Şehir Sekmeleri ──────────────────────────── */}
@@ -225,11 +238,14 @@ export default function GunBatimiClient() {
             {/* Büyük gün batımı saati */}
             <div className="text-center mb-6">
               <p className="text-ugavole-muted text-xs font-bold uppercase tracking-wider mb-1">
-                {activeCity.label} Gün Batımı
+                {todayLabel} · {activeCity.label}
               </p>
               <div className="text-ugavole-yellow font-black" style={{ fontSize: "clamp(3rem,12vw,5rem)" }}>
                 {isoToHHMM(sunData.sunsetISO)}
               </div>
+              <p className="mt-1 text-xs text-ugavole-muted">
+                {activeCity.label} için gün batımı · KKTC saati
+              </p>
 
               {countdown && (
                 <div className={`mt-3 ${countdown.urgent ? "text-orange-400 animate-pulse" : "text-ugavole-body"}`}>
@@ -268,6 +284,9 @@ export default function GunBatimiClient() {
 
             {/* Paylaş */}
             <div className="mt-6 pt-6 border-t border-ugavole-border">
+              <p className="mb-3 text-center text-xs text-ugavole-muted">
+                Astronomik zamanlar KKTC saatine göre gösterilir · Son kontrol {checkedAt}
+              </p>
               <p className="text-center text-xs text-ugavole-muted font-bold uppercase tracking-wider mb-3">Paylaş</p>
               <ShareButtons
                 text={`KKTC ${activeCity.label}'da bugün gün batımı ${isoToHHMM(sunData.sunsetISO)}'de! 🌅 #KKTC #Kıbrıs`}
@@ -390,7 +409,7 @@ export default function GunBatimiClient() {
 
       {/* ── SEO Metni ─────────────────────────────── */}
       <div className="bg-ugavole-surface-2 rounded-2xl p-6 text-ugavole-body text-sm leading-relaxed">
-        <h2 className="font-black text-ugavole-text mb-3 text-base">Kuzey Kıbrıs Gün Batımı Hakkında</h2>
+        <h2 className="font-black text-ugavole-text mb-3 text-base">Kıbrıs&apos;ta Gün Batımı Saati Hakkında</h2>
         <p className="mb-3">
           Kuzey Kıbrıs gün batımı saati mevsime göre değişir. Yaz aylarında KKTC&apos;de gün batımı 19:30 ile 20:15 arasında gerçekleşirken, kış aylarında bu saat 17:00&apos;e kadar erkene çekilebilir. Kıbrıs günbatımı saatini etkileyen en önemli faktör, adanın Doğu Akdeniz&apos;deki konumudur.
         </p>
@@ -401,7 +420,7 @@ export default function GunBatimiClient() {
           KKTC gün batımı fotoğrafçılığı için en uygun dönem Nisan-Ekim arası aylardır. Altın saat genellikle gün batımından 45-60 dakika önce başlar; bu süre profesyonel fotoğrafçılar için kritik öneme sahiptir. Karpaz Altınkum, Beşparmak Dağları ve Güzelyurt Körfezi, kuzey Kıbrıs gün batımı için en popüler noktalar arasındadır.
         </p>
         <p>
-          Kıbrıs günbatımı saatini takip etmek için sayfamızı günlük ziyaret edebilirsiniz. Lefkoşa, Girne, Gazimağusa, Güzelyurt ve İskele için ayrı ayrı gün batımı saatlerini anlık olarak öğrenebilirsiniz. Güneş doğuşu ve gün batımı saatleri her gün otomatik olarak güncellenmektedir.
+          Bugün veya yarın Kıbrıs&apos;ta güneşin kaçta batacağını öğrenmek için şehir seçmeniz yeterli. Lefkoşa, Girne, Gazimağusa, Güzelyurt ve İskele için güneş doğuşu, gün batımı ve altın saat bilgisi ayrı ayrı gösterilir.
         </p>
       </div>
 

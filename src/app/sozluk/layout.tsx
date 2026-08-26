@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kıbrıslıca Sözlük",
-  description: "Kıbrıs Türkçesi kelimeleri öğren. Şive, deyimler, yemek isimleri ve daha fazlası. Aya, palabre, hellim ve çok daha fazlası.",
+  title: "Kıbrıslıca Sözlük: Kıbrıs Türkçesi Kelimeleri ve Anlamları | ugavole",
+  description: "Kıbrıslıca kelimeler, Kıbrıs Türkçesi anlamları, şive, deyimler ve yemek adları. Aya, palabre, hellim ve daha fazlasını örnekleriyle keşfet.",
   alternates: { canonical: "https://ugavole.com/sozluk" },
   openGraph: {
-    title: "Kıbrıslıca Sözlük · ugavole",
-    description: "Kıbrıs Türkçesi kelimeleri öğren. Aya, palabre, hellim ve çok daha fazlası.",
+    title: "Kıbrıslıca Sözlük: Kıbrıs Türkçesi Kelimeleri ve Anlamları",
+    description: "Kıbrıs Türkçesi kelimelerini örnekleriyle öğren; şive, deyim ve kültür sözlüğünü keşfet.",
     url: "https://ugavole.com/sozluk",
   },
 };

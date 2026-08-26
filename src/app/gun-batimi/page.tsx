@@ -3,18 +3,19 @@ import GunBatimiClient from "./GunBatimiClient";
 import { serializeJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Kıbrıs Gün Batımı Saati — Bugün KKTC'de Güneş Ne Zaman Batıyor? | ugavole",
+  title: "Bugün Kıbrıs'ta Gün Batımı Saat Kaçta? KKTC | ugavole",
   description:
-    "Kuzey Kıbrıs gün batımı saati bugün: Girne, Lefkoşa, Gazimağusa, Karpaz ve Güzelyurt için anlık geri sayım. En iyi izleme noktaları ve topluluk fotoğrafları.",
+    "Kıbrıs'ta bugün gün batımı saat kaçta? Lefkoşa, Girne, Gazimağusa, Güzelyurt ve İskele için güncel güneş batışı, doğuşu, altın saat ve geri sayım.",
   keywords: [
     "Kıbrıs gün batımı saati", "KKTC gün batımı", "Girne gün batımı",
     "Kuzey Kıbrıs günbatımı", "Gazimağusa gün batımı", "Karpaz gün batımı",
     "Kıbrıs sunset", "KKTC güneş batış saati", "Lefkoşa gün batımı saati",
+    "bugün gün batımı", "yarın gün batımı", "güneş kaçta batıyor",
   ],
   alternates: { canonical: "https://ugavole.com/gun-batimi" },
   openGraph: {
-    title: "Kıbrıs Gün Batımı Saati — Bugün KKTC'de Güneş Ne Zaman Batıyor?",
-    description: "KKTC gün batımı saati, geri sayım, en güzel izleme noktaları ve topluluk fotoğrafları.",
+    title: "Bugün Kıbrıs'ta Gün Batımı Saat Kaçta?",
+    description: "KKTC için güncel gün batımı saati, geri sayım ve altın saat bilgisi.",
     url: "https://ugavole.com/gun-batimi",
     siteName: "ugavole",
     locale: "tr_TR",
@@ -22,8 +23,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kıbrıs Gün Batımı Saati | ugavole",
-    description: "KKTC'de bugün gün batımı saati ve geri sayım.",
+    title: "Bugün Kıbrıs'ta Gün Batımı Saat Kaçta? | ugavole",
+    description: "KKTC'de bugün gün batımı saati, geri sayım ve altın saat.",
   },
 };
 
@@ -36,7 +37,7 @@ const faqSchema = {
       "name": "Kıbrıs'ta gün batımı saat kaçta?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Kuzey Kıbrıs'ta gün batımı saati mevsime göre değişir. Yaz aylarında (Haziran-Ağustos) güneş 19:45–20:15 arasında batarken, kış aylarında (Aralık-Ocak) 17:00–17:30 civarında batar. Tam saat için ugavole Gün Batımı sayfasındaki canlı geri sayımı takip edebilirsiniz.",
+        "text": "Kuzey Kıbrıs'ta gün batımı saati tarih ve şehre göre değişir. Tam bugünkü saat için bu sayfadan Lefkoşa, Girne, Gazimağusa, Güzelyurt veya İskele'yi seçin; geri sayım ve güneş doğuşu bilgisi KKTC saatine göre gösterilir.",
       },
     },
     {
