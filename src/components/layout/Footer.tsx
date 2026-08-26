@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ConsentSettingsButton } from "@/components/privacy/ConsentProvider";
+import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
   return (
@@ -8,10 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Marka */}
           <div className="md:col-span-1">
-            <Link href="/" className="mb-3 flex items-center gap-1 font-editorial text-3xl font-bold tracking-tight">
-              <span className="text-white">uga</span>
-              <span className="text-[#F5C518]">vole</span>
-            </Link>
+            <Logo size="md" tone="inverse" className="mb-4" />
             <p className="mb-4 max-w-[220px] text-sm leading-relaxed text-gray-500">
               Adanın merak uyandıran hikâyeleri, keşifleri ve yerel gündemi.
             </p>

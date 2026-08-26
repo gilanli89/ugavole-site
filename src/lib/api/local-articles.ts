@@ -4,8 +4,10 @@
  */
 
 import type { Article } from "./news";
+import { EDITORIAL_ARTICLES } from "./editorial-articles";
 
 export const LOCAL_ARTICLES: Article[] = [
+  ...EDITORIAL_ARTICLES,
   {
     id: "local-kibris-kahvesi-kulturu",
     title: "Kıbrıs Kahvesi: Bir Fincanın İçinde Saklı Kültür",

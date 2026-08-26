@@ -5,19 +5,21 @@ type Props = {
   size?: "sm" | "md" | "lg";
   showText?: boolean;
   className?: string;
+  tone?: "default" | "inverse";
 };
 
-export default function Logo({ size = "md", showText = true, className = "" }: Props) {
+export default function Logo({ size = "md", showText = true, className = "", tone = "default" }: Props) {
   const dims = { sm: 32, md: 40, lg: 56 };
   const textSizes = { sm: "text-lg", md: "text-2xl", lg: "text-4xl" };
   const d = dims[size];
+  const toneClass = tone === "inverse" ? "text-white" : "text-ugavole-text";
 
   return (
     <Link href="/" className={`flex items-center gap-2.5 select-none ${className}`} aria-label="Ugavole ana sayfa">
-      <UgavoleMark size={d} className="text-ugavole-text" />
+      <UgavoleMark size={d} className={toneClass} />
 
       {showText && (
-        <span className={`font-extrabold lowercase leading-none tracking-[-0.055em] text-ugavole-text ${textSizes[size]}`}>
+        <span className={`font-extrabold lowercase leading-none tracking-[-0.055em] ${toneClass} ${textSizes[size]}`}>
           ugavole
         </span>
       )}
