@@ -49,7 +49,7 @@ export async function POST(request: Request) {
   }
 
   const secret = process.env.EDITORIAL_CRON_SECRET;
-  if (!secret || secret.length < 32 || !process.env.OPENAI_API_KEY || !process.env.UGAVOLE_EDITORIAL_MODEL) {
+  if (!secret || secret.length < 32 || !process.env.GEMINI_API_KEY || !process.env.UGAVOLE_EDITORIAL_MODEL) {
     return response({ ok: false, error: "editorial_drafts_not_configured" }, 503);
   }
 
