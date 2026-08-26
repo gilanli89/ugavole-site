@@ -45,12 +45,15 @@ export function readingTime(html: string): string {
 
 export function categorySlug(cat: string): string {
   return cat
-    .toLowerCase()
+    .toLocaleLowerCase("tr-TR")
+    .replace(/ı/g, "i")
     .replace(/ğ/g, "g")
     .replace(/ü/g, "u")
     .replace(/ş/g, "s")
-    .replace(/ı/g, "i")
     .replace(/ö/g, "o")
     .replace(/ç/g, "c")
-    .replace(/\s+/g, "-");
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }

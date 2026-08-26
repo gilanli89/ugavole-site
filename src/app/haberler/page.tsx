@@ -12,7 +12,7 @@ import { Sparkles, Trophy } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Haberler",
-  description: "Kuzey Kıbrıs'tan güncel haberler. Gündem, siyaset, ekonomi, spor ve daha fazlası.",
+  description: "Kıbrıs'tan güncel gelişmeler; teknoloji, bilim, sağlık, spor, yemek ve magazinden seçilmiş güvenilir kaynaklar.",
 };
 
 export default async function HaberlerPage() {
@@ -25,7 +25,7 @@ export default async function HaberlerPage() {
       <div className="mb-8 mt-7 max-w-3xl">
         <p className="mb-2 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[0.14em] text-ugavole-yellow-dark"><Sparkles className="h-4 w-4" /> Ada gündemi</p>
         <h1 className="font-editorial text-5xl font-bold leading-none tracking-[-0.035em] text-ugavole-text sm:text-6xl">Son haberler</h1>
-        <p className="mt-3 text-sm font-medium text-ugavole-muted sm:text-base">Kuzey ve Güney Kıbrıs&apos;tan günün öne çıkan gelişmeleri.</p>
+        <p className="mt-3 text-sm font-medium text-ugavole-muted sm:text-base">Kıbrıs&apos;tan gündem; teknoloji, bilim, sağlık, spor, yemek ve magazinden seçilmiş kaynaklar.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

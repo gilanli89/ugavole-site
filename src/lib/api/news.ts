@@ -5,6 +5,7 @@ import { unstable_cache } from "next/cache";
 import Parser from "rss-parser";
 import { translateMany, needsTranslation } from "@/lib/translate";
 import type { ContentBlock } from "@/lib/content/ugc";
+import { CURATED_RSS_SOURCES, type CuratedRssSource } from "@/lib/editorial/rss-sources";
 
 export type Article = {
   id: string;
@@ -97,35 +98,10 @@ function httpsArticleUrl(value: string | undefined): string | undefined {
   }
 }
 
-export type NewsSource = {
-  name: string;
-  url: string;
-  category: string;
-  region: "kuzey" | "guney" | "dunya" | "en";
-  lang: "tr" | "el" | "en";
-  limit?: number;
-};
+export type NewsSource = CuratedRssSource;
 
-export const NEWS_SOURCES: NewsSource[] = [
-  // ── KUZEY KIBRIS (Türkçe) ───────────────────────────────────
-  { name: "Havadis Kıbrıs",   url: "https://www.havadiskibris.com/feed",  category: "Gündem", region: "kuzey", lang: "tr" },
-  { name: "Kıbrıs Gazetesi",  url: "https://kibrisgazetesi.com/feed",     category: "Gündem", region: "kuzey", lang: "tr" },
-  { name: "Detay Kıbrıs",     url: "https://www.detaykibris.com/rss",     category: "Gündem", region: "kuzey", lang: "tr" },
-  { name: "Yeni Düzen",       url: "https://www.yeniduzen.com/rss",       category: "Gündem", region: "kuzey", lang: "tr" },
-
-  // ── GÜNEY KIBRIS (İngilizce) ───────────────────────────────
-  { name: "Cyprus Mail",      url: "https://cyprus-mail.com/feed",        category: "Gündem", region: "guney", lang: "en" },
-  { name: "In-Cyprus",        url: "https://www.in-cyprus.com/feed",      category: "Gündem", region: "guney", lang: "en" },
-
-  // ── GÜNEY KIBRIS (Rumca) ───────────────────────────────────
-  { name: "Politis",          url: "https://www.politis.com.cy/feed",     category: "Gündem", region: "guney", lang: "el" },
-  { name: "Philenews",        url: "https://www.philenews.com/rss",       category: "Gündem", region: "guney", lang: "el" },
-  { name: "Reporter CY",      url: "https://www.reporter.com.cy/feed",    category: "Gündem", region: "guney", lang: "el" },
-
-  // ── DÜNYA (İngilizce) ─────────────────────────────────────
-  { name: "BBC World",        url: "https://feeds.bbci.co.uk/news/world/rss.xml", category: "Dünya", region: "dunya", lang: "en", limit: 10 },
-  { name: "Reuters",          url: "https://feeds.reuters.com/reuters/topNews",   category: "Dünya", region: "dunya", lang: "en", limit: 10 },
-];
+// RSS is a discovery/link layer. It never creates a public Ugavole article.
+export const NEWS_SOURCES: NewsSource[] = CURATED_RSS_SOURCES;
 
 async function fetchRSSFeed(source: NewsSource): Promise<Article[]> {
   try {

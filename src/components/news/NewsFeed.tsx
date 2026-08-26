@@ -12,6 +12,11 @@ const CATEGORIES = [
   { label: "Ekonomi", value: "ekonomi" },
   { label: "Spor", value: "spor" },
   { label: "Kültür", value: "kultur" },
+  { label: "Teknoloji", value: "teknoloji" },
+  { label: "Bilim & Uzay", value: "bilim-uzay" },
+  { label: "Sağlık", value: "saglik" },
+  { label: "Yeme-İçme", value: "yeme-icme" },
+  { label: "Magazin", value: "magazin" },
 ];
 
 export default function NewsFeed() {

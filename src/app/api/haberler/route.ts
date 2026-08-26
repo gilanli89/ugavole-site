@@ -14,6 +14,11 @@ const ALLOWED_CATEGORIES = new Set([
   "gezi",
   "yemek",
   "yasam",
+  "teknoloji",
+  "bilim-uzay",
+  "saglik",
+  "yeme-icme",
+  "magazin",
   "genel",
 ]);
 
