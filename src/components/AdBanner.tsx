@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useConsent } from "@/components/privacy/ConsentProvider";
 
 const CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID;
 const AD_SLOT = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_SLOT;
@@ -14,8 +13,10 @@ type Props = {
 
 export default function AdBanner({ className = "", eligible = false }: Props) {
   const pushed = useRef(false);
-  const consent = useConsent();
-  const enabled = eligible && consent === "granted" && CMP_READY && CLIENT_ID && AD_SLOT;
+  // Once the certified Google CMP is enabled it becomes the advertising
+  // consent authority. AdSense receives the TCF signal itself; the local
+  // analytics preference must not be treated as a substitute for that signal.
+  const enabled = eligible && CMP_READY && CLIENT_ID && AD_SLOT;
 
   useEffect(() => {
     if (!enabled) return;

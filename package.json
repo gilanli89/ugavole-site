@@ -9,6 +9,9 @@
     "lint": "eslint",
     "test": "tsx --test tests/**/*.test.ts && NODE_OPTIONS=--conditions=react-server tsx scripts/social-config-smoke.ts && tsx scripts/social-outbox-smoke.ts",
     "import:legacy-wp": "tsx --env-file=.env.local scripts/wp-migrate.ts",
+    "import:editorial": "tsx --env-file=.env.local scripts/import-editorial.ts",
+    "cron:social": "tsx --env-file=.env.local scripts/run-signed-cron.ts social",
+    "cron:maintenance": "tsx --env-file=.env.local scripts/run-signed-cron.ts maintenance",
     "seed:legacy-list": "tsx --env-file=.env.local scripts/seed-content.ts"
   },
   "dependencies": {
@@ -28,6 +31,7 @@
     "react-leaflet": "^5.0.0",
     "rss-parser": "^3.13.0",
     "server-only": "^0.0.1",
+    "sharp": "^0.35.3",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {

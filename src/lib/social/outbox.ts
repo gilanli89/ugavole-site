@@ -5,6 +5,7 @@ import {
   getSocialAccountConfigs,
   publicAccountMetadata,
 } from "./config";
+import { buildPlatformCaptions } from "./format";
 import { loadApprovedImage } from "./media";
 import { createSocialAdminClient } from "./supabase-admin";
 import type {
@@ -63,23 +64,52 @@ function parsePayload(value: unknown): SocialOutboxJob["payload"] {
   };
 }
 
-async function snapshotApprovedMedia(input: {
+type ApprovedContentSnapshot = {
+  contentVersion: number;
+  mediaSha256: string | null;
+  captions: ReturnType<typeof buildPlatformCaptions>;
+};
+
+async function snapshotApprovedContent(input: {
   contentId: string;
   contentVersion: number;
-}): Promise<string | null> {
+  includeMedia: boolean;
+}): Promise<ApprovedContentSnapshot> {
   const supabase = createSocialAdminClient();
   const { data, error } = await supabase
     .from("content_items")
-    .select("cover_image_url,content_version")
+    .select("title,excerpt,category,cover_image_url,content_version")
     .eq("id", input.contentId)
     .maybeSingle();
-  if (error || !data) throw new Error("social_media_snapshot_content_unavailable");
+  if (error || !data) throw new Error("social_snapshot_content_unavailable");
   if (data.content_version !== input.contentVersion) {
-    throw new Error("social_media_snapshot_version_conflict");
+    throw new Error("social_snapshot_version_conflict");
   }
   const mediaUrl = data.cover_image_url?.trim();
-  if (!mediaUrl) return null;
-  return (await loadApprovedImage(mediaUrl)).sha256;
+  const mediaSha256 = input.includeMedia && mediaUrl
+    ? (await loadApprovedImage(mediaUrl)).sha256
+    : null;
+  return {
+    contentVersion: data.content_version,
+    mediaSha256,
+    captions: buildPlatformCaptions({
+      title: data.title,
+      excerpt: data.excerpt,
+      category: data.category,
+    }),
+  };
+}
+
+function mergeCaptions(
+  generated: ReturnType<typeof buildPlatformCaptions>,
+  overrides?: Partial<Record<SocialPlatform, string>>
+): Partial<Record<SocialPlatform, string>> {
+  return {
+    ...generated,
+    ...Object.fromEntries(
+      Object.entries(overrides ?? {}).filter(([, value]) => value?.trim())
+    ),
+  };
 }
 
 export function parseSocialOutboxJob(value: unknown): SocialOutboxJob {
@@ -142,9 +172,10 @@ export async function enqueueApprovedContent(input: {
   platforms?: SocialPlatform[];
   captions?: Partial<Record<SocialPlatform, string>>;
 }) {
-  const mediaSha256 = await snapshotApprovedMedia({
+  const snapshot = await snapshotApprovedContent({
     contentId: input.contentId,
     contentVersion: input.contentVersion,
+    includeMedia: true,
   });
   await syncSocialAccountMetadata();
   const supabase = createSocialAdminClient();
@@ -153,8 +184,8 @@ export async function enqueueApprovedContent(input: {
     p_expected_content_version: input.contentVersion,
     p_actor_id: input.actorId,
     p_platforms: input.platforms ?? null,
-    p_captions: input.captions ?? {},
-    p_media_sha256: mediaSha256,
+    p_captions: mergeCaptions(snapshot.captions, input.captions),
+    p_media_sha256: snapshot.mediaSha256,
   });
   if (error) throw new Error(`social_enqueue_failed:${error.code ?? "unknown"}`);
   return data as unknown;
@@ -169,10 +200,11 @@ export async function publishApprovedContent(input: {
   platforms?: SocialPlatform[];
   captions?: Partial<Record<SocialPlatform, string>>;
 }) {
-  const mediaSha256 = input.socialReady
-    ? await snapshotApprovedMedia({
+  const snapshot = input.socialReady
+    ? await snapshotApprovedContent({
         contentId: input.contentId,
         contentVersion: input.contentVersion,
+        includeMedia: true,
       })
     : null;
   if (input.socialReady) await syncSocialAccountMetadata();
@@ -184,8 +216,10 @@ export async function publishApprovedContent(input: {
     p_social_ready: input.socialReady,
     p_actor_id: input.actorId,
     p_platforms: input.platforms ?? null,
-    p_captions: input.captions ?? {},
-    p_media_sha256: mediaSha256,
+    p_captions: snapshot
+      ? mergeCaptions(snapshot.captions, input.captions)
+      : input.captions ?? {},
+    p_media_sha256: snapshot?.mediaSha256 ?? null,
   });
   if (error) throw new Error(`content_publish_failed:${error.code ?? "unknown"}`);
   return data as unknown;

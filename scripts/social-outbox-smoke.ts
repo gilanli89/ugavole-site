@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
-import { composeCaption, composeXText } from "../src/lib/social/format";
+import {
+  buildPlatformCaptions,
+  composeCaption,
+  composeXText,
+} from "../src/lib/social/format";
 import {
   createCronSignature,
   verifyCronSignature,
@@ -56,5 +60,16 @@ const instagramCaption = composeCaption(
   2_200
 );
 assert.equal(instagramCaption, "Kıbrıs gündemi\n\nhttps://ugavole.com/haber/ornek");
+
+const generated = buildPlatformCaptions({
+  title: "Girne'de Kalabalıktan Uzak Bir Gün Nasıl Geçirilir?",
+  excerpt: "Denizi, dağ eteklerini ve sakin mahalleleri bir güne sığdıran dengeli rota.",
+  category: "Gezi",
+});
+assert.match(generated.facebook, /Ugavole'de/);
+assert.match(generated.instagram, /#Ugavole/);
+assert.match(generated.instagram, /#KıbrısGezi/);
+assert.match(generated.x, /#KuzeyKıbrıs/);
+assert.ok(Array.from(generated.x).length <= 125);
 
 console.log("social-outbox smoke: ok (no network calls)");

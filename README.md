@@ -51,7 +51,21 @@ Staff erişiminde MFA zorunludur. İlk parola girişinde `/mfa` TOTP kurulumuna 
 
 Adaptörler varsayılan olarak kapalıdır. Platform kimliği, token, API sürümü ve hedef hesap eksikse hedef etkinleşmez. X ayrıca aylık gönderi kotası ve maliyet notu olmadan açılmaz. Gerçek ilk gönderiden önce staging/dry-run ve kullanıcı onayı gerekir.
 
+Facebook, Instagram ve X için varsayılan metinler aynı kopyayı çoğaltmaz: Facebook kısa özet ve okuma çağrısı, Instagram kaydet/paylaş çağrısı ile yerel hashtag seti, X ise kısa başlık ve iki hashtag üretir. Editör isterse onay anında hedef bazında metni değiştirebilir; teslim edilen metin ve görsel hash'i outbox içinde değişmez biçimde saklanır.
+
+Kod içinde hazır bulunan 20 editöryal yazıyı güvenli yayın hattına hazırlamak için önce admin/editör UUID'sini ve onay ibaresini `.env.local` içine koyup tek seferlik aktarımı çalıştırın:
+
+```bash
+EDITORIAL_IMPORT_CONFIRM=PREPARE_20_EDITORIAL_ITEMS
+UGAVOLE_EDITOR_ACTOR_ID=<AUTH_USER_UUID>
+npm run import:editorial
+```
+
+Aktarım görselleri `editorial-media` public bucket'ına 1200×630 JPEG olarak yükler ve içerikleri yalnız `approved` durumuna getirir; yayın, reklam ve sosyal paylaşım yine AAL2 editör kararını bekler.
+
 Cron çağrısı `POST /api/cron/social` uç noktasına zaman damgalı HMAC ile yapılır. Aynı imza ikinci kez kullanılamaz. PII ve kötüye kullanım kayıtlarının süreli temizliği için aynı imza biçimini kullanan `POST /api/cron/maintenance` günlük çalıştırılmalıdır; bunun sırrı ayrıdır.
+
+Hostinger zamanlayıcısı imzayı kendisi üretmek için `npm run cron:social` (dakikada bir) ve `npm run cron:maintenance` (günde bir) komutlarını çalıştırabilir. Sırlar yalnız hosting ortamında tutulur.
 
 ## Reklam ve gizlilik
 
@@ -63,6 +77,8 @@ AdSense varsayılan olarak kapalıdır. Reklam için aynı anda şunlar gerekir:
 - geçerli AdSense client/slot ayarları.
 
 Google-certified CMP hesabı, IAB TCF sinyali ve AdSense ile uyumlu istek-bazlı nonce CSP doğrulanmadan bu bayrağı açmayın. Bayrak tek başına CMP veya politika uyumluluğu sağlamaz; yeni CSP'yi önce Report-Only olarak ölçün.
+
+Kök dizindeki `ads.txt` ve `google-adsense-account` meta etiketi yayıncı `pub-7117498587512923` için hazırlanmıştır. Reklam script'i yalnız certified CMP bayrağı açıldıktan sonra yüklenir; içerik içi slotlar ayrıca veritabanındaki açık `ad_eligible` kararını ister.
 
 ## Üretim kapıları
 
