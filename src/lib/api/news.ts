@@ -184,7 +184,7 @@ async function fetchHeadlinesUncached(region?: "kuzey" | "guney" | "dunya" | "en
 
 const fetchHeadlinesCached = unstable_cache(
   fetchHeadlinesUncached,
-  ["ugavole-rss-headlines-v1"],
+  ["ugavole-rss-headlines-v2"],
   { revalidate: 300 }
 );
 
@@ -221,7 +221,7 @@ async function fetchAllNewsUncached(): Promise<Article[]> {
 
 const fetchAllNewsCached = unstable_cache(
   fetchAllNewsUncached,
-  ["ugavole-all-news-v1"],
+  ["ugavole-all-news-v2"],
   { revalidate: 900 }
 );
 
