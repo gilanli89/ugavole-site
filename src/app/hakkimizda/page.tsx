@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import UgavoleMark from "@/components/ui/UgavoleMark";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -11,7 +12,7 @@ export default function HakkimizdaPage() {
     <div className="max-w-3xl mx-auto px-4 py-10">
       {/* Hero */}
       <div className="text-center mb-12">
-        <div className="text-5xl mb-4">🐴</div>
+        <UgavoleMark size={64} className="mx-auto mb-5" />
         <h1 className="text-4xl font-black text-ugavole-text mb-3">
           <span className="text-ugavole-text">uga</span>
           <span className="text-[#D4A017] dark:text-[#F5C518]">vole</span>

@@ -1,0 +1,42 @@
+type Props = {
+  size?: number;
+  className?: string;
+  title?: string;
+};
+
+export default function UgavoleMark({ size = 40, className = "", title = "Ugavole" }: Props) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label={title}
+      className={className}
+    >
+      <rect width="64" height="64" rx="18" fill="#171713" />
+
+      {/* Ugavole'nin uzun kulaklı, tek parça eşek silüeti */}
+      <path
+        d="M18.2 25.2C14.7 20.1 13.5 10.1 17.2 7.2C18.6 6.1 20.2 6.5 21.3 8C24.1 11.7 24.4 18.2 23.5 23.2M45.8 25.2C49.3 20.1 50.5 10.1 46.8 7.2C45.4 6.1 43.8 6.5 42.7 8C39.9 11.7 39.6 18.2 40.5 23.2"
+        stroke="#F5C518"
+        strokeWidth="7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M15 33.5C15 23.3 22.6 17 32 17C41.4 17 49 23.3 49 33.5V39C49 49.7 42.2 57 32 57C21.8 57 15 49.7 15 39V33.5Z"
+        fill="#F5C518"
+      />
+
+      {/* Nokta gözler ve eşeği küçük boyutta da ayırt eden uzun burun */}
+      <circle cx="25.5" cy="33" r="2.5" fill="#171713" />
+      <circle cx="38.5" cy="33" r="2.5" fill="#171713" />
+      <path d="M21 43C21 37.8 25.2 35 32 35C38.8 35 43 37.8 43 43V45.5C43 52 38.7 56 32 56C25.3 56 21 52 21 45.5V43Z" fill="#F4E9C9" />
+      <circle cx="27.5" cy="44" r="1.6" fill="#171713" />
+      <circle cx="36.5" cy="44" r="1.6" fill="#171713" />
+      <path d="M28 50C30.5 51.5 33.5 51.5 36 50" stroke="#171713" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
