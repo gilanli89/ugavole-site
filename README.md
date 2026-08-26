@@ -63,9 +63,9 @@ npm run import:editorial
 
 Aktarım görselleri `editorial-media` public bucket'ına 1200×630 JPEG olarak yükler ve içerikleri yalnız `approved` durumuna getirir; yayın, reklam ve sosyal paylaşım yine AAL2 editör kararını bekler.
 
-Cron çağrısı `POST /api/cron/social` uç noktasına zaman damgalı HMAC ile yapılır. Aynı imza ikinci kez kullanılamaz. PII ve kötüye kullanım kayıtlarının süreli temizliği için aynı imza biçimini kullanan `POST /api/cron/maintenance` günlük çalıştırılmalıdır; bunun sırrı ayrıdır.
+Cron çağrıları zaman damgalı HMAC kullanır; aynı imza ikinci kez kullanılamaz. `POST /api/cron/editorial` en fazla bir RSS maddesinden özel editör taslağı oluşturur, asla doğrudan yayın yapmaz. PII ve kötüye kullanım kayıtlarının süreli temizliği için `POST /api/cron/maintenance` günlük çalıştırılmalıdır; her işin sırrı ayrıdır.
 
-Hostinger zamanlayıcısı imzayı kendisi üretmek için `npm run cron:social` (dakikada bir) ve `npm run cron:maintenance` (günde bir) komutlarını çalıştırabilir. Sırlar yalnız hosting ortamında tutulur.
+Hostinger zamanlayıcısı imzayı kendisi üretmek için `npm run cron:editorial` (başlangıçta 4 saatte bir), `npm run cron:social` (dakikada bir) ve `npm run cron:maintenance` (günde bir) komutlarını çalıştırabilir. Sırlar yalnız hosting ortamında tutulur.
 
 ## Reklam ve gizlilik
 

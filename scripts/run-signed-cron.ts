@@ -2,19 +2,26 @@ import { createCronSignature } from "../src/lib/social/hmac";
 
 async function main() {
   const job = process.argv[2];
-  if (job !== "social" && job !== "maintenance") {
-    throw new Error("Usage: tsx scripts/run-signed-cron.ts <social|maintenance>");
+  if (job !== "social" && job !== "maintenance" && job !== "editorial") {
+    throw new Error("Usage: tsx scripts/run-signed-cron.ts <social|maintenance|editorial>");
   }
 
-  const secret = job === "social"
-    ? process.env.SOCIAL_CRON_SECRET
-    : process.env.RETENTION_CRON_SECRET;
+  const secretName = job === "social"
+    ? "SOCIAL_CRON_SECRET"
+    : job === "maintenance"
+      ? "RETENTION_CRON_SECRET"
+      : "EDITORIAL_CRON_SECRET";
+  const secret = process.env[secretName];
   const siteUrl = (process.env.UGAVOLE_SITE_URL ?? "https://ugavole.com").replace(/\/$/, "");
   if (!secret || secret.length < 32) {
-    throw new Error(`${job === "social" ? "SOCIAL_CRON_SECRET" : "RETENTION_CRON_SECRET"} is missing or too short.`);
+    throw new Error(`${secretName} is missing or too short.`);
   }
 
-  const rawBody = job === "social" ? JSON.stringify({ batchSize: 1 }) : "{}";
+  const rawBody = job === "social"
+    ? JSON.stringify({ batchSize: 1 })
+    : job === "editorial"
+      ? JSON.stringify({ maxDrafts: 1 })
+      : "{}";
   const timestamp = Math.floor(Date.now() / 1_000);
   const signature = createCronSignature(secret, timestamp, rawBody);
   const response = await fetch(`${siteUrl}/api/cron/${job}`, {

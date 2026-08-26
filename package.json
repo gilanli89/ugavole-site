@@ -12,6 +12,7 @@
     "import:editorial": "tsx --env-file=.env.local scripts/import-editorial.ts",
     "cron:social": "tsx --env-file=.env.local scripts/run-signed-cron.ts social",
     "cron:maintenance": "tsx --env-file=.env.local scripts/run-signed-cron.ts maintenance",
+    "cron:editorial": "tsx --env-file=.env.local scripts/run-signed-cron.ts editorial",
     "seed:legacy-list": "tsx --env-file=.env.local scripts/seed-content.ts"
   },
   "dependencies": {
