@@ -12,6 +12,11 @@ const CATEGORY_NAMES: Record<string, string> = {
   spor: "Spor",
   kultur: "Kültür",
   teknoloji: "Teknoloji",
+  dunya: "Dünya",
+  "bilim-uzay": "Bilim & Uzay",
+  saglik: "Sağlık",
+  "yeme-icme": "Yeme-İçme",
+  magazin: "Magazin",
   genel: "Genel",
   diger: "Diğer",
 };

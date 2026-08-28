@@ -6,8 +6,18 @@ type EditorialArticle = {
   excerpt: string;
   content: string;
   cover_image: string;
-  category: "Gezi" | "Kültür" | "Yemek" | "Yaşam" | "Eğlence";
+  category:
+    | "Gezi"
+    | "Kültür"
+    | "Yemek"
+    | "Yaşam"
+    | "Eğlence"
+    | "Dünya"
+    | "Ekonomi"
+    | "Teknoloji"
+    | "Bilim & Uzay";
   published_at: string;
+  original_source_url?: string;
 };
 
 function editorial(input: EditorialArticle): Article {
@@ -16,8 +26,11 @@ function editorial(input: EditorialArticle): Article {
     title: input.title,
     excerpt: input.excerpt,
     content: input.content.trim(),
-    cover_image: `${input.cover_image}?auto=format&fit=crop&w=1400&q=82`,
+    cover_image: input.cover_image.includes("images.unsplash.com")
+      ? `${input.cover_image}?auto=format&fit=crop&w=1400&q=82`
+      : input.cover_image,
     source_url: `https://ugavole.com/haber/${input.slug}`,
+    original_source_url: input.original_source_url,
     source_name: "ugavole",
     category: input.category,
     published_at: input.published_at,
@@ -27,6 +40,124 @@ function editorial(input: EditorialArticle): Article {
 }
 
 export const EDITORIAL_ARTICLES: Article[] = [
+  editorial({
+    slug: "nasa-roman-uzay-teleskobu-firlatmaya-hazir",
+    title: "NASA'nın Roman Uzay Teleskobu Fırlatma İçin Son Onayı Aldı",
+    excerpt: "Karanlık enerji, karanlık madde ve ötegezegenleri araştıracak Nancy Grace Roman Uzay Teleskobu için geri sayım başladı; hedef tarih 30 Ağustos.",
+    category: "Bilim & Uzay",
+    published_at: "2026-08-28T22:05:00+03:00",
+    cover_image: "https://assets.science.nasa.gov/dynamicimage/assets/science/astro/universe/2023/09/Roman-1.png",
+    original_source_url: "https://science.nasa.gov/blogs/roman/2026/08/28/nasas-roman-space-telescope-go-for-launch/",
+    content: `
+<p>NASA, Nancy Grace Roman Uzay Teleskobu'nun fırlatma hazırlık incelemesini tamamladığını ve görevin geri sayıma geçmeye hazır olduğunu 28 Ağustos'ta açıkladı. Son değerlendirmede teleskop, SpaceX Falcon Heavy roketi, hava koşulları ve görev ekiplerinin durumu birlikte incelendi.</p>
+
+<h2>Hedef 30 Ağustos</h2>
+<p>Fırlatma, Florida'daki Kennedy Uzay Merkezi'nin 39A rampasından 30 Ağustos Pazar günü ABD doğu saatiyle 07.26'da planlanıyor. Bu saat Kıbrıs'ta 14.26'ya denk geliyor. ABD Uzay Kuvvetleri meteorologları, şu an için uygun hava ihtimalini yüzde 60 olarak hesaplıyor; program hava ve teknik koşullara bağlı olarak değişebilir.</p>
+
+<h2>Roman neyi araştıracak?</h2>
+<p>Roman'ın geniş ve derin gökyüzü taramaları; karanlık enerji ile karanlık maddenin doğasını araştırmaya, milyarlarca galaksiyi haritalamaya ve Güneş Sistemi dışındaki gezegenleri bulup incelemeye yardımcı olacak. Teleskobun Geniş Alan Aracı, Hubble'ın kızılötesi kamerasından en az 100 kat daha geniş bir görüş alanına sahip olacak.</p>
+
+<p>Görev aynı zamanda yıldız ışığını bastırarak ötegezegenleri doğrudan görüntülemeyi hedefleyen koronagraf teknolojisini de sınayacak. İşlenen Roman verilerinin bilim insanları ve kamuoyu için açık biçimde paylaşılması planlanıyor.</p>
+
+<p><strong>Kaynak notu:</strong> Bilgiler NASA'nın 28 Ağustos 2026 tarihli görev güncellemesine dayanıyor. Kapak görseli NASA'ya aittir.</p>
+    `,
+  }),
+  editorial({
+    slug: "google-site-itibari-politikasi-avrupa-degisiklik",
+    title: "Google, Avrupa'da 'Site İtibarı' Yaptırımını Değiştiriyor",
+    excerpt: "30 Ağustos'tan itibaren AEA'daki arama sonuçlarında manuel cezaların etkisi değişecek; üçüncü taraf bölümler ana siteden bağımsız değerlendirilebilecek.",
+    category: "Teknoloji",
+    published_at: "2026-08-28T22:04:00+03:00",
+    cover_image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    original_source_url: "https://developers.google.com/search/blog/2026/08/update-site-reputation-policy",
+    content: `
+<p>Google, güvenilir bir alan adının sıralama gücünden yararlanmak amacıyla o sitede yayımlanan üçüncü taraf içeriklere karşı uyguladığı “site itibarı kötüye kullanımı” politikasını Avrupa Ekonomik Alanı'nda farklı biçimde uygulayacağını duyurdu. Değişiklik 30 Ağustos'ta başlayacak.</p>
+
+<h2>AEA içinde ve dışında farklı sonuç</h2>
+<p>Avrupa Ekonomik Alanı dışındaki kullanıcılarda, bu politika kapsamında verilen manuel işlem ilgili site bölümünün arama sonuçlarını doğrudan etkilemeye devam edecek. AEA içindeki aramalarda ise manuel işlemin bu doğrudan etkisi uygulanmayacak.</p>
+
+<p>Bu, politikanın Avrupa'da kaldırıldığı anlamına gelmiyor. Google, sorunlu görülen bölümün zaman içinde ana sitenin sıralama sinyallerinden ayrılarak kendi itibarıyla değerlendirilmesini sağlayabileceğini söylüyor. Böylece güçlü bir yayıncı alan adı altında yer alan bağımsız kupon, inceleme veya ortaklık içeriği otomatik olarak ana sitenin otoritesinden yararlanamayabilir.</p>
+
+<h2>Yayıncılar için ne değişiyor?</h2>
+<p>Site sahipleri manuel işlemler hakkında Search Console üzerinden bildirim almaya devam edecek. Hatalı karar verildiğini düşünenler yeniden değerlendirme isteyebilecek; uygun siteler için arabuluculuk yolu da açık olacak.</p>
+
+<p>Google, değişikliğin Avrupa Komisyonu ile yapılan görüşmelerin ardından hazırlandığını belirtiyor. Yayıncılar açısından en güvenli yaklaşım ise üçüncü taraf içeriğin kim tarafından üretildiğini, neden aynı alan adında bulunduğunu ve kullanıcıya gerçek bir editoryal değer sunup sunmadığını açık tutmak.</p>
+
+<p><strong>Kaynak notu:</strong> Haber, Google Search Quality ekibinin 28 Ağustos 2026 tarihli resmî duyurusundan özgün biçimde hazırlanmıştır. Kapak görseli temsilidir.</p>
+    `,
+  }),
+  editorial({
+    slug: "fed-warsh-enflasyon-faiz-mesaji-jackson-hole",
+    title: "Fed Başkanı Warsh Enflasyonda Temkinli: 'Bir Karara Değil, Disipline Bağlıyım'",
+    excerpt: "Jackson Hole'daki ilk başkanlık konuşmasında yüzde 2 hedefini yineleyen Warsh, enflasyon yeterince hızlı gerilemezse Fed'in harekete geçmesi gerektiğini söyledi.",
+    category: "Ekonomi",
+    published_at: "2026-08-28T22:03:00+03:00",
+    cover_image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3",
+    original_source_url: "https://www.federalreserve.gov/newsevents/speech/warsh20260828a.htm",
+    content: `
+<p>ABD Merkez Bankası Başkanı Kevin Warsh, göreve gelişinin 100. gününde yaptığı Jackson Hole konuşmasında enflasyon konusunda gevşemeye hazır olmadığı mesajını verdi. Warsh, Fed'in yüzde 2'lik kişisel tüketim harcamaları enflasyonu hedefinin “sabit ve kesin” olduğunu vurguladı.</p>
+
+<h2>Faiz kararı için kapı açık</h2>
+<p>Warsh belirli bir faiz kararına söz vermedi. Ancak temel enflasyonun hedefe açık biçimde ve yeterli hızda ilerlediğinden emin olunamaması hâlinde Fed'in “yapacak işi” bulunduğunu söyledi. Kısa vadeli faizleri çift hedefe ulaşmak için temel araç olarak tanımlaması, piyasalarda gelecek toplantılarda faiz artışı ihtimalinin yeniden değerlendirilmesine yol açtı.</p>
+
+<p>Başkan aynı zamanda sürekli ileri yönlendirmenin normal dönemlerde sınırlı kullanılması gerektiğini savundu. Ona göre merkez bankasının gelecekteki kararlara fazla erken bağlanması hem piyasalara yanlış güven verebilir hem de yeni veriler geldiğinde Fed'in hareket alanını daraltabilir.</p>
+
+<h2>Ekonomi güçlü, fiyat baskısı sürüyor</h2>
+<p>Warsh, ABD ekonomisinin şoklara karşı dirençli kaldığını ve şirket yatırımlarının hızlandığını söyledi. Yapay zekâ altyapısının bu yılki sermaye harcaması büyümesinin yarıdan fazlasını oluşturabileceğini belirtti. Buna karşın güçlü büyümenin enflasyon riskini kendiliğinden ortadan kaldırmadığına dikkat çekti.</p>
+
+<p>Konuşmanın ana mesajı kesin bir faiz tahmini değil, veriye göre hareket etme sözüydü: Warsh'ın ifadesiyle Fed “bir karara değil, bir disipline” bağlı kalacak.</p>
+
+<p><strong>Kaynak notu:</strong> Haber, ABD Merkez Bankası'nın 28 Ağustos 2026 tarihli resmî konuşma metnine dayanıyor. Kapak görseli temsilidir.</p>
+    `,
+  }),
+  editorial({
+    slug: "nepal-cin-sinir-seli-arama-kurtarma-suruyor",
+    title: "Nepal-Çin Sınırındaki Selde Bilanço Ağırlaşıyor, Binlerce Kişi Aranıyor",
+    excerpt: "Buzul çökmesinin tetiklediği düşünülen sel ve enkaz akışının ardından kurtarma ekipleri çamur içinde çalışıyor; yeni taşkın riski de izleniyor.",
+    category: "Dünya",
+    published_at: "2026-08-28T22:02:00+03:00",
+    cover_image: "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/nepal5.png",
+    original_source_url: "https://apnews.com/article/1f3d0ccf432eed879020e18efcab3146",
+    content: `
+<p>Nepal ile Çin'in Tibet bölgesi arasındaki Himalaya sınırında meydana gelen yıkıcı selin ardından arama kurtarma çalışmaları 28 Ağustos'ta da sürdü. Ekipler, yerleşimlerin ve yolların çamur ile moloz altında kaldığı bölgelerde kayıplara ulaşmaya çalışıyor.</p>
+
+<h2>Rakamlar hızla değişiyor</h2>
+<p>Associated Press'in 28 Ağustos güncellemesinde Nepal Ulusal Afet Riskini Azaltma ve Yönetim Kurumu, ülkedeki can kaybını 579; kayıp sayısını 1.924 olarak bildirdi. Nepal'de 3.700'den fazla kişi kurtarıldı. Çin devlet yayıncısı CCTV ise Tibet tarafında beş kişinin öldüğünü, 558 kişinin kayıp olduğunu aktardı.</p>
+
+<p>Bu sayılar sahadaki yeni bildirimlerle değişebileceği için anlık bir tablo olarak değerlendirilmeli. Kayıplar arasında farklı ülkelerden ziyaretçiler ve bölge sakinleri bulunuyor.</p>
+
+<h2>Yaklaşık 100 kilometrelik yıkım hattı</h2>
+<p>ABD Jeoloji Araştırmaları Kurumu'nun ön incelemesine göre felaket, Langtang Ulusal Parkı yakınındaki buzullu bir dağ yamacında meydana gelen büyük çöküşle başladı. Eriyen buz, su, kaya ve toprak nehir yataklarında hız kazanarak yaklaşık 100 kilometre ilerledi. İlk olayın ürettiği sismik enerji 5,2 büyüklüğünde bir depreme eşdeğer ölçüldü.</p>
+
+<p>Yetkililer, yukarı havzada oluşan doğal set gölünü ve yeni taşkın ihtimalini izliyor. Çin makamları göl seviyesinin zirveden yaklaşık 10 metre gerilediğini bildirse de riskli bölgelerdeki halka daha güvenli alanlara geçme çağrısı yapıldı.</p>
+
+<p><strong>Kaynak notu:</strong> Bilanço AP'nin 28 Ağustos 2026 tarihli canlı güncellemesine, olayın bilimsel açıklaması USGS'nin 27 Ağustos ön incelemesine dayanıyor. Kapak haritası USGS tarafından kamu malı olarak yayımlanmıştır.</p>
+    `,
+  }),
+  editorial({
+    slug: "norvec-krali-harald-v-hayatini-kaybetti",
+    title: "Norveç Kralı Harald V Hayatını Kaybetti, Haakon VIII Dönemi Başladı",
+    excerpt: "35 yıldır tahtta bulunan Harald V, Oslo'da 89 yaşında yaşamını yitirdi; oğlu Haakon anayasa gereği otomatik olarak kral oldu.",
+    category: "Dünya",
+    published_at: "2026-08-28T22:01:00+03:00",
+    cover_image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/King_Harald_V_may_2026_%28cropped%29.jpg",
+    original_source_url: "https://www.kongehuset.no/nyheter/kong-harald-v-er-dod",
+    content: `
+<p>Norveç Kraliyet Sarayı, Kral Harald V'in 28 Ağustos Cuma sabahı Oslo'daki Rikshospitalet'te 06.35'te hayatını kaybettiğini açıkladı. Avrupa'nın en yaşlı hükümdarı olan Harald 89 yaşındaydı.</p>
+
+<h2>Taht otomatik olarak Haakon'a geçti</h2>
+<p>Norveç anayasası uyarınca veliaht prens Haakon, babasının ölümüyle birlikte Haakon VIII adıyla kral oldu. Norveç'te monarşi büyük ölçüde sembolik bir role sahip; siyasi yetki seçilmiş parlamento ve hükümet tarafından kullanılıyor.</p>
+
+<p>Harald V, babası Olav V'in ölümünün ardından Ocak 1991'de tahta çıkmış ve 35 yıl boyunca ülkenin devlet başkanı olarak görev yapmıştı. Başbakan Jonas Gahr Støre, Norveç'in yas içinde olduğunu belirterek kralın ülkeye uzun yıllar hizmet ettiğini söyledi.</p>
+
+<h2>Savaş yıllarından modern monarşiye</h2>
+<p>1937'de doğan Harald, Nazi işgali sırasında henüz üç yaşındayken annesi ve kız kardeşleriyle önce İsveç'e, ardından Amerika Birleşik Devletleri'ne götürüldü. Aile 1945'te Norveç'e döndü. Harald daha sonra askerî eğitim aldı, Oxford Üniversitesi'nde okudu ve ülkesini yelkende üç Olimpiyat Oyunları'nda temsil etti.</p>
+
+<p>1968'de, uzun süren bekleyişin ardından Sonja Haraldsen ile evlenmesi Norveç monarşisinin daha modern ve halka yakın bir çizgiye yönelmesinin önemli simgelerinden biri oldu.</p>
+
+<p><strong>Kaynak notu:</strong> Ölüm saati ve resmî duyuru Norveç Kraliyet Sarayı'ndan; tarihsel bilgiler Associated Press'in 28 Ağustos 2026 tarihli haberinden doğrulandı. Görsel: Prime Minister's Office, Government of India / GODL-India.</p>
+    `,
+  }),
   editorial({
     slug: "lefkosada-bir-gun-surlarici-rotasi",
     title: "Lefkoşa Surlariçi'nde Bir Gün: Acele Etmeden İzlenecek Rota",

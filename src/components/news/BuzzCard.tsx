@@ -49,6 +49,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   Gündem: "bg-orange-500",
   Siyaset: "bg-blue-600",
   Ekonomi: "bg-green-600",
+  Dünya: "bg-red-600",
   Spor: "bg-purple-600",
   "Kültür": "bg-pink-600",
   Teknoloji: "bg-cyan-600",

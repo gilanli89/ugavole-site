@@ -10,6 +10,7 @@ const CATEGORIES = [
   { label: "Gündem", value: "gundem" },
   { label: "Siyaset", value: "siyaset" },
   { label: "Ekonomi", value: "ekonomi" },
+  { label: "Dünya", value: "dunya" },
   { label: "Spor", value: "spor" },
   { label: "Kültür", value: "kultur" },
   { label: "Teknoloji", value: "teknoloji" },

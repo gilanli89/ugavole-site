@@ -18,6 +18,10 @@ const CAT_META: Record<string, { color: string; bg: string; emoji: string }> = {
   Eğlence:  { color: "text-orange-600 dark:text-orange-400",   bg: "bg-orange-100 dark:bg-orange-900/30",   emoji: "😄" },
   Yemek:    { color: "text-amber-600 dark:text-amber-400",     bg: "bg-amber-100 dark:bg-amber-900/30",     emoji: "🍽️" },
   Yaşam:    { color: "text-purple-600 dark:text-purple-400",   bg: "bg-purple-100 dark:bg-purple-900/30",   emoji: "🏡" },
+  Dünya:    { color: "text-red-600 dark:text-red-400",         bg: "bg-red-100 dark:bg-red-900/30",         emoji: "🌍" },
+  Ekonomi:  { color: "text-green-600 dark:text-green-400",     bg: "bg-green-100 dark:bg-green-900/30",     emoji: "📈" },
+  Teknoloji:{ color: "text-cyan-600 dark:text-cyan-400",       bg: "bg-cyan-100 dark:bg-cyan-900/30",       emoji: "💻" },
+  "Bilim & Uzay": { color: "text-indigo-600 dark:text-indigo-400", bg: "bg-indigo-100 dark:bg-indigo-900/30", emoji: "🚀" },
   Genel:    { color: "text-gray-600 dark:text-gray-400",       bg: "bg-gray-100 dark:bg-gray-800",          emoji: "📌" },
 };
 
