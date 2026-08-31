@@ -1,11 +1,13 @@
 export type SozlukEntry = {
-  id: number;
+  id: number | string;
   kibrisca: string;
+  aliases?: string[];
   anlam: string;
   cumle: string;
   kategori: "günlük" | "argo" | "deyim" | "anlam farkı" | "ünlem" | "yemek" | "kültür" | "sevgi" | "doğa" | "alet" | "araç" | "mekan";
   emoji: string;
   zorluk: "kolay" | "orta" | "zor";
+  source?: "curated" | "community";
 };
 
 export const sozlukData: SozlukEntry[] = [
@@ -44,13 +46,13 @@ export const sozlukData: SozlukEntry[] = [
 
   // ── B ────────────────────────────────────────────────────────
   { id: 30, kibrisca: "Babavura",        anlam: "Uğur böceği",                                  cumle: "Babavura koluma kondu, şans getirir",                kategori: "doğa",       emoji: "🐞", zorluk: "kolay" },
-  { id: 31, kibrisca: "Babuç",           anlam: "Pabuç, ayakkabı",                              cumle: "Babuçlarını kapının önüne bırak",                    kategori: "günlük",     emoji: "👟", zorluk: "kolay" },
+  { id: 31, kibrisca: "Babuç", aliases: ["Babiç"], anlam: "Pabuç, ayakkabı",                    cumle: "Babuçlarını kapının önüne bırak",                    kategori: "günlük",     emoji: "👟", zorluk: "kolay" },
   { id: 32, kibrisca: "Babutsa",         anlam: "Dikenli mısır inciri (kaktüs meyvesi)",        cumle: "Babutsa toplarken dikkat et dikenlerine",            kategori: "yemek",      emoji: "🌵", zorluk: "zor"   },
   { id: 33, kibrisca: "Bango",           anlam: "Tezgah, sayaç",                                cumle: "Bankoda oturup satıyordu sebzelerini",               kategori: "mekan",      emoji: "🪧", zorluk: "orta"  },
   { id: 34, kibrisca: "Bandofla",        anlam: "Terlik",                                       cumle: "Bandoflaları kapıda bırak içeri girme",              kategori: "günlük",     emoji: "🩴", zorluk: "kolay" },
   { id: 35, kibrisca: "Badadez",         anlam: "Patates",                                      cumle: "Badadez kızartması yaptım akşama",                   kategori: "yemek",      emoji: "🥔", zorluk: "kolay" },
   { id: 36, kibrisca: "Barra",           anlam: "Tahta direk; birisini defetmek için argo",     cumle: "Barra ona, gitsin oradan",                           kategori: "argo",       emoji: "🪵", zorluk: "orta"  },
-  { id: 37, kibrisca: "Basadembo",       anlam: "Tuzlu kabak çekirdeği",                        cumle: "Basadembo yer misin, getireyim?",                    kategori: "yemek",      emoji: "🌰", zorluk: "orta"  },
+  { id: 37, kibrisca: "Basadembo", aliases: ["Pasedembo"], anlam: "Tuzlu kabak çekirdeği",      cumle: "Basadembo yer misin, getireyim?",                    kategori: "yemek",      emoji: "🌰", zorluk: "orta"  },
   { id: 38, kibrisca: "Bandabulya",      anlam: "Belediye kapalı çarşısı, pazar yeri",          cumle: "Bandabulyadan taze sebze aldım sabah",               kategori: "mekan",      emoji: "🏪", zorluk: "orta"  },
   { id: 39, kibrisca: "Basbalya",        anlam: "Tokat, şaplak",                                cumle: "Bir basbalya yiyeceksin o kafayla",                  kategori: "günlük",     emoji: "👊", zorluk: "kolay" },
   { id: 40, kibrisca: "Basdiş",          anlam: "Acı badem kurabiyesi",                         cumle: "Nene her yıl basdiş yapar bayramda",                 kategori: "yemek",      emoji: "🍪", zorluk: "zor"   },
@@ -81,7 +83,7 @@ export const sozlukData: SozlukEntry[] = [
   { id: 63, kibrisca: "Cira",            anlam: "Rum Kıbrıslı kadın",                           cumle: "Komşu cira bize portakal getirdi",                   kategori: "kültür",     emoji: "👩", zorluk: "orta"  },
   { id: 64, kibrisca: "Cirilenmek",      anlam: "Yuvarlanmak",                                  cumle: "Çocuk tepeden aşağı cirilendi",                      kategori: "günlük",     emoji: "🔄", zorluk: "orta"  },
   { id: 65, kibrisca: "Cigla",           anlam: "Ardıçkuşu",                                    cumle: "Cigla kışın gelir bu tarafa",                        kategori: "doğa",       emoji: "🐦", zorluk: "zor"   },
-  { id: 66, kibrisca: "Cizro",           anlam: "Ağustos böceği",                               cumle: "Yazın cizrolar hiç susmaz",                          kategori: "doğa",       emoji: "🦗", zorluk: "orta"  },
+  { id: 66, kibrisca: "Cizro", aliases: ["Zirziro"], anlam: "Ağustos böceği",                   cumle: "Yazın cizrolar hiç susmaz",                          kategori: "doğa",       emoji: "🦗", zorluk: "orta"  },
 
   // ── Ç ────────────────────────────────────────────────────────
   { id: 67, kibrisca: "Çakizdez",        anlam: "Tuzlu kırılmış ve kurutulmuş yeşil zeytin",   cumle: "Çakizdez olmadan kahvaltı olmaz",                    kategori: "yemek",      emoji: "🫒", zorluk: "orta"  },
@@ -218,18 +220,18 @@ export const sozlukData: SozlukEntry[] = [
 
   // ── P ────────────────────────────────────────────────────────
   { id: 174,kibrisca: "Pataniya",        anlam: "Battaniye",                                    cumle: "Pataniyeyi al soğuk var",                            kategori: "günlük",     emoji: "🛌", zorluk: "kolay" },
-  { id: 175,kibrisca: "Pasedembo",       anlam: "Kabak çekirdeği",                              cumle: "Pasedembo çıtlatırken film izledik",                 kategori: "yemek",      emoji: "🌰", zorluk: "kolay" },
+  { id: 175,kibrisca: "Pasedembo", aliases: ["Basadembo"], anlam: "Kabak çekirdeği",            cumle: "Pasedembo çıtlatırken film izledik",                 kategori: "yemek",      emoji: "🌰", zorluk: "kolay" },
   { id: 176,kibrisca: "Paneri",          anlam: "Hasırdan yapılmış yerel tepsi",                cumle: "Panerde kurutuyorlar incirleri",                     kategori: "kültür",     emoji: "🧺", zorluk: "orta"  },
   { id: 177,kibrisca: "Pasdelli",        anlam: "Susamlı ve ballı kuru tatlı",                  cumle: "Pasdelli kesmeden düğün olmaz",                      kategori: "yemek",      emoji: "🍯", zorluk: "orta"  },
   { id: 178,kibrisca: "Patariya",        anlam: "Pil veya araba aküsü",                        cumle: "Patariva bitti, telefon kapandı",                    kategori: "alet",       emoji: "🔋", zorluk: "kolay" },
   { id: 179,kibrisca: "Penna",           anlam: "Tükenmez kalem",                               cumle: "Pennayı ver bir şey yazacağım",                      kategori: "alet",       emoji: "✏️", zorluk: "kolay" },
   { id: 180,kibrisca: "Perisgan",        anlam: "Suyla karıştırılıp içilen sodalı toz",         cumle: "Perisgan iç misin, karnın şişkinse iyi gelir",       kategori: "yemek",      emoji: "🥤", zorluk: "orta"  },
   { id: 181,kibrisca: "Pilavuna",        anlam: "Peynir ve kuru üzümlü börek",                  cumle: "Pilavuna yaparken lor peyniri kullan",               kategori: "yemek",      emoji: "🥟", zorluk: "orta"  },
-  { id: 182,kibrisca: "Pirilli",         anlam: "Misket, bilye",                                cumle: "Pirilli oynadık avluda çocukken",                    kategori: "kültür",     emoji: "⚪", zorluk: "kolay" },
+  { id: 182,kibrisca: "Pirilli", aliases: ["Pirili"], anlam: "Misket, bilye",                    cumle: "Pirilli oynadık avluda çocukken",                    kategori: "kültür",     emoji: "⚪", zorluk: "kolay" },
   { id: 183,kibrisca: "Pirohu",          anlam: "Kıbrıs usulü peynirli börek",                  cumle: "Pirohu yap öğlene, bayıldım buna",                   kategori: "yemek",      emoji: "🥟", zorluk: "orta"  },
   { id: 184,kibrisca: "Piron",           anlam: "Çatal",                                        cumle: "Pironu masaya koy, yemek hazır",                     kategori: "günlük",     emoji: "🍴", zorluk: "kolay" },
-  { id: 185,kibrisca: "Piskot",          anlam: "Bisküvi",                                      cumle: "Piskot ver çaya bandırayım",                         kategori: "yemek",      emoji: "🍪", zorluk: "kolay" },
-  { id: 186,kibrisca: "Pesgir",          anlam: "Havlu",                                        cumle: "Pesgiri al elini sil",                               kategori: "günlük",     emoji: "🧴", zorluk: "kolay" },
+  { id: 185,kibrisca: "Piskot", aliases: ["Pisgot"], anlam: "Bisküvi",                          cumle: "Piskot ver çaya bandırayım",                         kategori: "yemek",      emoji: "🍪", zorluk: "kolay" },
+  { id: 186,kibrisca: "Pesgir", aliases: ["Tor"], anlam: "Havlu",                               cumle: "Pesgiri al elini sil",                               kategori: "günlük",     emoji: "🧴", zorluk: "kolay" },
   { id: 187,kibrisca: "Potin",           anlam: "Ayakkabı, bot",                                cumle: "Potinleri çıkar içeri girme",                        kategori: "günlük",     emoji: "👟", zorluk: "kolay" },
   { id: 188,kibrisca: "Pünez",           anlam: "Raptiye",                                      cumle: "Pünezle yapıştırdım kağıdı duvara",                  kategori: "alet",       emoji: "📌", zorluk: "kolay" },
   { id: 189,kibrisca: "Pensa",           anlam: "Kerpeten, pense",                              cumle: "Pensayı al şu çiviyi çıkar",                         kategori: "alet",       emoji: "🔧", zorluk: "orta"  },

@@ -33,9 +33,12 @@ supabase/migrations/001_content_kernel.sql
 supabase/migrations/002_social_outbox.sql
 supabase/migrations/003_publish_workflow.sql
 supabase/migrations/004_legacy_surface_lockdown.sql
+supabase/migrations/005_dictionary_entries.sql
 ```
 
 `004`, eski geri bildirim PII'sini yalnız AAL2 personele açar; gün batımı galerisinde yalnız onaylı satırları kamuda bırakır ve `sunset-photos` bucket'ını private yapar. Onaylı eski görseller `/api/media/sunset/:id` üzerinden kontrol edilerek servis edilir. Tarayıcıdan doğrudan Storage yazma/okuma yetkisi verilmez; yeni bir upload akışı ancak karantina + sunucu doğrulamasıyla eklenmelidir. Migration, `storage.objects` üzerindeki anon/authenticated yetkilerini genel olarak geri aldığı için canlı projede başka tarayıcı-storage akışı varsa önce bucket envanteri çıkarıp ona özel dar politika tanımlayın.
+
+`005`, ziyaretçi sözlük önerilerini haber hattından ayrı tutar. Öneriler `pending` başlar; yalnız AAL2 editörün atomik onayıyla `published` olur. Ana kelime ve alternatif yazılış çakışmaları, idempotency, rate-limit, private abuse metadata ve published-only public view bu migration içinde kurulur. Uygulama kodu deploy edilmeden önce migration uygulanmalıdır.
 
 İlk editör hesabını Supabase Auth'ta oluşturduktan sonra rolü SQL Editor üzerinden kontrollü biçimde verin:
 

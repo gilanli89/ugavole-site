@@ -4,7 +4,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { BadgeDollarSign, Check, Eye, LogOut, Megaphone, Send, ShieldAlert, X } from "lucide-react";
 import type { ModerationItemDTO } from "@/lib/data/moderation";
+import type {
+  DictionaryModerationItemDTO,
+  PublishedDictionaryModerationItemDTO,
+} from "@/lib/data/dictionary";
 import type { SocialPlatform } from "@/lib/social/types";
+import DictionaryModerationPanel from "./DictionaryModerationPanel";
 
 const STATUS_LABELS: Record<ModerationItemDTO["status"], string> = {
   pending: "Bekliyor",
@@ -15,10 +20,14 @@ const STATUS_LABELS: Record<ModerationItemDTO["status"], string> = {
 
 export default function AdminDashboard({
   initialItems,
+  initialDictionaryItems,
+  initialPublishedDictionaryItems,
   editorName,
   socialPlatforms,
 }: {
   initialItems: ModerationItemDTO[];
+  initialDictionaryItems: DictionaryModerationItemDTO[];
+  initialPublishedDictionaryItems: PublishedDictionaryModerationItemDTO[];
   editorName: string;
   socialPlatforms: SocialPlatform[];
 }) {
@@ -140,6 +149,16 @@ export default function AdminDashboard({
           <ShieldAlert className="h-4 w-4" /> {error}
         </div>
       )}
+
+      <DictionaryModerationPanel
+        initialItems={initialDictionaryItems}
+        initialPublishedItems={initialPublishedDictionaryItems}
+      />
+
+      <div className="mb-4">
+        <p className="text-xs font-black uppercase tracking-widest text-ugavole-yellow-dark">Yazılar ve içerikler</p>
+        <h2 className="mt-1 text-2xl font-black text-ugavole-text">İçerik önerileri</h2>
+      </div>
 
       <div className="space-y-4">
         {items.length === 0 && (

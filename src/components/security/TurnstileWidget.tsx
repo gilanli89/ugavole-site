@@ -27,10 +27,12 @@ declare global {
 
 export default function TurnstileWidget({
   siteKey,
+  action = "ugc_submit",
   resetKey,
   onTokenChange,
 }: {
   siteKey: string;
+  action?: string;
   resetKey: number;
   onTokenChange: (token: string) => void;
 }) {
@@ -51,7 +53,7 @@ export default function TurnstileWidget({
 
     widgetIdRef.current = api.render(container, {
       sitekey: siteKey,
-      action: "ugc_submit",
+      action,
       theme: "auto",
       size: "flexible",
       callback: (token) => callbackRef.current(token),
@@ -66,7 +68,7 @@ export default function TurnstileWidget({
       widgetIdRef.current = null;
       callbackRef.current("");
     };
-  }, [resetKey, scriptReady, siteKey]);
+  }, [action, resetKey, scriptReady, siteKey]);
 
   return (
     <>

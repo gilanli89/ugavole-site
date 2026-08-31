@@ -76,11 +76,23 @@ export async function POST(request: Request) {
     }
 
     const admin = createAdminClient();
-    const { data, error } = await admin.rpc("cleanup_ugc_retention", {
-      p_rate_limit_retention_days: retentionDays,
+    const [ugc, dictionary] = await Promise.all([
+      admin.rpc("cleanup_ugc_retention", {
+        p_rate_limit_retention_days: retentionDays,
+      }),
+      admin.rpc("cleanup_dictionary_retention", {
+        p_rate_limit_retention_days: retentionDays,
+      }),
+    ]);
+    if (ugc.error) throw ugc.error;
+    if (dictionary.error) throw dictionary.error;
+    return noStoreJson({
+      ok: true,
+      summary: {
+        ugc: ugc.data,
+        dictionary: dictionary.data,
+      },
     });
-    if (error) throw error;
-    return noStoreJson({ ok: true, summary: data });
   } catch {
     return noStoreJson({ ok: false, error: "maintenance_failed" }, { status: 500 });
   }
