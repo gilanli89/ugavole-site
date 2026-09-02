@@ -12,6 +12,7 @@ type EditorialArticle = {
     | "Yemek"
     | "Yaşam"
     | "Eğlence"
+    | "Gündem"
     | "Dünya"
     | "Ekonomi"
     | "Teknoloji"
@@ -40,6 +41,96 @@ function editorial(input: EditorialArticle): Article {
 }
 
 export const EDITORIAL_ARTICLES: Article[] = [
+  editorial({
+    slug: "filo-jet-faciasi-girne-aciklarinda-ne-oldu",
+    title: "Filo Jet Faciası: Girne Açıklarında Ne Oldu?",
+    excerpt: "Girne–Taşucu seferindeki Filo Jet, 267 kişiyle yola çıktıktan kısa süre sonra alabora oldu. 2 Eylül 19.10 itibarıyla 239 kişiye sağ ulaşıldı, 9 kişi hayatını kaybetti, 19 kişi aranıyor; kesin neden hâlâ araştırılıyor.",
+    category: "Gündem",
+    published_at: "2026-09-02T19:38:00+03:00",
+    cover_image: "/editorial/girne-filo-jet-faciasi/arama-kurtarma-temsili.webp",
+    original_source_url: "https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14612",
+    content: `
+<p><strong>Editör notu:</strong> Bu dosyadaki bilanço ve arama bilgileri 2 Eylül 2026 saat 19.10, sağlık bilgileri 19.27 itibarıyladır. Soruşturma ve derin deniz incelemesi sürdüğü için yeni teyitlerle değişebilir. Kapak, Ugavole için hazırlanmış temsili bir editoryal illüstrasyondur; olay anını gösteren haber fotoğrafı değildir.</p>
+
+<h2>Giriş: Girne'den başlayan yolculuk</h2>
+<p>30 Ağustos 2026 Pazar günü Girne Limanı'ndan Mersin'in Taşucu Limanı'na doğru yola çıkan Filo Jet'te 259 yolcu ve sekiz mürettebat, toplam 267 kişi vardı. Yüksek hızlı katamaran tipi yolcu gemisi, kıyıdan uzaklaştıktan kısa süre sonra su almaya başladı; geri dönme girişiminin ardından alabora oldu ve battı.</p>
+
+<p>Olayın ilk dakikalarına ilişkin kamuya açık kayıtlarda bazı saat ve mesafe farklılıkları bulunuyor. En somut resmî kayıtlardan biri, Larnaka Arama Kurtarma Koordinasyon Merkezi'nin tehlike sinyalini saat 12.13'te, Girne'nin yaklaşık beş deniz mili kuzeyindeki gemiden aldığını belirten açıklaması. Türkiye İçişleri Bakanlığı ise su almanın Girne Limanı'nın yaklaşık dört mil açığında başladığını bildirdi. Bu nedenle olay alanını tek ve kesin bir koordinat yerine <strong>Girne'nin yaklaşık 4–5 deniz mili kuzeyi</strong> olarak tarif etmek daha doğru.</p>
+
+<figure>
+  <img src="/editorial/girne-filo-jet-faciasi/bilanco.svg" alt="Filo Jet'teki 267 kişiden 239 kişiye sağ ulaşıldığını, 9 kişinin hayatını kaybettiğini ve 19 kişinin arandığını gösteren infografik" width="1200" height="675" loading="lazy">
+  <figcaption>2 Eylül 2026 saat 19.10 itibarıyla resmî bilanço. Kaynak: KKTC Başbakanlığı ve TAK/Radyo Güven. Grafik: Ugavole.</figcaption>
+</figure>
+
+<h3>Rakamlar neden değişti?</h3>
+<p>İlk saatlerde kurtarılan ve kayıp kişilere ilişkin farklı sayılar açıklandı. Başlangıçta 241 kişinin kurtarıldığı, 18 kişinin kayıp olduğu bildirilmişti. Yolcu manifestosu, kıyıya çıkarılanların kimlikleri, hastane kayıtları ve aile bildirimleri karşılaştırıldığında, kurtarılanlar arasında sayılan iki kişinin aslında kayıp listesinde olduğu anlaşıldı. Tablo önce 239 sağ ulaşılan, sekiz hayatını kaybeden ve 20 kayıp olarak düzeltildi. 2 Eylül akşamı batıktaki çalışmada bir kişinin naaşına ulaşılmasıyla bilanço 239 sağ ulaşılan, dokuz hayatını kaybeden ve 19 kayıp olarak güncellendi; bulunan kişinin kimlik tespiti sürüyor.</p>
+
+<p>Kurtarılanlar arasında hastanelere sevk edilen 19 yaralı da bulunuyor. 1 Eylül saat 16.17'de bunlardan 13'ünün taburcu edildiği açıklandı. Sağlık Bakanlığı, 2 Eylül saat 19.27'de tüm hastanelerde yatarak tedavi gören kazazede sayısının üçe düştüğünü bildirdi. Kurtarılan sekiz aylık hamile bir yolcu ise aynı gün ailesinin talebiyle ambulans uçakla Kocaeli'ye nakledildi.</p>
+
+<h2>Gelişme: Arama hem yüzeyde hem 500 metrenin altında</h2>
+<p>Kaza ihbarının ardından KKTC Sahil Güvenlik unsurları, sağlık ekipleri, Türkiye'den gelen hava ve deniz araçları ile bölgede bulunan sivil tekneler arama-kurtarma çalışmalarına katıldı. İlk saatlerde deniz yüzeyinden çok sayıda yolcu çıkarılırken, takip eden günlerde operasyon derin sudaki gemiye ve kayıplara ulaşma hedefiyle genişledi. 2 Eylül saat 19.10 itibarıyla 19 kişi için arama sürüyor.</p>
+
+<figure>
+  <img src="/editorial/girne-filo-jet-faciasi/rota-ve-derinlik.svg" alt="Girne-Taşucu rotasını, Girne'nin 4 ila 5 deniz mili kuzeyindeki olay alanını ve 550 metre derinlikteki arama çalışmalarını gösteren şematik infografik" width="1200" height="780" loading="lazy">
+  <figcaption>Rota ve derin su araması şematik olarak gösterilmiştir; harita ölçekli değildir. 2 Eylül'de gemiye ulaşıldığı, görüntüleme ve aramanın sürdüğü açıklandı. Grafik: Ugavole.</figcaption>
+</figure>
+
+<h3>550 metredeki gemiye ulaşıldı; inceleme sürüyor</h3>
+<p>Türk Deniz Kuvvetleri'ne ait TCG Işın, sonar ve uzaktan kumandalı sualtı aracıyla bölgede çalışmaya başladı. 1 Eylül akşamı yaklaşık 550 metre derinlikte gemi olduğu değerlendirilen bir cisim tespit edildi; o aşamada cismin Filo Jet olduğu henüz teyit edilmemişti. Cumhurbaşkanı Tufan Erhürman, 2 Eylül saat 12.14'te gemiye ulaşıldığını ve görüntüleme ile arama çalışmalarının 24 saat esasıyla sürdüğünü açıkladı.</p>
+
+<p>Bu derinlik, klasik insanlı dalışın çok ötesinde. Görüntüleme ve olası fiziksel inceleme; sonar, ROV ve özel kurtarma gemilerinin hassas biçimde aynı noktada çalışmasını gerektiriyor. TCG Işın'ın ardından TCG Alemdar da 2 Eylül'de operasyona katıldı. Yüzey, kıyı hattı ve deniz tabanı aramaları bu yüzden eş zamanlı yürütülüyor.</p>
+
+<figure>
+  <img src="/editorial/girne-filo-jet-faciasi/zaman-cizelgesi.svg" alt="Filo Jet faciasının 30 Ağustos'tan 2 Eylül'e kadar doğrulanmış gelişmelerini gösteren zaman çizelgesi" width="1200" height="760" loading="lazy">
+  <figcaption>İlk dört günün doğrulanmış gelişmeleri. Tutukluluk kararı mahkûmiyet anlamına gelmez; teknik neden henüz açıklanmadı. Grafik: Ugavole.</figcaption>
+</figure>
+
+<h3>Kesin neden belli mi?</h3>
+<p>Hayır. Mahkemedeki ilk duruşmada polis, gemi kıyıdan yaklaşık dört mil uzaklaştıktan sonra sol ön kızak uç kısmının kırıldığını ve su almanın ardından alabora olduğunu aktardı. Bu anlatım soruşturmanın ön bulgusu; batık üzerinde tamamlanmış bir adli mühendislik incelemesine dayanan nihai kaza raporu değil. Savunma da bu tespitin teknik dayanağına itiraz etti.</p>
+
+<p>Hava koşulları konusunda dahi ilk açıklamalar aynı yönde değil. Başbakan Ünal Üstel ilk değerlendirmesinde dalgalardan söz ederken, Cumhurbaşkanı Erhürman havanın genel olarak kötü olmadığını belirtti ve spekülasyon yapılmamasını istedi. Mahkemede ise Meteoroloji Dairesi'nin sefer öncesinde uygunluk raporu verdiği aktarıldı. Dolayısıyla “gemiyi fırtına batırdı”, “tek neden yapısal kırılmaydı” ya da başka bir kesin neden yazmak için henüz yeterli kanıt yok.</p>
+
+<p>Teknik incelemenin; gövdenin su geçirmez bütünlüğünü, stabilite ve balast durumunu, bakım ve klas kayıtlarını, yük dağılımını, makine ve alarm verilerini, AIS/GPS seyrini, VHF konuşmalarını, gemi içi görüntüleri, deniz koşullarını ve insan faktörünü birlikte değerlendirmesi gerekiyor. Fiziksel batık bulguları bu zincirin en kritik parçası olabilir.</p>
+
+<h3>Adli süreç hangi aşamada?</h3>
+<p>31 Ağustos'ta Girne Kaza Mahkemesi'ne 14 kişi çıkarıldı. Kaptan, yedi mürettebat ve bir şirket yetkilisi olmak üzere dokuz zanlı hakkında “tedbirsizlik ve dikkatsizlik sonucu ölüme sebebiyet verme” soruşturması kapsamında üçer günlük tutukluluk kararı verildi. Aralarında şirket ve liman görevlilerinin bulunduğu beş kişi hakkında da tahkikat yürütülmesine karar verildi.</p>
+
+<p>Bu kararlar bir mahkûmiyet hükmü değil. Sefer sırasında geminin altından su geldiğinin mürettebata bildirildiğine, tahliye ve can yeleği dağıtımında sorun yaşandığına ilişkin tanık anlatımları soruşturma dosyasına girerken; savunma tarafı yeterli can salı ve ekipman bulunduğunu, mürettebatın yolculara yardım ettiğini ve sefer izinlerinin mevcut olduğunu ileri sürüyor. Hangi beyanın teknik kayıtlarla doğrulanacağı yargı ve uzman incelemesi sonunda ortaya çıkacak.</p>
+
+<p>Yetkililer geminin seferine izin veren ilgili liman görevlilerinin görevden uzaklaştırıldığını açıkladı. Türkiye Ulaştırma ve Altyapı Bakanlığı Deniz Kazaları İnceleme Dairesi heyeti de 2 Eylül'de adaya gelerek teknik araştırma ve ön rapor çalışmasına başladı; geminin onarım ve tersane geçmişinin Türkiye'de ayrıca incelenmesi planlanıyor.</p>
+
+<p>Başbakan Ünal Üstel, aynı gün saat 18.54'te soruşturmanın selameti gerekçesiyle Bayındırlık ve Ulaştırma Bakanı Erhan Arıklı'yı görevden aldığını duyurdu. Bu idari karar tek başına kişisel ceza sorumluluğuna ilişkin bir hüküm değil. Kamuoyunun beklediği, bütün bu çalışmaların sorumluluğu belirlemekle kalmayıp aynı hattaki deniz ulaşımının güvenlik açıklarını da somut biçimde kapatması.</p>
+
+<h3>Adanın ortak yası</h3>
+<p>Facianın ardından 31 Ağustos'tan 2 Eylül günü gün batımına kadar üç günlük ulusal yas ilan edildi. Girne Limanı'nda yakınlarından haber bekleyen ailelerin bekleyişi sürerken, olayın bilançosu bir sayı tablosundan çok daha fazlasını anlatıyor: Her rakam, bir aileye ve yarım kalan bir yolculuğa karşılık geliyor.</p>
+
+<h2>Sonuç: Arama bitmeden, rapor çıkmadan hüküm kurulamaz</h2>
+<p>Girne açıklarında bugün iki sorumluluk aynı anda taşınıyor. İlki, kayıp 19 kişiye ulaşmak ve ailelere doğrulanmış bilgi vermek. İkincisi, 267 kişilik bir yolculuğun neden kısa süre içinde ölümcül bir deniz kazasına dönüştüğünü bütün teknik ve idari boyutlarıyla ortaya çıkarmak.</p>
+
+<p>Şu an kesin olan tablo ağır: 239 kişiye sağ ulaşıldı, dokuz kişi hayatını kaybetti ve 19 kişi aranıyor. Gemiye ulaşılmış olsa da kazanın kök nedeni ve olası ihmal zincirinin hangi halkalardan oluştuğu henüz kesin değil. Hızlı yargılar yerine açık kayıtlar, bağımsız teknik değerlendirme ve şeffaf bir nihai rapor gerekiyor. Bu yalnızca hayatını kaybedenler ve yakınları için değil, Girne–Taşucu hattını gelecekte kullanacak her yolcu için kamusal bir güvenlik meselesi.</p>
+
+<h2>Kaynaklar ve yayın notu</h2>
+<p>Bu metin özgün olarak hazırlandı; resmî ve kurumsal açıklamalar ile teknik değerlendirmeler birlikte kullanıldı. Bilanço, sağlık ve soruşturma bilgileri yayından hemen önce yeniden kontrol edilmiştir.</p>
+<ul>
+  <li><a href="https://basbakanlik.gov.ct.tr/BASIN-VE-HALKLA-%C4%B0L%C4%B0%C5%9EK%C4%B0LER/BASIN-A%C3%87IKLAMALARI/uunaluustelbbac%C4%B1klama" target="_blank" rel="noopener noreferrer">KKTC Başbakanlığı: Manifesto eşleştirmesi ve sayı düzeltmesi</a></li>
+  <li><a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14595" target="_blank" rel="noopener noreferrer">TAK/Radyo Güven: Arama çalışmalarının dördüncü günü</a></li>
+  <li><a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14599" target="_blank" rel="noopener noreferrer">TAK/Radyo Güven: Gemiye ulaşılması ve TCG Alemdar'ın katılımı</a></li>
+  <li><a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14603" target="_blank" rel="noopener noreferrer">TAK/Radyo Güven: 2 Eylül öğleden sonra arama ve ailelerin bekleyişi</a></li>
+  <li><a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14612" target="_blank" rel="noopener noreferrer">TAK/Radyo Güven: Batıkta bir kişinin naaşına ulaşılması ve güncel bilanço</a></li>
+  <li><a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14610" target="_blank" rel="noopener noreferrer">TAK/Radyo Güven: Deniz Kazaları İnceleme Dairesi heyetinin çalışması</a></li>
+  <li><a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14611" target="_blank" rel="noopener noreferrer">TAK/Radyo Güven: Bayındırlık ve Ulaştırma Bakanı'nın görevden alınması</a></li>
+  <li><a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14608" target="_blank" rel="noopener noreferrer">TAK/Radyo Güven: Hamile kazazedenin Türkiye'ye nakli</a></li>
+  <li><a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14613" target="_blank" rel="noopener noreferrer">TAK/Radyo Güven: Hastanelerde yatarak tedavi gören üç kazazede</a></li>
+  <li><a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14590" target="_blank" rel="noopener noreferrer">TAK/Radyo Güven: 550 metredeki temas ve doğrulama uyarısı</a></li>
+  <li><a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14562" target="_blank" rel="noopener noreferrer">Mahkeme ve polis tarafından aktarılan ön bulgular</a></li>
+  <li><a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14586" target="_blank" rel="noopener noreferrer">Yaralıların sağlık durumuna ilişkin 1 Eylül toplu güncellemesi</a></li>
+  <li><a href="https://www.gov.cy/amyna/anakoinosi-tou-kentrou-syntonismou-erevnas-kai-diasosis-larnakas-anaforika-me-to-epivatigo-ploio-filio-jet/" target="_blank" rel="noopener noreferrer">Larnaka Arama Kurtarma Koordinasyon Merkezi: Tehlike sinyali kaydı</a></li>
+  <li><a href="https://www.trthaber.com/haber/gundem/turkiyeden-kktcye-arama-kurtarma-destegi-955372.html" target="_blank" rel="noopener noreferrer">TRT Haber: Türkiye İçişleri Bakanlığı'nın olay yeri ve arama desteği açıklaması</a></li>
+  <li><a href="https://www.mfa.gov.tr/no_-169_-kktc-nin-girne-limani-aciklarinda-meydana-gelen-gemi-kazasi-hk.tr.mfa" target="_blank" rel="noopener noreferrer">T.C. Dışişleri Bakanlığı: Arama-kurtarma desteği</a></li>
+  <li><a href="https://tmmob.org.tr/icerik/gmo-girne-aciklarinda-meydana-gelen-filo-jet-deniz-kazasi-hakkinda" target="_blank" rel="noopener noreferrer">TMMOB Gemi Mühendisleri Odası: Teknik inceleme başlıkları</a></li>
+</ul>
+    `,
+  }),
   editorial({
     slug: "nasa-roman-uzay-teleskobu-firlatmaya-hazir",
     title: "NASA'nın Roman Uzay Teleskobu Fırlatma İçin Son Onayı Aldı",

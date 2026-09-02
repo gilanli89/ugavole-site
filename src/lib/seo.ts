@@ -4,6 +4,10 @@ const BASE_URL = "https://ugavole.com";
 const SITE_NAME = "ugavole";
 const DEFAULT_OG_IMAGE = "https://ugavole.com/og.jpg";
 
+function absoluteUrl(value: string): string {
+  return new URL(value, `${BASE_URL}/`).toString();
+}
+
 export function serializeJsonLd(value: unknown): string {
   return JSON.stringify(value)
     .replace(/</g, "\\u003c")
@@ -29,7 +33,7 @@ export function buildMetadata({
   author?: string;
 }): Metadata {
   const url = `${BASE_URL}${path}`;
-  const image = ogImage ?? DEFAULT_OG_IMAGE;
+  const image = absoluteUrl(ogImage ?? DEFAULT_OG_IMAGE);
 
   return {
     title,
@@ -92,7 +96,7 @@ export function articleSchema({
       url: BASE_URL,
       logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.svg` },
     },
-    ...(image && { image: { "@type": "ImageObject", url: image } }),
+    ...(image && { image: { "@type": "ImageObject", url: absoluteUrl(image) } }),
   };
 }
 
