@@ -12,3 +12,276 @@
 @media(max-width:640px){.root :global(.sound){padding:0 8px;gap:4px}.root :global(.sound span){font-size:10px}.root :global(.brand){font-size:18px}}
 
 .root{padding:0 22px}.root :global(.topbar){height:82px}.root :global(.game-shell){height:min(640px,70vh)}@media(max-width:640px){.root{padding:0 10px;border-radius:13px}.root :global(.topbar){height:72px}.root :global(.start-panel){top:20%}.root :global(.start-panel .game-title){font-size:38px}.root :global(.controls-row){position:sticky;bottom:0;z-index:10;background:#f3f2eb;border-top:1px solid #d8ddd0;border-radius:10px}.root :global(.controls-row p){display:none}.root :global(.game-shell){min-height:520px;height:calc(100svh - 230px)}}
+
+/* A thumb dock stays outside the road, so fingers never hide approaching hazards. */
+.root :global(.exit-game) { display: none; }
+.root :global(.compact-progress) { display: none; }
+.root :global(.controls-row) {
+  position: relative;
+  display: grid;
+  grid-template-columns: 166px 194px 1fr;
+  align-items: end;
+  gap: 26px;
+  padding: 20px 0;
+  border: 0;
+  background: transparent;
+}
+.root :global(.control-caption) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 18px;
+  margin-bottom: 8px;
+  color: #587062;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.root :global(.control-caption small) { font-size: 10px; font-weight: 500; letter-spacing: 0; }
+.root :global(.lane-indicator) { display: flex; gap: 3px; }
+.root :global(.lane-indicator i) { width: 6px; height: 12px; border-radius: 3px; background: #cad4c7; }
+.root :global(.lane-indicator i[data-current="true"]) { background: #357452; }
+.root :global(.steering-buttons), .root :global(.pedal-buttons) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.root :global(.steer-button), .root :global(.pedal-button) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 100%;
+  min-width: 0;
+  height: 82px;
+  padding: 8px 4px;
+  border: 1px solid #d0d9cd;
+  border-bottom: 4px solid #b5c3b3;
+  border-radius: 18px;
+  color: #234f3c;
+  background: linear-gradient(150deg, #fffef8, #e6ece0);
+  box-shadow: 0 3px 8px #21372f09, inset 0 1px 0 #fff;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  transition: transform .08s, background .08s, box-shadow .08s;
+}
+.root :global(.steer-button span) { font-size: 10px; font-weight: 800; letter-spacing: 1px; }
+.root :global(.pedal-button strong) { font-size: 15px; line-height: 1; font-weight: 900; letter-spacing: 1px; }
+.root :global(.pedal-button small) { font-size: 9px; font-weight: 700; letter-spacing: .8px; opacity: .8; }
+.root :global(.gas-button) {
+  color: #283c20;
+  background: linear-gradient(145deg, #ffe398, #efbe48);
+  border-color: #e2b555;
+  border-bottom-color: #ad812d;
+}
+.root :global(.brake-button) {
+  color: #8d382e;
+  background: linear-gradient(145deg, #ffebe2, #f2c3ae);
+  border-color: #e1bba9;
+  border-bottom-color: #bd8973;
+}
+.root :global(.steer-button:active:not(:disabled)), .root :global(.pedal-button[aria-pressed="true"]) {
+  transform: translateY(3px);
+  box-shadow: inset 0 3px 10px #203d3220;
+  border-bottom-width: 1px;
+}
+.root :global(.steer-button:active:not(:disabled)) { background: #bad5bc; }
+.root :global(.gas-button[aria-pressed="true"]) { background: #e9b034; }
+.root :global(.brake-button[aria-pressed="true"]) { background: #a14435; color: #fff6ea; border-color: #7b332a; }
+.root :global(.keyboard-hint) { justify-self: end; align-self: center; display: flex; align-items: center; gap: 5px; color: #61705f; font-size: 12px; }
+.root :global(.keyboard-hint kbd) { color: #405d48; border-color: #bdc9b8; }
+.root :global(.gas-hint) {
+  position: absolute;
+  z-index: 2;
+  bottom: 21%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  max-width: 90%;
+  padding: 12px 16px;
+  border: 1px solid #eed68a;
+  border-radius: 12px;
+  color: #304d3a;
+  background: #fff7d9f5;
+  box-shadow: 0 5px 20px #193b3522;
+  font-size: 13px;
+  pointer-events: none;
+}
+.root :global(.gas-hint svg) { flex-shrink: 0; }
+
+@media (max-width: 767px), (max-height: 520px) and (max-width: 960px) {
+  .root :global(.controls-row) { grid-template-columns: 1fr 1.16fr; gap: 18px; padding: 14px 2px 18px; }
+  .root :global(.keyboard-hint) { display: none; }
+  .root :global(.start-bottom) { display: none; }
+  .root :global(.sound-note) { font-size: 11px; }
+  .root :global(.control-caption) { font-size: 9px; letter-spacing: .7px; }
+  .root :global(.control-caption small) { font-size: 9px; }
+  .root :global(.steer-button), .root :global(.pedal-button) { height: 86px; }
+  .root[data-session="true"] {
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    display: grid;
+    grid-template-rows: 56px minmax(0, 1fr) 34px auto;
+    width: 100%;
+    height: 100svh;
+    height: 100dvh;
+    max-width: none;
+    margin: 0;
+    padding: env(safe-area-inset-top) 0 0;
+    border: 0;
+    border-radius: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: manipulation;
+  }
+  .root[data-session="true"] :global(.topbar) { height: 56px; padding: 0 10px; gap: 8px; }
+  .root[data-session="true"] :global(.exit-game) {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #d4ddcf;
+    border-radius: 14px;
+    background: #e6ecdf;
+    color: #345b44;
+  }
+  .root[data-session="true"] :global(.brand) { flex: 1; font-size: 16px; letter-spacing: -.7px; pointer-events: none; }
+  .root[data-session="true"] :global(.brand-mark),
+  .root[data-session="true"] :global(.brand small),
+  .root[data-session="true"] :global(.header-route),
+  .root[data-session="true"] :global(.weather) { display: none; }
+  .root[data-session="true"] :global(.sound) { height: 44px; padding: 0 12px; background: #e6ecdf; border-color: #d4ddcf; border-radius: 14px; }
+  .root[data-session="true"] :global(.sound span) { font-size: 11px; }
+  .root[data-session="true"] :global(.game-shell) { min-height: 0; max-height: none; height: 100%; margin: 0 8px; border-radius: 14px; }
+  .root[data-session="true"] :global(.hud) { top: 10px; left: 10px; right: 10px; gap: 8px; align-items: center; }
+  .root[data-session="true"] :global(.location-chip) { padding: 9px; gap: 6px; min-width: 0; }
+  .root[data-session="true"] :global(.location-chip small) { font-size: 7px; letter-spacing: .4px; margin-bottom: 3px; }
+  .root[data-session="true"] :global(.location-chip strong) { font-size: 11px; white-space: nowrap; }
+  .root[data-session="true"] :global(.hud-right) { gap: 8px; flex-wrap: nowrap; padding: 7px; }
+  .root[data-session="true"] :global(.hud-right small) { font-size: 7px; letter-spacing: .4px; }
+  .root[data-session="true"] :global(.score strong) { font-size: 17px; }
+  .root[data-session="true"] :global(.health) { padding-left: 8px; }
+  .root[data-session="true"] :global(.health svg) { width: 13px; height: 13px; }
+  .root[data-session="true"] :global(.health>div) { gap: 2px; }
+  .root[data-session="true"] :global(.pause) { position: static; width: 44px; height: 44px; flex-shrink: 0; border-radius: 11px; background: #ffffff12; }
+  .root[data-session="true"] :global(.journey) { display: flex; align-items: center; gap: 12px; margin: 0; padding: 0 14px; border: 0; background: transparent; }
+  .root[data-session="true"] :global(.journey-title) { gap: 5px; margin: 0; }
+  .root[data-session="true"] :global(.journey-title>span),
+  .root[data-session="true"] :global(.route-track) { display: none; }
+  .root[data-session="true"] :global(.journey-title strong) { font-size: 12px; margin: 0; }
+  .root[data-session="true"] :global(.journey-title small) { font-size: 10px; }
+  .root[data-session="true"] :global(.compact-progress) { display: block; flex: 1; width: 0; height: 4px; border: 0; border-radius: 4px; background: #d3ddcc; color: #528368; overflow: hidden; }
+  .root :global(.compact-progress::-webkit-progress-bar) { background: #d3ddcc; }
+  .root :global(.compact-progress::-webkit-progress-value) { background: #528368; border-radius: 4px; }
+  .root :global(.compact-progress::-moz-progress-bar) { background: #528368; border-radius: 4px; }
+  .root[data-session="true"] :global(.controls-row) {
+    padding: 2px 14px max(14px, env(safe-area-inset-bottom));
+    border-radius: 0;
+    box-shadow: 0 -1px 0 #dee4d5;
+    background: #f3f2eb;
+    z-index: 3;
+  }
+  .root[data-session="true"] :global(footer) { display: none; }
+  .root[data-session="true"] :global(.edition) { display: none; }
+  .root[data-session="true"] :global(.scene-bottom) { right: 12px; left: 12px; bottom: 12px; justify-content: flex-end; }
+  .root[data-session="true"] :global(.speedometer) { padding: 8px 10px; gap: 7px; }
+  .root[data-session="true"] :global(.speedometer strong) { font-size: 25px; }
+  .root[data-session="true"] :global(.speedometer>svg) { width: 16px; }
+  .root[data-session="true"] :global(.police-alert) { top: 80px; font-size: 12px; width: max-content; max-width: 90%; padding: 10px 12px; }
+  .root[data-session="true"] :global(.police-alert small) { font-size: 10px; }
+  .root[data-session="true"] :global(.game-message) { bottom: 78px; padding: 10px 12px; font-size: 12px; }
+  .root[data-session="true"] :global(.shade) { overflow-y: auto; }
+  .root[data-session="true"] :global(.result-panel) { width: min(90%, 370px); max-height: 100%; padding: 18px 22px; overflow-y: auto; }
+  .root[data-session="true"] :global(.result-icon) { display: none; }
+  .root[data-session="true"] :global(.result-panel h2) { font-size: 26px; margin: 10px 0; }
+  .root[data-session="true"] :global(.result-panel p) { font-size: 13px; line-height: 1.5; margin: 8px 0 12px; }
+  .root[data-session="true"] :global(.result-score) { font-size: 30px; }
+  .root[data-session="true"] :global(.result-message) { display: none; }
+  .root[data-session="true"] :global(.update-notice) { position: absolute; top: 56px; left: 8px; right: 8px; z-index: 6; font-size: 12px; }
+}
+
+@media (max-width: 359px) {
+  .root[data-session="true"] :global(.hud) { left: 7px; right: 7px; gap: 5px; }
+  .root[data-session="true"] :global(.location-chip) { padding: 8px 6px; }
+  .root[data-session="true"] :global(.live-dot), .root[data-session="true"] :global(.health small) { display: none; }
+  .root[data-session="true"] :global(.hud-right) { gap: 6px; }
+  .root[data-session="true"] :global(.health) { padding-left: 6px; }
+  .root[data-session="true"] :global(.controls-row) { padding-left: 10px; padding-right: 10px; gap: 12px; }
+  .root :global(.control-caption) { font-size: 8px; }
+  .root :global(.control-caption small) { font-size: 8px; }
+  .root :global(.gas-hint) { font-size: 11px; padding: 10px; }
+}
+
+@media (max-height: 520px) and (min-width: 568px) and (max-width: 960px) {
+  .root[data-session="true"] { grid-template-columns: 132px minmax(0, 1fr); grid-template-rows: 48px minmax(0, 1fr) 25px; }
+  .root[data-session="true"] :global(.topbar) { grid-column: 1 / -1; height: 48px; }
+  .root[data-session="true"] :global(.game-shell) { grid-column: 2; grid-row: 2; margin: 0 8px 0 0; }
+  .root[data-session="true"] :global(.controls-row) { grid-column: 1; grid-row: 2 / 4; display: flex; flex-direction: column; gap: 12px; padding: 6px 10px max(10px, env(safe-area-inset-bottom)); justify-content: center; }
+  .root[data-session="true"] :global(.steering-group), .root[data-session="true"] :global(.pedal-group) { width: 100%; }
+  .root[data-session="true"] :global(.control-caption small) { display: none; }
+  .root[data-session="true"] :global(.steer-button), .root[data-session="true"] :global(.pedal-button) { height: 68px; border-radius: 12px; }
+  .root[data-session="true"] :global(.journey) { grid-column: 2; grid-row: 3; }
+  .root[data-session="true"] :global(.result-panel h2) { font-size: 21px; }
+  .root[data-session="true"] :global(.result-panel p) { margin: 5px 0; }
+  .root[data-session="true"] :global(.result-panel .eyebrow) { display: none; }
+}
+
+/* Nickname and shared rankings are part of the game's entry and result screens. */
+.root[data-session="false"] :global(.game-shell) { min-height: 650px; }
+.root :global(.start-panel) { top: 18%; padding: 24px 28px; }
+.root :global(.start-panel .game-title) { font-size: 42px; margin: 14px 0; }
+.root :global(.start-features), .root :global(.start-bottom) { display: none; }
+.root :global(.driver-form) { margin-top: 20px; }
+.root :global(.driver-form label) { display: block; margin-bottom: 7px; color: #f6e4a4; font-size: 13px; font-weight: 700; }
+.root :global(.driver-form input) { width: 100%; min-height: 48px; padding: 11px 13px; border: 1px solid #829b77; border-radius: 9px; color: #213e30; background: #fffdf4; font: inherit; font-size: 16px; outline-offset: 3px; }
+.root :global(.driver-form input::placeholder) { color: #899283; }
+.root :global(.driver-form>small) { display: block; margin: 7px 0 14px; color: #bbcdaf; font-size: 11px; }
+.root :global(.driver-form .name-error) { color: #ffd4ba; font-size: 12px; margin-bottom: 10px; }
+.root :global(.leaderboard-link) { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 44px; margin-top: 12px; border: 1px solid #91ad764f; border-radius: 9px; color: #ead596; background: #ffffff08; font-size: 13px; font-weight: 600; }
+.root :global(.sound-note) { margin-top: 12px; font-size: 11px; }
+.root :global(.difficulty-badge) { margin-right: auto; color: #f3d688; font-size: 10px; font-weight: 800; letter-spacing: 1px; }
+.root :global(.difficulty-badge small) { display: block; margin-top: 3px; color: #d9e1c8; font-size: 9px; font-weight: 400; letter-spacing: 0; }
+.root :global(.edition) { display: none; }
+.root :global(.score-save) { min-height: 20px; margin: 8px 0; color: #b7d1a8; font-size: 12px; }
+.root :global(.scores-dialog) { position: fixed; inset: 0; width: min(440px, calc(100% - 28px)); max-height: calc(100dvh - 40px); margin: auto; padding: 24px; overflow-y: auto; border: 1px solid #d7dfce; border-radius: 22px; color: #234835; background: #f6f4e9; box-shadow: 0 30px 100px #09251e55; font-family: var(--font-geist-sans), Arial, sans-serif; touch-action: pan-y; }
+.root :global(.scores-dialog::backdrop) { background: #0d251de0; backdrop-filter: blur(5px); }
+.root :global(.scores-heading) { display: flex; align-items: center; gap: 12px; }
+.root :global(.trophy-mark) { display: grid; place-items: center; width: 46px; height: 46px; flex-shrink: 0; border-radius: 14px; background: #f0cf78; color: #736024; }
+.root :global(.scores-heading small) { font-size: 9px; letter-spacing: 1.5px; font-weight: 700; color: #748369; }
+.root :global(.scores-heading h2) { font-size: 23px; line-height: 1.1; margin: 4px 0 0; font-weight: 800; letter-spacing: -.8px; }
+.root :global(.close-scores) { margin-left: auto; flex-shrink: 0; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #d5ddcb; border-radius: 12px; background: #e8ebdf; }
+.root :global(.scores-intro) { font-size: 12px; color: #74806e; margin: 17px 0; }
+.root :global(.scores-empty) { display: grid; justify-items: center; text-align: center; padding: 28px 8px; color: #6c7b61; font-size: 13px; }
+.root :global(.scores-empty h3) { font-size: 21px; margin-top: 16px; font-weight: 800; color: #355738; }
+.root :global(.scores-empty p) { margin: 8px 0; }
+.root :global(.score-list) { list-style: none; padding: 0; margin: 12px 0 22px; }
+.root :global(.score-list li) { display: flex; align-items: center; gap: 12px; padding: 12px 8px; border-bottom: 1px solid #dce2d1; border-radius: 8px; }
+.root :global(.score-list li[data-player="true"]) { background: #e4edd7; }
+.root :global(.rank) { display: grid; place-items: center; width: 30px; height: 30px; font-size: 13px; color: #819171; font-weight: 800; }
+.root :global(.rank-1) { background: #ecd080; color: #765b1b; border-radius: 50%; }
+.root :global(.rank-name) { flex: 1; min-width: 0; }
+.root :global(.rank-name strong) { display: block; font-size: 14px; overflow-wrap: anywhere; }
+.root :global(.rank-name small) { display: flex; align-items: center; gap: 5px; margin-top: 4px; font-size: 10px; color: #829074; }
+.root :global(.score-list li>b) { font: 700 18px var(--font-geist-mono), monospace; text-align: right; }
+.root :global(.score-list li>b small) { display: block; margin-top: 3px; color: #94a086; font-size: 8px; letter-spacing: 1px; }
+.root :global(.scores-dialog .text-button) { color: #3f714d; }
+@media (max-width: 767px) {
+  .root[data-session="false"] :global(.game-shell) { min-height: 635px; height: 635px; }
+  .root :global(.start-panel) { top: 102px; left: 5%; width: 90%; padding: 21px; }
+  .root :global(.start-panel .game-title) { font-size: 34px; }
+  .root :global(.driver-form) { margin-top: 16px; }
+  .root :global(.driver-form label) { font-size: 12px; }
+  .root :global(.start-panel p) { font-size: 13px; }
+  .root[data-session="false"] :global(.controls-row), .root[data-session="false"] :global(.journey) { display: none; }
+  .root :global(.scores-dialog) { padding: 20px; }
+  .root :global(.scores-heading h2) { font-size: 20px; }
+}

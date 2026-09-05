@@ -1,19 +1,26 @@
 export type Status = 'ready' | 'playing' | 'paused' | 'over' | 'won';
 export type Obstacle = { lane: number; z: number; type: 'hole' | 'barrier' | 'repair' | 'police'; done?: boolean };
-export type GameState = { status: Status; lane: number; visualLane: number; speed: number; distance: number; health: number; score: number; dodged: number; holes: number; checkpoints: number; elapsed: number; spawn: number; wave: number; travel: number; hit: number; message: string; messageTime: number; objects: Obstacle[]; brake: boolean };
-export const fresh = (): GameState => ({ status:'ready',lane:1,visualLane:1,speed:0,distance:0,health:3,score:0,dodged:0,holes:0,checkpoints:0,elapsed:0,spawn:1.8,wave:0,travel:0,hit:0,message:'',messageTime:0,objects:[],brake:false });
+export type GameState = { status: Status; lane: number; visualLane: number; speed: number; distance: number; health: number; score: number; dodged: number; holes: number; checkpoints: number; elapsed: number; spawn: number; wave: number; travel: number; hit: number; message: string; messageTime: number; objects: Obstacle[]; brake: boolean; throttle: boolean };
+export const fresh = (): GameState => ({ status:'ready',lane:1,visualLane:1,speed:0,distance:0,health:3,score:0,dodged:0,holes:0,checkpoints:0,elapsed:0,spawn:1.8,wave:0,travel:0,hit:0,message:'',messageTime:0,objects:[],brake:false,throttle:false });
 export const stages = ['Girne çıkışı','Boğaz geçidi','Gönyeli yolu','Lefkoşa'];
 export const stageIndex = (distance: number) => distance < 8 ? 0 : distance < 18 ? 1 : distance < 27 ? 2 : 3;
+export const difficulty = (distance: number) => ({
+  level: Math.min(4, 1 + Math.floor(distance / 8)),
+  maxSpeed: Math.min(152, 82 + distance * 2.35),
+  spawnDelay: Math.max(1.55, 3 - distance * .05),
+});
 export function move(s:GameState,dir:number) { if(s.status==='playing') s.lane=Math.max(0,Math.min(2,s.lane+dir)); }
 export function step(s:GameState,dt:number,random:()=>number=Math.random) {
  if(s.status!=='playing') return;
  s.elapsed+=dt; s.hit=Math.max(0,s.hit-dt);s.messageTime=Math.max(0,s.messageTime-dt);
- s.speed+=( (s.brake?26: Math.min(106,76+s.distance))-s.speed)*Math.min(1,dt*2.8);
+ // Separate pedals: accelerate, coast when released, and brake all the way to zero.
+ // Braking wins when both pedals are held, including with two fingers.
+ s.speed=Math.max(0,Math.min(difficulty(s.distance).maxSpeed,s.speed+dt*(s.brake?-90:s.throttle?42:-8)));
  s.visualLane+=(s.lane-s.visualLane)*Math.min(1,dt*13);
  s.distance=Math.min(30,s.distance+s.speed*dt/300);s.travel+=s.speed*dt/120;
  s.spawn-=dt*s.speed/80;
  if(s.spawn<=0){
-   s.wave++;s.spawn=Math.max(1.65,2.65-s.distance*.025);
+   s.wave++;s.spawn=difficulty(s.distance).spawnDelay;
    if(s.wave%6===0) s.objects.push({lane:1,z:1,type:'police'});
    else { const safe=Math.floor(random()*3); const lane=(safe+1+Math.floor(random()*2))%3;
      s.objects.push({lane,z:1,type:s.wave%3===0?'barrier':'hole'});
@@ -34,8 +41,8 @@ export function step(s:GameState,dt:number,random:()=>number=Math.random) {
    }
  }
  s.objects=s.objects.filter(o=>o.z>-.2);
- if(s.health<=0){s.health=0;s.status='over';s.brake=false;}
- else if(s.distance>=30){s.status='won';s.score+=s.health*300+500;s.brake=false;}
+ if(s.health<=0){s.health=0;s.status='over';s.brake=false;s.throttle=false;}
+ else if(s.distance>=30){s.status='won';s.score+=s.health*300+500;s.brake=false;s.throttle=false;}
 }
 
 // Every world-space feature approaches the camera at the obstacle velocity.
@@ -90,14 +97,20 @@ export function render(ctx:CanvasRenderingContext2D,w:number,h:number,s:GameStat
    ctx.restore();
  };
  // A readable roadside destination sign, rendered in the world.
- const signX=w*.81,signY=h*.34,sw=Math.min(w*.17,190),sh=sw*.48;
+ // Keep a readable board on narrow screens, with separate destination/distance rows.
+ const sw=Math.min(190,Math.max(94,w*.18)),sh=sw*.59;
+ const signX=Math.min(w-sw/2-9,Math.max(w*.82,w*.55+sw/2)),signY=h*.34;
  ctx.fillStyle='#788174';ctx.fillRect(signX-sw*.3,signY,sw*.025,sh*1.6);ctx.fillRect(signX+sw*.3,signY,sw*.025,sh*1.6);
  ctx.fillStyle='#205b4c';ctx.fillRect(signX-sw*.5,signY-sh,sw,sh);ctx.strokeStyle='#e4e9d1';ctx.lineWidth=2;ctx.strokeRect(signX-sw*.5+4,signY-sh+4,sw-8,sh-8);
- ctx.fillStyle='#fff8e3';ctx.textAlign='center';ctx.font=`bold ${Math.max(10,sw*.13)}px Arial`;ctx.fillText('LEFKOŞA  ↑',signX,signY-sh*.55);ctx.font=`${Math.max(9,sw*.085)}px Arial`;ctx.fillText(`${Math.ceil(30-s.distance)} km · NICOSIA`,signX,signY-sh*.23);
- const boardX=w*.865,boardY=h*.55,bw=Math.min(w*.2,198),bh=bw*.39;
+ ctx.fillStyle='#fff8e3';ctx.textAlign='center';
+ ctx.font=`bold ${sw*.135}px Arial`;ctx.fillText('LEFKOŞA ↑',signX,signY-sh*.64,sw-16);
+ ctx.font=`${sw*.098}px Arial`;ctx.fillText('NICOSIA',signX,signY-sh*.4,sw-16);
+ ctx.font=`bold ${sw*.11}px Arial`;ctx.fillText(`${Math.ceil(30-s.distance)} km`,signX,signY-sh*.15,sw-16);
+ const bw=Math.min(198,Math.max(94,w*.2)),bh=bw*.39;
+ const boardX=Math.min(w-bw/2-8,w*.865),boardY=h*.55;
  ctx.fillStyle='#645f47';ctx.fillRect(boardX-bw*.34,boardY,bw*.025,bh*.8);ctx.fillRect(boardX+bw*.32,boardY,bw*.025,bh*.8);
  ctx.fillStyle='#e9bd54';ctx.fillRect(boardX-bw*.5,boardY-bh,bw,bh);ctx.strokeStyle='#665932';ctx.lineWidth=2;ctx.strokeRect(boardX-bw*.5+3,boardY-bh+3,bw-6,bh-6);
- ctx.fillStyle='#3d4230';ctx.textAlign='center';ctx.font=`bold ${Math.max(7,bw*.075)}px Arial`;ctx.fillText('GEÇİCİ ÇÖZÜM',boardX,boardY-bh*.58);ctx.fillText('KALICI ÇUKUR',boardX,boardY-bh*.25);
+ ctx.fillStyle='#3d4230';ctx.textAlign='center';ctx.font=`bold ${bw*.088}px Arial`;ctx.fillText('GEÇİCİ ÇÖZÜM',boardX,boardY-bh*.58,bw-12);ctx.fillText('KALICI ÇUKUR',boardX,boardY-bh*.25,bw-12);
  const objects=s.status==='ready'?[{lane:0,z:.37,type:'hole'},{lane:2,z:.59,type:'barrier'},{lane:1,z:.8,type:'hole'}] as Obstacle[]:s.objects;
  for(const o of [...objects].sort((a,b)=>b.z-a.z)){
    if(o.z<-.08||o.z>1)continue;const p=project(o.z);const x=p.x+(o.lane-1)*p.half*2/3;const size=Math.max(3,p.half*.38);
