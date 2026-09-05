@@ -285,3 +285,14 @@
   .root :global(.scores-dialog) { padding: 20px; }
   .root :global(.scores-heading h2) { font-size: 20px; }
 }
+@media (max-width: 767px), (max-height: 520px) and (max-width: 960px) {
+  .root[data-session="true"] :global(.keyboard-hint) { display: none; }
+}
+@media (max-height: 520px) and (min-width: 568px) and (max-width: 960px) {
+  .root[data-session="true"] { grid-template-columns: 124px minmax(0, 1fr) 144px; }
+  .root[data-session="true"] :global(.controls-row) { display: contents; }
+  .root[data-session="true"] :global(.steering-group), .root[data-session="true"] :global(.pedal-group) { grid-row: 2 / 4; align-self: end; width: auto; padding: 10px 8px max(16px, env(safe-area-inset-bottom)); }
+  .root[data-session="true"] :global(.steering-group) { grid-column: 1; }
+  .root[data-session="true"] :global(.pedal-group) { grid-column: 3; }
+  .root[data-session="true"] :global(.game-shell) { margin: 0; }
+}

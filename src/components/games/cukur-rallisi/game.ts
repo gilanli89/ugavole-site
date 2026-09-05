@@ -99,7 +99,7 @@ export function render(ctx:CanvasRenderingContext2D,w:number,h:number,s:GameStat
  // A readable roadside destination sign, rendered in the world.
  // Keep a readable board on narrow screens, with separate destination/distance rows.
  const sw=Math.min(190,Math.max(94,w*.18)),sh=sw*.59;
- const signX=Math.min(w-sw/2-9,Math.max(w*.82,w*.55+sw/2)),signY=h*.34;
+ const signX=Math.min(w-sw/2-9,Math.max(w*.82,w*.55+sw/2)),signY=Math.max(h*.34,sh+76);
  ctx.fillStyle='#788174';ctx.fillRect(signX-sw*.3,signY,sw*.025,sh*1.6);ctx.fillRect(signX+sw*.3,signY,sw*.025,sh*1.6);
  ctx.fillStyle='#205b4c';ctx.fillRect(signX-sw*.5,signY-sh,sw,sh);ctx.strokeStyle='#e4e9d1';ctx.lineWidth=2;ctx.strokeRect(signX-sw*.5+4,signY-sh+4,sw-8,sh-8);
  ctx.fillStyle='#fff8e3';ctx.textAlign='center';
@@ -107,7 +107,7 @@ export function render(ctx:CanvasRenderingContext2D,w:number,h:number,s:GameStat
  ctx.font=`${sw*.098}px Arial`;ctx.fillText('NICOSIA',signX,signY-sh*.4,sw-16);
  ctx.font=`bold ${sw*.11}px Arial`;ctx.fillText(`${Math.ceil(30-s.distance)} km`,signX,signY-sh*.15,sw-16);
  const bw=Math.min(198,Math.max(94,w*.2)),bh=bw*.39;
- const boardX=Math.min(w-bw/2-8,w*.865),boardY=h*.55;
+ const boardX=Math.min(w-bw/2-8,w*.865),boardY=Math.max(h*.55,signY+bh+22);
  ctx.fillStyle='#645f47';ctx.fillRect(boardX-bw*.34,boardY,bw*.025,bh*.8);ctx.fillRect(boardX+bw*.32,boardY,bw*.025,bh*.8);
  ctx.fillStyle='#e9bd54';ctx.fillRect(boardX-bw*.5,boardY-bh,bw,bh);ctx.strokeStyle='#665932';ctx.lineWidth=2;ctx.strokeRect(boardX-bw*.5+3,boardY-bh+3,bw-6,bh-6);
  ctx.fillStyle='#3d4230';ctx.textAlign='center';ctx.font=`bold ${bw*.088}px Arial`;ctx.fillText('GEÇİCİ ÇÖZÜM',boardX,boardY-bh*.58,bw-12);ctx.fillText('KALICI ÇUKUR',boardX,boardY-bh*.25,bw-12);

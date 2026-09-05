@@ -56,7 +56,7 @@ export default function CukurRallisi(){
    sync();viewport.addEventListener('change',sync);
    return()=>{document.documentElement.style.overflow=previous;viewport.removeEventListener('change',sync);};
  },[session]);
- useEffect(()=>{const check=()=>{void fetch('/oyunlar/cukur-rallisi/build.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(v=>{if(v&&typeof v==='object'&&'release' in v&&typeof v.release==='string'&&v.release!=='ugavole-2026-09-06.2')setUpdateAvailable(true);}).catch(()=>{});};const timer=setInterval(check,45000);window.addEventListener('focus',check);return()=>{clearInterval(timer);window.removeEventListener('focus',check);};},[]);
+ useEffect(()=>{const check=()=>{void fetch('/oyunlar/cukur-rallisi/build.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(v=>{if(v&&typeof v==='object'&&'release' in v&&typeof v.release==='string'&&v.release!=='ugavole-2026-09-06.3')setUpdateAvailable(true);}).catch(()=>{});};const timer=setInterval(check,45000);window.addEventListener('focus',check);return()=>{clearInterval(timer);window.removeEventListener('focus',check);};},[]);
  useEffect(()=>{
    const restoreName=requestAnimationFrame(()=>{try{setNickname(parseNickname(localStorage.getItem('cukur-nickname'))||'');}catch{}});
    try{const saved=Number(localStorage.getItem('cukur-best')||0);if(Number.isFinite(saved)){bestRef.current=saved;}}catch{}
@@ -111,6 +111,6 @@ export default function CukurRallisi(){
    <div className="journey"><div className="journey-title"><MapPin size={18}/><span>YOLCULUĞUN</span><strong>{ui.distance.toFixed(1)} <small>/ 30 km</small></strong></div><progress className="compact-progress" max={30} value={ui.distance} aria-label="Lefkoşa yolculuğu"/><div className="route-track"><div className="track-line"><div style={{width:`${ui.distance/30*100}%`}}/></div>{['Girne','Boğaz','Gönyeli','Lefkoşa'].map((name,i)=><div className={`track-stop ${i<=stage?'passed':''}`} key={name}><span>{i===3?<Flag size={11}/>:null}</span><small>{name}</small></div>)}</div></div>
    <DrivingControls state={ui} onSteer={steer} onPedal={pedal}/>
    {scoresOpen&&<Leaderboard onClose={()=>setScoresOpen(false)} player={nickname}/>}
-   <footer data-release="ugavole-2026-09-06.2"><span>Çukurları oyunda atlatıyoruz. Gerçekte çözülmesini istiyoruz.</span><span>Güzergâhtan esinlenildi; mesafe, üç şerit ve olaylar oyunlaştırıldı. <a href="https://bub.gov.ct.tr/DA%C4%B0RE-VE-KURUMLAR/G%C4%B0RNE-L%C4%B0MAN-BA%C5%9EKANLI%C4%9EI/lefko%C5%9Fa-g%C4%B0rne-yolu-%C4%B0le-lefko%C5%9Fa-kuzey-199evre-yolunun-kes%C4%B0%C5%9Ft%C4%B0%C4%9F%C4%B0-noktada-%C4%B0n%C5%9Fa-ed%C4%B0lecek-olan-yonca-kav%C5%9Fa%C4%9Fin-yapim-199ali%C5%9Fmalari-ba%C5%9Fliyor" target="_blank" rel="noreferrer">Güzergâh kaynağı ↗</a></span></footer>
+   <footer data-release="ugavole-2026-09-06.3"><span>Çukurları oyunda atlatıyoruz. Gerçekte çözülmesini istiyoruz.</span><span>Güzergâhtan esinlenildi; mesafe, üç şerit ve olaylar oyunlaştırıldı. <a href="https://bub.gov.ct.tr/DA%C4%B0RE-VE-KURUMLAR/G%C4%B0RNE-L%C4%B0MAN-BA%C5%9EKANLI%C4%9EI/lefko%C5%9Fa-g%C4%B0rne-yolu-%C4%B0le-lefko%C5%9Fa-kuzey-199evre-yolunun-kes%C4%B0%C5%9Ft%C4%B0%C4%9F%C4%B0-noktada-%C4%B0n%C5%9Fa-ed%C4%B0lecek-olan-yonca-kav%C5%9Fa%C4%9Fin-yapim-199ali%C5%9Fmalari-ba%C5%9Fliyor" target="_blank" rel="noreferrer">Güzergâh kaynağı ↗</a></span></footer>
  </div>;
 }
