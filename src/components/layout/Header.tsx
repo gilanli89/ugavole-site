@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: "Magazin",  href: "/kategori/magazin" },
   { label: "Spor",     href: "/spor" },
   { label: "Kültür",   href: "/kategori/kultur" },
+  { label: "Oyunlar",  href: "/oyunlar" },
   { label: "Quiz",     href: "/quiz" },
 ];
 

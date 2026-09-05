@@ -24,6 +24,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/haberler" className="hover:text-ugavole-yellow transition-colors">Haberler</Link></li>
               <li><Link href="/sozluk" className="hover:text-ugavole-yellow transition-colors">Kıbrıslıca Sözlük</Link></li>
+              <li><Link href="/oyunlar" className="hover:text-ugavole-yellow transition-colors">Oyunlar</Link></li>
               <li><Link href="/quiz" className="hover:text-ugavole-yellow transition-colors">Quiz</Link></li>
               <li><Link href="/gun-batimi" className="hover:text-ugavole-yellow transition-colors">Gün Batımı</Link></li>
               <li><Link href="/harita" className="hover:text-ugavole-yellow transition-colors">Anlık Harita</Link></li>

@@ -22,6 +22,7 @@ const RESERVED = [
   "cerez-politikasi",
   "gun-batimi",
   "quiz",
+  "oyunlar",
   "spor",
   "sosyal-medya",
   "guncel",

@@ -12,6 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: "https://ugavole.com/guncel/hava-durumu",    priority: 0.8, changeFrequency: "hourly"  },
     { url: "https://ugavole.com/guncel/burclar",        priority: 0.7, changeFrequency: "daily"   },
     { url: "https://ugavole.com/harita",                priority: 0.8, changeFrequency: "hourly"  },
+    { url: "https://ugavole.com/oyunlar",               priority: 0.8, changeFrequency: "weekly"  },
     { url: "https://ugavole.com/quiz",                  priority: 0.8, changeFrequency: "weekly"  },
     { url: "https://ugavole.com/quiz/kibrislica",       priority: 0.7, changeFrequency: "weekly"  },
     { url: "https://ugavole.com/quiz/sehir",            priority: 0.7, changeFrequency: "weekly"  },
