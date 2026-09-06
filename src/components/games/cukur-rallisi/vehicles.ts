@@ -43,6 +43,17 @@ export const VEHICLES = [
     durability: 190,
     cost: 5000,
   },
+  {
+    id: "simsek",
+    name: "Şimşek R",
+    tag: "Kırmızı çizgi. Son söz.",
+    shape: "super",
+    color: "#ef303b",
+    speed: 220,
+    acceleration: 80,
+    durability: 110,
+    cost: 9000,
+  },
 ] as const;
 export type VehicleId = (typeof VEHICLES)[number]["id"];
 export type Vehicle = (typeof VEHICLES)[number];

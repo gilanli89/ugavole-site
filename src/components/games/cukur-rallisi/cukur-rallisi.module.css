@@ -2387,3 +2387,46 @@
     bottom: 55px;
   }
 }
+@media (max-height: 520px) and (max-width: 1100px) {
+  .root[data-session="true"] :global(.inspection-progress) {
+    padding: 16px 0;
+    gap: 12px;
+  }
+  .root[data-session="true"] :global(.checkpoint-header h2) {
+    font-size: 20px;
+  }
+  .root[data-session="true"] :global(.officer-quote) {
+    margin: 10px 0 14px;
+  }
+}
+.root :global(.super-car-badge) {
+  position: absolute;
+  left: 18px;
+  top: 14px;
+  color: #bd333a;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  border: 1px solid #d7474e55;
+  background: #fff3e9;
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+.root :global(.vehicle-carousel .vehicle-card[data-super="true"]) {
+  border-color: #d5747580;
+  background: linear-gradient(155deg, #fbede1, #ece4dc);
+}
+.root
+  :global(.vehicle-carousel .vehicle-card[data-super="true"] .car-portrait) {
+  background: radial-gradient(ellipse at 50% 80%, #d5777150, transparent 64%);
+}
+.root :global(.vehicle-card[data-super="true"] .vehicle-stats i i) {
+  background: #c65752;
+}
+.root
+  :global(
+    .vehicle-carousel .vehicle-card[data-super="true"][data-selected="true"]
+  ) {
+  border-color: #c84245;
+  box-shadow: 0 0 0 3px #c8424514;
+}

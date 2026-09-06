@@ -81,12 +81,14 @@ export default function Garage({
           >
             <ChevronLeft size={20} />
           </button>
-          <span aria-live="polite">{page + 1} / 4</span>
+          <span aria-live="polite">
+            {page + 1} / {VEHICLES.length}
+          </span>
           <button
             type="button"
             aria-label="Sonraki araç"
             disabled={page === VEHICLES.length - 1}
-            onClick={() => goTo(Math.min(3, page + 1))}
+            onClick={() => goTo(Math.min(VEHICLES.length - 1, page + 1))}
           >
             <ChevronRight size={20} />
           </button>
@@ -104,7 +106,7 @@ export default function Garage({
           const index = Math.round(
             container.scrollLeft / (first.offsetWidth + 16),
           );
-          setPage(Math.max(0, Math.min(3, index)));
+          setPage(Math.max(0, Math.min(VEHICLES.length - 1, index)));
         }}
       >
         {VEHICLES.map((car) => {
@@ -115,6 +117,7 @@ export default function Garage({
               key={car.id}
               className="vehicle-card"
               data-selected={selected === car.id}
+              data-super={car.id === "simsek"}
               data-locked={locked}
               aria-pressed={selected === car.id}
               aria-label={`${car.name}${locked ? `, ${car.cost} toplam puanla açılır` : `, hız ${car.speed}, hızlanma ${car.acceleration}, dayanıklılık ${car.durability}`}`}
@@ -130,16 +133,19 @@ export default function Garage({
                   <Check size={14} />
                 ) : null}
               </span>
+              {car.id === "simsek" && (
+                <span className="super-car-badge">EN HIZLI · 220 KM/SA</span>
+              )}
               <CarPortrait car={car} />
               <strong>{car.name}</strong>
               <span className="vehicle-tag">{car.tag}</span>
               <div className="vehicle-stats">
                 {[
-                  { label: "Hız", value: car.speed, max: 180, unit: "km/sa" },
+                  { label: "Hız", value: car.speed, max: 240, unit: "km/sa" },
                   {
                     label: "İvmelenme",
                     value: car.acceleration,
-                    max: 60,
+                    max: 90,
                     unit: "",
                   },
                   {

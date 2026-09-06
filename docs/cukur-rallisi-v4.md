@@ -1,6 +1,6 @@
 # Çukur Rallisi — road season 03 / simulation v4
 
-Release: `ugavole-2026-09-07.1`. Production: https://ugavole.com/oyunlar.
+Release: `ugavole-2026-09-07.2`. Production: https://ugavole.com/oyunlar.
 
 ## Gameplay
 
@@ -22,7 +22,13 @@ Garage cards use native horizontal scrolling with scroll-snap, swipe, previous/n
 
 ## Verification
 
-- 26 targeted engine, replay, route/security tests, including complete tours across 20 seeds and all four vehicles; six checkpoint variants across 80 seeds; exact radar threshold; document renewal/idempotence; one-use joker; a complete tour using the joker and incurring three tickets; frozen v3 replay.
+- 27 targeted engine, replay, route/security tests, including complete tours across 20 seeds and all five vehicles; six checkpoint variants across 80 seeds; exact radar threshold; document renewal/idempotence; one-use joker; a complete tour using the joker and incurring three tickets; frozen v3 replay.
 - Production build and focused ESLint checks.
 - Local browser: swipeable mobile garage; actual checkpoint component purchased all three documents (780 → 300 points), released the checkpoint, and released a different checkpoint with the phone joker. Renderer fixture checked official-logo billboards at near/far distances. These are local component fixtures, not proof of live gameplay.
 - Production migration applied to ugavole-production; rollback-only database test confirmed v4 start, duplicate-finish idempotence and service-only access.
+
+## Fifth vehicle and engine voices
+
+Şimşek R is a red supercar with carbon wing, full-width rear LEDs and twin exhausts: 220 km/h, 80 acceleration, 110 durability, unlocked at 9,000 lifetime garage points. Its speed curve starts above every other car and reaches its full 220 km/h by the final stretch. Existing four-car physics and v4 replays remain unchanged. Migration 009 extends the vehicle constraint and server unlock gate.
+
+All five cars have distinct Web Audio oscillator families, harmonic mixes, filters, gear ratios and throttle response: light Mini four-cylinder, mellow wagon, bright turbo GT, pulsing low diesel 4×4, and high-rev V12 supercar. The new voices reuse the existing user-gesture audio initialization and mute control.

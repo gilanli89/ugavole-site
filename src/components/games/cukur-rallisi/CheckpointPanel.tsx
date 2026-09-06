@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import {
   FileCheck2,
   Phone,
@@ -23,6 +24,10 @@ export default function CheckpointPanel({
   state: GameState;
   onAction: (action: Action) => void;
 }) {
+  const panel = useRef<HTMLElement>(null);
+  useEffect(() => {
+    panel.current?.scrollTo({ top: 0 });
+  }, [s.police]);
   const variant = checkpointVariant(s);
   const busy = s.police !== "documents";
   const calling = s.police === "calling";
@@ -32,6 +37,7 @@ export default function CheckpointPanel({
     <div className="shade checkpoint-shade">
       <section
         className="checkpoint-card"
+        ref={panel}
         role="dialog"
         aria-modal="true"
         aria-labelledby="checkpoint-title"

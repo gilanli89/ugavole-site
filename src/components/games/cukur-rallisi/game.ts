@@ -216,7 +216,10 @@ export const stageIndex = (d: number) =>
   d < 5 ? 0 : d < 13 ? 1 : d < 21 ? 2 : d < 27 ? 3 : 4;
 export const difficulty = (d: number, vehicle: VehicleId = "ada") => ({
   level: Math.min(4, 1 + Math.floor(d / 8)),
-  maxSpeed: Math.min(vehicleById(vehicle).speed, 88 + d * 2.7),
+  maxSpeed: Math.min(
+    vehicleById(vehicle).speed,
+    vehicle === "simsek" ? 122 + d * 3.4 : 88 + d * 2.7,
+  ),
   spawnDelay: Math.max(2, 3.8 - d * 0.058),
 });
 export const roadDepth = (offset: number, travel: number) =>

@@ -12,6 +12,7 @@ import {
   DOCUMENTS,
   CHECKPOINT_VARIANTS,
   worldDepth,
+  difficulty,
   move,
   roadDepth,
   step,
@@ -98,11 +99,13 @@ test("brief shoulder escapes are safe; camping there reduces speed and durabilit
   for (let i = 0; i < 90; i++) step(s, dt);
   assert.equal(s.shoulderTime, 0);
 });
-test("all four vehicles have real performance differences and two unlock thresholds", () => {
+test("five vehicles have real performance differences and three unlock thresholds", () => {
   assert.deepEqual(unlockedVehicles(0), ["ada", "aile"]);
   assert.deepEqual(unlockedVehicles(1799), ["ada", "aile"]);
   assert.equal(unlockedVehicles(1800).length, 3);
   assert.equal(unlockedVehicles(5000).length, 4);
+  assert.equal(unlockedVehicles(8999).length, 4);
+  assert.equal(unlockedVehicles(9000).length, 5);
   const speeds = VEHICLES.map((car) => {
     const s = running(car.id);
     s.speed = 0;
@@ -166,7 +169,7 @@ test("separated opposing traffic cannot collide; wrong-way cars can, and NPCs si
 });
 test("reactive driving can win across twenty seeds with both controls and scripted incidents verified by replay", () => {
   for (let seed = 1; seed <= 20; seed++) {
-    const vehicle = VEHICLES[(seed - 1) % 4].id;
+    const vehicle = VEHICLES[(seed - 1) % VEHICLES.length].id;
     const { s, frame, inputs } = drive(seed, vehicle);
     assert.equal(
       s.status,
@@ -340,4 +343,18 @@ test("a full tour with the phone joker, renewals and radar tickets remains serve
   assert.ok(verified);
   assert.equal(totalScore(verified), totalScore(s));
   assert.equal(verified.spent, s.spent);
+});
+
+
+test("the red flagship is fastest throughout the journey, and each engine has a distinct voice", async () => {
+  const supercar=VEHICLES.find(v=>v.id==="simsek")!;
+  assert.equal(supercar.cost,9000);assert.equal(supercar.speed,220);assert.equal(supercar.acceleration,80);
+  for(const d of [0,8,16,24,30]) for(const v of VEHICLES.filter(v=>v.id!=="simsek")) assert.ok(difficulty(d,"simsek").maxSpeed > difficulty(d,v.id).maxSpeed);
+  const {ENGINE_VOICES}=await import("../src/components/games/cukur-rallisi/engine-voices");
+  assert.equal(new Set(Object.values(ENGINE_VOICES).map(v=>JSON.stringify([v.base,v.filter,v.waves,v.harmonics]))).size,5);
+  for (const seed of [42,1337,918273,4294967295]) {
+    const {s,frame,inputs}=drive(seed,"simsek",{phone:true});
+    assert.equal(s.status,"won",`supercar seed ${seed}`);
+    const verified=replayRun(seed,frame,inputs,"simsek");assert.ok(verified);assert.equal(totalScore(verified),totalScore(s));
+  }
 });

@@ -42,7 +42,15 @@ export function drawVehicle(
   time = 0,
 ) {
   const { color, front = false, shape = "hatch" } = look;
-  const h = w * (shape === "sport" ? 0.79 : shape === "suv" ? 1.14 : 1.03);
+  const h =
+    w *
+    (shape === "super"
+      ? 0.71
+      : shape === "sport"
+        ? 0.79
+        : shape === "suv"
+          ? 1.14
+          : 1.03);
   const poly = (p: number[], fill: string) => polygon(c, p, fill);
   c.save();
   c.translate(x, y);
@@ -167,6 +175,31 @@ export function drawVehicle(
     if (shape === "sport") {
       c.fillStyle = "#25313a";
       c.fillRect(-w * 0.47, -h * 0.47, w * 0.94, h * 0.05);
+    }
+    if (shape === "super") {
+      // Low body, full-width LEDs, carbon wing and twin exhausts for the flagship.
+      c.fillStyle = "#161f27";
+      c.fillRect(-w * 0.065, -h * 0.96, w * 0.13, h * 0.09);
+      c.fillRect(-w * 0.055, -h * 0.52, w * 0.11, h * 0.22);
+      c.fillRect(-w * 0.37, -h * 0.64, w * 0.045, h * 0.2);
+      c.fillRect(w * 0.325, -h * 0.64, w * 0.045, h * 0.2);
+      c.fillRect(-w * 0.59, -h * 0.67, w * 1.18, h * 0.065);
+      c.fillStyle = "#727f83";
+      c.fillRect(-w * 0.59, -h * 0.68, w * 1.18, h * 0.013);
+      c.fillStyle = look.brake ? "#ffb7a8" : "#ff766b";
+      c.fillRect(-w * 0.41, -h * 0.32, w * 0.82, h * 0.04);
+      c.fillStyle = "#1c2329";
+      c.fillRect(-w * 0.35, -h * 0.06, w * 0.7, h * 0.08);
+      for (const off of [-0.3, 0.3]) {
+        c.fillStyle = "#aab5b5";
+        c.beginPath();
+        c.ellipse(w * off, -h * 0.09, w * 0.06, h * 0.045, 0, 0, Math.PI * 2);
+        c.fill();
+        c.fillStyle = "#10212c";
+        c.beginPath();
+        c.ellipse(w * off, -h * 0.09, w * 0.042, h * 0.028, 0, 0, Math.PI * 2);
+        c.fill();
+      }
     }
     if (shape === "suv") {
       c.fillStyle = "#394334";
@@ -718,7 +751,12 @@ export function render(
       color: car.color,
       shape: car.shape,
       brake: s.brake,
-      plate: car.id === "gecit" ? "GT 074" : "GRN 001",
+      plate:
+        car.id === "simsek"
+          ? "R 220"
+          : car.id === "gecit"
+            ? "GT 074"
+            : "GRN 001",
     },
     time,
   );

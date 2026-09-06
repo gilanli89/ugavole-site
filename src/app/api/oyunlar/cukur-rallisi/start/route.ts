@@ -30,7 +30,8 @@ export async function POST(request: Request) {
   if (
     !legacy &&
     (!(body.version === 3 || body.version === GAME_VERSION) ||
-      !isVehicleId(body.vehicle))
+      !isVehicleId(body.vehicle) ||
+      (body.version === 3 && body.vehicle === "simsek"))
   )
     return noStoreJson(
       { error: "Oyunu güncelleyip tekrar dene." },

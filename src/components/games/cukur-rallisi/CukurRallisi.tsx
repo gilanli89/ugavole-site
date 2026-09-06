@@ -332,7 +332,7 @@ export default function CukurRallisi() {
             typeof v === "object" &&
             "release" in v &&
             typeof v.release === "string" &&
-            v.release !== "ugavole-2026-09-07.1"
+            v.release !== "ugavole-2026-09-07.2"
           )
             setUpdateAvailable(true);
         })
@@ -806,7 +806,7 @@ export default function CukurRallisi() {
                 <CarFront size={17} />
                 <span>
                   Garajın: <b>{garagePoints.toLocaleString("tr-TR")} puan</b>
-                  <small>1.800 → Geçit GT · 5.000 → Mesarya 4×4</small>
+                  <small>1.800 → GT · 5.000 → 4×4 · 9.000 → Şimşek R</small>
                 </span>
               </div>
               <button className="start-button" onClick={leave}>
@@ -905,7 +905,7 @@ export default function CukurRallisi() {
             data-speeding={radarNear && ui.speed > RADAR_LIMIT}
           >
             <Gauge size={21} />
-            <strong>{Math.round(ui.speed)}</strong>
+            <strong>{Math.ceil(ui.speed)}</strong>
             <span>
               KM/SA
               <small>
@@ -1056,7 +1056,7 @@ export default function CukurRallisi() {
       {scoresOpen && (
         <Leaderboard onClose={() => setScoresOpen(false)} player={nickname} />
       )}
-      <footer data-release="ugavole-2026-09-07.1">
+      <footer data-release="ugavole-2026-09-07.2">
         <span>
           Çukurları oyunda atlatıyoruz. Gerçekte çözülmesini istiyoruz.
         </span>

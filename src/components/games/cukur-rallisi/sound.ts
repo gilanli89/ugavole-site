@@ -1,5 +1,6 @@
 import type { GameState } from "./game";
-import { vehicleById } from "./vehicles";
+import { vehicleById, type VehicleId } from "./vehicles";
+import { ENGINE_VOICES } from "./engine-voices";
 
 /** Audio is created only from a user's play / unmute gesture. */
 export class DrivingSound {
@@ -9,6 +10,9 @@ export class DrivingSound {
   private samples = new Float32Array(512);
   private engine: OscillatorNode[] = [];
   private engineGain: GainNode;
+  private harmonicGains: GainNode[] = [];
+  private engineFilter: BiquadFilterNode;
+  private voice: VehicleId | null = null;
   private roadGain: GainNode;
   private brakeGain: GainNode;
   private siren: OscillatorNode;
@@ -26,7 +30,7 @@ export class DrivingSound {
     this.meter.connect(a.destination);
     this.engineGain = a.createGain();
     this.engineGain.gain.value = 0;
-    const filter = a.createBiquadFilter();
+    const filter = (this.engineFilter = a.createBiquadFilter());
     filter.type = "lowpass";
     filter.frequency.value = 420;
     this.engineGain.connect(filter);
@@ -41,6 +45,7 @@ export class DrivingSound {
       g.connect(this.engineGain);
       o.start();
       this.engine.push(o);
+      this.harmonicGains.push(g);
       this.sources.push(o);
     }
     this.noise = a.createBuffer(1, a.sampleRate * 2, a.sampleRate);
@@ -86,6 +91,7 @@ export class DrivingSound {
     return {
       state: this.muted ? "muted" : this.context.state,
       level: Math.sqrt(energy / this.samples.length),
+      voice: this.voice,
     };
   }
   resume() {
@@ -117,22 +123,46 @@ export class DrivingSound {
     }
     const t = this.context.currentTime;
     const speed = s.speed / vehicleById(s.vehicle).speed;
-    const gear = Math.min(4, Math.floor(s.speed / 36));
+    const voice = ENGINE_VOICES[s.vehicle];
+    if (this.voice !== s.vehicle) {
+      this.voice = s.vehicle;
+      this.engine.forEach((osc, i) => {
+        osc.type = voice.waves[i];
+        this.harmonicGains[i].gain.setTargetAtTime(voice.gains[i], t, 0.04);
+      });
+    }
+    const gear = Math.min(5, Math.floor(s.speed / voice.gearSpan));
+    const gearSpeed = s.speed - gear * voice.gearSpan;
     const rpm =
-      (s.vehicle === "mesarya" ? 29 : 36) +
-      (s.speed - gear * 30) * 1.2 +
-      (s.throttle ? 8 : 0);
+      voice.base + gearSpeed * voice.rev + gear * 3 + (s.throttle ? 12 : 0);
     this.engine.forEach((o, i) =>
-      o.frequency.setTargetAtTime(rpm * (i + 1), t, 0.1),
+      o.frequency.setTargetAtTime(rpm * voice.harmonics[i], t, 0.075),
     );
-    this.engineGain.gain.setTargetAtTime(0.22 + speed * 0.35, t, 0.1);
+    this.engineFilter.frequency.setTargetAtTime(
+      voice.filter * (0.65 + speed * 0.6 + (s.throttle ? 0.2 : 0)),
+      t,
+      0.08,
+    );
+    this.engineFilter.Q.setTargetAtTime(
+      s.vehicle === "simsek" ? 0.8 : 0.45,
+      t,
+      0.12,
+    );
+    const pulse =
+      Math.sin(s.elapsed * voice.pulse * Math.PI * 2) * voice.roughness;
+    const shiftDip = gear > 0 && gearSpeed < 3 ? 0.74 : 1;
+    this.engineGain.gain.setTargetAtTime(
+      (voice.volume + speed * 0.25 + pulse) * shiftDip,
+      t,
+      0.04,
+    );
     this.roadGain.gain.setTargetAtTime(
       speed * (s.visualLane < 0.45 ? 0.95 : 0.28),
       t,
       0.1,
     );
     this.brakeGain.gain.setTargetAtTime(
-      s.brake && s.speed > 32 ? 0.18 : 0,
+      s.brake && s.speed > 32 ? 0.18 : s.throttle ? speed * voice.turbo : 0,
       t,
       0.09,
     );
