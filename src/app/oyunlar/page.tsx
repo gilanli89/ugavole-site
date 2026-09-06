@@ -4,7 +4,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Oyunlar — Çukur Rallisi",
-  description: "Girne’den Lefkoşa’ya üç şeritli bir yol macerası. Çukurları ve bariyerleri atlat, polis kontrolünde yavaşla. Çukur Rallisi’ni ücretsiz oyna.",
+  description: "Girne’den Lefkoşa’ya iki şeritli yol macerası. Aracını seç, trafiği ve çukurları atlat, polis kontrolünde evraklarını göster. Çukur Rallisi’ni ücretsiz oyna.",
   path: "/oyunlar",
 });
 

@@ -1,298 +1,1801 @@
-.root{--background:#f3f2eb;--foreground:#24372f;--font-geist-sans:var(--font-ugavole-sans);--font-geist-mono:ui-monospace;background:var(--background);color:var(--foreground);font-family:var(--font-geist-sans),Arial,sans-serif;border:1px solid #dadfd2;border-radius:18px;color-scheme:light;}
-.root :global(*){box-sizing:border-box}.root :global(button),.root :global(a){-webkit-tap-highlight-color:transparent}.root :global(button){font:inherit;cursor:pointer}.root :global(button:disabled){cursor:default;opacity:.4}.root :global(button:focus-visible),.root :global(a:focus-visible){outline:3px solid #e79c2e;outline-offset:5px}.root :global(button){touch-action:manipulation}.root :global(a){color:inherit;text-decoration:none}.root{max-width:1540px;margin:auto;padding:0 38px}.root :global(.topbar){height:98px;display:flex;align-items:center;justify-content:space-between;gap:24px}.root :global(.brand){display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-1px;font-size:23px;font-style:italic;line-height:1.1}.root :global(.brand-mark){background:#e8b644;width:43px;height:43px;border-radius:11px;display:grid;place-items:center;transform:rotate(-5deg)}.root :global(.brand small){display:block;font-size:10px;letter-spacing:2px;font-style:normal;font-weight:600;margin-top:7px}.root :global(.brand-light){font-weight:500}.root :global(.header-route){display:flex;align-items:center;gap:20px;font-size:12px;letter-spacing:2px;font-weight:700}.root :global(.route-dashes){display:flex;align-items:center;gap:10px;color:#879186}.root :global(.header-right){display:flex;align-items:center;gap:19px}.root :global(.weather){display:flex;align-items:center;gap:9px;font-size:13px;color:#687168}.root :global(.icon-button){border:1px solid #d6d9cc;border-radius:50%;width:39px;height:39px;display:grid;place-items:center;background:transparent}.root :global(.game-shell){height:min(680px,72vh);min-height:540px;position:relative;border-radius:18px;overflow:hidden;background:#99c7ce;isolation:isolate;box-shadow:0 4px 0 #24372f0a}.root :global(.game-shell canvas){width:100%;height:100%;display:block;touch-action:none}.root :global(.hud){position:absolute;left:30px;right:30px;top:24px;display:flex;align-items:center;justify-content:space-between;gap:12px;pointer-events:none}.root :global(.location-chip){display:flex;align-items:center;gap:12px;background:#f9f8e9e8;border-radius:10px;padding:13px 18px;box-shadow:0 3px 20px #17372a0a}.root :global(.live-dot),.root :global(.green-dot){display:inline-block;width:7px;height:7px;border-radius:50%;background:#387756}.root :global(.location-chip small),.root :global(.hud-right small){font-size:10px;letter-spacing:1.7px;font-weight:600;display:block;margin-bottom:5px}.root :global(.location-chip strong){font-size:15px}.root :global(.hud-right){display:flex;gap:24px;align-items:center;background:#21372ff0;color:#f6f3df;padding:12px 17px 12px 23px;border-radius:10px}.root :global(.hud-right small){color:#aebaad}.root :global(.score strong){font-family:var(--font-geist-mono),monospace;font-size:23px;line-height:1}.root :global(.health){border-left:1px solid #536253;padding-left:24px}.root :global(.health>div){display:flex;gap:5px}.root :global(.pause){border-color:#526359;color:#f2efd9;pointer-events:auto}.root :global(.start-panel){position:absolute;left:5%;top:24%;width:425px;color:#faf6e6;background:#18362fea;padding:31px 33px 23px;border-radius:14px;box-shadow:0 18px 70px #11261c20;backdrop-filter:blur(8px)}.root :global(.eyebrow){font-size:10px;font-weight:700;letter-spacing:2.2px;display:flex;align-items:center;gap:9px;color:#e6c26d}.root :global(.eyebrow>span){height:5px;width:5px;background:#e6c26d;border-radius:50%}.root :global(.game-title){font-size:clamp(34px,3.6vw,55px);line-height:1.06;letter-spacing:-2.4px;font-weight:800;margin:19px 0 17px}.root :global(.game-title em){font-style:italic;color:#efc65f}.root :global(p){line-height:1.7}.root :global(.start-panel p){font-size:14px;color:#d2dbc9;margin:0}.root :global(.start-features){display:flex;flex-wrap:wrap;gap:10px 17px;margin:19px 0 23px;color:#d5dfcb;font-size:12px}.root :global(.start-features span){display:flex;align-items:center;gap:6px}.root :global(.start-features svg){color:#d4b363}.root :global(.start-button){display:flex;align-items:center;justify-content:space-between;width:100%;background:#edc255;border:0;color:#22372e;padding:17px 22px;font-size:14px;font-weight:800;letter-spacing:1.2px;border-radius:7px;box-shadow:0 3px 0 #af8735;transition:background .15s,transform .15s}.root :global(.start-button:hover){background:#ffdb7a;transform:translateY(-1px)}.root :global(.start-bottom){display:flex;justify-content:space-between;gap:10px;margin-top:19px;color:#b8c7b6;font-size:10px}.root :global(.start-bottom span){display:flex;align-items:center;gap:5px}.root :global(kbd){border:1px solid #728373;border-radius:3px;padding:2px 5px;font-family:inherit;font-size:9px;color:#e6ebd9}.root :global(.best){margin-top:13px;font-size:11px;color:#d6c798}.root :global(.scene-bottom){position:absolute;bottom:25px;left:30px;right:30px;display:flex;justify-content:space-between;align-items:flex-end;pointer-events:none}.root :global(.edition){font-size:10px;letter-spacing:2px;font-weight:600;color:#fffce1;display:flex;align-items:center;gap:8px}.root :global(.edition>span){width:5px;height:5px;background:#ebc462;border-radius:50%}.root :global(.speedometer){display:flex;gap:11px;align-items:center;color:#fff5d9;background:#21372fed;padding:12px 19px;border-radius:10px}.root :global(.speedometer>svg){color:#d6c69c}.root :global(.speedometer strong){font-family:var(--font-geist-mono),monospace;font-size:34px;font-weight:500;line-height:1}.root :global(.speedometer>span){font-size:10px;letter-spacing:1px}.root :global(.speedometer small){display:block;font-size:8px;color:#aebbaf;margin-top:5px}.root :global(.speedometer.braking){background:#743c27}.root :global(.journey){margin-top:20px;display:flex;align-items:center;gap:55px;background:#e7e9df;border:1px solid #dadfd2;border-radius:10px;padding:18px 25px 22px}.root :global(.journey-title){display:flex;align-items:center;gap:9px;white-space:nowrap}.root :global(.journey-title>span){font-size:10px;letter-spacing:1.4px;font-weight:600}.root :global(.journey-title strong){font-family:var(--font-geist-mono),monospace;font-size:15px;margin-left:14px}.root :global(.journey-title small){color:#7f877c;font-size:12px;font-weight:400}.root :global(.route-track){flex:1;display:flex;justify-content:space-between;position:relative;padding-top:3px}.root :global(.track-line){position:absolute;height:2px;background:#c2cbbd;left:7px;right:7px;top:8px}.root :global(.track-line>div){height:100%;background:#47745c;transition:width .2s}.root :global(.track-stop){position:relative;text-align:center}.root :global(.track-stop>span){display:grid;place-items:center;border:2px solid #c2cbbd;width:12px;height:12px;border-radius:50%;background:#e7e9df;margin:auto}.root :global(.track-stop.passed>span){border-color:#47745c;background:#47745c;color:#fff}.root :global(.track-stop small){position:relative;display:block;font-size:11px;margin-top:7px;color:#7c8779}.root :global(.track-stop.passed small){color:#344e3e;font-weight:600}.root :global(.controls-row){display:flex;align-items:center;justify-content:space-between;padding:19px 3px 17px}.root :global(.controls){display:flex;align-items:center;gap:7px}.root :global(.controls>button){background:#fffdf8;border:1px solid #d8ddd0;border-bottom:3px solid #c7cebf;border-radius:6px;height:35px;min-width:37px;display:grid;place-items:center;color:#304d3a}.root :global(.controls>span){font-size:11px;color:#747f70;margin:0 13px 0 3px}.root :global(.controls .brake-button){font-size:10px;letter-spacing:1px;font-weight:700;padding:0 15px;touch-action:none;user-select:none}.root :global(.controls button:active:not(:disabled)){background:#eccd76;border-bottom-width:1px}.root :global(.controls-row p){font-size:12px;margin:0;color:#60715e;display:flex;align-items:center;gap:8px}.root :global(footer){border-top:1px solid #dce0d2;padding:17px 1px 22px;color:#89917f;display:flex;justify-content:space-between;gap:20px;font-size:10px;line-height:1.6}.root :global(footer span:first-child){color:#697763}.root :global(footer a){text-decoration:underline}.root :global(.shade){position:absolute;inset:0;background:#122a247a;backdrop-filter:blur(6px);display:grid;place-items:center;z-index:5;padding:20px}.root :global(.result-panel){background:#1d382f;color:#fff7df;width:min(440px,100%);padding:29px;border:1px solid #61735a;border-radius:16px;text-align:center;box-shadow:0 30px 80px #13241d55}.root :global(.result-icon){width:45px;height:45px;border-radius:50%;background:#eac15c;color:#233b2f;display:grid;place-items:center;margin:0 auto 18px}.root :global(.result-panel .eyebrow){justify-content:center}.root :global(.result-panel h2){font-size:31px;line-height:1.2;letter-spacing:-1px;margin:17px 0 12px}.root :global(.result-panel p){font-size:14px;color:#c1cebb;margin:12px 0 22px}.root :global(.text-button){background:none;border:0;color:#bdcbb6;font-size:13px;margin-top:22px;display:inline-flex;align-items:center;gap:7px}.root :global(.result-score){font-family:var(--font-geist-mono),monospace;font-size:42px;color:#efc765}.root :global(.result-score small){font-size:11px;font-weight:400}.root :global(.result-stats){display:flex;justify-content:space-around;border-top:1px solid #566849;border-bottom:1px solid #566849;padding:17px 0;margin-top:15px}.root :global(.result-stats span){font-size:10px;color:#b9c7b0}.root :global(.result-stats b){display:block;font-size:19px;color:#f0edda;margin-bottom:4px}.root :global(.result-panel .result-message){font-size:12px}.root :global(.game-message),.root :global(.police-alert){position:absolute;left:50%;transform:translateX(-50%);background:#fff9e9;color:#314635;border-radius:9px;padding:13px 22px;font-size:14px;text-align:center;box-shadow:0 5px 24px #18332626}.root :global(.game-message){bottom:115px;width:max-content;max-width:90%}.root :global(.police-alert){top:115px;display:flex;align-items:center;gap:12px;background:#f0c75c;font-weight:700}.root :global(.police-alert small){display:block;font-size:11px;font-weight:400;margin-top:3px}.root :global(.police-alert.safe){background:#b5dec1}
-@media(min-width:1600px){.root :global(.game-shell){height:710px;max-height:76vh}.root :global(.start-panel){top:26%}}
-@media(max-width:1100px){.root{padding:0 23px}.root :global(.weather){display:none}.root :global(.topbar){height:83px}.root :global(.start-panel){left:4%;width:355px;top:23%;padding:27px}.root :global(.start-panel .game-title){font-size:44px}.root :global(.start-features){gap:8px 12px}.root :global(.journey){gap:25px}.root :global(.header-route){font-size:11px}.root :global(.hud){left:23px;right:23px}.root :global(.hud-right){gap:15px}.root :global(.health){padding-left:15px}.root :global(footer){flex-direction:column;gap:5px}.root :global(.controls-row p){font-size:11px}}
-@media(max-width:640px){.root{padding:0 12px}.root :global(.topbar){height:76px;gap:10px}.root :global(.brand){font-size:20px;gap:9px}.root :global(.brand small){font-size:8px;letter-spacing:1.5px}.root :global(.brand-mark){height:36px;width:36px;border-radius:9px}.root :global(.header-route){display:none}.root :global(.header-right){gap:0}.root :global(.sound){width:34px;height:34px}.root :global(.game-shell){min-height:580px;height:calc(100svh - 228px);max-height:760px;border-radius:13px}.root :global(.hud){top:14px;left:12px;right:12px;align-items:flex-start}.root :global(.location-chip){padding:10px;gap:7px;border-radius:8px}.root :global(.location-chip small){font-size:8px;letter-spacing:1px}.root :global(.location-chip strong){font-size:12px}.root :global(.live-dot){width:5px;height:5px}.root :global(.hud-right){padding:9px 10px;gap:12px;border-radius:8px;flex-wrap:wrap}.root :global(.hud-right small){font-size:8px;letter-spacing:.7px;margin-bottom:4px}.root :global(.score strong){font-size:17px}.root :global(.health){padding-left:10px}.root :global(.health svg){width:15px;height:15px}.root :global(.health>div){gap:3px}.root :global(.pause){position:absolute;right:0;top:72px;background:#23392fdd;width:35px;height:35px}.root :global(.start-panel){top:22%;left:6%;width:88%;padding:26px 25px 22px}.root :global(.start-panel .game-title){font-size:43px;letter-spacing:-2px;margin:18px 0 15px}.root :global(.eyebrow){font-size:9px}.root :global(.start-panel p){font-size:13px}.root :global(.start-features){font-size:11px;margin:18px 0}.root :global(.start-features svg){width:15px}.root :global(.start-button){padding:15px 18px}.root :global(.start-bottom){font-size:9px;margin-top:17px;gap:5px}.root :global(.scene-bottom){bottom:19px;left:17px;right:17px}.root :global(.edition){font-size:8px;letter-spacing:1px}.root :global(.speedometer){padding:10px 12px;gap:7px}.root :global(.speedometer strong){font-size:27px}.root :global(.speedometer>svg){width:17px}.root :global(.speedometer>span){font-size:8px}.root :global(.speedometer small){font-size:7px}.root :global(.journey){margin-top:12px;padding:13px 16px 16px;display:block}.root :global(.journey-title){gap:7px;margin-bottom:15px}.root :global(.journey-title>span){font-size:9px}.root :global(.journey-title strong){margin-left:auto;font-size:13px}.root :global(.journey-title>svg){width:15px}.root :global(.track-stop small){font-size:10px}.root :global(.controls-row){padding:13px 0 15px;display:block}.root :global(.controls){justify-content:center;gap:8px}.root :global(.controls>button){height:45px;width:47px}.root :global(.controls>span){font-size:10px;margin-right:8px}.root :global(.controls .brake-button){width:69px}.root :global(.controls-row p){justify-content:center;margin-top:15px;font-size:11px}.root :global(footer){font-size:9px;gap:6px;padding:14px 3px}.root :global(.police-alert){top:110px;width:85%;font-size:13px}.root :global(.game-message){font-size:12px;bottom:108px;padding:12px 15px}.root :global(.result-panel){padding:24px}.root :global(.result-panel h2){font-size:28px}.root :global(.result-icon){margin-bottom:12px}.root :global(.result-panel p){margin:10px 0 15px}.root :global(.result-score){font-size:35px}}
-@media(prefers-reduced-motion:reduce){.root :global(*),.root :global(*::before),.root :global(*::after){scroll-behavior:auto!important;transition:none!important}}
-/* Keep frequently used instructions comfortably readable. */
-.root :global(.start-panel p){font-size:16px}.root :global(.start-features){font-size:12px}.root :global(.start-bottom){font-size:12px}.root :global(.controls>span),.root :global(.controls .brake-button){font-size:12px}.root :global(.controls-row p){font-size:13px}.root :global(.track-stop small){font-size:12px}.root :global(.result-stats span){font-size:12px}
-@media(max-width:640px){.root :global(.start-panel p){font-size:14px}.root :global(.start-bottom){font-size:11px}.root :global(.controls>span){font-size:11px}.root :global(.controls-row p){font-size:12px}.root :global(.start-panel){padding-left:23px;padding-right:23px}}
-.root :global(.sound-note){display:flex;align-items:center;justify-content:center;gap:7px;color:#d6dfc9;font-size:12px;margin-top:15px}.root :global(.game-shell){box-shadow:0 16px 42px #21372f15,0 2px 0 #fff inset;border:1px solid #fff9}.root :global(.start-panel){background:linear-gradient(145deg,#183c33f5,#18322bee);border:1px solid #b3c8ab30}.root :global(.speedometer){border:1px solid #c9d5b635;box-shadow:0 6px 24px #122a2633}.root :global(.hud-right){box-shadow:0 5px 25px #18352d15}.root :global(.start-button){background:linear-gradient(120deg,#f9d879,#edbd4e)}
-.root :global(.sound){width:auto;min-width:39px;border-radius:20px;display:flex;gap:7px;padding:0 11px}.root :global(.sound span){font-size:12px;white-space:nowrap}.root :global(.sound[data-audio-state="running"]){border-color:#669576;background:#e0ecdd}.root :global(.update-notice){display:flex;align-items:center;justify-content:space-between;gap:12px;background:#f4d884;padding:12px 17px;margin-bottom:12px;border-radius:8px;font-size:14px}.root :global(.update-notice button){background:#254637;color:#fff;border:0;padding:8px 12px;border-radius:5px}
-@media(max-width:640px){.root :global(.sound){padding:0 8px;gap:4px}.root :global(.sound span){font-size:10px}.root :global(.brand){font-size:18px}}
-
-.root{padding:0 22px}.root :global(.topbar){height:82px}.root :global(.game-shell){height:min(640px,70vh)}@media(max-width:640px){.root{padding:0 10px;border-radius:13px}.root :global(.topbar){height:72px}.root :global(.start-panel){top:20%}.root :global(.start-panel .game-title){font-size:38px}.root :global(.controls-row){position:sticky;bottom:0;z-index:10;background:#f3f2eb;border-top:1px solid #d8ddd0;border-radius:10px}.root :global(.controls-row p){display:none}.root :global(.game-shell){min-height:520px;height:calc(100svh - 230px)}}
-
-/* A thumb dock stays outside the road, so fingers never hide approaching hazards. */
-.root :global(.exit-game) { display: none; }
-.root :global(.compact-progress) { display: none; }
-.root :global(.controls-row) {
-  position: relative;
-  display: grid;
-  grid-template-columns: 166px 194px 1fr;
-  align-items: end;
-  gap: 26px;
-  padding: 20px 0;
-  border: 0;
-  background: transparent;
+.root {
+  --ink: #243d34;
+  --paper: #f4f2e9;
+  --line: #d7ddce;
+  --gold: #efc258;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font-ugavole-sans), Arial, sans-serif;
+  color-scheme: light;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  max-width: 1440px;
+  margin: auto;
+  padding: 0 24px;
+  overflow: hidden;
 }
-.root :global(.control-caption) {
+.root :global(*) {
+  box-sizing: border-box;
+}
+.root :global(button),
+.root :global(input) {
+  font: inherit;
+}
+.root :global(button) {
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.root :global(button:disabled) {
+  opacity: 0.45;
+  cursor: default;
+}
+.root :global(button:focus-visible),
+.root :global(a:focus-visible),
+.root :global(input:focus-visible) {
+  outline: 3px solid #df9b34;
+  outline-offset: 4px;
+}
+.root :global(a) {
+  color: inherit;
+  text-decoration: none;
+}
+.root :global(p) {
+  line-height: 1.6;
+}
+.root :global(button) {
+  color: inherit;
+}
+.root :global(.topbar) {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.root :global(.brand) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  font-size: 21px;
+  font-style: italic;
+  line-height: 1.1;
+}
+.root :global(.brand-mark) {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--gold);
+  display: grid;
+  place-items: center;
+  transform: rotate(-5deg);
+}
+.root :global(.brand-light) {
+  font-weight: 500;
+}
+.root :global(.brand small) {
+  display: block;
+  font-style: normal;
+  font-size: 8px;
+  letter-spacing: 1.6px;
+  margin-top: 6px;
+}
+.root :global(.header-route) {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+.root :global(.route-dashes) {
+  display: flex;
+  gap: 8px;
+  color: #93a08b;
+}
+.root :global(.header-right) {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.root :global(.weather) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #707c6b;
+}
+.root :global(.icon-button) {
+  border: 1px solid #cdd5c6;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.root :global(.sound) {
+  width: auto;
+  padding: 0 12px;
+  gap: 6px;
+  border-radius: 25px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.root :global(.sound[data-audio-state="running"]) {
+  background: #e5ecdd;
+  border-color: #a9bd9d;
+}
+.root :global(.exit-game) {
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.root :global(.update-notice) {
+  padding: 10px 14px;
+  background: #f2da98;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.root :global(.update-notice button) {
+  background: #2b4f3c;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 6px 10px;
+}
+.root :global(.game-shell) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: min(650px, 72vh);
+  min-height: 440px;
+  background: #a6c7ce;
+  border-radius: 14px;
+  box-shadow: 0 5px 25px #1f392414;
+}
+.root :global(.game-shell canvas) {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+.root[data-status="ready"] :global(.game-shell) {
+  height: 330px;
+  min-height: 0;
+}
+.root[data-status="ready"] :global(.game-shell)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(90deg, #193e36ec, #234c397a 44%, transparent 72%);
+  pointer-events: none;
+}
+.root[data-status="ready"] :global(.hud),
+.root[data-status="ready"] :global(.scene-bottom) {
+  display: none;
+}
+.root :global(.start-panel) {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 55%;
+  padding: 35px 38px;
+  color: #f8f4df;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none;
+}
+.root :global(.eyebrow) {
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #ddbb63;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.root :global(.eyebrow > span) {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ddbb63;
+}
+.root :global(.game-title) {
+  font-size: clamp(32px, 3.6vw, 52px);
+  line-height: 1.07;
+  letter-spacing: -2px;
+  font-weight: 800;
+  margin: 18px 0 12px;
+}
+.root :global(.game-title em) {
+  color: #f0c464;
+}
+.root :global(.start-panel p) {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #e1e6d3;
+  margin: 0;
+}
+.root :global(.intro-tags) {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  font-size: 10px;
+  color: #ede9cd;
+}
+.root :global(.intro-tags span) {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.root :global(.garage) {
+  padding: 27px 0 0;
+}
+.root :global(.garage-heading) {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 18px;
-  margin-bottom: 8px;
-  color: #587062;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  white-space: nowrap;
+  margin-bottom: 18px;
 }
-.root :global(.control-caption small) { font-size: 10px; font-weight: 500; letter-spacing: 0; }
-.root :global(.lane-indicator) { display: flex; gap: 3px; }
-.root :global(.lane-indicator i) { width: 6px; height: 12px; border-radius: 3px; background: #cad4c7; }
-.root :global(.lane-indicator i[data-current="true"]) { background: #357452; }
-.root :global(.steering-buttons), .root :global(.pedal-buttons) {
+.root :global(.garage-heading small),
+.root :global(.driver-form label small) {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #7f8b76;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.root :global(.garage-heading h3) {
+  font-size: 24px;
+  letter-spacing: -0.8px;
+  font-weight: 750;
+  margin: 0;
+}
+.root :global(.garage-points) {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  grid-template-columns: auto auto;
+  gap: 0 6px;
+  align-items: center;
+  text-align: right;
+  font-size: 18px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
 }
-.root :global(.steer-button), .root :global(.pedal-button) {
+.root :global(.garage-points svg) {
+  color: #a57c28;
+}
+.root :global(.garage-points small) {
+  grid-column: 1/-1;
+  font-size: 8px;
+  margin: 3px 0 0;
+}
+.root :global(.vehicle-grid) {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.root :global(.vehicle-card) {
+  position: relative;
+  border: 1px solid #d6ddce;
+  border-radius: 13px;
+  background: #ebece3;
+  text-align: left;
+  padding: 10px 16px 0;
+  overflow: hidden;
+  transition:
+    border-color 0.15s,
+    background 0.15s,
+    transform 0.15s;
+}
+.root :global(.vehicle-card:hover) {
+  border-color: #98ad8c;
+}
+.root :global(.vehicle-card[data-selected="true"]) {
+  background: #e4ebdc;
+  border: 2px solid #3f6f52;
+  padding: 9px 15px 0;
+  box-shadow: 0 0 0 3px #3f6f520c;
+}
+.root :global(.vehicle-card[data-locked="true"]) {
+  background: repeating-linear-gradient(
+    135deg,
+    #eeeee6,
+    #eeeee6 8px,
+    #ebebe3 8px,
+    #ebebe3 9px
+  );
+}
+.root :global(.vehicle-check) {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 1px solid #d0d6c6;
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  color: #818974;
+}
+.root :global(.vehicle-card[data-selected="true"] .vehicle-check) {
+  background: #3b6d50;
+  border-color: #3b6d50;
+  color: #fff;
+}
+.root :global(.car-portrait) {
+  height: 95px;
+  width: 155px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto -1px;
+  object-fit: contain;
+}
+.root :global(.vehicle-card > strong) {
+  display: block;
+  font-size: 17px;
+  letter-spacing: -0.5px;
+}
+.root :global(.vehicle-tag) {
+  display: block;
+  font-size: 10px;
+  color: #7d8673;
+  min-height: 26px;
+  padding-top: 3px;
+}
+.root :global(.vehicle-stats) {
+  display: grid;
+  gap: 7px;
+  margin: 9px 0 15px;
+}
+.root :global(.vehicle-stats > div > span) {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #717d67;
+}
+.root :global(.vehicle-stats b) {
+  color: #3b5244;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.root :global(.vehicle-stats small) {
+  font-weight: 400;
+  font-size: 8px;
+  margin-left: 3px;
+}
+.root :global(.vehicle-stats i) {
+  display: block;
+  height: 3px;
+  background: #d4ddcc;
+  border-radius: 10px;
+  margin-top: 3px;
+  overflow: hidden;
+}
+.root :global(.vehicle-stats i i) {
+  margin: 0;
+  background: #819c70;
+}
+.root :global(.vehicle-card[data-selected="true"] .vehicle-stats i i) {
+  background: #507a52;
+}
+.root :global(.vehicle-access) {
+  border-top: 1px solid #d6dece;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  min-height: 35px;
+  font-size: 8px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+.root :global(.vehicle-card[data-selected="true"] .vehicle-access) {
+  color: #42623a;
+}
+.root :global(.vehicle-card[data-locked="true"] .vehicle-access) {
+  color: #877c5d;
+  letter-spacing: 0;
+}
+.root :global(.garage-note) {
+  font-size: 10px;
+  color: #7a8572;
+  margin: 12px 0 0;
+}
+.root :global(.garage-notice) {
+  font-size: 12px;
+  color: #957136;
+}
+.root :global(.launch-row) {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 40px;
+  align-items: center;
+  margin: 26px 0;
+  border-top: 1px solid var(--line);
+  padding-top: 23px;
+}
+.root :global(.driver-form label) {
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 12px;
+}
+.root :global(.launch-fields) {
+  display: flex;
+  gap: 10px;
+}
+.root :global(.driver-form input) {
+  min-width: 0;
+  width: 50%;
+  height: 50px;
+  background: #fffdf5;
+  color: #2c483b;
+  padding: 0 15px;
+  border: 1px solid #cbd6c2;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.root :global(.driver-form > small) {
+  font-size: 10px;
+  color: #7f8c77;
+  display: block;
+  margin-top: 9px;
+}
+.root :global(.name-error) {
+  color: #a83f29;
+  font-size: 12px;
+}
+.root :global(.start-button) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  width: 100%;
+  padding: 16px 20px;
+  background: linear-gradient(120deg, #f4d279, #e9b849);
+  color: #293d2c;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 3px 0 #ab852e;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  min-height: 49px;
+}
+.root :global(.start-button:hover) {
+  filter: brightness(1.04);
+}
+.root :global(.launch-fields .start-button) {
+  width: 50%;
+}
+.root :global(.leaderboard-link) {
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 12px;
+  background: transparent;
+  border: 1px solid #cdd8c3;
+  border-radius: 10px;
+  padding: 16px;
+  font-weight: 650;
+  font-size: 12px;
+}
+.root :global(.leaderboard-link small) {
+  display: block;
+  text-align: left;
+  font-weight: 400;
+  font-size: 10px;
+  color: #7d8a70;
+  margin-top: 4px;
+}
+.root :global(.how-to-play) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  border-top: 1px solid var(--line);
+  padding: 19px 0 22px;
+}
+.root :global(.how-to-play > span) {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 11px;
+  font-weight: 650;
+}
+.root :global(.how-to-play b) {
+  color: #a2af92;
+  font-size: 11px;
+  letter-spacing: -1px;
+}
+.root :global(.how-to-play small) {
+  display: block;
+  color: #7e8a72;
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+.root :global(.hud) {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  pointer-events: none;
+}
+.root :global(.location-chip) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f5f3e8ec;
+  border: 1px solid #ffffff55;
+  border-radius: 9px;
+  padding: 11px 14px;
+  color: #294d3a;
+}
+.root :global(.live-dot) {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #448761;
+}
+.root :global(.location-chip small),
+.root :global(.hud-right small) {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+.root :global(.location-chip strong) {
+  font-size: 13px;
+}
+.root :global(.hud-right) {
+  background: #203f35ed;
+  border: 1px solid #829b7455;
+  color: #f4f1dd;
+  border-radius: 10px;
+  padding: 11px 13px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.root :global(.hud-right small) {
+  color: #b5c5ac;
+}
+.root :global(.score strong) {
+  font-family: ui-monospace, monospace;
+  font-size: 22px;
+  line-height: 1;
+}
+.root :global(.health) {
+  border-left: 1px solid #587452;
+  padding-left: 14px;
+  width: 102px;
+}
+.root :global(.health small) {
+  display: flex;
+  justify-content: space-between;
+}
+.root :global(.health b) {
+  color: #f4ca64;
+}
+.root :global(.health progress) {
   width: 100%;
-  min-width: 0;
-  height: 82px;
-  padding: 8px 4px;
-  border: 1px solid #d0d9cd;
-  border-bottom: 4px solid #b5c3b3;
-  border-radius: 18px;
-  color: #234f3c;
-  background: linear-gradient(150deg, #fffef8, #e6ece0);
-  box-shadow: 0 3px 8px #21372f09, inset 0 1px 0 #fff;
-  touch-action: none;
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-  transition: transform .08s, background .08s, box-shadow .08s;
+  height: 6px;
+  appearance: none;
+  display: block;
 }
-.root :global(.steer-button span) { font-size: 10px; font-weight: 800; letter-spacing: 1px; }
-.root :global(.pedal-button strong) { font-size: 15px; line-height: 1; font-weight: 900; letter-spacing: 1px; }
-.root :global(.pedal-button small) { font-size: 9px; font-weight: 700; letter-spacing: .8px; opacity: .8; }
-.root :global(.gas-button) {
-  color: #283c20;
-  background: linear-gradient(145deg, #ffe398, #efbe48);
-  border-color: #e2b555;
-  border-bottom-color: #ad812d;
+.root :global(progress::-webkit-progress-bar) {
+  background: #78906644;
+  border-radius: 10px;
 }
-.root :global(.brake-button) {
-  color: #8d382e;
-  background: linear-gradient(145deg, #ffebe2, #f2c3ae);
-  border-color: #e1bba9;
-  border-bottom-color: #bd8973;
+.root :global(progress::-webkit-progress-value) {
+  background: #eac05d;
+  border-radius: 10px;
 }
-.root :global(.steer-button:active:not(:disabled)), .root :global(.pedal-button[aria-pressed="true"]) {
-  transform: translateY(3px);
-  box-shadow: inset 0 3px 10px #203d3220;
-  border-bottom-width: 1px;
+.root :global(progress::-moz-progress-bar) {
+  background: #eac05d;
+  border-radius: 10px;
 }
-.root :global(.steer-button:active:not(:disabled)) { background: #bad5bc; }
-.root :global(.gas-button[aria-pressed="true"]) { background: #e9b034; }
-.root :global(.brake-button[aria-pressed="true"]) { background: #a14435; color: #fff6ea; border-color: #7b332a; }
-.root :global(.keyboard-hint) { justify-self: end; align-self: center; display: flex; align-items: center; gap: 5px; color: #61705f; font-size: 12px; }
-.root :global(.keyboard-hint kbd) { color: #405d48; border-color: #bdc9b8; }
+.root :global(.pause) {
+  color: #f7efdb;
+  border-color: #587657;
+  pointer-events: auto;
+  width: 33px;
+  height: 33px;
+}
+.root :global(.scene-bottom) {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  pointer-events: none;
+  color: #fff4d4;
+}
+.root :global(.edition) {
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 4px #142720;
+}
+.root :global(.difficulty-badge) {
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-align: center;
+  background: #284938cf;
+  border: 1px solid #8aa07833;
+  padding: 9px 13px;
+  border-radius: 8px;
+}
+.root :global(.difficulty-badge small) {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0;
+  color: #c3d0b9;
+  margin-top: 3px;
+}
+.root :global(.speedometer) {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  background: #1d3a31ed;
+  padding: 11px 16px;
+  border: 1px solid #8ba47944;
+  border-radius: 10px;
+}
+.root :global(.speedometer strong) {
+  font-family: ui-monospace, monospace;
+  font-size: 31px;
+  line-height: 1;
+  font-weight: 500;
+}
+.root :global(.speedometer > span) {
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+.root :global(.speedometer small) {
+  display: block;
+  font-size: 7px;
+  color: #bdd0af;
+  margin-top: 5px;
+}
+.root :global(.speedometer.braking) {
+  background: #754a36;
+}
+.root :global(.game-message),
+.root :global(.police-alert),
 .root :global(.gas-hint) {
   position: absolute;
-  z-index: 2;
-  bottom: 21%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 8px;
-  width: max-content;
+  justify-content: center;
+  gap: 10px;
+  background: #fcf7e8f0;
+  border: 1px solid #fff8;
+  box-shadow: 0 5px 20px #20332526;
+  border-radius: 10px;
+  padding: 12px 17px;
+  font-size: 12px;
   max-width: 90%;
-  padding: 12px 16px;
-  border: 1px solid #eed68a;
-  border-radius: 12px;
-  color: #304d3a;
-  background: #fff7d9f5;
-  box-shadow: 0 5px 20px #193b3522;
-  font-size: 13px;
-  pointer-events: none;
+  width: max-content;
+  text-align: center;
 }
-.root :global(.gas-hint svg) { flex-shrink: 0; }
-
-@media (max-width: 767px), (max-height: 520px) and (max-width: 960px) {
-  .root :global(.controls-row) { grid-template-columns: 1fr 1.16fr; gap: 18px; padding: 14px 2px 18px; }
-  .root :global(.keyboard-hint) { display: none; }
-  .root :global(.start-bottom) { display: none; }
-  .root :global(.sound-note) { font-size: 11px; }
-  .root :global(.control-caption) { font-size: 9px; letter-spacing: .7px; }
-  .root :global(.control-caption small) { font-size: 9px; }
-  .root :global(.steer-button), .root :global(.pedal-button) { height: 86px; }
+.root :global(.game-message) {
+  bottom: 88px;
+}
+.root :global(.police-alert) {
+  top: 91px;
+  background: #f1c85f;
+  font-weight: 800;
+}
+.root :global(.police-alert.early) {
+  background: #def0d6;
+}
+.root :global(.police-alert small) {
+  display: block;
+  font-weight: 500;
+  font-size: 10px;
+  margin-top: 4px;
+}
+.root :global(.gas-hint) {
+  bottom: 115px;
+  max-width: 85%;
+  font-size: 12px;
+}
+.root :global(.journey) {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 16px 18px;
+  margin-top: 15px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #e9ece1;
+}
+.root :global(.journey-title) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+.root :global(.journey-title strong) {
+  font-family: ui-monospace, monospace;
+  font-size: 14px;
+  margin-left: 12px;
+}
+.root :global(.journey-title small) {
+  font-size: 11px;
+  color: #859176;
+  font-weight: 400;
+}
+.root :global(.route-track) {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.root :global(.track-line) {
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  background: #ccd6c2;
+}
+.root :global(.track-line > div) {
+  height: 100%;
+  background: #53885d;
+}
+.root :global(.track-stop) {
+  position: relative;
+  text-align: center;
+}
+.root :global(.track-stop > span) {
+  display: grid;
+  place-items: center;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #c2d0b6;
+  border-radius: 50%;
+  margin: auto;
+  background: #e9ece1;
+}
+.root :global(.track-stop.passed > span) {
+  background: #598762;
+  border-color: #598762;
+  color: #fff;
+}
+.root :global(.track-stop small) {
+  font-size: 10px;
+  color: #829076;
+  display: block;
+  margin-top: 5px;
+}
+.root :global(.compact-progress) {
+  display: none;
+}
+.root :global(.controls-row) {
+  display: grid;
+  grid-template-columns: 166px 194px 1fr;
+  gap: 26px;
+  align-items: end;
+  padding: 17px 0;
+}
+.root :global(.control-caption) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 18px;
+  margin-bottom: 7px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  color: #697c5f;
+}
+.root :global(.control-caption small) {
+  font-size: 10px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.root :global(.lane-indicator) {
+  display: flex;
+  gap: 3px;
+}
+.root :global(.lane-indicator i) {
+  display: block;
+  background: #c6d1bd;
+  width: 6px;
+  height: 11px;
+  border-radius: 3px;
+}
+.root :global(.lane-indicator i:first-child) {
+  width: 4px;
+  background: #cfbb86;
+}
+.root :global(.lane-indicator i[data-current="true"]) {
+  background: #477548;
+}
+.root :global(.steering-buttons),
+.root :global(.pedal-buttons) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.root :global(.steer-button),
+.root :global(.pedal-button) {
+  width: 100%;
+  min-width: 0;
+  height: 78px;
+  border: 1px solid #d0d9c7;
+  border-bottom: 4px solid #b6c4ac;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #fffef5, #e6eadc);
+  color: #31513c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  padding: 7px 4px;
+}
+.root :global(.steer-button span) {
+  font-size: 9px;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+.root :global(.pedal-button strong) {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.root :global(.pedal-button small) {
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+.root :global(.gas-button) {
+  background: linear-gradient(145deg, #f6d478, #e6bb55);
+  border-color: #d7ad4b;
+  border-bottom-color: #ad8633;
+}
+.root :global(.brake-button) {
+  background: linear-gradient(145deg, #eec7ad, #dca482);
+  border-color: #d5a687;
+  border-bottom-color: #af7e5a;
+  color: #684532;
+}
+.root :global(.steer-button:active:not(:disabled)),
+.root :global(.pedal-button[aria-pressed="true"]) {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+  filter: brightness(0.94);
+}
+.root :global(.keyboard-hint) {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: #7b8a70;
+  justify-self: end;
+  margin: 0 0 20px;
+}
+.root :global(kbd) {
+  font-family: inherit;
+  font-size: 10px;
+  border: 1px solid #c4cebc;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+.root :global(.shade) {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: #14382d77;
+  backdrop-filter: blur(5px);
+  overflow: auto;
+}
+.root :global(.result-panel) {
+  width: min(430px, 100%);
+  background: #203d32;
+  color: #f7f1da;
+  border: 1px solid #7c916466;
+  border-radius: 17px;
+  padding: 26px;
+  text-align: center;
+  max-height: 100%;
+  overflow: auto;
+  box-shadow: 0 20px 70px #172a3244;
+}
+.root :global(.result-icon) {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 15px;
+  background: #eec05b;
+  color: #2c4634;
+}
+.root :global(.result-panel .eyebrow) {
+  justify-content: center;
+}
+.root :global(.result-panel h2) {
+  font-size: 28px;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  font-weight: 750;
+  margin: 16px 0 12px;
+}
+.root :global(.result-panel p) {
+  font-size: 12px;
+  color: #c2d0b5;
+  margin: 10px 0 16px;
+}
+.root :global(.result-score) {
+  font-family: ui-monospace, monospace;
+  font-size: 40px;
+  color: #efc56a;
+}
+.root :global(.result-score small) {
+  font-size: 10px;
+}
+.root :global(.text-button) {
+  background: none;
+  border: 0;
+  padding: 5px;
+  color: #bacdaf;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 15px;
+}
+.root :global(.result-panel .leaderboard-link) {
+  margin: 12px auto;
+  color: #ddc478;
+  border-color: #82956766;
+  padding: 8px 13px;
+  font-size: 11px;
+}
+.root :global(.result-stats) {
+  display: flex;
+  justify-content: space-around;
+  padding: 14px 0;
+  margin-top: 12px;
+  border-block: 1px solid #6e88564d;
+  font-size: 10px;
+  color: #bacbad;
+}
+.root :global(.result-stats b) {
+  display: block;
+  font-size: 20px;
+  color: #f4eacb;
+  margin-bottom: 4px;
+}
+.root :global(.score-save) {
+  font-size: 11px;
+  color: #b5cda6;
+  min-height: 18px;
+  margin-top: 7px;
+}
+.root :global(.earned-points) {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin: 12px 0 18px;
+  font-size: 12px;
+  color: #e2cea0;
+}
+.root :global(.earned-points small) {
+  display: block;
+  font-size: 9px;
+  color: #9bb890;
+  margin-top: 5px;
+}
+.root :global(.document-list) {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+  margin: 20px 0;
+}
+.root :global(.document-list > span) {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  border: 1px solid #75946644;
+  border-radius: 8px;
+  padding: 11px;
+  background: #2b4b3e;
+  color: #d9e6c8;
+  font-size: 12px;
+}
+.root :global(.document-list b) {
+  font-size: 9px;
+  color: #a2c38b;
+  letter-spacing: 1px;
+  margin-left: auto;
+}
+.root :global(.checkpoint-note) {
+  display: block;
+  margin-top: 15px;
+  font-size: 10px;
+  color: #9db791;
+}
+.root :global(.checking-progress progress) {
+  width: 100%;
+  height: 7px;
+  appearance: none;
+}
+.root :global(.checking-progress span) {
+  display: block;
+  font-size: 11px;
+  color: #d8c47d;
+  margin-top: 10px;
+}
+.root :global(footer) {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-top: 1px solid var(--line);
+  padding: 17px 0;
+  color: #89957c;
+  font-size: 9px;
+  line-height: 1.6;
+}
+.root :global(footer span:first-child) {
+  color: #647858;
+  font-size: 10px;
+}
+.root :global(footer a) {
+  text-decoration: underline;
+}
+.root :global(.scores-dialog) {
+  border: 1px solid #cbd5bf;
+  border-radius: 18px;
+  padding: 26px;
+  width: min(470px, calc(100vw - 28px));
+  max-height: 85dvh;
+  overflow: auto;
+  background: #f5f3e9;
+  color: #30492f;
+  box-shadow: 0 20px 100px #12322355;
+  margin: auto;
+}
+.root :global(.scores-dialog::backdrop) {
+  background: #102c2477;
+  backdrop-filter: blur(5px);
+}
+.root :global(.scores-heading) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.root :global(.trophy-mark) {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  background: #efce73;
+  border-radius: 12px;
+}
+.root :global(.scores-heading small) {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #8a967b;
+}
+.root :global(.scores-heading h2) {
+  font-size: 23px;
+  margin: 3px 0;
+  font-weight: 750;
+  letter-spacing: -0.7px;
+}
+.root :global(.close-scores) {
+  margin-left: auto;
+  border: 1px solid #ced8c4;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  display: grid;
+  place-items: center;
+}
+.root :global(.scores-intro) {
+  font-size: 12px;
+  color: #80916f;
+}
+.root :global(.scores-empty) {
+  padding: 28px 0;
+  text-align: center;
+  font-size: 13px;
+}
+.root :global(.scores-empty svg) {
+  margin: auto;
+  color: #ac8b46;
+}
+.root :global(.scores-empty .text-button) {
+  color: #42653a;
+}
+.root :global(.score-list) {
+  padding: 0;
+  list-style: none;
+  margin: 18px 0;
+}
+.root :global(.score-list li) {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 8px;
+  border-top: 1px solid #dce3d1;
+}
+.root :global(.rank) {
+  width: 25px;
+  text-align: center;
+  font-size: 13px;
+  color: #9aa38b;
+}
+.root :global(.rank-1) {
+  color: #b58c30;
+}
+.root :global(.rank-name) {
+  min-width: 0;
+  flex: 1;
+}
+.root :global(.rank-name strong) {
+  font-size: 13px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.root :global(.rank-name small) {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  color: #8a9978;
+  margin-top: 4px;
+}
+.root :global(.score-list li > b) {
+  font-family: ui-monospace, monospace;
+  font-size: 18px;
+  text-align: right;
+}
+.root :global(.score-list li > b small) {
+  display: block;
+  font-size: 8px;
+  font-family: Arial, sans-serif;
+  color: #8c987b;
+  margin-top: 3px;
+}
+.root :global(.score-list li[data-player="true"]) {
+  background: #e8edda;
+  border-radius: 8px;
+}
+@media (max-width: 1000px) {
+  .root :global(.weather) {
+    display: none;
+  }
+  .root :global(.header-route) {
+    gap: 10px;
+    font-size: 9px;
+  }
+  .root :global(.vehicle-card) {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .root :global(.vehicle-card[data-selected="true"]) {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+  .root :global(.controls-row) {
+    grid-template-columns: 166px 194px;
+  }
+  .root :global(.keyboard-hint) {
+    display: none;
+  }
+  .root :global(.launch-row) {
+    gap: 20px;
+    grid-template-columns: 1fr 210px;
+  }
+}
+@media (max-width: 767px) {
+  .root {
+    padding: 0 12px;
+    border-radius: 14px;
+  }
+  .root :global(.topbar) {
+    height: 64px;
+    gap: 8px;
+  }
+  .root :global(.brand) {
+    font-size: 17px;
+    gap: 7px;
+  }
+  .root :global(.brand-mark) {
+    width: 33px;
+    height: 33px;
+    border-radius: 10px;
+  }
+  .root :global(.brand small) {
+    font-size: 6px;
+    letter-spacing: 1.1px;
+  }
+  .root :global(.header-route) {
+    display: none;
+  }
+  .root :global(.sound) {
+    font-size: 9px;
+    padding: 0 8px;
+    height: 34px;
+    gap: 4px;
+  }
+  .root :global(.sound svg) {
+    width: 16px;
+  }
+  .root[data-status="ready"] :global(.game-shell) {
+    height: 265px;
+  }
+  .root[data-status="ready"] :global(.game-shell)::after {
+    background: linear-gradient(90deg, #193b33e8, #284b3966 80%);
+  }
+  .root :global(.start-panel) {
+    width: 100%;
+    padding: 22px;
+  }
+  .root :global(.game-title) {
+    font-size: 36px;
+    margin: 14px 0 11px;
+  }
+  .root :global(.start-panel p) {
+    font-size: 11px;
+  }
+  .root :global(.intro-tags) {
+    font-size: 9px;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .root :global(.eyebrow) {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+  .root :global(.garage) {
+    padding-top: 23px;
+  }
+  .root :global(.garage-heading h3) {
+    font-size: 21px;
+  }
+  .root :global(.garage-points) {
+    font-size: 17px;
+  }
+  .root :global(.vehicle-grid) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .root :global(.car-portrait) {
+    height: 78px;
+    width: 135px;
+  }
+  .root :global(.vehicle-card > strong) {
+    font-size: 15px;
+  }
+  .root :global(.vehicle-tag) {
+    font-size: 9px;
+    min-height: 23px;
+  }
+  .root :global(.vehicle-stats) {
+    gap: 6px;
+    margin: 6px 0 12px;
+  }
+  .root :global(.vehicle-access) {
+    font-size: 7px;
+    min-height: 31px;
+  }
+  .root :global(.garage-note) {
+    font-size: 10px;
+    line-height: 1.55;
+  }
+  .root :global(.launch-row) {
+    display: block;
+    margin: 22px 0;
+    padding-top: 20px;
+  }
+  .root :global(.launch-row > .leaderboard-link) {
+    width: 100%;
+    margin-top: 20px;
+    border: 0;
+    padding: 10px;
+    font-size: 12px;
+  }
+  .root :global(.leaderboard-link small) {
+    display: none;
+  }
+  .root :global(.launch-fields) {
+    gap: 8px;
+  }
+  .root :global(.launch-fields .start-button) {
+    font-size: 11px;
+    padding: 14px;
+  }
+  .root :global(.driver-form input) {
+    padding: 0 12px;
+  }
+  .root :global(.how-to-play) {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px 0;
+  }
+  .root :global(.how-to-play > span) {
+    font-size: 11px;
+  }
+  .root :global(.how-to-play small) {
+    display: inline;
+    margin-left: 5px;
+    font-size: 10px;
+  }
+  .root :global(.game-shell) {
+    height: 560px;
+    min-height: 0;
+  }
+  .root :global(.hud) {
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    gap: 6px;
+  }
+  .root :global(.location-chip) {
+    padding: 9px;
+    gap: 6px;
+  }
+  .root :global(.location-chip strong) {
+    font-size: 11px;
+  }
+  .root :global(.location-chip small) {
+    font-size: 6px;
+    letter-spacing: 0.8px;
+  }
+  .root :global(.hud-right) {
+    padding: 9px;
+    gap: 9px;
+  }
+  .root :global(.hud-right small) {
+    font-size: 6px;
+    letter-spacing: 0.7px;
+  }
+  .root :global(.score strong) {
+    font-size: 18px;
+  }
+  .root :global(.health) {
+    padding-left: 9px;
+    width: 71px;
+  }
+  .root :global(.health progress) {
+    height: 5px;
+  }
+  .root :global(.pause) {
+    width: 28px;
+    height: 28px;
+  }
+  .root :global(.pause svg) {
+    width: 15px;
+  }
+  .root :global(.scene-bottom) {
+    bottom: 13px;
+    left: 12px;
+    right: 12px;
+  }
+  .root :global(.edition) {
+    font-size: 7px;
+    max-width: 78px;
+    line-height: 1.5;
+  }
+  .root :global(.difficulty-badge) {
+    font-size: 7px;
+    padding: 6px 9px;
+  }
+  .root :global(.difficulty-badge small) {
+    display: none;
+  }
+  .root :global(.speedometer) {
+    padding: 9px 10px;
+    gap: 7px;
+  }
+  .root :global(.speedometer > svg) {
+    display: none;
+  }
+  .root :global(.speedometer strong) {
+    font-size: 27px;
+  }
+  .root :global(.speedometer > span) {
+    font-size: 7px;
+  }
+  .root :global(.speedometer small) {
+    font-size: 6px;
+  }
+  .root :global(.police-alert) {
+    top: 75px;
+    padding: 9px 12px;
+    font-size: 10px;
+    max-width: 91%;
+  }
+  .root :global(.police-alert small) {
+    font-size: 9px;
+  }
+  .root :global(.game-message) {
+    font-size: 10px;
+    padding: 9px 12px;
+    bottom: 78px;
+  }
+  .root :global(.gas-hint) {
+    bottom: 105px;
+    font-size: 10px;
+    padding: 10px 12px;
+  }
+  .root :global(.controls-row) {
+    grid-template-columns: 1fr 1.16fr;
+    gap: 22px;
+    padding: 12px 0;
+  }
+  .root :global(.control-caption) {
+    font-size: 8px;
+    height: 13px;
+    margin-bottom: 7px;
+  }
+  .root :global(.control-caption small) {
+    font-size: 8px;
+  }
+  .root :global(.steer-button),
+  .root :global(.pedal-button) {
+    height: 73px;
+    border-radius: 15px;
+  }
+  .root :global(.steer-button svg) {
+    width: 27px;
+  }
+  .root :global(.pedal-button svg) {
+    height: 24px;
+  }
+  .root :global(.journey) {
+    padding: 12px;
+    margin-top: 12px;
+    display: block;
+  }
+  .root :global(.journey-title) {
+    font-size: 8px;
+    margin-bottom: 10px;
+  }
+  .root :global(.journey-title strong) {
+    margin-left: auto;
+  }
+  .root :global(.track-stop small) {
+    font-size: 9px;
+  }
+  .root :global(.result-panel) {
+    padding: 22px;
+  }
+  .root :global(.result-panel h2) {
+    font-size: 25px;
+  }
+  .root :global(.document-list) {
+    margin: 17px 0;
+  }
+  .root :global(.result-score) {
+    font-size: 35px;
+  }
+}
+/* During a run, the browser's usable viewport belongs to the road and thumb dock. */
+@media (max-width: 767px), (max-height: 520px) and (max-width: 1100px) {
   .root[data-session="true"] {
     position: fixed;
     inset: 0;
-    z-index: 120;
-    display: grid;
-    grid-template-rows: 56px minmax(0, 1fr) 34px auto;
-    width: 100%;
-    height: 100svh;
-    height: 100dvh;
-    max-width: none;
-    margin: 0;
-    padding: env(safe-area-inset-top) 0 0;
+    z-index: 1000;
     border: 0;
     border-radius: 0;
-    overflow: hidden;
-    overscroll-behavior: none;
-    touch-action: manipulation;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    height: 100dvh;
+    padding: 0 max(10px, env(safe-area-inset-right))
+      max(8px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+    display: flex;
+    flex-direction: column;
+    background: #f2f2e8;
+    isolation: isolate;
   }
-  .root[data-session="true"] :global(.topbar) { height: 56px; padding: 0 10px; gap: 8px; }
-  .root[data-session="true"] :global(.exit-game) {
-    display: grid;
-    place-items: center;
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    border: 1px solid #d4ddcf;
-    border-radius: 14px;
-    background: #e6ecdf;
-    color: #345b44;
+  .root[data-session="true"] :global(.topbar) {
+    flex: 0 0 48px;
+    height: 48px;
+    padding-top: env(safe-area-inset-top);
+    gap: 7px;
   }
-  .root[data-session="true"] :global(.brand) { flex: 1; font-size: 16px; letter-spacing: -.7px; pointer-events: none; }
-  .root[data-session="true"] :global(.brand-mark),
-  .root[data-session="true"] :global(.brand small),
+  .root[data-session="true"] :global(.brand) {
+    font-size: 15px;
+  }
+  .root[data-session="true"] :global(.brand small) {
+    display: none;
+  }
+  .root[data-session="true"] :global(.brand-mark) {
+    height: 26px;
+    width: 26px;
+    border-radius: 7px;
+  }
+  .root[data-session="true"] :global(.brand-mark svg) {
+    width: 17px;
+  }
   .root[data-session="true"] :global(.header-route),
-  .root[data-session="true"] :global(.weather) { display: none; }
-  .root[data-session="true"] :global(.sound) { height: 44px; padding: 0 12px; background: #e6ecdf; border-color: #d4ddcf; border-radius: 14px; }
-  .root[data-session="true"] :global(.sound span) { font-size: 11px; }
-  .root[data-session="true"] :global(.game-shell) { min-height: 0; max-height: none; height: 100%; margin: 0 8px; border-radius: 14px; }
-  .root[data-session="true"] :global(.hud) { top: 10px; left: 10px; right: 10px; gap: 8px; align-items: center; }
-  .root[data-session="true"] :global(.location-chip) { padding: 9px; gap: 6px; min-width: 0; }
-  .root[data-session="true"] :global(.location-chip small) { font-size: 7px; letter-spacing: .4px; margin-bottom: 3px; }
-  .root[data-session="true"] :global(.location-chip strong) { font-size: 11px; white-space: nowrap; }
-  .root[data-session="true"] :global(.hud-right) { gap: 8px; flex-wrap: nowrap; padding: 7px; }
-  .root[data-session="true"] :global(.hud-right small) { font-size: 7px; letter-spacing: .4px; }
-  .root[data-session="true"] :global(.score strong) { font-size: 17px; }
-  .root[data-session="true"] :global(.health) { padding-left: 8px; }
-  .root[data-session="true"] :global(.health svg) { width: 13px; height: 13px; }
-  .root[data-session="true"] :global(.health>div) { gap: 2px; }
-  .root[data-session="true"] :global(.pause) { position: static; width: 44px; height: 44px; flex-shrink: 0; border-radius: 11px; background: #ffffff12; }
-  .root[data-session="true"] :global(.journey) { display: flex; align-items: center; gap: 12px; margin: 0; padding: 0 14px; border: 0; background: transparent; }
-  .root[data-session="true"] :global(.journey-title) { gap: 5px; margin: 0; }
-  .root[data-session="true"] :global(.journey-title>span),
-  .root[data-session="true"] :global(.route-track) { display: none; }
-  .root[data-session="true"] :global(.journey-title strong) { font-size: 12px; margin: 0; }
-  .root[data-session="true"] :global(.journey-title small) { font-size: 10px; }
-  .root[data-session="true"] :global(.compact-progress) { display: block; flex: 1; width: 0; height: 4px; border: 0; border-radius: 4px; background: #d3ddcc; color: #528368; overflow: hidden; }
-  .root :global(.compact-progress::-webkit-progress-bar) { background: #d3ddcc; }
-  .root :global(.compact-progress::-webkit-progress-value) { background: #528368; border-radius: 4px; }
-  .root :global(.compact-progress::-moz-progress-bar) { background: #528368; border-radius: 4px; }
-  .root[data-session="true"] :global(.controls-row) {
-    padding: 2px 14px max(14px, env(safe-area-inset-bottom));
-    border-radius: 0;
-    box-shadow: 0 -1px 0 #dee4d5;
-    background: #f3f2eb;
-    z-index: 3;
+  .root[data-session="true"] :global(.weather) {
+    display: none;
   }
-  .root[data-session="true"] :global(footer) { display: none; }
-  .root[data-session="true"] :global(.edition) { display: none; }
-  .root[data-session="true"] :global(.scene-bottom) { right: 12px; left: 12px; bottom: 12px; justify-content: flex-end; }
-  .root[data-session="true"] :global(.speedometer) { padding: 8px 10px; gap: 7px; }
-  .root[data-session="true"] :global(.speedometer strong) { font-size: 25px; }
-  .root[data-session="true"] :global(.speedometer>svg) { width: 16px; }
-  .root[data-session="true"] :global(.police-alert) { top: 80px; font-size: 12px; width: max-content; max-width: 90%; padding: 10px 12px; }
-  .root[data-session="true"] :global(.police-alert small) { font-size: 10px; }
-  .root[data-session="true"] :global(.game-message) { bottom: 78px; padding: 10px 12px; font-size: 12px; }
-  .root[data-session="true"] :global(.shade) { overflow-y: auto; }
-  .root[data-session="true"] :global(.result-panel) { width: min(90%, 370px); max-height: 100%; padding: 18px 22px; overflow-y: auto; }
-  .root[data-session="true"] :global(.result-icon) { display: none; }
-  .root[data-session="true"] :global(.result-panel h2) { font-size: 26px; margin: 10px 0; }
-  .root[data-session="true"] :global(.result-panel p) { font-size: 13px; line-height: 1.5; margin: 8px 0 12px; }
-  .root[data-session="true"] :global(.result-score) { font-size: 30px; }
-  .root[data-session="true"] :global(.result-message) { display: none; }
-  .root[data-session="true"] :global(.update-notice) { position: absolute; top: 56px; left: 8px; right: 8px; z-index: 6; font-size: 12px; }
+  .root[data-session="true"] :global(.header-right) {
+    margin-left: auto;
+  }
+  .root[data-session="true"] :global(.exit-game) {
+    width: 29px;
+    height: 29px;
+  }
+  .root[data-session="true"] :global(.exit-game svg) {
+    width: 17px;
+  }
+  .root[data-session="true"] :global(.game-shell) {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+    border-radius: 12px;
+  }
+  .root[data-session="true"] :global(.journey) {
+    flex: 0 0 36px;
+    height: 36px;
+    margin: 0;
+    padding: 8px 3px 0;
+    border: 0;
+    border-radius: 0;
+    position: relative;
+    background: transparent;
+  }
+  .root[data-session="true"] :global(.journey-title) {
+    font-size: 7px;
+    margin: 0;
+  }
+  .root[data-session="true"] :global(.journey-title > svg) {
+    height: 13px;
+  }
+  .root[data-session="true"] :global(.journey-title strong) {
+    font-size: 11px;
+    margin-left: auto;
+  }
+  .root[data-session="true"] :global(.journey-title small) {
+    font-size: 9px;
+  }
+  .root[data-session="true"] :global(.compact-progress) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 3px;
+    right: 3px;
+    width: calc(100% - 6px);
+    height: 3px;
+    appearance: none;
+  }
+  .root[data-session="true"] :global(.route-track),
+  .root[data-session="true"] :global(footer) {
+    display: none;
+  }
+  .root[data-session="true"] :global(.controls-row) {
+    flex: 0 0 auto;
+    padding: 10px 3px 0;
+    gap: 28px;
+  }
+  .root[data-session="true"] :global(.update-notice) {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 47px;
+    z-index: 20;
+    font-size: 10px;
+  }
 }
-
-@media (max-width: 359px) {
-  .root[data-session="true"] :global(.hud) { left: 7px; right: 7px; gap: 5px; }
-  .root[data-session="true"] :global(.location-chip) { padding: 8px 6px; }
-  .root[data-session="true"] :global(.live-dot), .root[data-session="true"] :global(.health small) { display: none; }
-  .root[data-session="true"] :global(.hud-right) { gap: 6px; }
-  .root[data-session="true"] :global(.health) { padding-left: 6px; }
-  .root[data-session="true"] :global(.controls-row) { padding-left: 10px; padding-right: 10px; gap: 12px; }
-  .root :global(.control-caption) { font-size: 8px; }
-  .root :global(.control-caption small) { font-size: 8px; }
-  .root :global(.gas-hint) { font-size: 11px; padding: 10px; }
+@media (max-height: 520px) and (max-width: 1100px) {
+  .root[data-session="true"] {
+    padding-left: 100px;
+    padding-right: 110px;
+    padding-bottom: 8px;
+  }
+  .root[data-session="true"] :global(.topbar) {
+    flex-basis: 34px;
+    height: 34px;
+  }
+  .root[data-session="true"] :global(.controls-row) {
+    position: absolute;
+    inset: 50px 10px 8px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    padding: 0;
+    align-items: flex-end;
+  }
+  .root[data-session="true"] :global(.steering-group) {
+    width: 81px;
+    pointer-events: auto;
+  }
+  .root[data-session="true"] :global(.pedal-group) {
+    width: 90px;
+    pointer-events: auto;
+  }
+  .root[data-session="true"] :global(.steering-buttons),
+  .root[data-session="true"] :global(.pedal-buttons) {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+  .root[data-session="true"] :global(.steer-button),
+  .root[data-session="true"] :global(.pedal-button) {
+    height: 76px;
+  }
+  .root[data-session="true"] :global(.control-caption) {
+    display: none;
+  }
+  .root[data-session="true"] :global(.journey) {
+    flex-basis: 27px;
+    height: 27px;
+    padding-top: 3px;
+  }
+  .root[data-session="true"] :global(.result-panel) {
+    padding: 16px;
+    max-width: 410px;
+  }
+  .root[data-session="true"] :global(.result-icon) {
+    display: none;
+  }
+  .root[data-session="true"] :global(.result-panel h2) {
+    font-size: 22px;
+    margin: 9px 0;
+  }
+  .root[data-session="true"] :global(.result-panel p) {
+    font-size: 10px;
+    margin: 6px 0;
+  }
+  .root[data-session="true"] :global(.document-list) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin: 12px 0;
+  }
+  .root[data-session="true"] :global(.document-list > span) {
+    padding: 9px;
+    font-size: 10px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .root[data-session="true"] :global(.checkpoint-note) {
+    margin-top: 10px;
+  }
+  .root[data-session="true"] :global(.health) {
+    width: 90px;
+  }
+  .root[data-session="true"] :global(.hud-right) {
+    gap: 8px;
+    padding: 8px;
+  }
+  .root[data-session="true"] :global(.location-chip) {
+    padding: 8px;
+  }
+  .root[data-session="true"] :global(.hud) {
+    top: 8px;
+    left: 10px;
+    right: 10px;
+  }
+  .root[data-session="true"] :global(.game-message) {
+    bottom: 58px;
+    font-size: 10px;
+    padding: 7px 12px;
+  }
+  .root[data-session="true"] :global(.police-alert) {
+    top: 65px;
+    padding: 7px 12px;
+    font-size: 10px;
+  }
+  .root[data-session="true"] :global(.scene-bottom) {
+    bottom: 10px;
+  }
+  .root[data-session="true"] :global(.speedometer) {
+    padding: 7px 10px;
+  }
+  .root[data-session="true"] :global(.speedometer strong) {
+    font-size: 23px;
+  }
+  .root[data-session="true"] :global(.edition) {
+    display: none;
+  }
 }
-
-@media (max-height: 520px) and (min-width: 568px) and (max-width: 960px) {
-  .root[data-session="true"] { grid-template-columns: 132px minmax(0, 1fr); grid-template-rows: 48px minmax(0, 1fr) 25px; }
-  .root[data-session="true"] :global(.topbar) { grid-column: 1 / -1; height: 48px; }
-  .root[data-session="true"] :global(.game-shell) { grid-column: 2; grid-row: 2; margin: 0 8px 0 0; }
-  .root[data-session="true"] :global(.controls-row) { grid-column: 1; grid-row: 2 / 4; display: flex; flex-direction: column; gap: 12px; padding: 6px 10px max(10px, env(safe-area-inset-bottom)); justify-content: center; }
-  .root[data-session="true"] :global(.steering-group), .root[data-session="true"] :global(.pedal-group) { width: 100%; }
-  .root[data-session="true"] :global(.control-caption small) { display: none; }
-  .root[data-session="true"] :global(.steer-button), .root[data-session="true"] :global(.pedal-button) { height: 68px; border-radius: 12px; }
-  .root[data-session="true"] :global(.journey) { grid-column: 2; grid-row: 3; }
-  .root[data-session="true"] :global(.result-panel h2) { font-size: 21px; }
-  .root[data-session="true"] :global(.result-panel p) { margin: 5px 0; }
-  .root[data-session="true"] :global(.result-panel .eyebrow) { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .root :global(*),
+  .root :global(*::before),
+  .root :global(*::after) {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
-
-/* Nickname and shared rankings are part of the game's entry and result screens. */
-.root[data-session="false"] :global(.game-shell) { min-height: 650px; }
-.root :global(.start-panel) { top: 18%; padding: 24px 28px; }
-.root :global(.start-panel .game-title) { font-size: 42px; margin: 14px 0; }
-.root :global(.start-features), .root :global(.start-bottom) { display: none; }
-.root :global(.driver-form) { margin-top: 20px; }
-.root :global(.driver-form label) { display: block; margin-bottom: 7px; color: #f6e4a4; font-size: 13px; font-weight: 700; }
-.root :global(.driver-form input) { width: 100%; min-height: 48px; padding: 11px 13px; border: 1px solid #829b77; border-radius: 9px; color: #213e30; background: #fffdf4; font: inherit; font-size: 16px; outline-offset: 3px; }
-.root :global(.driver-form input::placeholder) { color: #899283; }
-.root :global(.driver-form>small) { display: block; margin: 7px 0 14px; color: #bbcdaf; font-size: 11px; }
-.root :global(.driver-form .name-error) { color: #ffd4ba; font-size: 12px; margin-bottom: 10px; }
-.root :global(.leaderboard-link) { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 44px; margin-top: 12px; border: 1px solid #91ad764f; border-radius: 9px; color: #ead596; background: #ffffff08; font-size: 13px; font-weight: 600; }
-.root :global(.sound-note) { margin-top: 12px; font-size: 11px; }
-.root :global(.difficulty-badge) { margin-right: auto; color: #f3d688; font-size: 10px; font-weight: 800; letter-spacing: 1px; }
-.root :global(.difficulty-badge small) { display: block; margin-top: 3px; color: #d9e1c8; font-size: 9px; font-weight: 400; letter-spacing: 0; }
-.root :global(.edition) { display: none; }
-.root :global(.score-save) { min-height: 20px; margin: 8px 0; color: #b7d1a8; font-size: 12px; }
-.root :global(.scores-dialog) { position: fixed; inset: 0; width: min(440px, calc(100% - 28px)); max-height: calc(100dvh - 40px); margin: auto; padding: 24px; overflow-y: auto; border: 1px solid #d7dfce; border-radius: 22px; color: #234835; background: #f6f4e9; box-shadow: 0 30px 100px #09251e55; font-family: var(--font-geist-sans), Arial, sans-serif; touch-action: pan-y; }
-.root :global(.scores-dialog::backdrop) { background: #0d251de0; backdrop-filter: blur(5px); }
-.root :global(.scores-heading) { display: flex; align-items: center; gap: 12px; }
-.root :global(.trophy-mark) { display: grid; place-items: center; width: 46px; height: 46px; flex-shrink: 0; border-radius: 14px; background: #f0cf78; color: #736024; }
-.root :global(.scores-heading small) { font-size: 9px; letter-spacing: 1.5px; font-weight: 700; color: #748369; }
-.root :global(.scores-heading h2) { font-size: 23px; line-height: 1.1; margin: 4px 0 0; font-weight: 800; letter-spacing: -.8px; }
-.root :global(.close-scores) { margin-left: auto; flex-shrink: 0; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #d5ddcb; border-radius: 12px; background: #e8ebdf; }
-.root :global(.scores-intro) { font-size: 12px; color: #74806e; margin: 17px 0; }
-.root :global(.scores-empty) { display: grid; justify-items: center; text-align: center; padding: 28px 8px; color: #6c7b61; font-size: 13px; }
-.root :global(.scores-empty h3) { font-size: 21px; margin-top: 16px; font-weight: 800; color: #355738; }
-.root :global(.scores-empty p) { margin: 8px 0; }
-.root :global(.score-list) { list-style: none; padding: 0; margin: 12px 0 22px; }
-.root :global(.score-list li) { display: flex; align-items: center; gap: 12px; padding: 12px 8px; border-bottom: 1px solid #dce2d1; border-radius: 8px; }
-.root :global(.score-list li[data-player="true"]) { background: #e4edd7; }
-.root :global(.rank) { display: grid; place-items: center; width: 30px; height: 30px; font-size: 13px; color: #819171; font-weight: 800; }
-.root :global(.rank-1) { background: #ecd080; color: #765b1b; border-radius: 50%; }
-.root :global(.rank-name) { flex: 1; min-width: 0; }
-.root :global(.rank-name strong) { display: block; font-size: 14px; overflow-wrap: anywhere; }
-.root :global(.rank-name small) { display: flex; align-items: center; gap: 5px; margin-top: 4px; font-size: 10px; color: #829074; }
-.root :global(.score-list li>b) { font: 700 18px var(--font-geist-mono), monospace; text-align: right; }
-.root :global(.score-list li>b small) { display: block; margin-top: 3px; color: #94a086; font-size: 8px; letter-spacing: 1px; }
-.root :global(.scores-dialog .text-button) { color: #3f714d; }
+.root :global(.mini-route) {
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  width: 66px;
+  height: 150px;
+  pointer-events: none;
+  border: 1px solid #dce6ce30;
+  border-radius: 10px;
+  background: #24493799;
+  backdrop-filter: blur(3px);
+  color: #d9e4c8;
+  padding: 12px 5px 10px;
+}
+.root :global(.mini-route svg) {
+  height: 100%;
+  width: 100%;
+}
+.root :global(.mini-route > span),
+.root :global(.mini-route > small) {
+  position: absolute;
+  left: 6px;
+  font-size: 6px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+.root :global(.mini-route > span) {
+  top: 7px;
+}
+.root :global(.mini-route > small) {
+  bottom: 6px;
+}
+.root[data-status="over"] :global(.mini-route),
+.root[data-status="won"] :global(.mini-route) {
+  display: none;
+}
 @media (max-width: 767px) {
-  .root[data-session="false"] :global(.game-shell) { min-height: 635px; height: 635px; }
-  .root :global(.start-panel) { top: 102px; left: 5%; width: 90%; padding: 21px; }
-  .root :global(.start-panel .game-title) { font-size: 34px; }
-  .root :global(.driver-form) { margin-top: 16px; }
-  .root :global(.driver-form label) { font-size: 12px; }
-  .root :global(.start-panel p) { font-size: 13px; }
-  .root[data-session="false"] :global(.controls-row), .root[data-session="false"] :global(.journey) { display: none; }
-  .root :global(.scores-dialog) { padding: 20px; }
-  .root :global(.scores-heading h2) { font-size: 20px; }
+  .root :global(.mini-route) {
+    top: 74px;
+    left: 10px;
+    width: 44px;
+    height: 106px;
+    padding: 10px 2px;
+  }
+  .root :global(.mini-route > span),
+  .root :global(.mini-route > small) {
+    font-size: 5px;
+    left: 4px;
+  }
 }
-@media (max-width: 767px), (max-height: 520px) and (max-width: 960px) {
-  .root[data-session="true"] :global(.keyboard-hint) { display: none; }
-}
-@media (max-height: 520px) and (min-width: 568px) and (max-width: 960px) {
-  .root[data-session="true"] { grid-template-columns: 124px minmax(0, 1fr) 144px; }
-  .root[data-session="true"] :global(.controls-row) { display: contents; }
-  .root[data-session="true"] :global(.steering-group), .root[data-session="true"] :global(.pedal-group) { grid-row: 2 / 4; align-self: end; width: auto; padding: 10px 8px max(16px, env(safe-area-inset-bottom)); }
-  .root[data-session="true"] :global(.steering-group) { grid-column: 1; }
-  .root[data-session="true"] :global(.pedal-group) { grid-column: 3; }
-  .root[data-session="true"] :global(.game-shell) { margin: 0; }
+@media (max-height: 520px) and (max-width: 1100px) {
+  .root :global(.mini-route) {
+    display: none;
+  }
 }
