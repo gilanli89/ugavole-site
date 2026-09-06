@@ -314,7 +314,7 @@ export default function CukurRallisi() {
             typeof v === "object" &&
             "release" in v &&
             typeof v.release === "string" &&
-            v.release !== "ugavole-2026-09-06.4"
+            v.release !== "ugavole-2026-09-06.5"
           )
             setUpdateAvailable(true);
         })
@@ -1019,7 +1019,7 @@ export default function CukurRallisi() {
       {scoresOpen && (
         <Leaderboard onClose={() => setScoresOpen(false)} player={nickname} />
       )}
-      <footer data-release="ugavole-2026-09-06.4">
+      <footer data-release="ugavole-2026-09-06.5">
         <span>
           Çukurları oyunda atlatıyoruz. Gerçekte çözülmesini istiyoruz.
         </span>

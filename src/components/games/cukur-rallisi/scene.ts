@@ -248,7 +248,10 @@ export function render(
     const iw = w * 1.1,
       ih = hy * 1.28 * (1 - dry * 0.24);
     c.globalAlpha = 1 - dry * 0.18;
-    c.drawImage(bg, (w - iw) / 2 - bend * 0.35, hy - ih * 0.82, iw, ih);
+    const bx = (w - iw) / 2 - bend * 0.35, by = hy - ih * 0.82;
+    // Extend the photograph's own sky at the flattened southern horizon.
+    if (by > 0) c.drawImage(bg, 0, 0, bg.naturalWidth, 1, bx, 0, iw, by + 1);
+    c.drawImage(bg, bx, by, iw, ih);
     c.globalAlpha = 1;
   }
   const center = (t: number) => w * 0.475 + bend * Math.pow(1 - t, 2);
