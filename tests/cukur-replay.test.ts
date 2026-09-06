@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   difficulty,
-  fresh,
+  createRun,
   step,
   type GameState,
 } from "../src/components/games/cukur-rallisi/game";
@@ -18,8 +18,8 @@ import {
 } from "../src/components/games/cukur-rallisi/replay";
 
 function losingRun(seed: number) {
-  const state: GameState = { ...fresh(), status: "playing" };
   const random = seededRandom(seed);
+  const state: GameState = createRun("ada", random);
   const inputs: ReplayInput[] = [
     [0, "gas-on"],
     [120, "left"],
@@ -108,4 +108,31 @@ test("each part of the route raises the speed limit and obstacle frequency", () 
     assert.ok(levels[i].maxSpeed > levels[i - 1].maxSpeed);
     assert.ok(levels[i].spawnDelay < levels[i - 1].spawnDelay);
   }
+});
+
+test("the frozen v3 engine still verifies runs started before the update", async () => {
+  const g = await import(
+    "../src/components/games/cukur-rallisi/legacy-v3-game"
+  );
+  const r = await import(
+    "../src/components/games/cukur-rallisi/legacy-v3-replay"
+  );
+  const s = g.fresh();
+  s.status = "playing";
+  const rng = r.seededRandom(427);
+  const inputs: import("../src/components/games/cukur-rallisi/legacy-v3-replay").ReplayInput[] =
+    [
+      [0, "gas-on"],
+      [120, "left"],
+    ];
+  let frame = 0;
+  for (; s.status === "playing" && frame < 12000; frame++) {
+    for (const [at, action] of inputs)
+      if (at === frame) r.applyInput(s, action);
+    g.step(s, r.FIXED_STEP, rng);
+  }
+  assert.equal(s.status, "over");
+  const verified = r.replayRun(427, frame, inputs);
+  assert.ok(verified);
+  assert.equal(r.totalScore(verified), r.totalScore(s));
 });

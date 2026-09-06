@@ -2,6 +2,16 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   fresh,
+  createRun,
+  renewDocument,
+  callFriend,
+  doInspection,
+  checkpointVariant,
+  isStopped,
+  canShowDocuments,
+  DOCUMENTS,
+  CHECKPOINT_VARIANTS,
+  worldDepth,
   move,
   roadDepth,
   step,
@@ -12,6 +22,7 @@ import {
 } from "../src/components/games/cukur-rallisi/game";
 import {
   replayRun,
+  seededRandom,
   totalScore,
 } from "../src/components/games/cukur-rallisi/replay";
 import {
@@ -124,6 +135,7 @@ test("police is announced by actual oncoming flashers, requires a stop and docum
     for (let i = 0; i < 120; i++) step(s, dt);
     assert.equal(s.distance, CHECKPOINTS[0]);
     assert.equal(s.checkpoints, 0);
+    for (const doc of DOCUMENTS) renewDocument(s, doc.id);
     showDocuments(s);
     for (let i = 0; i < 160; i++) step(s, dt);
     assert.equal(s.checkpoints, 1);
@@ -154,18 +166,19 @@ test("separated opposing traffic cannot collide; wrong-way cars can, and NPCs si
 });
 test("reactive driving can win across twenty seeds with both controls and scripted incidents verified by replay", () => {
   for (let seed = 1; seed <= 20; seed++) {
-    const { s, frame, inputs } = drive(seed);
+    const vehicle = VEHICLES[(seed - 1) % 4].id;
+    const { s, frame, inputs } = drive(seed, vehicle);
     assert.equal(
       s.status,
       "won",
       `seed ${seed}, d=${s.distance}, hp=${s.health}`,
     );
-    assert.equal(s.checkpoints, 2);
+    assert.equal(s.checkpoints, s.plan.checkpoints.length);
     assert.equal(s.wrongways, 2);
     assert.equal(s.wrongwaysDodged, 2);
     assert.ok(s.health > 0);
     assert.ok(inputs.length < 2400);
-    const verified = replayRun(seed, frame, inputs);
+    const verified = replayRun(seed, frame, inputs, vehicle);
     assert.ok(verified);
     assert.equal(totalScore(verified), totalScore(s));
     assert.equal(verified.health, s.health);
@@ -178,4 +191,153 @@ test("games route remains reserved from the old WordPress redirect", async () =>
       .find((r) => r.destination === "/haberler")
       ?.source.includes("oyunlar"),
   );
+});
+
+test("run plans are seeded, cover six different checks and preserve safe encounter gaps", () => {
+  const variants = new Set<number>(),
+    plans = new Set<string>();
+  for (let seed = 1; seed <= 80; seed++) {
+    const a = createRun("ada", seededRandom(seed)),
+      b = createRun("ada", seededRandom(seed));
+    assert.deepEqual(a, b);
+    plans.add(JSON.stringify(a.plan));
+    assert.ok(a.plan.checkpoints.length >= 2 && a.plan.checkpoints.length <= 3);
+    assert.equal(
+      new Set(a.plan.checkpoints.map((cp) => cp.variant)).size,
+      a.plan.checkpoints.length,
+    );
+    for (const cp of a.plan.checkpoints) {
+      variants.add(cp.variant);
+      assert.ok(a.plan.radars.every((at) => Math.abs(cp.at - at) > 2));
+      assert.ok(a.plan.wrongways.every((at) => Math.abs(cp.at - at) > 1.8));
+    }
+  }
+  assert.equal(variants.size, 6);
+  assert.equal(plans.size, 80);
+});
+
+test("expired papers must be purchased; renewals charge exactly once and expire again", () => {
+  const s = running();
+  s.distance = 8;
+  s.police = "documents";
+  s.score = 200;
+  showDocuments(s);
+  assert.equal(s.police, "documents");
+  assert.equal(canShowDocuments(s), false);
+  renewDocument(s, "ehliyet");
+  assert.equal(s.score, 80);
+  assert.equal(s.spent, 120);
+  assert.equal(s.documents.ehliyet, 22);
+  renewDocument(s, "ehliyet");
+  assert.equal(s.score, 80);
+  assert.equal(s.renewals, 1);
+  for (const doc of DOCUMENTS) renewDocument(s, doc.id);
+  assert.equal(s.spent, 480);
+  assert.equal(s.renewals, 3);
+  assert.equal(canShowDocuments(s), true);
+  showDocuments(s);
+  assert.equal(s.police, "checking");
+  const before = s.score;
+  renewDocument(s, "ruhsat");
+  assert.equal(s.score, before);
+  s.police = "documents";
+  s.distance = 22;
+  assert.equal(canShowDocuments(s), false);
+  s.score = -9999;
+  assert.equal(totalScore(s), 0);
+});
+
+test("every checkpoint variant enforces its task, and one fictional phone call releases any check", () => {
+  for (let variant = 0; variant < CHECKPOINT_VARIANTS.length; variant++) {
+    const s = running();
+    s.plan.checkpoints[0].variant = variant;
+    s.distance = 8;
+    s.police = "documents";
+    const v = checkpointVariant(s);
+    for (const doc of v.required) renewDocument(s, doc);
+    showDocuments(s);
+    if (v.task) {
+      assert.equal(s.police, "documents");
+      doInspection(s);
+      assert.equal(s.police, "task");
+      for (let i = 0; i < 97; i++) step(s, dt);
+      assert.equal(s.taskDone, true);
+      showDocuments(s);
+    }
+    assert.equal(s.police, "checking");
+    for (let i = 0; i < 185; i++) step(s, dt);
+    assert.equal(s.checkpoints, 1);
+    const phone = running();
+    phone.plan.checkpoints[0].variant = variant;
+    phone.distance = 8;
+    phone.police = "documents";
+    const docs = structuredClone(phone.documents);
+    callFriend(phone);
+    assert.equal(phone.police, "calling");
+    assert.equal(phone.phoneUsed, true);
+    move(phone, 1);
+    assert.equal(phone.lane, 1);
+    for (let i = 0; i < 145; i++) step(phone, dt);
+    assert.equal(phone.checkpoints, 1);
+    assert.equal(isStopped(phone), false);
+    assert.deepEqual(phone.documents, docs);
+    phone.police = "documents";
+    callFriend(phone);
+    assert.equal(phone.police, "documents");
+    assert.equal(phone.checkpoints, 1);
+  }
+});
+
+test("fixed cameras warn early and charge once above, but never at, 60 km/h in any lane", () => {
+  for (const lane of [0, 1, 2])
+    for (const speed of [60, 60.01]) {
+      const s = running();
+      s.lane = lane;
+      s.visualLane = lane;
+      s.throttle = false;
+      s.plan.radars = [4];
+      s.distance = 2.8;
+      s.speed = 0;
+      step(s, dt);
+      assert.equal(s.radarWarning, 0);
+      assert.equal(s.radarsPassed, 0);
+      s.distance = 4 - 0.000001;
+      s.speed = speed;
+      step(s, 0.00001);
+      assert.equal(s.radarsPassed, 1);
+      assert.equal(s.radarTickets, speed > 60 ? 1 : 0);
+      assert.equal(s.spent, speed > 60 ? 180 : 0);
+      const points = s.score;
+      step(s, dt);
+      assert.equal(s.score, points);
+      assert.equal(s.radarsPassed, 1);
+    }
+});
+
+test("world signs and billboards share obstacle velocity and never move backwards", () => {
+  const s = running();
+  const at = 0.8;
+  s.objects = [
+    { id: 1, lane: 2, z: worldDepth(at, s.distance), type: "hole", speed: 0 },
+  ];
+  step(s, dt);
+  assert.ok(Math.abs(worldDepth(at, s.distance) - s.objects[0].z) < 1e-12);
+  assert.equal(worldDepth(8, 8), 0.08);
+});
+
+test("a full tour with the phone joker, renewals and radar tickets remains server-verifiable", () => {
+  const { s, frame, inputs } = drive(918273, "aile", {
+    phone: true,
+    ignoreRadar: true,
+  });
+  assert.equal(s.status, "won");
+  assert.equal(s.phoneUsed, true);
+  assert.ok(s.renewals > 0);
+  assert.equal(s.radarTickets, 3);
+  assert.ok(s.spent >= 540);
+  assert.equal(s.radarsPassed, 3);
+  const verified = replayRun(918273, frame, inputs, "aile");
+  assert.ok(verified);
+  assert.equal(totalScore(verified), totalScore(s));
+  assert.equal(verified.spent, s.spent);
 });

@@ -419,6 +419,109 @@
   color: #7a8572;
   margin: 12px 0 0;
 }
+.root :global(.garage-navigation) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 16px 0 12px;
+  font-size: 12px;
+  color: #66765d;
+}
+.root :global(.garage-navigation > span),
+.root :global(.garage-navigation > div) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.root :global(.garage-navigation button) {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #d1dac8;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fcfcf4;
+  color: #385a41;
+}
+.root :global(.garage-navigation button:disabled) {
+  opacity: 0.3;
+}
+.root :global(.vehicle-carousel) {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  padding: 4px 4px 12px;
+  scrollbar-width: none;
+  scroll-padding-left: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+.root :global(.vehicle-carousel::-webkit-scrollbar) {
+  display: none;
+}
+.root :global(.vehicle-carousel::after) {
+  content: "";
+  flex: 0 0 calc(100% - 306px);
+}
+.root :global(.vehicle-carousel .vehicle-card) {
+  flex: 0 0 290px;
+  scroll-snap-align: start;
+  padding: 16px 22px 0;
+  border-width: 2px;
+}
+.root :global(.vehicle-carousel .vehicle-card[data-selected="true"]) {
+  padding: 16px 22px 0;
+}
+.root :global(.vehicle-carousel .car-portrait) {
+  width: 230px;
+  height: 140px;
+  background: radial-gradient(ellipse at 50% 80%, #ccd5bf88, transparent 60%);
+  margin: 0 auto 8px;
+}
+.root :global(.vehicle-carousel .vehicle-card > strong) {
+  font-size: 22px;
+}
+.root :global(.vehicle-carousel .vehicle-tag) {
+  font-size: 12px;
+}
+.root :global(.vehicle-carousel .vehicle-stats) {
+  gap: 12px;
+  margin: 12px 0 20px;
+}
+.root :global(.vehicle-carousel .vehicle-stats > div > span) {
+  font-size: 12px;
+}
+.root :global(.vehicle-carousel .vehicle-stats i) {
+  height: 5px;
+}
+.root :global(.vehicle-carousel .vehicle-access) {
+  min-height: 42px;
+  font-size: 10px;
+}
+.root :global(.garage-dots) {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+.root :global(.garage-dots button) {
+  width: 32px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+}
+.root :global(.garage-dots span) {
+  width: 6px;
+  height: 6px;
+  border-radius: 9px;
+  background: #bbc7b1;
+}
+.root :global(.garage-dots button[aria-current] span) {
+  width: 22px;
+  background: #426c4c;
+}
 .root :global(.garage-notice) {
   font-size: 12px;
   color: #957136;
@@ -1797,5 +1900,490 @@
 @media (max-height: 520px) and (max-width: 1100px) {
   .root :global(.mini-route) {
     display: none;
+  }
+}
+/* Road season 03: tactile paperwork, a single phone joker, visible radar rules. */
+.root :global(.checkpoint-shade) {
+  z-index: 30;
+  overflow: auto;
+  align-items: safe center;
+  padding: 14px;
+  background: #112d2bbf;
+  backdrop-filter: blur(7px);
+}
+.root :global(.checkpoint-card) {
+  width: 100%;
+  max-width: 490px;
+  max-height: 100%;
+  overflow: auto;
+  background: #f7f5eb;
+  color: #2e473c;
+  border: 1px solid #fff9;
+  border-radius: 24px;
+  box-shadow: 0 24px 80px #092a2d55;
+  padding: 24px;
+  text-align: left;
+}
+.root :global(.checkpoint-header) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.root :global(.checkpoint-emblem) {
+  flex: 0 0 48px;
+  height: 48px;
+  border-radius: 15px;
+  background: #dfe9df;
+  color: #386854;
+  display: grid;
+  place-items: center;
+}
+.root :global(.checkpoint-header small) {
+  display: block;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.5px;
+  color: #748370;
+}
+.root :global(.checkpoint-header h2) {
+  font-size: 22px;
+  line-height: 1.16;
+  letter-spacing: -0.7px;
+  margin: 5px 0 0;
+  font-weight: 760;
+}
+.root :global(.checkpoint-wallet) {
+  margin-left: auto;
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  font-size: 16px;
+  font-weight: 750;
+}
+.root :global(.checkpoint-wallet svg) {
+  color: #b48a38;
+}
+.root :global(.checkpoint-wallet small) {
+  font-size: 8px;
+}
+.root :global(.officer-quote) {
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 16px 0 22px;
+  color: #748171;
+}
+.root :global(.paperwork-heading) {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  font-weight: 750;
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.root :global(.paperwork-heading small) {
+  font-size: 9px;
+  letter-spacing: 0;
+  color: #87917e;
+  font-weight: 450;
+}
+.root :global(.paperwork-list) {
+  display: grid;
+  gap: 8px;
+}
+.root :global(.paperwork-item) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  min-height: 68px;
+  border: 1px solid #d8e2d3;
+  border-radius: 12px;
+  background: #e9efe4;
+}
+.root :global(.paperwork-item[data-expired="true"]) {
+  background: #fbede0;
+  border-color: #ead3ba;
+}
+.root :global(.paperwork-icon) {
+  color: #54816c;
+}
+.root :global(.paperwork-item[data-expired="true"] .paperwork-icon) {
+  color: #b47543;
+}
+.root :global(.paperwork-detail) {
+  min-width: 0;
+  flex: 1;
+}
+.root :global(.paperwork-detail strong) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+}
+.root :global(.paperwork-detail i) {
+  font-size: 6px;
+  font-style: normal;
+  letter-spacing: 0.4px;
+  color: #816a4e;
+  padding: 2px 3px;
+  border: 1px solid #cbb99d;
+  border-radius: 3px;
+}
+.root :global(.paperwork-detail small) {
+  display: block;
+  font-size: 10px;
+  color: #8a7460;
+  margin-top: 5px;
+}
+.root :global(.renew-button) {
+  flex: 0 0 76px;
+  min-height: 46px;
+  border-radius: 8px;
+  background: #354f40;
+  color: #fffbed;
+  box-shadow: 0 3px 0 #183d30;
+  display: grid;
+  place-content: center;
+  gap: 2px;
+  touch-action: manipulation;
+}
+.root :global(.renew-button b) {
+  font-size: 12px;
+}
+.root :global(.renew-button span) {
+  font-size: 8px;
+  letter-spacing: 1px;
+  opacity: 0.75;
+}
+.root :global(.renew-button:active) {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #183d30;
+}
+.root :global(.valid-document) {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #4f775b;
+  font-size: 10px;
+}
+.root :global(.paperwork-note) {
+  display: block;
+  font-size: 9px;
+  line-height: 1.5;
+  color: #7b8675;
+  margin: 10px 0 14px;
+}
+.root :global(.paperwork-submit) {
+  width: 100%;
+  min-height: 52px;
+  font-size: 12px;
+  justify-content: space-between;
+  padding: 14px 17px;
+  border-radius: 11px;
+  margin: 0;
+}
+.root :global(.paperwork-submit:disabled) {
+  background: #e0e3d7;
+  color: #8c9582;
+  box-shadow: none;
+  cursor: default;
+}
+.root :global(.inspection-task) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  background: #dfebea;
+  color: #3e7270;
+  border: 1px solid #c5d9d2;
+  border-radius: 10px;
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 650;
+}
+.root :global(.inspection-task:disabled) {
+  background: #e4eddf;
+  color: #617b56;
+}
+.root :global(.phone-joker-row) {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed #d0d7c5;
+}
+.root :global(.phone-joker) {
+  width: 100%;
+  min-height: 62px;
+  border: 1px solid #d8c398;
+  background: #f3e5c6;
+  border-radius: 13px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  text-align: left;
+  color: #795b2b;
+}
+.root :global(.phone-joker strong) {
+  font-size: 16px;
+  letter-spacing: -0.25px;
+}
+.root :global(.phone-joker small) {
+  display: block;
+  font-size: 10px;
+  margin-top: 3px;
+  color: #927849;
+}
+.root :global(.phone-joker b) {
+  margin-left: auto;
+  font-size: 12px;
+  background: #e7d4ac;
+  padding: 6px;
+  border-radius: 6px;
+}
+.root :global(.phone-joker:disabled) {
+  opacity: 0.48;
+  filter: grayscale(0.7);
+}
+.root :global(.inspection-progress) {
+  padding: 36px 0;
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+  color: #4f7665;
+}
+.root :global(.inspection-progress strong) {
+  font-size: 16px;
+}
+.root :global(.inspection-progress progress) {
+  width: 100%;
+  height: 6px;
+  accent-color: #557b5a;
+}
+.root :global(.inspection-progress small) {
+  font-size: 11px;
+  color: #86927e;
+}
+.root :global(.is-calling) {
+  color: #a77e37;
+}
+.root :global(.radar-alert) {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8f4e7f2;
+  color: #3a554b;
+  box-shadow: 0 8px 28px #153a3322;
+  border: 1px solid #fff9;
+  border-radius: 14px;
+  padding: 10px 15px;
+  min-width: 260px;
+  z-index: 4;
+}
+.root :global(.radar-alert strong) {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.root :global(.radar-alert small) {
+  display: block;
+  font-size: 11px;
+  margin-top: 4px;
+}
+.root :global(.speed-limit) {
+  height: 38px;
+  width: 38px;
+  flex: 0 0 38px;
+  display: grid;
+  place-items: center;
+  background: white;
+  border: 4px solid #cd624c;
+  border-radius: 50%;
+  color: #293c35;
+  font-size: 19px;
+  font-weight: 800;
+}
+.root :global(.radar-alert[data-speeding="true"]) {
+  background: #fbe8d8f5;
+  color: #9d4d34;
+}
+.root :global(.speedometer[data-speeding="true"]) {
+  background: #7e3e2ceb;
+  outline: 1px solid #efb08b;
+}
+.root :global(.combo-badge) {
+  position: absolute;
+  left: 18px;
+  bottom: 87px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #fff4d4;
+  background: #355843c9;
+  border: 1px solid #dbe3a54a;
+  border-radius: 9px;
+  padding: 8px 11px;
+  pointer-events: none;
+}
+.root :global(.combo-badge > b) {
+  font-size: 27px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.root :global(.combo-badge span) {
+  font-size: 8px;
+  letter-spacing: 0.8px;
+  font-weight: 750;
+}
+.root :global(.combo-badge small) {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 0;
+  opacity: 0.65;
+  margin-top: 2px;
+  font-weight: 450;
+}
+.root :global(.combo-badge[data-pulse="true"]) {
+  color: #ffe098;
+  border-color: #e9c368;
+  background: #526342e8;
+}
+.root :global(.run-receipt) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 18px;
+  margin-top: 18px;
+  padding: 14px 0;
+  border-block: 1px dashed #d5dec9;
+}
+.root :global(.run-receipt span) {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 10px;
+  color: #8c947e;
+}
+.root :global(.run-receipt b) {
+  color: #536249;
+}
+@media (max-width: 767px) {
+  .root :global(.vehicle-carousel .vehicle-card) {
+    flex-basis: calc(100% - 36px);
+    min-width: 220px;
+    max-width: 290px;
+  }
+  .root :global(.vehicle-carousel::after) {
+    flex-basis: 20px;
+  }
+  .root :global(.garage-navigation) {
+    font-size: 11px;
+    margin-top: 12px;
+  }
+  .root :global(.checkpoint-shade) {
+    padding: 9px;
+  }
+  .root :global(.checkpoint-card) {
+    padding: 17px 14px;
+    border-radius: 19px;
+  }
+  .root :global(.checkpoint-header) {
+    gap: 9px;
+  }
+  .root :global(.checkpoint-emblem) {
+    flex-basis: 38px;
+    height: 40px;
+    border-radius: 11px;
+  }
+  .root :global(.checkpoint-header h2) {
+    font-size: 19px;
+  }
+  .root :global(.checkpoint-wallet) {
+    font-size: 14px;
+  }
+  .root :global(.officer-quote) {
+    margin: 12px 0 16px;
+    font-size: 11px;
+  }
+  .root :global(.paperwork-item) {
+    gap: 8px;
+    padding: 8px;
+    min-height: 64px;
+  }
+  .root :global(.paperwork-detail strong) {
+    font-size: 11px;
+  }
+  .root :global(.paperwork-detail small) {
+    font-size: 9px;
+  }
+  .root :global(.paperwork-heading) {
+    flex-wrap: wrap;
+  }
+  .root :global(.phone-joker-row) {
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+  .root :global(.phone-joker) {
+    min-height: 58px;
+    padding: 10px;
+    gap: 10px;
+  }
+  .root :global(.phone-joker strong) {
+    font-size: 15px;
+  }
+  .root :global(.radar-alert) {
+    top: 100px;
+    min-width: 240px;
+    padding: 8px 12px;
+    gap: 9px;
+  }
+  .root :global(.combo-badge) {
+    bottom: 74px;
+    left: 12px;
+    padding: 6px 8px;
+  }
+}
+@media (max-height: 520px) and (max-width: 1100px) {
+  .root[data-session="true"] :global(.checkpoint-shade) {
+    position: fixed;
+    inset: 34px 10px 8px;
+  }
+  .root[data-session="true"] :global(.checkpoint-card) {
+    max-width: 640px;
+    padding: 16px 20px;
+  }
+  .root[data-session="true"] :global(.paperwork-list) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .root[data-session="true"] :global(.paperwork-item) {
+    flex-wrap: wrap;
+  }
+  .root[data-session="true"] :global(.paperwork-icon) {
+    display: none;
+  }
+  .root[data-session="true"] :global(.renew-button) {
+    flex: 1;
+  }
+  .root[data-session="true"] :global(.radar-alert) {
+    top: 64px;
+    min-width: 240px;
+    padding: 6px 10px;
+  }
+  .root[data-session="true"] :global(.radar-alert .speed-limit) {
+    height: 30px;
+    width: 30px;
+    flex-basis: 30px;
+    font-size: 15px;
+    border-width: 3px;
+  }
+  .root[data-session="true"] :global(.combo-badge) {
+    bottom: 55px;
   }
 }

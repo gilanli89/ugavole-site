@@ -6,7 +6,7 @@ import {
   Flag,
   Gauge,
   MapPin,
-  FileCheck2,
+  Camera,
   CarFront,
   Pause,
   Play,
@@ -25,6 +25,7 @@ import { DrivingSound } from "./sound";
 import DrivingControls, { type Pedal } from "./DrivingControls";
 import Leaderboard from "./Leaderboard";
 import Garage from "./Garage";
+import CheckpointPanel from "./CheckpointPanel";
 import RouteMap from "./RouteMap";
 import { vehicleById, type VehicleId } from "./vehicles";
 import { render, type SceneAssets } from "./scene";
@@ -36,14 +37,18 @@ import {
   seededRandom,
   parseNickname,
   totalScore,
+  applyInput,
   type Action,
   type ReplayInput,
 } from "./replay";
 import {
   fresh,
   move,
-  showDocuments,
-  CHECKPOINTS,
+  createRun,
+  nextCheckpoint,
+  isStopped,
+  RADAR_LIMIT,
+  RADAR_WARNING_KM,
   difficulty,
   stageIndex,
   stages,
@@ -202,8 +207,7 @@ export default function CukurRallisi() {
     replayOverflow.current = false;
     random.current = seededRandom(seed);
     game.current = {
-      ...fresh(vehicle),
-      status: "playing",
+      ...createRun(vehicle, random.current),
       message: offline ? "Çevrimdışı tur: bu tur skor tablosuna eklenmez." : "",
       messageTime: offline ? 5 : 0,
     };
@@ -217,11 +221,17 @@ export default function CukurRallisi() {
     } catch {}
     snapshot();
   };
-  const documents = () => {
+  const checkpointAction = (action: Action) => {
     releaseControls();
-    record("documents");
-    showDocuments(game.current);
-    audio.current?.effect("paper");
+    record(action);
+    applyInput(game.current, action);
+    audio.current?.effect(
+      action === "call-friend"
+        ? "phone"
+        : action.startsWith("renew-")
+          ? "purchase"
+          : "paper",
+    );
     snapshot();
   };
   const leave = () => {
@@ -254,9 +264,17 @@ export default function CukurRallisi() {
   const pedal = useCallback(
     (name: Pedal, pressed: boolean, source: string) => {
       const held = heldPedals.current[name];
-      if (pressed && game.current.status === "playing") held.add(source);
+      if (
+        pressed &&
+        game.current.status === "playing" &&
+        !isStopped(game.current)
+      )
+        held.add(source);
       else held.delete(source);
-      const next = game.current.status === "playing" && held.size > 0;
+      const next =
+        game.current.status === "playing" &&
+        !isStopped(game.current) &&
+        held.size > 0;
       if (next !== game.current[name])
         record(
           name === "brake"
@@ -314,7 +332,7 @@ export default function CukurRallisi() {
             typeof v === "object" &&
             "release" in v &&
             typeof v.release === "string" &&
-            v.release !== "ugavole-2026-09-06.5"
+            v.release !== "ugavole-2026-09-07.1"
           )
             setUpdateAvailable(true);
         })
@@ -371,6 +389,9 @@ export default function CukurRallisi() {
       c.height = height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
+    const motionPreference = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
     const observer = new ResizeObserver(resize);
     observer.observe(c);
     resize();
@@ -383,7 +404,9 @@ export default function CukurRallisi() {
         checks = s.checkpoints,
         flashes = s.flashCount,
         dodges = s.overtakes,
-        wrong = s.wrongways;
+        wrong = s.wrongways,
+        tickets = s.radarTickets,
+        stopped = isStopped(s);
       const old = s.status;
       if (s.status === "playing") {
         accumulator += dt;
@@ -397,7 +420,9 @@ export default function CukurRallisi() {
           }
         }
       } else accumulator = 0;
+      if (!stopped && isStopped(s)) releaseControls();
       audio.current?.update(s);
+      if (s.radarTickets > tickets) audio.current?.effect("radar");
       if (s.flashCount > flashes) audio.current?.effect("flash");
       if (s.wrongways > wrong) audio.current?.effect("horn");
       if (s.overtakes > dodges) audio.current?.effect("whoosh");
@@ -409,7 +434,7 @@ export default function CukurRallisi() {
         audio.current?.effect("lose");
       if (old === "playing" && (s.status === "over" || s.status === "won")) {
         void submitScore();
-        const score = Math.floor(s.score + s.distance * 100);
+        const score = totalScore(s);
         if (score > bestRef.current) {
           bestRef.current = score;
           setBest(score);
@@ -418,7 +443,7 @@ export default function CukurRallisi() {
           } catch {}
         }
       }
-      render(ctx, width, height, s, assets, t / 1000);
+      render(ctx, width, height, s, assets, t / 1000, motionPreference.matches);
       if (t - uiTime > 90) {
         uiTime = t;
         setBest(bestRef.current);
@@ -507,7 +532,9 @@ export default function CukurRallisi() {
   const score = totalScore(ui);
   const level = difficulty(ui.distance, ui.vehicle).level;
   const car = vehicleById(ui.vehicle);
-  const checking = ui.police === "documents" || ui.police === "checking";
+  const checking = isStopped(ui);
+  const radarDistance = (ui.plan.radars[ui.radarsPassed] ?? 99) - ui.distance;
+  const radarNear = radarDistance >= 0 && radarDistance <= RADAR_WARNING_KM;
   return (
     <div
       id="cukur-rallisi"
@@ -648,7 +675,7 @@ export default function CukurRallisi() {
         {ui.status === "ready" && (
           <div className="start-panel">
             <div className="eyebrow">
-              <span /> DAĞ YOLU SEZONU / 02
+              <span /> DAĞ YOLU SEZONU / 03
             </div>
             <h2 className="game-title">
               Manzara şahane.
@@ -668,7 +695,7 @@ export default function CukurRallisi() {
                 <CarFront size={14} /> Canlı trafik
               </span>
               <span>
-                <ShieldCheck size={14} /> 2 kontrol
+                <ShieldCheck size={14} /> Her tur farklı
               </span>
             </div>
           </div>
@@ -756,6 +783,20 @@ export default function CukurRallisi() {
                   <b>{ui.checkpoints}</b> güvenli kontrol
                 </span>
               </div>
+              <div className="run-receipt">
+                <span>
+                  Radar cezası <b>{ui.radarTickets}</b>
+                </span>
+                <span>
+                  Evrak yenileme <b>{ui.renewals}</b>
+                </span>
+                <span>
+                  Tur giderleri <b>−{ui.spent} puan</b>
+                </span>
+                <span>
+                  En iyi seri <b>{ui.bestCombo}</b>
+                </span>
+              </div>
               <p className="result-message">
                 Gerçek hayatta iyi bir yol,
                 <br />
@@ -796,7 +837,7 @@ export default function CukurRallisi() {
                 {Math.max(
                   0,
                   Math.round(
-                    ((CHECKPOINTS[ui.checkpoints] ?? 30) - ui.distance) * 1000,
+                    ((nextCheckpoint(ui)?.at ?? 30) - ui.distance) * 1000,
                   ),
                 )}{" "}
                 m · Frene basılı tut, bariyerde dur.
@@ -805,43 +846,36 @@ export default function CukurRallisi() {
           </div>
         )}
         {active && checking && (
-          <div className="shade checkpoint-shade">
-            <div className="result-panel document-panel">
-              <span className="result-icon">
-                <ShieldCheck />
-              </span>
-              <div className="eyebrow">YOL KONTROLÜ / {ui.checkpoints + 1}</div>
-              <h2>
-                {ui.police === "checking"
-                  ? "Bir dakika, kontrol ediyoruz."
-                  : "Ehliyet, ruhsat, bir de sabır."}
-              </h2>
-              <p>“Evraklar sizde. Yolun durumu bizde değil.”</p>
-              <div className="document-list">
-                <span>
-                  <FileCheck2 size={19} /> Ehliyet <b>HAZIR</b>
-                </span>
-                <span>
-                  <FileCheck2 size={19} /> Ruhsat <b>HAZIR</b>
-                </span>
-                <span>
-                  <FileCheck2 size={19} /> Sigorta <b>HAZIR</b>
-                </span>
-              </div>
-              {ui.police === "checking" ? (
-                <div className="checking-progress" role="status">
-                  <progress value={ui.checkTime} max={2.6} />
-                  <span>Evraklar inceleniyor…</span>
-                </div>
-              ) : (
-                <button className="start-button" onClick={documents}>
-                  EVRAKLARI GÖSTER <FileCheck2 size={21} />
-                </button>
-              )}
-              <small className="checkpoint-note">
-                Kontrol tamamlanınca +250 puan. Sonra gaz sende.
+          <CheckpointPanel state={ui} onAction={checkpointAction} />
+        )}
+        {active && !checking && radarNear && !police && (
+          <div
+            className="radar-alert"
+            data-speeding={ui.speed > RADAR_LIMIT}
+            role="status"
+          >
+            <span className="speed-limit">60</span>
+            <span>
+              <strong>SABİT RADAR</strong>
+              <small>
+                {Math.max(0, Math.ceil(radarDistance * 1000))} m ·{" "}
+                {ui.speed > RADAR_LIMIT
+                  ? "Frene bas, 60’a in"
+                  : "Hızın uygun, böyle devam"}
               </small>
-            </div>
+            </span>
+            <Camera size={21} />
+          </div>
+        )}
+        {active && !checking && ui.combo >= 3 && (
+          <div className="combo-badge" data-pulse={ui.comboPulse > 0}>
+            <b>{ui.combo}</b>
+            <span>
+              TEMİZ GEÇİŞ
+              <small>
+                {ui.combo >= 9 ? "Yolun ustası" : "Amortisör mutlu"}
+              </small>
+            </span>
           </div>
         )}
         {active && !checking && ui.messageTime > 0 && (
@@ -866,7 +900,10 @@ export default function CukurRallisi() {
               }
             </small>
           </span>
-          <div className={`speedometer ${ui.brake ? "braking" : ""}`}>
+          <div
+            className={`speedometer ${ui.brake ? "braking" : ""}`}
+            data-speeding={radarNear && ui.speed > RADAR_LIMIT}
+          >
             <Gauge size={21} />
             <strong>{Math.round(ui.speed)}</strong>
             <span>
@@ -967,7 +1004,7 @@ export default function CukurRallisi() {
               <b>02</b>
               <span>
                 Selektörü gör, yavaşla
-                <small>Çevirmede dur, evrakları göster.</small>
+                <small>Evrakı yenile, 60 radarına dikkat.</small>
               </span>
             </span>
             <span>
@@ -1019,7 +1056,7 @@ export default function CukurRallisi() {
       {scoresOpen && (
         <Leaderboard onClose={() => setScoresOpen(false)} player={nickname} />
       )}
-      <footer data-release="ugavole-2026-09-06.5">
+      <footer data-release="ugavole-2026-09-07.1">
         <span>
           Çukurları oyunda atlatıyoruz. Gerçekte çözülmesini istiyoruz.
         </span>

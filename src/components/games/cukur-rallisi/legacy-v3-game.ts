@@ -1,23 +1,4 @@
 import { vehicleById, type VehicleId } from "./vehicles";
-import {
-  DOCUMENTS,
-  CHECKPOINT_VARIANTS,
-  makePlan,
-  RADAR_FINE,
-  RADAR_LIMIT,
-  RADAR_WARNING_KM,
-  type DocumentId,
-  type RunPlan,
-} from "./encounters";
-export {
-  DOCUMENTS,
-  CHECKPOINT_VARIANTS,
-  RADAR_FINE,
-  RADAR_LIMIT,
-  RADAR_WARNING_KM,
-  worldDepth,
-} from "./encounters";
-export type { DocumentId } from "./encounters";
 export type Status = "ready" | "playing" | "paused" | "over" | "won";
 export type Obstacle = {
   id: number;
@@ -38,9 +19,7 @@ export type PolicePhase =
   | "warning"
   | "approach"
   | "documents"
-  | "checking"
-  | "task"
-  | "calling";
+  | "checking";
 export type GameState = {
   status: Status;
   vehicle: VehicleId;
@@ -73,20 +52,6 @@ export type GameState = {
   serial: number;
   flashCount: number;
   overtakes: number;
-  plan: RunPlan;
-  documents: Record<DocumentId, number>;
-  spent: number;
-  renewals: number;
-  taskDone: boolean;
-  phoneUsed: boolean;
-  radarsPassed: number;
-  radarTickets: number;
-  radarWarning: number;
-  radarFlash: number;
-  lastRadarSpeed: number;
-  combo: number;
-  bestCombo: number;
-  comboPulse: number;
 };
 export const CHECKPOINTS = [7.8, 20.2];
 export const WRONGWAYS = [12, 25.1];
@@ -122,89 +87,7 @@ export const fresh = (vehicle: VehicleId = "ada"): GameState => ({
   serial: 0,
   flashCount: 0,
   overtakes: 0,
-  plan: {
-    checkpoints: CHECKPOINTS.map((at, variant) => ({ at, variant })),
-    wrongways: [...WRONGWAYS],
-    radars: [4, 15.5, 22.5],
-  },
-  documents: { ehliyet: 4, ruhsat: 4, sigorta: 4 },
-  spent: 0,
-  renewals: 0,
-  taskDone: false,
-  phoneUsed: false,
-  radarsPassed: 0,
-  radarTickets: 0,
-  radarWarning: -1,
-  radarFlash: 0,
-  lastRadarSpeed: 0,
-  combo: 0,
-  bestCombo: 0,
-  comboPulse: 0,
 });
-export function createRun(vehicle: VehicleId, random: () => number): GameState {
-  const s = fresh(vehicle);
-  s.plan = makePlan(random);
-  for (const doc of DOCUMENTS) s.documents[doc.id] = 3.5 + random() * 1.5;
-  s.status = "playing";
-  return s;
-}
-export const nextCheckpoint = (s: GameState) =>
-  s.plan.checkpoints[s.checkpoints];
-export const checkpointVariant = (s: GameState) =>
-  CHECKPOINT_VARIANTS[nextCheckpoint(s)?.variant ?? 0];
-export const isStopped = (s: GameState) =>
-  ["documents", "checking", "task", "calling"].includes(s.police);
-export const isExpired = (s: GameState, id: DocumentId) =>
-  s.documents[id] <= s.distance;
-export const canShowDocuments = (s: GameState) =>
-  checkpointVariant(s).required.every((id) => !isExpired(s, id)) &&
-  (!checkpointVariant(s).task || s.taskDone);
-export function renewDocument(s: GameState, id: DocumentId) {
-  if (s.status !== "playing" || s.police !== "documents" || !isExpired(s, id))
-    return;
-  const doc = DOCUMENTS.find((d) => d.id === id)!;
-  s.score -= doc.price;
-  s.spent += doc.price;
-  s.renewals++;
-  s.documents[id] = s.distance + doc.validity;
-  say(
-    s,
-    `${doc.name} yenilendi. −${doc.price} puan · ${doc.validity} km geçerli`,
-    3,
-  );
-}
-export function doInspection(s: GameState) {
-  if (
-    s.status !== "playing" ||
-    s.police !== "documents" ||
-    s.taskDone ||
-    !checkpointVariant(s).task
-  )
-    return;
-  s.police = "task";
-  s.checkTime = 0;
-}
-export function callFriend(s: GameState) {
-  if (s.status !== "playing" || s.police !== "documents" || s.phoneUsed) return;
-  s.phoneUsed = true;
-  s.police = "calling";
-  s.checkTime = 0;
-}
-function releaseCheckpoint(s: GameState, phone = false) {
-  s.checkpoints++;
-  s.police = "none";
-  s.score += phone ? 75 : 250;
-  s.objects = [];
-  s.spawn = 2.5;
-  s.taskDone = false;
-  say(
-    s,
-    phone
-      ? "Amed abi aradı. ‘Tamam abim, iyi yolculuklar.’ +75"
-      : "Kontrol tamam. Yolun dosyası hâlâ incelemede. +250",
-    4,
-  );
-}
 export const stages = [
   "Girne çıkışı",
   "Boğaz geçidi",
@@ -224,15 +107,11 @@ export const roadDepth = (offset: number, travel: number) =>
 export const lanePosition = (lane: number) =>
   lane <= 1 ? -1.24 + lane * 0.74 : -0.5 + (lane - 1);
 export function move(s: GameState, dir: number) {
-  if (s.status === "playing" && !isStopped(s))
+  if (s.status === "playing" && !["documents", "checking"].includes(s.police))
     s.lane = Math.max(0, Math.min(2, s.lane + Math.sign(dir)));
 }
 export function showDocuments(s: GameState) {
-  if (
-    s.status === "playing" &&
-    s.police === "documents" &&
-    canShowDocuments(s)
-  ) {
+  if (s.status === "playing" && s.police === "documents") {
     s.police = "checking";
     s.checkTime = 0;
     s.throttle = false;
@@ -245,7 +124,6 @@ function say(s: GameState, message: string, duration = 3) {
 }
 function damage(s: GameState, amount: number, message: string) {
   if (s.hit > 0) return;
-  s.combo = 0;
   s.health = Math.max(0, s.health - amount);
   s.hit = 0.85;
   s.speed *= 0.58;
@@ -265,26 +143,25 @@ export function step(
   s.elapsed += dt;
   s.hit = Math.max(0, s.hit - dt);
   s.messageTime = Math.max(0, s.messageTime - dt);
-  s.radarFlash = Math.max(0, s.radarFlash - dt);
-  s.comboPulse = Math.max(0, s.comboPulse - dt);
-  if (isStopped(s)) {
+  if (s.police === "documents" || s.police === "checking") {
     s.speed = 0;
     s.throttle = false;
     s.brake = false;
-    s.checkTime += dt;
-    if (s.police === "checking" && s.checkTime >= checkpointVariant(s).duration)
-      releaseCheckpoint(s);
-    else if (s.police === "calling" && s.checkTime >= 2.4)
-      releaseCheckpoint(s, true);
-    else if (s.police === "task" && s.checkTime >= 1.6) {
-      s.taskDone = true;
-      s.police = "documents";
-      s.checkTime = 0;
+    if (s.police === "checking") {
+      s.checkTime += dt;
+      if (s.checkTime >= 2.6) {
+        s.checkpoints++;
+        s.police = "none";
+        s.score += 250;
+        s.objects = [];
+        s.spawn = 2.5;
+        say(s, "Evraklar tamam. Yolun evrakları hâlâ eksik. +250", 4);
+      }
     }
     return;
   }
   const car = vehicleById(s.vehicle),
-    cp = nextCheckpoint(s)?.at;
+    cp = CHECKPOINTS[s.checkpoints];
   if (cp !== undefined) {
     if (s.distance >= cp - 2.2 && s.police === "none") {
       s.police = "warning";
@@ -328,41 +205,12 @@ export function step(
     s.objects = [];
   }
   s.travel += ((s.distance - previousDistance) * 300) / 120;
-  const radar = s.plan.radars[s.radarsPassed];
-  if (radar !== undefined) {
-    if (
-      s.distance >= radar - RADAR_WARNING_KM &&
-      s.radarWarning !== s.radarsPassed
-    ) {
-      s.radarWarning = s.radarsPassed;
-      say(s, "Sabit radar ileride. Limit 60. Fotoğraf çekimi ücretli.", 3);
-    }
-    if (s.distance >= radar) {
-      s.radarsPassed++;
-      s.lastRadarSpeed = s.speed;
-      if (s.speed > RADAR_LIMIT) {
-        s.radarTickets++;
-        s.radarFlash = 0.24;
-        s.score -= RADAR_FINE;
-        s.spent += RADAR_FINE;
-        s.combo = 0;
-        say(
-          s,
-          `RADAR: ${Math.ceil(s.speed)} km/sa. Hatıra fotoğrafı −${RADAR_FINE} puan.`,
-          4,
-        );
-      } else {
-        s.score += 75;
-        say(s, "Radar 60 altında. Cüzdan da rahatladı. +75", 2.5);
-      }
-    }
-  }
   if (s.shoulderTime > 7) {
     s.health = Math.max(0, s.health - dt * 4);
     if (s.messageTime === 0)
       say(s, "Emniyet şeridi kestirme değil. Lastikler hatırlatıyor.");
   }
-  const atWrong = s.plan.wrongways[s.wrongways];
+  const atWrong = WRONGWAYS[s.wrongways];
   if (atWrong !== undefined && s.distance >= atWrong - 1.6) {
     s.wrongways++;
     const lane = s.wrongways === 1 ? 2 : 1;
@@ -378,15 +226,14 @@ export function step(
   }
   const controlNear = cp !== undefined && s.distance > cp - 1.7;
   const wrongNear =
-    s.plan.wrongways.some(
-      (at) => s.distance > at - 3.2 && s.distance < at + 0.2,
-    ) || s.objects.some((o) => o.type === "wrongway" && !o.done);
+    WRONGWAYS.some((at) => s.distance > at - 3.2 && s.distance < at + 0.2) ||
+    s.objects.some((o) => o.type === "wrongway" && !o.done);
   s.spawn -= (dt * s.speed) / 90;
   if (s.spawn <= 0 && !controlNear && !wrongNear) {
     s.wave++;
     s.spawn = difficulty(s.distance, s.vehicle).spawnDelay;
     const lane = random() < 0.5 ? 1 : 2;
-    if (random() < 0.38) {
+    if (s.wave % 3 === 0) {
       add(s, {
         type: "traffic",
         lane,
@@ -481,18 +328,6 @@ export function step(
         s.holes += o.type === "hole" ? 1 : 0;
       } else {
         s.dodged++;
-        s.combo++;
-        s.bestCombo = Math.max(s.bestCombo, s.combo);
-        if (s.combo % 3 === 0) {
-          const bonus = Math.min(3, s.combo / 3) * 25;
-          s.score += bonus;
-          s.comboPulse = 1.8;
-          say(
-            s,
-            `${s.combo} temiz geçiş! Amortisör sana minnettar. +${bonus}`,
-            2,
-          );
-        }
         s.score +=
           o.type === "wrongway" ? 300 : o.type === "traffic" ? 100 : 50;
         if (o.type === "wrongway") {
@@ -516,7 +351,7 @@ export function step(
     s.status = "over";
     s.brake = false;
     s.throttle = false;
-  } else if (s.distance >= 30 && s.checkpoints === s.plan.checkpoints.length) {
+  } else if (s.distance >= 30 && s.checkpoints === CHECKPOINTS.length) {
     s.status = "won";
     s.score += Math.round(s.health * 4) + 750;
     s.brake = false;

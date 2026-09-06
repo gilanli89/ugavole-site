@@ -1,5 +1,12 @@
-import { useEffect, useRef } from "react";
-import { Lock, Check, Trophy } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import {
+  Lock,
+  Check,
+  Trophy,
+  ChevronLeft,
+  ChevronRight,
+  MoveHorizontal,
+} from "lucide-react";
 import { VEHICLES, type VehicleId, type Vehicle } from "./vehicles";
 import { drawVehicle } from "./scene";
 function CarPortrait({ car }: { car: Vehicle }) {
@@ -35,6 +42,19 @@ export default function Garage({
   onSelect: (id: VehicleId) => void;
   points: number;
 }) {
+  const rail = useRef<HTMLDivElement>(null);
+  const [page, setPage] = useState(0);
+  const goTo = (index: number) => {
+    const container = rail.current;
+    const card = container?.children[index] as HTMLElement | undefined;
+    if (!container || !card) return;
+    container.scrollTo({
+      left: card.offsetLeft - (container.children[0] as HTMLElement).offsetLeft,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+    });
+  };
   return (
     <section className="garage" aria-label="Araç seçimi">
       <div className="garage-heading">
@@ -48,7 +68,45 @@ export default function Garage({
           <small>TOPLAM PUAN</small>
         </span>
       </div>
-      <div className="vehicle-grid">
+      <div className="garage-navigation">
+        <span>
+          <MoveHorizontal size={16} /> Kaydır, karşılaştır, seç.
+        </span>
+        <div>
+          <button
+            type="button"
+            aria-label="Önceki araç"
+            disabled={page === 0}
+            onClick={() => goTo(Math.max(0, page - 1))}
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <span aria-live="polite">{page + 1} / 4</span>
+          <button
+            type="button"
+            aria-label="Sonraki araç"
+            disabled={page === VEHICLES.length - 1}
+            onClick={() => goTo(Math.min(3, page + 1))}
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+      </div>
+      <div
+        className="vehicle-carousel"
+        ref={rail}
+        role="group"
+        aria-label="Kaydırmalı araç galerisi"
+        onScroll={() => {
+          const container = rail.current;
+          if (!container) return;
+          const first = container.children[0] as HTMLElement;
+          const index = Math.round(
+            container.scrollLeft / (first.offsetWidth + 16),
+          );
+          setPage(Math.max(0, Math.min(3, index)));
+        }}
+      >
         {VEHICLES.map((car) => {
           const locked = points < car.cost;
           return (
@@ -122,6 +180,19 @@ export default function Garage({
             </button>
           );
         })}
+      </div>
+      <div className="garage-dots" aria-label="Araçlara git">
+        {VEHICLES.map((car, i) => (
+          <button
+            key={car.id}
+            type="button"
+            aria-label={`${car.name} kartına git`}
+            aria-current={page === i ? "true" : undefined}
+            onClick={() => goTo(i)}
+          >
+            <span />
+          </button>
+        ))}
       </div>
       <p className="garage-note">
         İki araç hazır. Turlardan kazandığın puanlarla diğerleri kalıcı açılır.

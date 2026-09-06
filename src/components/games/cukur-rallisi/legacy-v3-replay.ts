@@ -1,16 +1,7 @@
-import {
-  createRun,
-  move,
-  step,
-  showDocuments,
-  renewDocument,
-  callFriend,
-  doInspection,
-  type GameState,
-} from "./game";
+import { fresh, move, step, showDocuments, type GameState } from "./legacy-v3-game";
 
 import { type VehicleId } from "./vehicles";
-export const GAME_VERSION = 4;
+export const GAME_VERSION = 3;
 export const FIXED_STEP = 1 / 60;
 export const MAX_FRAMES = 72_000;
 export const MAX_INPUTS = 2_400;
@@ -21,12 +12,7 @@ export type Action =
   | "gas-off"
   | "brake-on"
   | "brake-off"
-  | "documents"
-  | "renew-ehliyet"
-  | "renew-ruhsat"
-  | "renew-sigorta"
-  | "inspection"
-  | "call-friend";
+  | "documents";
 export type ReplayInput = [frame: number, action: Action];
 const actions = new Set([
   "left",
@@ -36,25 +22,18 @@ const actions = new Set([
   "brake-on",
   "brake-off",
   "documents",
-  "renew-ehliyet",
-  "renew-ruhsat",
-  "renew-sigorta",
-  "inspection",
-  "call-friend",
 ]);
 
 export function seededRandom(seed: number) {
   let value = seed >>> 0;
   return () => {
-    value = (value + 0x6d2b79f5) >>> 0;
-    let mixed = Math.imul(value ^ (value >>> 15), value | 1);
-    mixed ^= mixed + Math.imul(mixed ^ (mixed >>> 7), mixed | 61);
-    return ((mixed ^ (mixed >>> 14)) >>> 0) / 4294967296;
+    value = (Math.imul(value, 1664525) + 1013904223) >>> 0;
+    return value / 4294967296;
   };
 }
 
 export const totalScore = (state: GameState) =>
-  Math.max(0, Math.floor(state.score + state.distance * 100));
+  Math.floor(state.score + state.distance * 100);
 
 export function parseNickname(value: unknown): string | null {
   if (typeof value !== "string") return null;
@@ -99,11 +78,6 @@ export function applyInput(state: GameState, action: Action) {
   else if (action === "gas-on" || action === "gas-off")
     state.throttle = action === "gas-on";
   else if (action === "documents") showDocuments(state);
-  else if (action === "renew-ehliyet") renewDocument(state, "ehliyet");
-  else if (action === "renew-ruhsat") renewDocument(state, "ruhsat");
-  else if (action === "renew-sigorta") renewDocument(state, "sigorta");
-  else if (action === "inspection") doInspection(state);
-  else if (action === "call-friend") callFriend(state);
   else state.brake = action === "brake-on";
 }
 
@@ -114,8 +88,8 @@ export function replayRun(
   inputs: ReplayInput[],
   vehicle: VehicleId = "ada",
 ) {
+  const state: GameState = { ...fresh(vehicle), status: "playing" };
   const random = seededRandom(seed);
-  const state = createRun(vehicle, random);
   let next = 0;
   for (let frame = 0; frame < frames; frame++) {
     if (state.status !== "playing") return null;

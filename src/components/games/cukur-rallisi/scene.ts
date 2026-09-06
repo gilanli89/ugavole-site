@@ -1,10 +1,13 @@
 import {
-  CHECKPOINTS,
+  nextCheckpoint,
+  checkpointVariant,
+  worldDepth,
   lanePosition,
   roadDepth,
   type GameState,
   type Obstacle,
 } from "./game";
+import { drawScenery } from "./scenery";
 import { vehicleById, type Vehicle } from "./vehicles";
 export type SceneAssets = {
   landscape: HTMLImageElement;
@@ -218,11 +221,6 @@ export function drawVehicle(
   }
   c.restore();
 }
-const billboardList = [
-  { at: 3.8, asset: "nethouse", caption: "BAĞLANTI TAM. ASFALT BEKLENİYOR." },
-  { at: 15.8, asset: "zorlu", caption: "YOLUN ZORLU. TEKNOLOJİN HAZIR." },
-  { at: 27.2, asset: "ugavole", caption: "ADADA NE VARSA. BU ÇUKUR DA DAHİL." },
-] as const;
 export function render(
   c: CanvasRenderingContext2D,
   w: number,
@@ -230,7 +228,10 @@ export function render(
   s: GameState,
   assets: SceneAssets,
   time: number,
+  reducedMotion = false,
 ) {
+  c.imageSmoothingEnabled = true;
+  c.imageSmoothingQuality = "high";
   const hy = h * 0.33;
   const dry = Math.min(1, Math.max(0, (s.distance - 12) / 10));
   const sky = c.createLinearGradient(0, 0, 0, hy * 1.3);
@@ -248,7 +249,8 @@ export function render(
     const iw = w * 1.1,
       ih = hy * 1.28 * (1 - dry * 0.24);
     c.globalAlpha = 1 - dry * 0.18;
-    const bx = (w - iw) / 2 - bend * 0.35, by = hy - ih * 0.82;
+    const bx = (w - iw) / 2 - bend * 0.35,
+      by = hy - ih * 0.82;
     // Extend the photograph's own sky at the flattened southern horizon.
     if (by > 0) c.drawImage(bg, 0, 0, bg.naturalWidth, 1, bx, 0, iw, by + 1);
     c.drawImage(bg, bx, by, iw, ih);
@@ -338,85 +340,51 @@ export function render(
     c.lineTo(x + p.half * 0.04, p.y + 10 * p.t);
     c.stroke();
   }
-  // Roadside scrub, limestone and buildings transition along the supplied route.
-  for (let i = 25; i >= 0; i--) {
-    const p = project(roadDepth(i / 26, s.travel));
-    const side = i % 2 ? -1 : 1;
-    const x = p.x + side * p.half * (side < 0 ? 1.9 : 3.8),
-      size = 4 + p.t * w * 0.05;
-    if (s.distance > 22 && i % 3 === 0) {
-      c.fillStyle = i % 2 ? "#eee5cf" : "#c8c4b2";
-      c.fillRect(x - size, p.y - size * 2, size * 2, size * 2);
-      c.fillStyle = "#677d81";
-      for (let r = 0; r < 3; r++)
-        for (let k = 0; k < 3; k++)
-          c.fillRect(
-            x - size * 0.7 + k * size * 0.5,
-            p.y - size * 1.8 + r * size * 0.55,
-            size * 0.19,
-            size * 0.25,
-          );
-    } else {
-      if (side < 0 && s.distance < 14 && i % 3 === 0) {
-        poly(
-          [
-            x - size * 2,
-            p.y,
-            x + size * 0.55,
-            p.y,
-            x + size * 0.2,
-            p.y - size * 1.9,
-            x - size * 0.4,
-            p.y - size * 2.5,
-            x - size * 1.8,
-            p.y - size * 2.9,
-          ],
-          "#bdb89f",
-        );
-        poly(
-          [
-            x - size * 1.8,
-            p.y - size * 2.9,
-            x - size * 0.5,
-            p.y - size * 1.4,
-            x + size * 0.55,
-            p.y,
-            x - size * 0.2,
-            p.y - size * 1.9,
-          ],
-          "#d4cdb3",
-        );
-        c.strokeStyle = "#928f79";
-        c.lineWidth = Math.max(1, p.t * 2);
-        c.beginPath();
-        c.moveTo(x - size * 1.5, p.y - size * 1.2);
-        c.lineTo(x - size * 0.2, p.y - size * 0.9);
-        c.stroke();
-      }
-      if (dry < 0.5 && i % 4 === 0) {
-        poly(
-          [x - size * 0.48, p.y, x + size * 0.48, p.y, x, p.y - size * 2.7],
-          "#405e46",
-        );
-      }
-      c.fillStyle = dry > 0.5 ? "#8b8d59" : "#4b674b";
-      c.beginPath();
-      c.ellipse(x, p.y - size * 0.22, size, size * 0.48, 0, 0, Math.PI * 2);
-      c.fill();
-      c.fillStyle = dry > 0.5 ? "#b6aa75" : "#6a8054";
-      c.beginPath();
-      c.ellipse(
-        x - size * 0.25,
-        p.y - size * 0.45,
-        size * 0.6,
-        size * 0.36,
-        0,
-        0,
-        Math.PI * 2,
+  // Cut limestone banks in the pass, warm fields and garden walls on the descent.
+  if (s.distance < 15) {
+    for (let i = 0; i < 40; i++) {
+      const a = project(1 - i / 40),
+        b = project(1 - (i + 1) / 40);
+      const ah = a.half * 0.3,
+        bh = b.half * 0.3;
+      poly(
+        [
+          a.x - a.half * 2.05,
+          a.y,
+          b.x - b.half * 2.05,
+          b.y,
+          b.x - b.half * 2.15,
+          b.y - bh,
+          a.x - a.half * 2.15,
+          a.y - ah,
+        ],
+        "#a5a38a",
       );
-      c.fill();
+      poly(
+        [
+          a.x - a.half * 2.15,
+          a.y - ah,
+          b.x - b.half * 2.15,
+          b.y - bh,
+          b.x - b.half * 3.8,
+          b.y - bh * 1.8,
+          a.x - a.half * 3.8,
+          a.y - ah * 1.8,
+        ],
+        "#c4bea1",
+      );
+    }
+    for (let i = 0; i < 25; i++) {
+      const a = project(roadDepth(i / 25, s.travel));
+      c.strokeStyle = "#e2d8b48c";
+      c.lineWidth = Math.max(0.6, a.t * 1.7);
+      c.beginPath();
+      c.moveTo(a.x - a.half * 2.08, a.y - a.half * 0.06);
+      c.lineTo(a.x - a.half * 2.9, a.y - a.half * 0.47);
+      c.stroke();
     }
   }
+  drawScenery(c, s, project, assets, dry);
   const guard = (side: number) => {
     for (let i = 0; i < 55; i++) {
       const a = project(1 - i / 55),
@@ -511,44 +479,10 @@ export function render(
   c.fillText("NICOSIA", sx, sy - sh * 0.4, sw - 12);
   c.font = `700 ${sw * 0.11}px Arial`;
   c.fillText(`${Math.ceil(30 - s.distance)} km`, sx, sy - sh * 0.15, sw - 12);
-  for (const board of billboardList) {
-    const z = (board.at - s.distance) / 2 + 0.08;
-    if (z < -0.1 || z > 1) continue;
-    const p = project(z),
-      bw = Math.max(35, p.half * 1.55),
-      bh = bw * 0.5;
-    const x = p.x - p.half * 2.05;
-    c.fillStyle = "#696c5a";
-    for (const side of [-0.33, 0.33])
-      c.fillRect(x + bw * side, p.y - bh * 0.5, 2 + p.t * 4, bh * 0.65);
-    c.fillStyle = "#243c35";
-    c.fillRect(x - bw / 2 - 2, p.y - bh * 1.5 - 2, bw + 4, bh + 4);
-    c.fillStyle = "#fffdf4";
-    c.fillRect(x - bw / 2, p.y - bh * 1.5, bw, bh);
-    const logo = assets[board.asset];
-    if (logo.complete && logo.naturalWidth) {
-      const ratio = Math.min(
-          (bw * 0.85) / logo.naturalWidth,
-          (bh * 0.58) / logo.naturalHeight,
-        ),
-        iw = logo.naturalWidth * ratio,
-        ih = logo.naturalHeight * ratio;
-      c.drawImage(
-        logo,
-        x - iw / 2,
-        p.y - bh * 1.31 + (bh * 0.58 - ih) / 2,
-        iw,
-        ih,
-      );
-    }
-    c.fillStyle = "#243c35";
-    c.font = `700 ${Math.max(3, bw * 0.035)}px Arial`;
-    c.textAlign = "center";
-    c.fillText(board.caption, x, p.y - bh * 0.65, bw * 0.92);
-  }
-  const cp = CHECKPOINTS[s.checkpoints];
+  const cp = nextCheckpoint(s)?.at;
+  const variant = checkpointVariant(s);
   if (cp !== undefined) {
-    const z = (cp - s.distance) / 1.12 + 0.08;
+    const z = worldDepth(cp, s.distance);
     if (z >= 0.05 && z < 1) {
       const p = project(z),
         sz = p.half * 0.5;
@@ -580,7 +514,7 @@ export function render(
           p.half * 0.14,
           sz * 0.1,
         );
-      c.fillStyle = "#20523f";
+      c.fillStyle = variant.color;
       c.fillRect(
         p.x - p.half * 0.57,
         barY - sz * 0.38,
@@ -590,7 +524,43 @@ export function render(
       c.fillStyle = "#fff7df";
       c.textAlign = "center";
       c.font = `700 ${Math.max(5, sz * 0.16)}px Arial`;
-      c.fillText("POLİS · DUR", p.x, barY - sz * 0.16, p.half);
+      c.fillText(variant.sign, p.x, barY - sz * 0.16, p.half);
+      if ((nextCheckpoint(s)?.variant ?? 0) % 2 === 1) {
+        // A different arrangement: inspection awning and roadside desk.
+        const tx = p.x - p.half * 2.55,
+          ty = p.y - sz * 0.95;
+        c.fillStyle = "#777d67";
+        c.fillRect(tx - sz * 0.8, ty, sz * 0.055, sz * 0.95);
+        c.fillRect(tx + sz * 0.8, ty, sz * 0.055, sz * 0.95);
+        poly(
+          [
+            tx - sz,
+            ty,
+            tx + sz,
+            ty,
+            tx + sz * 0.6,
+            ty - sz * 0.45,
+            tx - sz * 0.6,
+            ty - sz * 0.45,
+          ],
+          variant.color,
+        );
+        c.fillStyle = "#ddd8c4";
+        c.fillRect(tx - sz * 0.4, p.y - sz * 0.3, sz * 0.8, sz * 0.1);
+      }
+      // Memur at the shoulder edge, next to the barrier.
+      const ox = p.x - p.half * 1.35,
+        oy = p.y;
+      c.fillStyle = "#263e49";
+      c.fillRect(ox - sz * 0.07, oy - sz * 0.42, sz * 0.14, sz * 0.24);
+      c.fillRect(ox - sz * 0.065, oy - sz * 0.19, sz * 0.05, sz * 0.19);
+      c.fillRect(ox + sz * 0.015, oy - sz * 0.19, sz * 0.05, sz * 0.19);
+      c.fillStyle = "#e7bc91";
+      c.beginPath();
+      c.arc(ox, oy - sz * 0.49, sz * 0.06, 0, Math.PI * 2);
+      c.fill();
+      c.fillStyle = "#263e49";
+      c.fillRect(ox - sz * 0.075, oy - sz * 0.57, sz * 0.15, sz * 0.04);
     }
   }
   const preview: Obstacle[] = [
@@ -687,10 +657,39 @@ export function render(
     car = vehicleById(s.vehicle),
     cx = p.x + lanePosition(s.visualLane) * p.half,
     cw = Math.max(33, Math.min(104, p.half * 0.55));
+  if (!reducedMotion && s.speed > 110) {
+    for (let i = 0; i < 8; i++) {
+      const phase = (time * (s.speed / 80) + i * 0.137) % 1,
+        side = i % 2 ? -1 : 1;
+      const x = w * 0.5 + side * w * (0.36 + phase * 0.2),
+        y = h * (0.6 + phase * 0.4);
+      c.strokeStyle = `rgba(245,235,197,${phase * 0.12})`;
+      c.lineWidth = 1 + phase;
+      c.beginPath();
+      c.moveTo(x, y);
+      c.lineTo(x + side * phase * 16, y + phase * 35);
+      c.stroke();
+    }
+  }
+  if (s.hit > 0 && !reducedMotion) {
+    const age = 1 - s.hit / 0.85;
+    for (let i = 0; i < 10; i++) {
+      const a = i * 2.4;
+      c.fillStyle = i % 2 ? "#e5b45c" : "#f5db94";
+      c.globalAlpha = (1 - age) * 0.75;
+      c.fillRect(
+        cx + Math.cos(a) * age * cw * 1.4,
+        p.y - Math.sin(a) * age * cw * 0.6 + age * age * cw,
+        cw * 0.035,
+        cw * 0.035,
+      );
+    }
+    c.globalAlpha = 1;
+  }
   c.save();
   c.translate(cx, p.y);
   c.rotate((s.lane - s.visualLane) * 0.055);
-  if (s.hit > 0) {
+  if (s.hit > 0 && !reducedMotion) {
     c.translate(Math.sin(time * 70) * s.hit * 6, 0);
     c.globalAlpha = 0.65 + Math.abs(Math.sin(time * 16)) * 0.35;
   }
@@ -713,7 +712,7 @@ export function render(
   drawVehicle(
     c,
     0,
-    Math.sin(time * 16) * (s.speed > 0 ? 0.5 : 0),
+    Math.sin(time * 16) * (s.speed > 0 && !reducedMotion ? 0.5 : 0),
     cw,
     {
       color: car.color,
@@ -729,4 +728,8 @@ export function render(
   shade.addColorStop(1, "#16382d77");
   c.fillStyle = shade;
   c.fillRect(0, h * 0.8, w, h * 0.2);
+  if (s.radarFlash > 0 && !reducedMotion) {
+    c.fillStyle = `rgba(255,248,224,${s.radarFlash * 0.95})`;
+    c.fillRect(0, 0, w, h);
+  }
 }

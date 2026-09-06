@@ -27,7 +27,11 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   const legacy = body.version === undefined || body.version === 2;
-  if (!legacy && (body.version !== GAME_VERSION || !isVehicleId(body.vehicle)))
+  if (
+    !legacy &&
+    (!(body.version === 3 || body.version === GAME_VERSION) ||
+      !isVehicleId(body.vehicle))
+  )
     return noStoreJson(
       { error: "Oyunu güncelleyip tekrar dene." },
       { status: 400 },
@@ -42,11 +46,16 @@ export async function POST(request: Request) {
     };
     const { data, error } = legacy
       ? await createAdminClient().rpc("begin_cukur_rallisi", params)
-      : await createAdminClient().rpc("begin_cukur_rallisi_v3", {
-          ...params,
-          p_vehicle: body.vehicle,
-          p_garage_id: garageId,
-        });
+      : await createAdminClient().rpc(
+          body.version === 3
+            ? "begin_cukur_rallisi_v3"
+            : "begin_cukur_rallisi_v4",
+          {
+            ...params,
+            p_vehicle: body.vehicle,
+            p_garage_id: garageId,
+          },
+        );
     if (error?.message.includes("game_rate_limit"))
       return noStoreJson(
         { error: "Çok sık tur başlattın. Biraz sonra tekrar dene." },
@@ -61,7 +70,7 @@ export async function POST(request: Request) {
     const response = noStoreJson({
       id: data,
       seed,
-      version: legacy ? 2 : GAME_VERSION,
+      version: legacy ? 2 : body.version,
     });
     if (!legacy)
       response.headers.append(

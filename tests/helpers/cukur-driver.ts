@@ -1,7 +1,11 @@
 import {
-  fresh,
+  createRun,
+  nextCheckpoint,
+  checkpointVariant,
+  DOCUMENTS,
+  isExpired,
+  isStopped,
   step,
-  CHECKPOINTS,
   lanePosition,
   type GameState,
 } from "../../src/components/games/cukur-rallisi/game";
@@ -14,9 +18,13 @@ import { type VehicleId } from "../../src/components/games/cukur-rallisi/vehicle
 const dt = 1 / 60;
 // A reactive driver sees the same objects a player sees, brakes at the sign and
 // selects a safe lane based on projected collisions, including a short shoulder escape.
-export function drive(seed: number, vehicle: VehicleId = "ada") {
-  const s: GameState = { ...fresh(vehicle), status: "playing" };
+export function drive(
+  seed: number,
+  vehicle: VehicleId = "ada",
+  options: { phone?: boolean; ignoreRadar?: boolean } = {},
+) {
   const rng = seededRandom(seed);
+  const s: GameState = createRun(vehicle, rng);
   const inputs: ReplayInput[] = [];
   let frame = 0;
   const act = (a: ReplayInput[1]) => {
@@ -24,12 +32,26 @@ export function drive(seed: number, vehicle: VehicleId = "ada") {
     applyInput(s, a);
   };
   for (; frame < 24000 && s.status === "playing"; frame++) {
-    if (s.police === "documents") act("documents");
-    if (s.police !== "documents" && s.police !== "checking") {
-      const cp = CHECKPOINTS[s.checkpoints],
+    if (s.police === "documents") {
+      if (options.phone && !s.phoneUsed) act("call-friend");
+      const variant = checkpointVariant(s);
+      for (const doc of DOCUMENTS)
+        if (variant.required.includes(doc.id) && isExpired(s, doc.id))
+          act(`renew-${doc.id}`);
+      if (variant.task && !s.taskDone) act("inspection");
+      else act("documents");
+    }
+    if (!isStopped(s)) {
+      const cp = nextCheckpoint(s)?.at,
         remaining = cp === undefined ? 99 : cp - s.distance;
+      const radarRemaining = (s.plan.radars[s.radarsPassed] ?? 99) - s.distance;
+      const radarCap =
+        !options.ignoreRadar && radarRemaining < 0.38 && radarRemaining >= 0
+          ? 58
+          : 999;
       const braking =
-        remaining < 0.25 && s.speed > Math.max(8, remaining * 360);
+        (remaining < 0.25 && s.speed > Math.max(8, remaining * 360)) ||
+        s.speed > radarCap;
       if (braking !== s.brake) act(braking ? "brake-on" : "brake-off");
       if (!s.throttle) act("gas-on");
       const dangers = s.objects

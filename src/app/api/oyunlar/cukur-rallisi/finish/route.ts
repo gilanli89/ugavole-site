@@ -5,6 +5,7 @@ import {
   totalScore,
   validateReplay,
 } from "@/components/games/cukur-rallisi/replay";
+import * as legacy3 from "@/components/games/cukur-rallisi/legacy-v3-replay";
 import * as legacy from "@/components/games/cukur-rallisi/legacy-replay";
 import {
   garageCookie,
@@ -31,9 +32,9 @@ export async function POST(request: Request) {
       .eq("id", runId)
       .maybeSingle();
     if (error) throw error;
-    if (!run || ![2, 3].includes(run.version))
+    if (!run || ![2, 3, 4].includes(run.version))
       return noStoreJson({ error: "Tur bulunamadı." }, { status: 404 });
-    if (run.version === 3 && garageCookie(request) !== run.garage_id)
+    if (run.version >= 3 && garageCookie(request) !== run.garage_id)
       return noStoreJson(
         { error: "Bu tur başka bir garaja ait." },
         { status: 403 },
@@ -56,7 +57,9 @@ export async function POST(request: Request) {
     const replay =
       run.version === 2
         ? legacy.validateReplay(payload)
-        : validateReplay(payload);
+        : run.version === 3
+          ? legacy3.validateReplay(payload)
+          : validateReplay(payload);
     if (!replay || age > 7200 || replay.frames / 60 > age + 3)
       return noStoreJson(
         { error: "Tur süresi doğrulanamadı." },
@@ -69,12 +72,19 @@ export async function POST(request: Request) {
             replay.frames,
             replay.inputs as legacy.ReplayInput[],
           )
-        : replayRun(
-            Number(run.seed),
-            replay.frames,
-            replay.inputs,
-            vehicleById(run.vehicle_id).id,
-          );
+        : run.version === 3
+          ? legacy3.replayRun(
+              Number(run.seed),
+              replay.frames,
+              replay.inputs as legacy3.ReplayInput[],
+              vehicleById(run.vehicle_id).id,
+            )
+          : replayRun(
+              Number(run.seed),
+              replay.frames,
+              replay.inputs as Parameters<typeof replayRun>[2],
+              vehicleById(run.vehicle_id).id,
+            );
     if (!state)
       return noStoreJson(
         { error: "Tur tamamlanmamış. Skor kaydedilemedi." },
@@ -83,10 +93,16 @@ export async function POST(request: Request) {
     const score =
       run.version === 2
         ? legacy.totalScore(state as Parameters<typeof legacy.totalScore>[0])
-        : totalScore(state as Parameters<typeof totalScore>[0]);
-    if (run.version === 3) {
+        : run.version === 3
+          ? legacy3.totalScore(
+              state as Parameters<typeof legacy3.totalScore>[0],
+            )
+          : totalScore(state as Parameters<typeof totalScore>[0]);
+    if (run.version >= 3) {
       const { data, error: finishError } = await admin.rpc(
-        "finish_cukur_rallisi_v3",
+        run.version === 3
+          ? "finish_cukur_rallisi_v3"
+          : "finish_cukur_rallisi_v4",
         {
           p_run_id: runId,
           p_garage_id: run.garage_id,

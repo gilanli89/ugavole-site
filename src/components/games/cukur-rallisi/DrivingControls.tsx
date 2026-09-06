@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowRight, ChevronsUp, Square } from "lucide-react";
-import type { GameState } from "./game";
+import { isStopped, type GameState } from "./game";
 
 export type Pedal = "brake" | "throttle";
 
@@ -10,9 +10,7 @@ type Props = {
 };
 
 export default function DrivingControls({ state, onSteer, onPedal }: Props) {
-  const active =
-    state.status === "playing" &&
-    !["documents", "checking"].includes(state.police);
+  const active = state.status === "playing" && !isStopped(state);
   return (
     <div className="controls-row" aria-label="Sürüş kontrolleri">
       <div className="steering-group" role="group" aria-label="Direksiyon">

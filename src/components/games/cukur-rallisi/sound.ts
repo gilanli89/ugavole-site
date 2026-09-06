@@ -155,12 +155,20 @@ export class DrivingSound {
       | "flash"
       | "horn"
       | "paper"
-      | "whoosh",
+      | "whoosh"
+      | "phone"
+      | "purchase"
+      | "radar",
   ) {
     if (this.muted) return;
     const a = this.context,
       t = a.currentTime;
-    if (kind === "hit" || kind === "whoosh" || kind === "paper") {
+    if (
+      kind === "hit" ||
+      kind === "whoosh" ||
+      kind === "paper" ||
+      kind === "radar"
+    ) {
       const n = a.createBufferSource();
       n.buffer = this.noise;
       const g = a.createGain();
@@ -179,23 +187,29 @@ export class DrivingSound {
       };
     }
     const notes =
-      kind === "whoosh" || kind === "paper"
-        ? []
-        : kind === "horn"
-          ? [330, 260, 330]
-          : kind === "flash"
-            ? [740, 740]
-            : kind === "win"
-              ? [392, 494, 587, 784]
-              : kind === "repair"
-                ? [660, 880]
-                : kind === "checkpoint"
-                  ? [440, 660]
-                  : kind === "lose"
-                    ? [220, 165, 110]
-                    : kind === "hit"
-                      ? [75, 42]
-                      : [196, 294, 392];
+      kind === "phone"
+        ? [440, 480, 440, 480, 440, 480]
+        : kind === "purchase"
+          ? [880, 1175]
+          : kind === "radar"
+            ? [1500, 740]
+            : kind === "whoosh" || kind === "paper"
+              ? []
+              : kind === "horn"
+                ? [330, 260, 330]
+                : kind === "flash"
+                  ? [740, 740]
+                  : kind === "win"
+                    ? [392, 494, 587, 784]
+                    : kind === "repair"
+                      ? [660, 880]
+                      : kind === "checkpoint"
+                        ? [440, 660]
+                        : kind === "lose"
+                          ? [220, 165, 110]
+                          : kind === "hit"
+                            ? [75, 42]
+                            : [196, 294, 392];
     notes.forEach((f, i) => {
       const o = a.createOscillator(),
         g = a.createGain(),
