@@ -13,6 +13,7 @@ type EditorialArticle = {
     | "Yaşam"
     | "Eğlence"
     | "Gündem"
+    | "Spor"
     | "Dünya"
     | "Ekonomi"
     | "Teknoloji"
@@ -41,6 +42,184 @@ function editorial(input: EditorialArticle): Article {
 }
 
 export const EDITORIAL_ARTICLES: Article[] = [
+  editorial({
+    slug: "lefkosa-anadolunun-izleri-sergisi-tel-kirma-tel-sarma-atolyesi",
+    title: "Lefkoşa'da Anadolu'nun İzleri Bugün Açılıyor: Sergi ve El Sanatları Atölyesi",
+    excerpt: "Lefkoşa'daki Anadolu'nun İzleri Sergisi 22 Eylül'de açılıyor. 23 Eylül'de tel kırma ve tel sarma atölyesi programda.",
+    category: "Kültür",
+    published_at: "2026-09-22T16:49:00+03:00",
+    cover_image: "/editorial/2026-09-22/lefkosa-anadolunun-izleri.webp",
+    original_source_url: "https://www.3eylul.com/haber/anadolunun-izleri-sergisi-lefkosada-sanatseverlerle-bulusacak-086d",
+    content: `
+<p><strong>Program notu:</strong> Anadolu'nun İzleri Sergisi bugün saat 18.00'de açılıyor. Kapak, Ugavole için hazırlanmış temsili bir editoryal illüstrasyondur; gerçek etkinlik fotoğrafı değildir.</p>
+
+<p>Lefkoşa'da geleneksel el sanatlarına odaklanan <strong>Anadolu'nun İzleri Sergisi</strong>, 22 Eylül Salı günü saat 18.00'de açılacak. Programda ertesi gün tel kırma ve tel sarma atölyesi de yer alıyor.</p>
+
+<p>3Eylül'ün Lefkoşa Yunus Emre Enstitüsü açıklamasına dayandırdığı habere göre etkinlik üç gün sürecek. Amaç, Anadolu'nun geleneksel el sanatlarından örnekleri Kuzey Kıbrıs'ta farklı kuşaklarla buluşturmak.</p>
+
+<h2>Programda neler var?</h2>
+<ul>
+  <li><strong>Sergi açılışı:</strong> 22 Eylül Salı, 18.00</li>
+  <li><strong>Etkinlik süresi:</strong> Üç gün</li>
+  <li><strong>Atölye:</strong> 23 Eylül Çarşamba, 11.00–13.00</li>
+  <li><strong>Atölye başlıkları:</strong> Tel kırma ve tel sarma</li>
+</ul>
+
+<p>Tel kırma ve tel sarma, ince metal telin kumaşla buluştuğu geleneksel işleme teknikleri arasında yer alıyor. Atölye, bu üretim biçimlerinin yapım aşamalarını yakından görmek isteyenler için programın uygulamalı bölümü olacak.</p>
+
+<p>Etkinlik duyurusunda ziyaret saatleri, kayıt yöntemi, kontenjan ya da ücret bilgisi belirtilmiyor. Bu nedenle yola çıkmadan önce organizatörün güncel kanallarını kontrol etmek iyi olur.</p>
+
+<p>Kıbrıs'taki geleneksel üretim hikâyelerine meraklıysan, <a href="/haber/kibris-el-isleri-lefkara-sepet-ve-oruculuk">ada el işlerine dair rehberimize</a> de göz atabilirsin.</p>
+
+<h2>Kaynak</h2>
+<p>Bilgiler, 3Eylül'ün 19 Eylül 2026 tarihli ve Lefkoşa Yunus Emre Enstitüsü açıklamasına dayandırdığı <a href="https://www.3eylul.com/haber/anadolunun-izleri-sergisi-lefkosada-sanatseverlerle-bulusacak-086d" target="_blank" rel="noopener noreferrer">haberinden</a> derlenmiştir.</p>
+    `,
+  }),
+  editorial({
+    slug: "tatlisu-plaj-guresleri-harnup-festivali-2026",
+    title: "Tatlısu'da Plaj Güreşleri, İptal Edilen Festivalin Ardından Sembolik Olarak Yapıldı",
+    excerpt: "Tatlısu'daki plaj güreşlerinde 130 sporcu mücadele etti. Harnup Festivali iptal edilirken geleneksel spor etkinliği sembolik olarak sürdü.",
+    category: "Spor",
+    published_at: "2026-09-22T16:48:00+03:00",
+    cover_image: "/editorial/2026-09-22/tatlisu-plaj-guresleri.webp",
+    original_source_url: "https://brtk.net/tatlisu-belediyesi-ile-gures-federasyonu-is-birliginde-plaj-guresleri-duzenlendi/",
+    content: `
+<p>Tatlısu Belediyesi ile Güreş Federasyonunun Zambak Tatil Köyü'nde düzenlediği plaj güreşlerinde <strong>130 kız ve erkek sporcu</strong> mücadele etti. Organizasyon, bu yıl Harnup Festivali'nin iptal edilmesinin ardından sembolik olarak yapıldı.</p>
+
+<p>Belediye bilgisini aktaran yerel haberlerde, deniz faciası nedeniyle festivalin planlanan programının iptal edildiği belirtiliyor. Festival kapsamındaki geleneksel plaj güreşleri ise sembolik olarak gerçekleştirildi.</p>
+
+<h2>Etkinlikten kısa notlar</h2>
+<ul>
+  <li>Etkinlik yeri olarak <strong>Zambak Tatil Köyü</strong> belirtildi.</li>
+  <li>130 sporcu karşılaşmalara katıldı.</li>
+  <li>Dereceye giren sporculara kupa ve madalya verildi.</li>
+  <li>Kaynaklarda sıkletler, sonuç tabloları ve kazananların tam listesi paylaşılmadı.</li>
+</ul>
+
+<p>Bu nedenle burada bir sonuç sıralaması vermiyoruz. Haberin öne çıkan tarafı, yerel spor geleneğinin festival takvimindeki değişikliğe rağmen kısa bir buluşmayla sürdürülmesi.</p>
+
+<p>KKTC'deki diğer spor gündemlerini <a href="/spor">Spor sayfamızdan</a> takip edebilirsin.</p>
+
+<h2>Kaynaklar</h2>
+<p>Bilgiler, belediye açıklamasını aktaran <a href="https://haberkibris.com/tatlisu-belediyesi-ile-gures-federasyonu-is-birliginde-plaj-guresleri-duzenlendi-1001-2026-09-21.html" target="_blank" rel="noopener noreferrer">Haber Kıbrıs</a> ve <a href="https://brtk.net/tatlisu-belediyesi-ile-gures-federasyonu-is-birliginde-plaj-guresleri-duzenlendi/" target="_blank" rel="noopener noreferrer">BRTK</a> haberlerinden derlenmiştir. Kapak görseli Ugavole için hazırlanmış temsili bir editoryal illüstrasyondur.</p>
+    `,
+  }),
+  editorial({
+    slug: "muze-gazhane-sesli-karsilasmalar-atolyesi-22-eylul-2026",
+    title: "Müze Gazhane'de Ücretsiz Sesli Karşılaşmalar Atölyesi Bu Akşam",
+    excerpt: "Sesli Karşılaşmalar atölyesi 22 Eylül saat 19.00'da Müze Gazhane'de ücretsiz gerçekleşecek.",
+    category: "Kültür",
+    published_at: "2026-09-22T16:47:00+03:00",
+    cover_image: "/editorial/2026-09-22/muze-gazhane-sesli-karsilasmalar.webp",
+    original_source_url: "https://kultur.istanbul/etkinlik/sesli-karsilasmalar/",
+    content: `
+<p>Kültür.İstanbul'un etkinlik sayfasına göre <strong>Sesli Karşılaşmalar</strong>, 22 Eylül Salı günü saat 19.00'da Müze Gazhane'de yapılacak. Klinik Psikolog Nazlı Özkan eşliğindeki etkinlik, atölye ve eğitim kategorisinde yer alıyor ve ücretsiz olarak duyuruluyor.</p>
+
+<p>Resmî sayfada atölyenin içerik akışı, süresi, kontenjanı ya da kayıt yöntemi yer almıyor. Katılım koşullarını organizatörün güncel duyurusundan kontrol etmek gerekiyor.</p>
+
+<h2>Etkinlik bilgileri</h2>
+<ul>
+  <li><strong>Tarih:</strong> 22 Eylül 2026, Salı</li>
+  <li><strong>Saat:</strong> 19.00</li>
+  <li><strong>Yer:</strong> Müze Gazhane, İstanbul</li>
+  <li><strong>Tür:</strong> Atölye ve eğitim</li>
+  <li><strong>Ücret:</strong> Ücretsiz</li>
+</ul>
+
+<p>Müze Gazhane'nin kültür programına aynı gün kısa bir not eklemek isteyenler için bu, akşam ajandasında yer alabilecek bir seçenek. Etkinlik başladıktan sonra güncel bilgi için organizatörün duyurusuna bakmak en sağlıklısı.</p>
+
+<p>Kültür rotaları ve etkinlik seçkileri için <a href="/kategori/kultur">Kültür sayfamıza</a> da uğrayabilirsin.</p>
+
+<h2>Kaynak</h2>
+<p>Bilgiler, 15 Eylül 2026'da yayımlanan <a href="https://kultur.istanbul/etkinlik/sesli-karsilasmalar/" target="_blank" rel="noopener noreferrer">Kültür.İstanbul resmî etkinlik sayfasından</a> alınmıştır. Kapak görseli Ugavole için hazırlanmış temsili bir editoryal illüstrasyondur; etkinlik fotoğrafı veya sağlık hizmeti görseli değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "koltuk-senin-radar-turkiye-dijital-sira-rehberi",
+    title: "Koltuk Senin: Harbiye'de Dijital Sıraya Nasıl Katılınır?",
+    excerpt: "Koltuk Senin uygulamasında dijital sıra nasıl alınır? Yaş sınırı, konum doğrulaması, SMS süreci ve katılım koşulları.",
+    category: "Kültür",
+    published_at: "2026-09-22T16:46:00+03:00",
+    cover_image: "/editorial/2026-09-22/koltuk-senin.webp",
+    original_source_url: "https://kultur.istanbul/etkinlik/koltuk-senin/",
+    content: `
+<p>İstanbul'da düzenlenen bazı açık hava konserlerinde boş kalan koltuklar, <strong>Koltuk Senin</strong> uygulamasıyla gençlere dijital sıra üzerinden sunuluyor. Süreç, Radar Türkiye uygulaması üzerinden işliyor ve boş koltuk oluşması durumunda katılımcıya SMS ile haber veriliyor.</p>
+
+<p>Kültür.İstanbul'un açıklamasına göre programdan <strong>18–24 yaş</strong> arasındaki kullanıcılar yararlanabiliyor. Uygulama, Harbiye Cemil Topuzlu Açık Hava Tiyatrosu'ndaki uygun konserlerde kullanılmak üzere tasarlanmış.</p>
+
+<h2>Nasıl işliyor?</h2>
+<ol>
+  <li>Konser günü etkinlik alanının yaklaşık <strong>1 kilometre</strong> yakınında ol.</li>
+  <li>Saat <strong>20.00'de</strong> Radar Türkiye uygulamasındaki Koltuk Senin bölümünden sıra al.</li>
+  <li>Konum doğrulamasından sonra dijital sıraya eklen.</li>
+  <li>Boş koltuk oluşur ve sıran gelirse SMS ile bilgilendiril.</li>
+  <li>Uygulamadaki Biletlerim bölümündeki QR kodla giriş yap.</li>
+</ol>
+
+<p>Fiziksel sıra oluşturulmuyor. Her kullanıcı ayda en fazla dört etkinlik için başvurabiliyor. En önemli nokta şu: Kontenjan sınırlı ve boş koltuk durumu değişken olduğu için katılım garantisi bulunmuyor.</p>
+
+<p>Güncel konser takvimi sık değişebileceğinden, belirli bir etkinlik adı veya tarihi için uygulama içindeki güncel bilgiyi yeniden kontrol etmek gerekir. Bu yazı, programın koşullarını açıklayan kalıcı bir rehberdir.</p>
+
+<p>Kültür gündemindeki başka içerikler için <a href="/kategori/kultur">Kültür sayfamıza</a> göz atabilirsin.</p>
+
+<h2>Kaynak</h2>
+<p>Koşullar, 22 Eylül 2026'da kontrol edilen <a href="https://kultur.istanbul/etkinlik/koltuk-senin/" target="_blank" rel="noopener noreferrer">Kültür.İstanbul resmî program sayfasından</a> derlenmiştir. Kapak görseli Ugavole için hazırlanmış temsili bir editoryal illüstrasyondur; gerçek bir bilet, uygulama ekranı veya etkinlik fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "perseverance-marsta-uc-ayri-su-etkilesimi",
+    title: "Perseverance, Mars'ta En Az Üç Ayrı Su Etkileşiminin İzini Buldu",
+    excerpt: "NASA'nın Perseverance aracı, Jezero Krateri kayaçlarında Mars'ın erken dönemine ait en az üç ayrı su etkileşiminin izini buldu.",
+    category: "Bilim & Uzay",
+    published_at: "2026-09-22T16:45:00+03:00",
+    cover_image: "/editorial/2026-09-22/perseverance-mars-su.webp",
+    original_source_url: "https://www.nasa.gov/solar-system/planets/mars/nasa-discovery-reveals-complex-water-systems-on-early-mars/",
+    content: `
+<p>NASA'nın 21 Eylül tarihli açıklamasına göre Perseverance gezgini, Jezero Krateri'nin iç kenarındaki kayaçlarda Mars'ın erken dönemine ait <strong>en az üç ayrı su etkileşiminin</strong> kimyasal izini belirledi.</p>
+
+<p>Bulgular, kraterin eski göl kıyısını takip eden ve Margin Unit olarak adlandırılan jeolojik alandan geliyor. Araştırmacılar burada tortul kayaçlarla karşılaşmayı beklerken, büyük ölçüde magmatik kayaçlar buldu. Bu kayaçların mineral kristalleri, oluşum ve sonrasındaki değişimlere dair ayrıntılı izler tutabiliyor.</p>
+
+<h2>Kayaçlar ne anlatıyor?</h2>
+<p>NASA'nın aktardığı çalışmada, kayaçların suyla en az üç kez etkileşime girdiği görülüyor. Bu etkileşimler kayaların kimyasını ve görünümünü zaman içinde değiştirmiş.</p>
+
+<p>Perseverance'ın direğindeki <strong>SuperCam</strong> cihazı, ışığın kayaçlardan yansımasını inceleyerek mineral yapıyı araştırıyor. Bilim ekibi bu yolla bölgede 185'ten fazla ana kaya hedefini analiz etti.</p>
+
+<p>Karbonat ve silis gibi mineraller, geçmişte yaşanabilir koşulların araştırılması açısından önemli. Yine de bu bulgu, Mars'ta yaşam bulunduğu anlamına gelmiyor; bilim insanlarına suyun kayaçlarla hangi sırayla ve nasıl etkileştiğine dair daha ayrıntılı bir kayıt sunuyor.</p>
+
+<p>Uzay bilimlerindeki diğer haberler için <a href="/haber/nasa-roman-uzay-teleskobu-firlatmaya-hazir">NASA'nın Roman Uzay Teleskobu içeriğimize</a> de bakabilirsin.</p>
+
+<h2>Kaynak</h2>
+<p>Bilgiler, NASA/JPL'nin 21 Eylül 2026 tarihli <a href="https://www.nasa.gov/solar-system/planets/mars/nasa-discovery-reveals-complex-water-systems-on-early-mars/" target="_blank" rel="noopener noreferrer">Complex Water Systems on Early Mars</a> açıklamasından derlenmiştir. Kapak görseli Ugavole için hazırlanmış temsili bir bilim illüstrasyonudur; NASA görüntüsü değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "nasa-aqua-uydusu-a81-d33b-buzdaglari",
+    title: "NASA'nın Aqua Uydusu İki Büyük Buzdağını Aynı Karede Görüntüledi",
+    excerpt: "NASA'nın Aqua uydusu, Scotia Denizi'nde sürüklenen A81 ve D33B adlı iki büyük buzdağını gerçek renkli görüntüyle kaydetti.",
+    category: "Dünya",
+    published_at: "2026-09-22T16:44:00+03:00",
+    cover_image: "/editorial/2026-09-22/a81-d33b-buzdaglari.webp",
+    original_source_url: "https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2026-09-21",
+    content: `
+<p>NASA'nın Aqua uydusundaki MODIS cihazı, Scotia Denizi'nde sürüklenen <strong>A81</strong> ve <strong>D33B</strong> adlı iki büyük buzdağını 12 Eylül'de gerçek renkli görüntüyle kaydetti. NASA, görüntüyü 21 Eylül'de yayımladı.</p>
+
+<p>Öndeki A81, ABD Ulusal Buz Merkezi verisinde <strong>391,2 kare deniz mili</strong> alanla en büyük buzdağı olarak yer alıyor. Onu izleyen D33B'nin tahmini alanı ise <strong>93,49 kare deniz mili</strong>.</p>
+
+<h2>İki buzdağının kısa geçmişi</h2>
+<ul>
+  <li>A81, Ocak 2023'te Brunt Buz Sahanlığı'ndan koptu.</li>
+  <li>D33B, Ağustos 2023'te Borchgrevink Buz Sahanlığı'ndan kopan daha büyük D33 buzdağının bir parçası.</li>
+  <li>NASA, A81'in ölçülerinin 18 Eylül itibarıyla üç yılı aşkın sürüklenmeye rağmen büyük ölçüde korunduğunu bildiriyor.</li>
+</ul>
+
+<p>Uydu görüntüleri, uzak denizlerdeki buz kütlelerinin konumunu ve ölçeğini anlamak için etkili bir araç. Ancak tek bir görüntü, iklim değişikliği ya da kıyılara yönelik riskler hakkında tek başına kesin bir sonuç vermez. Bu kare, iki buzdağının belirli bir tarihteki görünümünü gösteriyor.</p>
+
+<p>Bilim ve çevre gündemini <a href="/haberler">Haberler sayfamızdan</a> takip edebilirsin.</p>
+
+<h2>Kaynak</h2>
+<p>Bilgiler, <a href="https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2026-09-21" target="_blank" rel="noopener noreferrer">NASA MODIS — Icebergs A81 and D33B</a> kaydından derlenmiştir (yayın: 21 Eylül 2026; görüntü tarihi: 12 Eylül 2026). Kapak görseli Ugavole için hazırlanmış temsili bir bilim illüstrasyonudur; NASA/MODIS uydu görüntüsünün kopyası değildir.</p>
+    `,
+  }),
   editorial({
     slug: "filo-jet-faciasi-girne-aciklarinda-ne-oldu",
     title: "Filo Jet Faciası: Girne Açıklarında Ne Oldu?",
