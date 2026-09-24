@@ -43,6 +43,204 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "girnede-yagmur-suyu-altyapisi-icin-uc-noktali-plan",
+    title: "Girne’de Yağmur Suyu Altyapısı İçin Üç Noktalı Plan Açıklandı",
+    excerpt: "Girne Belediyesi, Prestij ve Lemon Park çevresindeki su baskınlarını azaltmak için kutu menfez, yağmur suyu hattı ve menfez yenilemesini kapsayan bir plan açıkladı.",
+    category: "Gündem",
+    published_at: "2026-09-24T09:16:00+03:00",
+    cover_image: "/editorial/2026-09-24/girne-yagmur-suyu-altyapisi.webp",
+    original_source_url: "https://www.girnebelediyesi.com/girnede-su-baskinlarina-karsi-altyapi-calismalari-suruyor/",
+    content: `
+<p>Girne Belediyesi, Prestij ve Lemon Park sitelerinin bulunduğu çevrede yıllardır yaşanan su baskınlarını azaltmayı hedefleyen altyapı çalışmaları için yeni bir yol haritası açıkladı. Belediyenin 23 Eylül 2026 tarihli duyurusunda, tek bir noktaya odaklanan geçici bir müdahale yerine birbirini tamamlayan üç iş kalemi yer alıyor: mevcut kutu menfezin devamı, yağmur suyu hattının deniz tarafına ulaştırılması ve Sanayi Bölgesi çıkışındaki menfezin yenilenmesi.</p>
+
+<p>Açıklama, bölgede işlerin tamamlandığını değil, çalışmaların başladığını ve bazı adımların planlandığını gösteriyor. Bu ayrım önemli: Yağmur suyu altyapısında etki, ancak kanal, hat ve menfezler birlikte işlediğinde görülebilir. Belediyenin verdiği bilgiler, mahalle sakinleri için hangi alanda neyin hedeflendiğini daha anlaşılır kılıyor.</p>
+
+<h2>Prestij ve Lemon Park çevresinde kutu menfez devam edecek</h2>
+
+<p>Belediyeye göre bölgede daha önce belirli bir noktaya kadar yapılmış, fakat devamı getirilmemiş kutu menfez kanalının çalışmasına yeniden başlandı. Amaç, iki site çevresindeki yağmur suyunun daha düzenli taşınması. Belediye Başkanı Murat Şenkul, kanalın yaklaşık bir ay içinde bitirilmesini hedeflediklerini açıkladı. Bu, açıklanan hedef süredir; kesin bir tamamlanma tarihi ya da çalışmanın ardından taşkın riskinin tamamen ortadan kalkacağı yönünde bir garanti paylaşılmadı.</p>
+
+<h2>GAÜ Kavşağı’nda hattın denize uzatılması planlanıyor</h2>
+
+<p>İkinci başlık, Girne Amerikan Üniversitesi Kavşağı çevresindeki 1000’lik yağmur suyu hattı. Duyuruya göre hat kavşağın güneyine kadar geliyor, ancak yolun kuzeyine geçip deniz tarafına ulaşmıyor. Belediye, yolun kesilerek hattın denize bağlanmasını planlıyor. Bu adımın hedefi, yağış sularının güvenli biçimde denize yönlendirilmesi. Kaynakta yol kapanışı, çalışma günleri veya geçici trafik düzeniyle ilgili ayrıntı bulunmadığı için bu konularda belediyenin yeni duyurularını izlemek gerekiyor.</p>
+
+<h2>Sanayi Bölgesi çıkışındaki menfez yeniden yapılacak</h2>
+
+<p>Üçüncü çalışma, Sanayi Bölgesi çıkışındaki mevcut yağmur suyu menfezi. Belediye, yol yenilemesi sırasında kapasitesi artırılmayan bu yapının ana yolda yağmur suyu birikmesine yol açtığını belirtiyor. Menfezin yeniden yapılması planlanıyor. Altyapı işlerinin ardından ilgili bölgelerde asfalt yenilemesi de gündemde. Ayrıca GAÜ Kavşağı’nda trafik ve yaya güvenliği için kameralı trafik ışıkları kurulması planlanıyor; bu da henüz tamamlanmış bir uygulama değil.</p>
+
+<h2>Bu üç çalışma neden birlikte okunmalı?</h2>
+
+<p>Kutu menfez kanalı, yağmur suyu hattı ve yol altındaki menfez aynı yağışın farklı noktalardaki akışını ilgilendiriyor. Belediye bunları kapsamlı bir altyapı düzenlemesinin parçaları olarak duyurdu; ancak kapasite hesabı, proje bütçesi, yüklenici, şantiye programı ya da denetim takvimi paylaşmadı. Bu nedenle açıklamayı, uygulanmış bir sonuç raporu değil, hedefleri ve çalışma alanlarını gösteren güncel bir durum notu olarak okumak daha doğru.</p>
+
+<h2>Mahalle ölçeğinde takip edilecek notlar</h2>
+
+<p>Yağışlı günlerde bu üç bölgeyi kullananlar için en sağlıklı yaklaşım, çalışma hedefini anlık yol durumu gibi okumamak. Resmî açıklama; çalışmaların kapsamını anlatıyor, fakat alternatif güzergâh, günlük şantiye programı ya da trafik akışı hakkında bilgi vermiyor. Güncel saha bilgisi gerektiğinde belediyenin sonraki bildirimleri esas alınmalı. Girne’nin gündelik temposuna başka bir açıdan bakmak isteyenler, <a href="https://ugavole.com/haber/girnede-kalabaliktan-uzak-bir-gun">Girne’de Kalabalıktan Uzak Bir Gün</a> rehberine de göz atabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bu yazı, <a href="https://www.girnebelediyesi.com/girnede-su-baskinlarina-karsi-altyapi-calismalari-suruyor/">Girne Belediyesi’nin 23 Eylül 2026 tarihli açıklamasına</a> dayanır. Duyuruda yer almayan yol kapanışı, günlük çalışma takvimi, kesin bitiş tarihi veya taşkın sorununun tamamen çözüleceği iddiası eklenmemiştir. Kapak görseli Ugavole için hazırlanacak temsili bir editoryal görseldir; şantiyenin güncel durumunu ya da belediyenin resmî fotoğrafını göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "lefkosada-european-researchers-night-2026-bilim-rotasi",
+    title: "Lefkoşa’da European Researchers’ Night 2026: Bilim ve Keşif Rotası",
+    excerpt: "European Researchers’ Night 2026, 25 Eylül’de Lefkoşa’daki Kıbrıs Devlet Fuarı A ve B salonlarında 80’den fazla etkileşimli bilim etkinliğiyle düzenlenecek.",
+    category: "Bilim & Uzay",
+    published_at: "2026-09-24T09:15:00+03:00",
+    cover_image: "/editorial/2026-09-24/lefkosada-researchers-night.webp",
+    original_source_url: "https://erncyprus.com/",
+    content: `
+<p>European Researchers’ Night 2026, 25 Eylül 2026 Cuma günü Lefkoşa’daki Kıbrıs Devlet Fuarı’nın A ve B salonlarında yapılacak. Kıbrıs Araştırma ve İnovasyon Vakfı tarafından düzenlenen etkinlik, araştırmayı laboratuvar diliyle sınırlamak yerine ziyaretçilerin deney, oyun, gösterim ve kısa atölyelerle temas edebileceği bir buluşma olarak kurgulanıyor.</p>
+
+<p>Bu yılın teması “CELEBRATE 2.0 – Two Decades of STEAM-Powered Inspiration”. STEAM; bilim, teknoloji, mühendislik, sanat ve matematiği aynı öğrenme alanında buluşturan yaklaşımı ifade ediyor. Etkinliğin resmî sayfası, 80’den fazla etkileşimli faaliyetten söz ediyor; bunlar arasında deneyler, canlı gösterimler, atölyeler, sunumlar ve yarışmalar bulunuyor.</p>
+
+<h2>Bir akşamda tek konuya sıkışmayan bilim rotası</h2>
+
+<p>Etkinliğin gücü, ziyaretçiye yalnızca hazır bilgiyi sunmak yerine farklı alanlar arasında dolaşma imkânı vermesinde. Araştırma ve inovasyon sergisinde biyoteknolojiden kültürel mirasa, iklim ve biyolojik çeşitlilikten yapay zekâya uzanan çok sayıda başlık yer alıyor. Örneğin sergi programında çocuklar için bilim hazine avı, mikroskop ve örneklerle biyolojik çeşitlilik çalışmaları, üç boyutlu kültür mirası modellemeleri ve DNA’yı anlatan uygulamalar bulunuyor.</p>
+
+<p>Çocuklar için duyurulan bilim hazine avı, 15 yaşa kadar olan katılımcılara yönelik. Resmî sergi sayfasında başlangıç noktası Avrupa Köşesi ile A ve B salonlarının dış alanı olarak belirtiliyor; iki etkinlik saati de 10.00 ve 17.30. Bu saatler hazine avına ait. Etkinliğin genel açılış veya kapanış saati olarak yorumlanmamalı.</p>
+
+<h2>KIOS standında enerji, su, ulaşım ve siber güvenlik</h2>
+
+<p>Kıbrıs Üniversitesi KIOS Araştırma ve İnovasyon Mükemmeliyet Merkezi, A Salonu Mühendislik Bölgesi’ndeki 37 numaralı stantta yer alacak. KIOS’un duyurusuna göre burada yenilenebilir enerji teknolojileri ve güç sistemleri, akıllı su sistemleri, akıllı ulaşım sistemleri ve siber güvenlik üzerine etkileşimli etkinlikler ile oyunlar sunulacak.</p>
+
+<p>Standın iki somut deneyimi de özellikle dikkat çekiyor. HEPHAESTUS, ziyaretçiyi kritik altyapıları etkileyen bir orman yangınında karar verici rolüne yerleştiren etkileşimli bir deneyim. GuardAI ise yapay zekâ sistemlerinin bazen beklenmedik biçimlerde yanıltılabildiğini gösteren ayrı bir demo. Bu iki örnek, bilimsel çalışmanın yalnızca gelecekteki teknolojiyle değil; enerji, su, ulaşım ve dijital güvenlik gibi gündelik başlıklarla da ilişkili olduğunu görünür kılıyor.</p>
+
+<h2>Kısa bir ziyaret için rota nasıl kurulabilir?</h2>
+
+<p>Etkinliğin resmî sergi listesi çok farklı temaları aynı çatı altında topluyor. Bu yüzden herkesi tek bir programa yönlendirmek yerine, ilgi alanından başlamak daha anlamlı: doğa ve miras meraklıları biyolojik çeşitlilik ile üç boyutlu belgeleme çalışmalarına; teknoloji meraklıları enerji, akıllı su, ulaşım ve siber güvenlik stantlarına; küçük ziyaretçiler ise kendi yaş grubuna duyurulan hazine avına bakabilir. Stantlardaki yoğunluk, tüm içeriğin aynı anda açık olup olmayacağı veya etkinliklerin süresi kaynakta garanti edilmiyor.</p>
+
+<h2>Gitmeden önce neyi kontrol etmek gerekir?</h2>
+
+<p>Resmî program, Araştırma ve İnovasyon Sergisi’nin halka 15.00–22.00 arasında açık olduğunu belirtiyor. Aynı programdaki 08.00–13.00 aralığı planlı okul ziyaretlerine ayrılmış; bu nedenle sabah saatini genel ziyaretçi açılışı gibi okumamak gerekiyor. Avrupa Köşesi ise 08.00–22.00 arasında programlanmış. Avrupa Komisyonu’nun European Researchers’ Night bilgi sayfası, etkinliklerin ücretsiz ve halka açık olduğunu ifade ediyor. Buna karşın Kıbrıs organizatörünün sayfasında özel kayıt, istisna ya da erişim koşulları ayrıntılandırılmadığı için, hareket etmeden önce <a href="https://erncyprus.com/">organizasyonun güncel sayfasını</a> ve <a href="https://erncyprus.com/wp-content/uploads/2026/09/ERN-2026_-Πρόγραμμα.pdf">resmî programı</a> kontrol etmek en güvenli yol. Bilim gündemini ekranda sürdürmek isteyenler için, Ugavole’nin <a href="https://ugavole.com/haber/perseverance-marsta-uc-ayri-su-etkilesimi">Perseverance’ın Mars’taki su izleri</a> dosyası da iyi bir devam okuması olabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Etkinliğin tarih, yer, tema ve 80’den fazla faaliyet bilgisi <a href="https://erncyprus.com/">European Researchers’ Night Cyprus resmî sayfasından</a>; halka açık 15.00–22.00 sergi aralığı <a href="https://erncyprus.com/wp-content/uploads/2026/09/ERN-2026_-Πρόγραμμα.pdf">resmî programdan</a>; ücretsiz ve halka açık olma bilgisi ise <a href="https://marie-sklodowska-curie-actions.ec.europa.eu/european-researchers-night/general-public-information">Avrupa Komisyonu’nun ERN bilgi sayfasından</a> doğrulandı. KIOS’un 37 numaralı standı ve içerikleri <a href="https://www.kios.ucy.ac.cy/kios-invites-the-public-to-explore-play-and-discover-at-researchers-night-2026/">KIOS’un 18 Eylül 2026 tarihli duyurusuna</a> dayanır. Kapak görseli Ugavole için hazırlanacak temsili bir editoryal görseldir; fuar alanını, katılımcıları veya resmî etkinlik fotoğrafını göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "yassitepe-bes-bin-yillik-zeytin-cekirdekleri-2026",
+    title: "Yassıtepe’de 5 Bin Yıllık Zeytin Çekirdekleri: Ege’nin Üretim Geçmişinden Yeni İzler",
+    excerpt: "2026 kazılarında bulunan zeytin çekirdekleri ve iki silindir mühür, Bornova’daki tarih öncesi yerleşimin tarım ve ticaret hayatına yeni sorular ekliyor.",
+    category: "Kültür",
+    published_at: "2026-09-24T09:14:00+03:00",
+    cover_image: "/editorial/2026-09-24/yassitepe-zeytin-cekirdekleri.webp",
+    original_source_url: "https://izmir.bel.tr/tr/Haberler/%E2%80%8Bizmir-in-troya-si-yassitepe-den-zenginligin-izleri-cikti/59444/156",
+    content: `
+<p>İzmir’in Bornova ilçesindeki Yassıtepe Höyüğü’nde, 2026 kazı sezonunda yaklaşık 5 bin yıl öncesine tarihlenen zeytin çekirdekleri bulundu. İzmir Büyükşehir Belediyesinin 22 Eylül 2026 tarihli açıklaması, gündelik bir yiyeceğin kalıntısından hareketle Ege’de üretim, saklama ve ticaretin geçmişine bakma fırsatı sunuyor.</p>
+<h2>Yeni sezondan iki buluntu</h2>
+<p>Kazı başkanı Doç. Dr. Zafer Derin’in değerlendirmelerinin aktarıldığı açıklamaya göre yerleşimde daha önce üzüm ve incir izlerine de ulaşılmıştı. Zeytin çekirdekleri bu tarımsal tabloya ekleniyor. Aynı sezon bir mezarda bulunan iki silindir mühür ise yerleşimin ticari ve sosyal ilişkilerini araştırmak için başka bir ipucu oluşturuyor.</p>
+<p>Açıklamada büyük depolama kapları, üretim alanları ve bronz işçiliği de anlatılıyor. Bunlar, Derin’in Yassıtepe’yi planlı bir kent olarak değerlendirmesinin parçaları. Ancak haberin yayımlandığı gün, buluntuların topraktan çıkarıldığı gün değil; kurum kesin keşif tarihlerini vermiyor. Zeytinlerin nerede yetiştirildiği ve hangi işlemlerden geçirildiği konusunda da bu duyurudan kesin sonuç çıkarmak mümkün değil.</p>
+<h2>Bornova’nın altında biriken zaman</h2>
+<p>Kazı projesinin Ege Üniversitesi bünyesindeki genel bilgi sayfası, Yassıtepe’yi Ege Üniversitesi Hastanesinin güneyinde, Manda Deresi’nin kuzeyindeki bir höyük olarak tanımlıyor. Çevresinde biriken alüvyonlar, yerleşimin arazide olduğundan daha alçak görünmesine yol açmış. Bu yüzden bir höyüğün bugünkü dış görünüşü, içerdiği geçmişin büyüklüğünü tek başına anlatmıyor.</p>
+<p>Aynı proje kaydına göre Yassıtepe’deki erken kazılar, Yeşilova programı kapsamında 2010’da başladı. Roma, Tunç Çağı, Kalkolitik ve Neolitik dönemlerle ilişkilendirilen katmanlar, alanın tek bir zamanda oluşmadığını gösteriyor. Erken Tunç Çağı tabakalarından alınan radyokarbon sonuçları da MÖ üçüncü binyılın başlangıcına uzanıyor. Buradaki kronolojik arka planı, 2026’da duyurulan her nesnenin ayrı ayrı tarihlendirmesiyle karıştırmamak gerekiyor.</p>
+<h2>Yeşilova ile Yassıtepe neden birlikte anılıyor?</h2>
+<p>Zafer Derin’in 2023’te Höyük dergisinde yayımlanan çalışması, Yeşilova, Yassıtepe ve İpeklikuyu’yu İzmir’in tarih öncesi yerleşim alanındaki üç merkez olarak ele alıyor. Çalışmanın odağı özellikle Yeşilova’nın Geç Neolitik mimarisi. Bu araştırma, komşu alanları aynı haritada görmeyi sağlıyor; farklı dönemlerin buluntularını tek bir yerleşimin kesintisiz hikâyesiymiş gibi okumamak için de yararlı bir çerçeve sunuyor.</p>
+<p>Makalede kıyı çizgisindeki değişimler ve akarsuların taşıdığı birikintiler, bölgedeki eski yerleşimlerin neden toprak altında kaldığını açıklayan etkenler arasında. Yeşilova’da yapılardan alınan yanmış ağaç örneklerinin tarihlendirilmesi, mimari kalıntılarla birlikte değerlendiriliyor. Dolayısıyla arkeolojik zaman çizelgesi yalnız bir nesnenin görünüşünden değil, bulunduğu tabaka ve başka kanıtlardan da kuruluyor.</p>
+<p>Komşu Yeşilova’daki gündelik hayatın izleri arasında evler kadar ortak avlular da yer tutuyor. Kazı projesinin kayıtlarında öğütme taşları, küçük ocaklar ve üretim alanları anlatılıyor. Böyle ayrıntılar, geçmişi yalnız büyük yapılarla tanımamıza gerek olmadığını hatırlatıyor: bir ailenin besin hazırladığı yer de yerleşimin düzenini anlamak için değerli olabilir.</p>
+<h2>Sofradaki tanıdık ürüne başka gözle bakmak</h2>
+<p>Kıbrıs okuru için zeytin uzak bir ayrıntı değil. <a href="https://ugavole.com/haber/kibris-kahvaltisi-sofrasinda-ne-var">Kıbrıs kahvaltısının zeytin ve çakıstes etrafında kurulan sofrası</a>, bu haberi gündelik hayatla ilişkilendiren bir başlangıç olabilir. Yine de tanıdık bir ürün görmek, iki yer arasında doğrudan tarihsel bağlantı bulunduğu anlamına gelmez. Yassıtepe bulguları kendi kazı bağlamında değerlendirilmelidir.</p>
+<p>Bir çekirdeğe bakarken yalnız ne yenildiğini değil, ürünün nasıl saklandığını ve nasıl paylaşıldığını da merak edebiliriz. Bu soruların her birinin yanıtı farklı kanıt ister. Yeni açıklamanın değeri, bütün soruları kapatmasından çok, geçmişin gündelik hayatını daha dikkatli okumaya davet etmesinde.</p>
+<h2>Kaynaklar ve görsel notu</h2>
+<p><a href="https://izmir.bel.tr/tr/Haberler/%E2%80%8Bizmir-in-troya-si-yassitepe-den-zenginligin-izleri-cikti/59444/156" target="_blank" rel="noopener noreferrer">İzmir Büyükşehir Belediyesi, 22 Eylül 2026</a>; <a href="https://yesilova.ege.edu.tr/genel-bilgi.html" target="_blank" rel="noopener noreferrer">Ege Üniversitesi kazı projesi: genel bilgi</a>; <a href="https://hoyuk.gov.tr/tam-metin/90/tur" target="_blank" rel="noopener noreferrer">Zafer Derin, Höyük, 2023</a>. Kaynaklar 24 Eylül 2026’da kontrol edildi. Kapak görseli temsili bir illüstrasyondur; kazı alanının veya bulunan çekirdeklerin belgesel fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "dusler-zamani-japonya-sergisi-27-eylul-2026",
+    title: "Düşler Zamanı: Japonya Sergisi 27 Eylül 2026’ya Uzatıldı",
+    excerpt: "İstanbul Dijital Deneyim Merkezi’ndeki sergi, Japon sanatını hareketli görüntüler ve etkileşimli alanlarla buluşturuyor. Son ziyaret tarihi 27 Eylül; VR deneyimi ayrı ücretli.",
+    category: "Kültür",
+    published_at: "2026-09-24T09:13:00+03:00",
+    cover_image: "/editorial/2026-09-24/dusler-zamani-japonya.webp",
+    original_source_url: "https://kultur.istanbul/dusler-zamani-japonya-sergisi-27-eylule-kadar-dijital-deneyim-merkezinde/",
+    content: `
+<p>İstanbul’daki Dijital Deneyim Merkezi’nde yer alan “Düşler Zamanı: Japonya” sergisinin süresi 27 Eylül 2026’ya uzatıldı. İBB Kültür AŞ’nin 21 Eylül tarihli duyurusuna göre sergi, Japon kültürünün doğa, mitoloji ve zanaatla kurduğu ilişkiyi dijital uygulamalar aracılığıyla ele alıyor. İstanbul’a kısa bir ziyaret planlayanlar için takvime eklenebilecek, bitiş tarihi belli bir kültür durağı.</p>
+<h2>Japon sanatına ekranın içinden bakmak</h2>
+<p>Burada amaç yalnızca bir görüntünün karşısında durmak değil. Kurumun sergi anlatımında hareketli sahneler, dokunmaya dayalı arayüzler ve fiziksel mekânla birleşen dijital çalışmalar öne çıkıyor. Hokusai’nin Büyük Dalga’sından Kabuki yüzlerine uzanan imgeler, ölçek, ses ve hareket değiştikçe farklı bir seyir deneyimine dönüşüyor.</p>
+<p>Serginin kendi sayfası, kiraz çiçekli manzaralarla düşsel Yōkai varlıklarını aynı anlatı içinde buluşturuyor. Müzik seçkisinde Japon davulları ve çağdaş bestecilerin yanında Debussy’nin La Mer’i de anılıyor. Bu birliktelik, ziyaretçiye tek bir eserin tarihini öğretmekten çok çeşitli dönem ve ifade biçimleri arasında dolaşma imkânı veren bir kurgu olarak okunabilir.</p>
+<p>Programda Barış Kabalak, Çağatay Güçlü, Danny Rose Studio, DECOL, Fuat Genç, Hakan Yılmaz, Özde Karadağ, Süleyman Yılmaz ve Umur Burak’ın çalışmaları yer alıyor. Ziyaret sırasında ekranlarda gördüğümüz tarihsel referanslarla bu çağdaş üreticilerin katkılarını ayırt etmek, sergiyi yalnız bir fotoğraf fonu olarak görmenin ötesine geçmek için iyi bir başlangıç.</p>
+<h2>Dijital Oda’da ziyaretçi ne yapıyor?</h2>
+<p>Merkezin Dijital Oda açıklaması, ilk bölümün etkileşimli ekranlar, sensörler ve projeksiyonlarla kurulduğunu belirtiyor. Sergi kapsamında Japon estetiğine ilişkin içerikler bir zaman akışı içinde sunuluyor. Dokunmatik uygulamalar ve oyunlar, ziyaretçilerin parçaları bir araya getirmesine veya bir görüntünün değişimine katılmasına alan açıyor.</p>
+<p>Resmî listede Özde Karadağ’ın “Japon Estetiği” ve “Japon Sanatında Zaman” çalışmaları; Barış Kabalak ile Süleyman Yılmaz’ın “Boyalı Yaralar” adlı holografik video enstalasyonu bulunuyor. Hakan Yılmaz ve Umur Burak’ın “1000 Yıllık Bulmaca”sı ise etkileşimli arayüzü olan dijital bir oyun olarak tanımlanıyor. Bu ayrıntılar, serginin aynı teknolojiye dayanan tek bir odadan oluşmadığını anlamaya yardımcı oluyor.</p>
+<h2>Gitmeden önce bilet ve ziyaret ayrıntıları</h2>
+<p>Merkez, Örnektepe Mahallesi İmrahor Caddesi No:7, Sütlüce/Beyoğlu adresinde. Resmî ziyaret sayfasında pazartesi kapalı olduğu; salı, çarşamba, perşembe ve pazar günleri 10.00–18.00 arasında açık olduğu belirtiliyor. Cuma ve cumartesi için 10.00–22.00 saatleri “yaz dönemi boyunca” kaydıyla veriliyor. Bu nedenle akşam ziyareti düşünenlerin çıkmadan önce güncel saatleri kontrol etmesi yerinde olur.</p>
+<p>Biletler gişeden veya Passo üzerinden alınabiliyor; Müze Kart geçmiyor. Sanal gerçeklik deneyimi giriş biletine dahil değil ve ayrıca satın alınıyor. İndirimli bilet koşulları vatandaşlık ve ziyaretçi grubuna göre tanımlandığından, KKTC’den gelen herkesin aynı tarifeye tabi olduğu varsayılmamalı. İndirim ve ücretsiz girişlerde kimlik isteniyor.</p>
+<p>Kurum rezervasyon sistemi bulunmadığını, yoğunluk halinde girişlerin kontrollü yapılabileceğini de belirtiyor. Büyük bavullarla girişe izin verilmemesi ve emanet dolabı bulunmaması, havaalanından doğrudan gelmeyi düşünenler için özellikle yararlı bir ayrıntı. Deneyim alanlarının yaş ve sağlık uyarıları da ziyaret sayfasında ayrıca yer alıyor.</p>
+<h2>Gelenekle kurulan bağı takip etmek</h2>
+<p>Ziyaret için küçük bir öneri: İlginizi çeken tek bir desen veya nesne seçip onun farklı bölümlerde nasıl değiştiğine bakın. Dijital yorum ile dayandığı üretim geleneğini birlikte düşünmek, gördüklerinizi hatırlamayı kolaylaştırabilir. Bu merakı adaya taşımak isteyenler için <a href="https://ugavole.com/haber/kibris-el-isleri-lefkara-sepet-ve-oruculuk">Kıbrıs el işlerini tanıma rehberimiz</a> de malzeme, desen ve emeğe odaklanan bir devam okuması sunuyor.</p>
+<h2>Kaynaklar ve görsel notu</h2>
+<p><a href="https://kultur.istanbul/dusler-zamani-japonya-sergisi-27-eylule-kadar-dijital-deneyim-merkezinde/" target="_blank" rel="noopener noreferrer">Kültür AŞ’nin 21 Eylül 2026 duyurusu</a>; DDM’nin <a href="https://www.dijitaldeneyimmerkezi.com/Home/ExhibitionJapan" target="_blank" rel="noopener noreferrer">sergi</a>, <a href="https://www.dijitaldeneyimmerkezi.com/Home/DigitalRoom" target="_blank" rel="noopener noreferrer">Dijital Oda</a> ve <a href="https://www.dijitaldeneyimmerkezi.com/Home/Tickets" target="_blank" rel="noopener noreferrer">bilet ve ziyaret</a> sayfaları. Bilgiler 24 Eylül 2026’da kontrol edildi. Kapak görseli temsili bir illüstrasyondur; sergi salonunun gerçek fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "63-derecede-cogalabilen-ates-amibi-yasamin-sinirlari",
+    title: "63°C’de Çoğalabilen Ateş Amibi, Yaşamın Sınırlarını Yeniden Düşündürüyor",
+    excerpt: "Kaliforniya’daki sıcak sularda bulunan Incendiamoeba cascadensis, 63°C’de çoğalabilen bilinen en dayanıklı ökaryotlardan biri oldu.",
+    category: "Bilim & Uzay",
+    published_at: "2026-09-24T09:12:00+03:00",
+    cover_image: "/editorial/2026-09-24/ates-amibi-63c.webp",
+    original_source_url: "https://science.nasa.gov/science-research/planetary-science/nasa-funded-research-finds-complex-life-defying-record-heat/",
+    content: `
+<p>Bir hücrenin içinde çekirdek, zarla çevrili küçük yapılar ve korunması gereken genetik bilgi varsa, aşırı sıcaklar onun için ciddi bir sınır oluşturur. Bu yüzden araştırmacılar, karmaşık hücre yapısına sahip canlıların yüksek sıcaklıklara dayanma eşiğini uzun zamandır daha düşük kabul ediyordu. NASA destekli yeni bir çalışma, Kaliforniya’daki Lassen Volkanik Milli Parkı’nın sıcak sularında bulunan <em>Incendiamoeba cascadensis</em> adlı amibin bu varsayımı zorladığını gösteriyor.</p>
+
+<p>Araştırma ekibi, “ateş amibi” olarak da anılan bu tek hücreli canlının 63°C’de bölünerek çoğalabildiğini gözlemledi. NASA’nın 22 Eylül 2026’da yayımladığı açıklamaya göre bu, bilinen tüm ökaryotlar için kaydedilmiş en yüksek çoğalma sıcaklığı. Canlı 63°C’nin üzerinde çoğalmayı bırakıyor; ancak 64°C’ye kadar besin aramak için hareket etmeyi sürdürebiliyor. Laboratuvar sınır testlerinde 66°C’de kısmen etkin kaldığı, 70°C’de beş dakikalık maruziyetten sonra yeniden toparlanabildiği; 80°C’den sonra ise geri dönemediği bildirildi.</p>
+
+<h2>Ökaryot olmak neden fark yaratıyor?</h2>
+
+<p>Ökaryotlar, hücrelerinde çekirdek ve mitokondri gibi zarla çevrili organeller taşıyan canlılar. Tek hücreli alglerden bitkilere ve insanlara uzanan geniş bir grubu kapsıyorlar. Bakteriler ve arkeler gibi daha yalın hücre yapısına sahip canlıların çok sıcak ortamlarda yaşaması yeni bir bilgi değil. Fakat ökaryotlarda proteinlerin bozulması ve hücre zarlarının zarar görmesi, yüksek sıcaklıkta yaşamı daha zorlaştırıyor.</p>
+
+<p>Bu nedenle önceki üst sınır, bazı mantar ve kırmızı alg türlerinde görülen 60°C civarındaydı. <em>I. cascadensis</em> için saptanan 63°C, küçük görünse de bu sınırın nasıl belirlendiği açısından önemli bir fark yaratıyor. Bu, insanların ya da diğer karmaşık canlıların aynı sıcaklığa dayanabildiği anlamına gelmiyor. Tek bir amibin olağanüstü dayanıklılığı, tüm ökaryotların ortak özelliği olarak okunamaz.</p>
+
+<p>Ölçümlerin laboratuvar ve belirli doğal koşullar altında yapıldığını da unutmamak gerekir. Sıcaklık sabit değildir; suyun kimyası, besin kaynakları ve birlikte yaşayan canlılar da dayanıklılığı etkileyebilir.</p>
+
+<h2>Bu amip sıcağa nasıl dayanıyor?</h2>
+
+<p>Ekip, canlının genomunu ve farklı sıcaklıklardaki gen etkinliğini inceledi. DNA’nın zarar görmesini sınırlayan ve proteinlerin doğru biçimde katlanmasına yardımcı olan bazı genlerin yüksek sıcaklıklarda daha etkin çalıştığı görüldü. Araştırmacılar ayrıca bu amipteki bazı proteinlerin yüzey yüklerinin, sıcak ortamda yaşayan bakteri ve arkelerdeki proteinlere benzediğini belirtiyor. Bu sonuçlar, dayanıklılığın tek bir “ısı kalkanından” değil, birden fazla hücresel mekanizmanın birlikte çalışmasından kaynaklanabileceğine işaret ediyor.</p>
+
+<p>Çalışmanın astrobiyoloji açısından değeri de burada: Yaşamın sınırlarını Dünya’daki örneklerle tanımak, başka dünyalarda hangi koşulların araştırmaya değer olduğunu daha iyi anlamaya yardımcı oluyor. Ancak sıcaklık tek başına yeterli değil. NASA’nın aktardığı gibi su, besin, basınç, oksijen ve ortamın asitliği de yaşam için belirleyici. Bu bulgu Mars’ta ya da başka bir gökcisminde yaşam bulunduğunu göstermiyor.</p>
+
+<p>Uzayda yaşanabilirlik arayışının başka bir örneği için, <a href="/haber/perseverance-marsta-uc-ayri-su-etkilesimi">Perseverance’ın Mars kayaçlarında bulduğu su etkileşimi izlerine</a> de göz atabilirsin. İki araştırma da kesin bir yaşam kanıtı sunmuyor; fakat bilim insanlarının nerelere ve hangi sorularla bakacağını genişletiyor.</p>
+
+<h2>Kaynak</h2>
+
+<p>Bilgiler, NASA’nın 22 Eylül 2026 tarihli <a href="https://science.nasa.gov/science-research/planetary-science/nasa-funded-research-finds-complex-life-defying-record-heat/" target="_blank" rel="noopener noreferrer">NASA-Funded Research Finds Complex Life Defying Record Heat</a> açıklamasından derlenmiştir. Araştırma sonuçları <em>Cell</em> dergisinde yayımlanmıştır. Kapak görseli Ugavole için hazırlanmış temsili bir bilim illüstrasyonudur; mikroskop altında çekilmiş gerçek örneğin ya da NASA kaynak görselinin kopyası değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "isaret-dilleri-gunu-ulusal-isaret-dilleri-erisim",
+    title: "İşaret Dilleri Günü: Erişim Neden Ulusal İşaret Dilleriyle Başlar?",
+    excerpt: "Uluslararası İşaret Dilleri Günü, işaret dillerinin jestlerden ibaret olmadığını; eğitim, kamusal bilgi ve katılım için temel bir hak olduğunu hatırlatıyor.",
+    category: "Yaşam",
+    published_at: "2026-09-24T09:11:00+03:00",
+    cover_image: "/editorial/2026-09-24/isaret-dilleri-gunu.webp",
+    original_source_url: "https://www.un.org/en/node/97859",
+    content: `
+<p>İşaret dilleri bazen konuşulan bir dilin el hareketleriyle bire bir aktarımı gibi düşünülüyor. Oysa işaret dilleri; kendine ait dilbilgisi, sözdizimi, anlatım biçimleri ve kültürel bağlamı bulunan doğal dillerdir. Bu nedenle erişilebilirlik yalnızca altyazı eklemekten ya da bir etkinliğe işaret dili tercümanı çağırmaktan ibaret değildir. Bilgiye, eğitime, kamu hizmetlerine ve kültürel hayata kişinin kullandığı işaret diliyle erişebilmesi de gerekir.</p>
+
+<p>Birleşmiş Milletler, 23 Eylül’ü Uluslararası İşaret Dilleri Günü olarak tanıyor. 2026 temasının adı “Sağır bireylerin insan haklarını ilan etmek.” Tema, İşitme Engelliler Dünya Federasyonu’nun 75. yılına ve Engelli Hakları Sözleşmesi’nin kabulünün 20. yılına denk geliyor. Bu iki dönüm noktası, işaret dillerinin tanınmasının yalnız sembolik bir jest olmadığını; hakların günlük hayatta uygulanmasıyla ilgili olduğunu vurguluyor.</p>
+
+<h2>Tek bir işaret dili yok</h2>
+
+<p>Dünya genelinde yüzlerce farklı işaret dili kullanılıyor. Bir işaret dili, çevresindeki konuşulan dilin görsel kopyası değildir; kendi yapısı, tarihsel gelişimi ve topluluğu vardır. Uluslararası toplantılarda kullanılan International Sign da ulusal işaret dillerinin yerine geçen tek bir evrensel dil değildir. Bu ayrımı bilmek, “birkaç işaret öğrenmek” ile erişilebilir iletişim kurmak arasındaki farkı görmek için önemli.</p>
+
+<p>Bu yüzden bir kurumun, okulun ya da içerik üreticisinin erişilebilirlik iddiası, tek seferlik farkındalık paylaşımıyla sınırlı kalmamalı. Etkinlik duyuruları, acil durum bilgileri, eğitim içerikleri ve kamuya açık videoların nasıl erişilebilir hâle getirildiği; doğrudan katılımı belirler. Sağır topluluk üyelerinin planlama ve üretim sürecine dahil edilmesi de, “bizim hakkımızda hiçbir şey biz olmadan” ilkesinin pratik karşılığıdır.</p>
+
+<p>İyi bir başlangıç, duyurunun hangi dilde ve hangi biçimde ulaşılabilir olduğunu tasarım aşamasında sormaktır. Canlı yayınlarda profesyonel tercüman, kayıtlarda nitelikli altyazı ve metin dökümü, görsel paylaşımlarda ise açıklayıcı alternatif metin planlanabilir. Bu uygulamalar birbirinin rakibi değil, farklı erişim ihtiyaçlarına yanıt veren tamamlayıcı yöntemlerdir.</p>
+
+<h2>İçerik üretirken nelere dikkat edilmeli?</h2>
+
+<p>İşaret dili içeren bir video hazırlanacaksa doğru dilin, yetkin bir işaret dili kullanıcısı veya profesyonel tercümanla sunulması gerekir. Rastgele el hareketleriyle oluşturulmuş görseller, yapay zekâyla üretilmiş işaretler ya da doğrulanmamış “işaret öğretme” kartları yanlış bilgi verebilir. Altyazı ve metin dökümü de değerli araçlardır; ancak bunlar işaret dilinde erişimin her koşulda yerine geçmez.</p>
+
+<p>Bu konu, dili yalnız kelime listesi olarak görmemeyi de hatırlatıyor. Ugavole’deki <a href="/haber/kibris-agzinda-gunluk-hayati-kurtaran-15-ifade">Kıbrıs ağzında günlük ifadeler</a> yazısı, dilin aidiyet ve bağlam taşıdığını anlatıyor. İşaret dilleriyle Kıbrıs ağzı aynı olgu değildir; yine de her ikisi de dilin kimlik, topluluk ve katılım üzerindeki rolünü görünür kılıyor.</p>
+
+<p>İşaret Dilleri Günü’nün ana mesajı basit: Erişim sonradan eklenen bir süs değil, kamusal hayatın başlangıç koşullarından biri. Bu yaklaşım, Sağır bireylerin eğitimde, çalışma hayatında, kültürde ve demokratik süreçlerde kendi dilleriyle tam katılımını mümkün kılmayı hedefliyor. Bu yükümlülük, yalnız kampanya günleriyle sınırlı değildir.</p>
+
+<h2>Kaynak</h2>
+
+<p>Bilgiler, Birleşmiş Milletler’in <a href="https://www.un.org/en/node/97859" target="_blank" rel="noopener noreferrer">International Day of Sign Languages</a> sayfası ile <a href="https://wfdeaf.org/international-week-of-deaf-people-2026/" target="_blank" rel="noopener noreferrer">İşitme Engelliler Dünya Federasyonu’nun 2026 Uluslararası Sağırlar Haftası</a> duyurusundan derlenmiştir. Kapak görseli Ugavole için hazırlanmış temsili bir editoryal illüstrasyondur; herhangi bir işaret dilini öğretme veya gerçek bir işareti temsil etme iddiası taşımaz.</p>
+    `,
+  }),
+  editorial({
     slug: "lefkosa-anadolunun-izleri-sergisi-tel-kirma-tel-sarma-atolyesi",
     title: "Lefkoşa'da Anadolu'nun İzleri Bugün Açılıyor: Sergi ve El Sanatları Atölyesi",
     excerpt: "Lefkoşa'daki Anadolu'nun İzleri Sergisi 22 Eylül'de açılıyor. 23 Eylül'de tel kırma ve tel sarma atölyesi programda.",
