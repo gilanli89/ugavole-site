@@ -43,6 +43,100 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "iss-yapay-zeka-destekli-ultrason-deneyi",
+    title: "ISS’de Yapay Zekâ Destekli Ultrason: Doktor Uzakken Muayene Nasıl Yapılacak?",
+    excerpt: "NASA’nın EchoFinder-2 çalışması, artırılmış gerçeklik ve yapay zekâ yardımıyla astronotların uzayda ultrason taraması yapabilmesini araştırıyor.",
+    category: "Bilim & Uzay",
+    published_at: "2026-09-25T09:12:00+03:00",
+    cover_image: "/editorial/2026-09-25/iss-ai-ultrason.webp",
+    original_source_url: "https://www.nasa.gov/blogs/spacestation/2026/09/24/advanced-health-tech-research-continues-to-protect-astronaut-health/",
+    content: `
+<p>Uluslararası Uzay İstasyonu’nda bir ultrason muayenesi yapmak, Dünya’daki hastanede aynı işlemi uygulamaktan daha zor. Uzay aracında her an bir uzman bulunmuyor; iletişim gecikmeleri ise Ay’ın ötesindeki görevlerde uzaktan yönlendirmeyi daha da sınırlayabilir. NASA’nın 24 Eylül tarihli istasyon günlüğü, bu soruna odaklanan EchoFinder-2 çalışmasının yeni uygulamasını aktarıyor.</p>
+
+<h2>Tablet, artırılmış gerçeklik ve yapay zekâ birlikte çalışıyor</h2>
+
+<p>NASA astronotları Jessica Meir ile Jack Hathaway, Columbus laboratuvarında sırayla birbirlerinin organlarını ultrasonla taradı. Yerdeki bir teknisyen süreci gerçek zamanlı izledi. Sistemde bir tablet, artırılmış gerçeklik ve yapay zekâ kullanılarak probun doğru noktaya ve açıya getirilmesi hedefleniyor. Yazılım daha sonra organların bulunmasına ve görüntülenmesine yardımcı oluyor.</p>
+
+<p>Çalışmanın amacı bir doktorun tanısını otomatik olarak vermek değil. Araştırmacılar, gelecekte mürettebatın Dünya’dan sürekli uzman yönlendirmesi alamadığı koşullarda tıbbi görüntüleme aracını daha bağımsız kullanıp kullanamayacağını test ediyor. NASA sonuçların, daha uzak görevlere giden ekiplerin sağlık takibine katkı sağlayabileceğini belirtiyor; çalışma henüz günlük klinik kullanım için kesinleşmiş bir ürün anlamına gelmiyor.</p>
+
+<h2>Uzayda sağlık takibi tek bir cihazla sınırlı değil</h2>
+
+<p>Aynı gün mürettebat bağışıklık sistemi araştırması için kan örneklerini işledi. Örnekler santrifüjde bileşenlerine ayrıldı ve daha sonra incelenmek üzere bilim dondurucusuna yerleştirildi. ESA astronotu Sophie Adenot ise egzersiz sırasında tansiyon, kalp atışı ve solunumu izleyen sensörlü Bio-Monitor yeleği ile başlığını kullandı.</p>
+
+<p>Bu üç çalışma aynı sorunun farklı parçalarına bakıyor: İnsan bedeni mikro yerçekimine nasıl uyum sağlıyor ve değişimler sınırlı ekipmanla nasıl izlenebilir? Ultrason görüntüsü iç organları, kan örnekleri bağışıklık yanıtını, giyilebilir sensörler ise egzersiz sırasındaki fizyolojiyi takip ediyor.</p>
+
+<p>Uzay sağlığı araştırmaları Dünya’daki tıbbi kararların yerine geçmez ve bu haber kişisel sağlık önerisi değildir. Yaşamın sıra dışı koşullara uyumuna başka bir açıdan bakmak için <a href="/haber/63-derecede-cogalabilen-ates-amibi-yasamin-sinirlari">63°C’de çoğalabilen ateş amibi araştırmasını</a> da okuyabilirsin.</p>
+
+<p>Deneyin bir sonraki aşamasında sistemin farklı kullanıcılar ve görev koşullarında ne kadar tutarlı çalıştığı, NASA’nın paylaşacağı sonuçlarla daha net anlaşılacak.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA’nın 24 Eylül 2026 tarihli <a href="https://www.nasa.gov/blogs/spacestation/2026/09/24/advanced-health-tech-research-continues-to-protect-astronaut-health/" target="_blank" rel="noopener noreferrer">ISS görev günlüğünden</a> derlenmiştir. Kapak, Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek mürettebatı, gerçek muayeneyi veya NASA fotoğrafını göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "yapay-zeka-bilim-kulturunun-yerini-alabilir-mi",
+    title: "Yapay Zekâ Bilim Kültürünün Yerini Alabilir mi? UCL’den Denge Çağrısı",
+    excerpt: "UCL ve Goethe Üniversitesi araştırmacıları, yapay zekânın bilim insanlarının merakı, deneyimi ve beklenmedik bulguları değerlendirme gücüyle birlikte kullanılmasını savunuyor.",
+    category: "Teknoloji",
+    published_at: "2026-09-25T09:11:00+03:00",
+    cover_image: "/editorial/2026-09-25/yapay-zeka-bilim-kulturu.webp",
+    original_source_url: "https://www.ucl.ac.uk/news/2026/sep/ai-must-be-integrated-scientific-research-culture",
+    content: `
+<p>Yapay zekâ büyük veri kümelerinde örüntü bulabilir, olası hipotezleri sıralayabilir ve araştırmacıların dikkatini umut verici sonuçlara yöneltebilir. Peki bu hız, laboratuvarda yıllar içinde oluşan sezgi ve merakın yerini tutar mı? University College London’dan Henning Walczak ile Goethe Üniversitesi’nden Ivan Dikic, 24 Eylül’de duyurulan yorum yazılarında asıl hedefin insan araştırmacıyı değiştirmek değil, iki yeteneği aynı bilim kültüründe buluşturmak olması gerektiğini savunuyor.</p>
+
+<h2>Beklenmedik bulgular neden önemli?</h2>
+
+<p>Yazarların temel itirazı yapay zekânın kullanımına değil, araştırma ekiplerinin yalnız tahmin ve verimlilik mantığıyla yeniden kurulmasına. Bilimsel atılımların bir bölümü, önceden planlanan sonucun dışında kalan gözlemlerden doğuyor. Deneyimli bilim insanları başarısız deneyleri, yayımlanmamış gözlemleri ve biyolojik olarak neyin makul olduğuna dair yıllar içinde oluşan yargıyı da kararlarına katıyor.</p>
+
+<p>Bu tür bilgi her zaman düzenli bir veri tabanına girmiyor. Dolayısıyla modelin göremediği bir deney geçmişi, laboratuvarın en değerli kaynaklarından biri olabilir. Yazarlar buna insanın merak, yaratıcılık, deneysel içgörü ve bilimsel yargı kapasitesini vurgulayan “doğal zekâ” çerçevesiyle yaklaşıyor.</p>
+
+<h2>AlphaFold örneği ne anlatıyor?</h2>
+
+<p>UCL’nin açıklamasında AlphaFold önemli bir örnek olarak veriliyor. Yapay zekâ, protein yapılarını tahmin etme alanında büyük bir sıçrama sağladı. Ancak bu başarı, Protein Data Bank’te onlarca yıl boyunca biriktirilen deneysel yapı verileri olmadan mümkün olmayacaktı. Başka bir ifadeyle güçlü model ile sabırlı laboratuvar emeği birbirinin alternatifi değil; aynı keşif zincirinin parçaları.</p>
+
+<p>Bu metin yeni bir deney sonucu değil, iki bilim insanının <em>Nature Cell Biology</em> için kaleme aldığı görüş yazısına dayanıyor. Bu nedenle “yapay zekâ bilimi zayıflatır” şeklinde kesin bir kanıt olarak okunmamalı. Önerilen yaklaşım, kurumların araç yatırımı yaparken deneysel uzmanlığı, disiplinler arası karşılaşmaları ve merak odaklı temel araştırmayı da koruması.</p>
+
+<p>Bilimin farklı alanlarla temas ettiği bir örnek için <a href="/haber/lefkosada-european-researchers-night-2026-bilim-rotasi">Lefkoşa’daki European Researchers’ Night bilim rotasına</a> da göz atabilirsin.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UCL’nin 24 Eylül 2026 tarihli <a href="https://www.ucl.ac.uk/news/2026/sep/ai-must-be-integrated-scientific-research-culture" target="_blank" rel="noopener noreferrer">“AI must be integrated into scientific research culture”</a> açıklamasından derlenmiştir. Kapak, Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek bir laboratuvarı, kişileri veya araştırma sonucunu belgelememektedir.</p>
+    `,
+  }),
+  editorial({
+    slug: "fotografik-hafiza-50-yillik-portre-koleksiyonu",
+    title: "Fotoğrafik Hafıza: 50 Yıllık Portre Koleksiyonu Bir Tarihi Nasıl Anlatıyor?",
+    excerpt: "Smithsonian Ulusal Portre Galerisi, fotoğraf koleksiyonunun 50. yılını 120’den fazla eserle kutlayan yeni sergisini duyurdu.",
+    category: "Kültür",
+    published_at: "2026-09-25T09:10:00+03:00",
+    cover_image: "/editorial/2026-09-25/fotografik-hafiza-sergisi.webp",
+    original_source_url: "https://www.si.edu/newsdesk/releases/national-portrait-gallery-announces-photographic-memory-fifty-years-collecting",
+    content: `
+<p>Bir müzenin portre koleksiyonu yalnız yüzleri değil, kimin tarihte görünür kaldığını da anlatır. Smithsonian Ulusal Portre Galerisi, fotoğraf koleksiyonunun 50. yılını “Photographic Memory: Fifty Years of Collecting” sergisiyle kutlayacağını 24 Eylül’de duyurdu. Washington’daki sergide 120’den fazla fotoğrafik portre yer alacak.</p>
+
+<h2>Dagereotipten dijital çağa</h2>
+
+<p>Sergi 14 Kasım 2026’da açılacak ve 7 Kasım 2027’ye kadar görülebilecek. Eserler 1843’ten günümüze uzanan kronolojik bir düzende sunulacak. Girişteki zaman çizelgesi, dagereotip gibi erken tekniklerden çağdaş dijital üretime kadar fotoğraf süreçlerinin nasıl değiştiğini gösterecek.</p>
+
+<p>Galerinin fotoğraf toplamaya resmen başladığı 1976’dan önce, tarihsel kişiliklerin bir bölümünü koleksiyona katmak zordu; çünkü herkes için yapılmış bir resim ya da heykel bulunmuyordu. Fotoğraf, farklı mesleklerden ve topluluklardan kişilerin portre koleksiyonunda temsil edilme alanını genişletti. Kuruma göre fotoğraflar artık müzenin toplam varlığının yaklaşık yarısını oluşturuyor.</p>
+
+<h2>Kamera önündeki ve arkasındaki kişi</h2>
+
+<p>Duyuruda 1846 civarına tarihlenen Dolley Madison dagereotipi, Abraham Lincoln’ün “çatlak plaka” portresi ve Ida B. Wells-Barnett’in nadir kabine kartları gibi örnekler anılıyor. Yirminci ve yirmi birinci yüzyıl bölümünde ise sanatçı, yazar, müzisyen, aktivist ve sporcuların portreleri bulunuyor.</p>
+
+<p>Bu seçkiyi yalnız “ünlü yüzler” listesi olarak okumamak gerekiyor. Serginin vurgularından biri, fotoğrafı çeken kişinin de görüntünün anlamını kurması. Işık, kadraj, poz ve baskı tekniği; portredeki kişinin nasıl hatırlanacağını etkiliyor. Sergi bu nedenle hem kamera önündeki kişileri hem de fotoğrafçıların görsel dilini ele alıyor.</p>
+
+<p>Sergi, Amerikan tarihine odaklanan bir kurumun koleksiyonundan hazırlanıyor; dolayısıyla bütün dünya fotoğraf tarihini kapsadığı iddiasını taşımıyor. Açılış tarihi de henüz gelmediği için bu yazı bir sergi eleştirisi değil, kurumun açıkladığı programın ön izlemesi. Dijital sergi deneyimlerine ilgi duyanlar <a href="/haber/dusler-zamani-japonya-sergisi-27-eylul-2026">Düşler Zamanı: Japonya sergisi rehberini</a> de okuyabilir.</p>
+
+<p>Ziyaret etmeyi planlayanların açılış yaklaşırken eser listesi, günlük saatler ve erişim koşulları için müzenin güncel sayfasını yeniden kontrol etmesi gerekiyor.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler Smithsonian’ın 24 Eylül 2026 tarihli <a href="https://www.si.edu/newsdesk/releases/national-portrait-gallery-announces-photographic-memory-fifty-years-collecting" target="_blank" rel="noopener noreferrer">sergi duyurusu</a> ile Ulusal Portre Galerisi’nin <a href="https://npg.si.edu/exhibition/photographic-memory-fifty-years-collecting" target="_blank" rel="noopener noreferrer">sergi sayfasından</a> derlenmiştir. Kapak, Ugavole için üretilmiş temsili bir editoryal görseldir; sergideki gerçek portreleri veya galeri salonunu göstermemektedir.</p>
+    `,
+  }),
+  editorial({
     slug: "girnede-yagmur-suyu-altyapisi-icin-uc-noktali-plan",
     title: "Girne’de Yağmur Suyu Altyapısı İçin Üç Noktalı Plan Açıklandı",
     excerpt: "Girne Belediyesi, Prestij ve Lemon Park çevresindeki su baskınlarını azaltmak için kutu menfez, yağmur suyu hattı ve menfez yenilemesini kapsayan bir plan açıkladı.",
