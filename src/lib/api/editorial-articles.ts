@@ -43,6 +43,94 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "dunya-yeni-pandemilere-hazirlik-taahhudunu-yeniledi",
+    title: "Dünya Yeni Pandemilere Nasıl Hazırlanacak? Liderlerden Ortak Taahhüt",
+    excerpt: "BM ve DSÖ, gelecekteki salgınlara hazırlık için erken uyarı, adil aşı erişimi, dayanıklı sağlık sistemleri ve sürdürülebilir finansman başlıklarını öne çıkardı.",
+    category: "Dünya",
+    published_at: "2026-09-26T09:12:00+03:00",
+    cover_image: "/editorial/2026-09-26/pandemi-hazirlik-taahhudu.webp",
+    original_source_url: "https://www.who.int/news/item/25-09-2026-world-leaders-renew-commitment-to-protect-the-world-from-future-pandemics",
+    content: `
+<p>COVID-19’un sağlık sistemlerinde ve toplumlarda bıraktığı açıklar, beş yıl sonra dünya gündeminde kalmaya devam ediyor. Devlet ve hükümet liderleri, 25 Eylül’de Birleşmiş Milletler Genel Kurulu kapsamında düzenlenen ikinci üst düzey pandemi hazırlığı toplantısında gelecekteki salgınlara karşı ortak hareket etme taahhüdünü yeniledi. Dünya Sağlık Örgütü’nün açıklamasına göre odak; önleme, erken tespit, hızlı müdahale ve tıbbi ürünlere adil erişim.</p>
+
+<h2>Siyasi taahhüt hangi alanları kapsıyor?</h2>
+
+<p>Toplantıda görüşülen çerçeve, salgın başlamadan önce daha güçlü gözetim ve erken uyarı sistemleri kurulmasını; sağlık çalışanları ile temel hizmetlerin kriz sırasında ayakta tutulmasını amaçlıyor. Aşı, tanı testi ve tedavilerin yalnız yüksek gelirli ülkelere ulaşmaması da temel başlıklardan biri. Sürdürülebilir finansman, yerel ve bölgesel üretim kapasitesi ile insan, hayvan ve çevre sağlığını birlikte ele alan “Tek Sağlık” yaklaşımı da gündemde.</p>
+
+<p>BM’nin toplantı sayfası, bu buluşmanın 2023’teki ilk üst düzey toplantıdan sonra ilerlemeyi değerlendirmek için yapıldığını doğruluyor. DSÖ ise aradan geçen dönemde Pandemi Anlaşması’nın kabulü, Uluslararası Sağlık Tüzüğü’nün güçlendirilmesi ve Pandemi Fonu gibi adımları sıralıyor. Buna rağmen son Ebola, mpox ve kolera salgınları, hazırlığın tamamlanmış bir iş olmadığını gösteriyor.</p>
+
+<h2>Karar ile uygulama arasındaki fark</h2>
+
+<p>Bu toplantı, her ülkede aynı gün yürürlüğe giren bağlayıcı bir sağlık programı anlamına gelmiyor. Siyasi bildiriler ortak yönü belirliyor; bütçe ayrılması, ulusal planların güncellenmesi, veri paylaşımı ve tedarik kapasitesi gibi somut sonuçlar ise ülkelerin sonraki uygulamalarına bağlı. DSÖ de finansman boşlukları ve tıbbi ürünlere eşitsiz erişim gibi sorunların sürdüğünü vurguluyor.</p>
+
+<p>Gündelik yaşam açısından önemli soru, yeni bir salgında hastanelerin ne kadar hızlı bilgi ve kaynak paylaşabileceği. Erken uyarı verilerinin güvenilir olması, laboratuvar ağlarının işlemesi ve risk iletişiminin açık yürütülmesi, paniği azaltırken müdahale süresini kısaltabilir. Sağlık teknolojilerinin nasıl kullanılacağına dair başka bir örnek için <a href="/haber/iss-yapay-zeka-destekli-ultrason-deneyi">ISS’de yapay zekâ destekli ultrason çalışmasını</a> da okuyabilirsin.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ’nün 25 Eylül 2026 tarihli <a href="https://www.who.int/news/item/25-09-2026-world-leaders-renew-commitment-to-protect-the-world-from-future-pandemics" target="_blank" rel="noopener noreferrer">toplantı açıklaması</a>, <a href="https://www.who.int/news-room/events/detail/2026/09/18/default-calendar/who-at-the-united-nations-general-assembly-2026" target="_blank" rel="noopener noreferrer">UNGA81 programı</a> ve <a href="https://www.un.org/pga/81/event/high-level-meeting-on-pandemic-prevention-preparedness-and-response/" target="_blank" rel="noopener noreferrer">BM Genel Kurulu toplantı sayfasıyla</a> karşılaştırılarak derlenmiştir. Kapak, Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek toplantı salonunu veya katılımcıları göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "prima-uzay-teleskobu-evrenin-soguk-yuzunu-arayacak",
+    title: "PRIMA Uzay Teleskobu Evrenin Soğuk ve Tozlu Yüzünü Arayacak",
+    excerpt: "NASA’nın geliştirme aşamasına aldığı PRIMA, uzak kızılötesi gözlemlerle gezegenlerin, galaksilerin ve kara deliklerin oluşum tarihini araştırmayı hedefliyor.",
+    category: "Bilim & Uzay",
+    published_at: "2026-09-26T09:11:00+03:00",
+    cover_image: "/editorial/2026-09-26/prima-uzay-teleskobu.webp",
+    original_source_url: "https://www.nasa.gov/news-release/nasa-selects-far-infrared-telescope-as-first-in-new-mission-class/",
+    content: `
+<p>Evrenin bazı önemli bölgeleri görünür ışıkta parlak değil, yoğun tozun arkasında saklı. NASA, bu soğuk ve karanlık alanları uzak kızılötesi dalga boylarında incelemesi planlanan PRIMA uzay teleskobunu geliştirmede bir sonraki aşamaya taşıdı. “PRobe far-Infrared Mission for Astrophysics” adının kısaltması olan PRIMA, NASA’nın yeni Probe Explorers sınıfındaki ilk astrofizik görevi olacak.</p>
+
+<h2>PRIMA neyi farklı görecek?</h2>
+
+<p>Yaklaşık 1,8 metre çapındaki teleskop, James Webb Uzay Teleskobu’nun kızılötesi gözlemleri ile radyo teleskoplarının kapsadığı alan arasında kalan uzak kızılötesi bölgeyi tarayacak. Bu ışık, yıldız oluşum bölgelerindeki soğuk tozu, genç gezegen sistemlerini ve galaksilerin merkezindeki kara deliklerin çevresini incelemek için değerli. Bilim ekibi; ağır elementlerin zaman içinde nasıl biriktiğini, galaksiler ile kara deliklerin birlikte nasıl büyüdüğünü ve suyun gezegen sistemlerine hangi yollarla taşındığını araştırmayı hedefliyor.</p>
+
+<p>NASA, görevi Phase B adı verilen ön tasarım ve teknoloji geliştirme aşamasına seçti. Bu karar, teleskobun kesin olarak üretime ve fırlatmaya hazır olduğu anlamına gelmiyor. Teknik, mali ve takvim performansı daha sonra yapılacak onay incelemesinde değerlendirilecek. Görev onaylanırsa proje maliyeti fırlatma dışındaki kalemler için 1,2 milyar dolarla sınırlandırılacak.</p>
+
+<h2>2033 hedefi ve uluslararası ortaklık</h2>
+
+<p>Planlanan fırlatma yılı 2033, temel görev süresi ise beş yıl. Proje NASA Jet Propulsion Laboratory tarafından yönetilecek. Fransa, İtalya, Almanya, Kanada, Güney Kore, Japonya ve Birleşik Krallık uzay kurumları da katkı sağlayacak. Bu ortaklık, teleskobun donanım ve bilim programının tek bir merkeze bağlı kalmadan geliştirilmesini amaçlıyor.</p>
+
+<p>PRIMA’nın değeri yalnız daha keskin görüntüler üretmesinde değil, farklı gözlemevlerinin verilerini tamamlamasında yatıyor. Aynı gök cismini yakın kızılötesi, uzak kızılötesi ve radyo dalgalarında incelemek, yıldızlar ile gezegenlerin oluşum hikâyesini daha bütünlüklü kurabilir. Yakın gelecekteki başka bir görev için <a href="/haber/nasa-roman-uzay-teleskobu-firlatmaya-hazir">Nancy Grace Roman Uzay Teleskobu dosyasına</a> da göz atabilirsin.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA’nın 23 Eylül’de yayımlayıp 24 Eylül 2026’da güncellediği <a href="https://www.nasa.gov/news-release/nasa-selects-far-infrared-telescope-as-first-in-new-mission-class/" target="_blank" rel="noopener noreferrer">PRIMA görev duyurusundan</a> derlenmiştir. Kapak, Ugavole için üretilmiş temsili bir editoryal görseldir; teleskobun kesinleşmiş teknik görünümünü veya gerçek bir uzay fotoğrafını göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "nisar-kamcatka-volkanini-uzaydan-adim-adim-izledi",
+    title: "NISAR, Kamçatka’daki Volkanın Lav Akışını Uzaydan Adım Adım İzledi",
+    excerpt: "NASA ile ISRO’nun NISAR uydusu, yaklaşık beş yüzyıl sonra yeniden faaliyete geçen Krasheninnikov volkanındaki değişimi radar görüntüleriyle kaydetti.",
+    category: "Bilim & Uzay",
+    published_at: "2026-09-26T09:10:00+03:00",
+    cover_image: "/editorial/2026-09-26/nisar-kamcatka-volkani.webp",
+    original_source_url: "https://www.jpl.nasa.gov/news/us-india-satellite-captures-time-lapse-video-of-volcanic-eruption/",
+    content: `
+<p>Rusya’nın Kamçatka Yarımadası’ndaki Krasheninnikov volkanı, yaklaşık beş yüzyıllık sessizliğin ardından 2025 yazında yeniden faaliyete geçti. NASA ile Hindistan Uzay Araştırma Örgütü’nün ortak NISAR uydusu, volkanın kuzey kraterinden yayılan lav alanını aylar boyunca aynı yörünge noktalarından izledi. NASA Jet Propulsion Laboratory, 17 radar karesinin birleştirilmesiyle oluşan zaman dizisini 24 Eylül’de yayımladı.</p>
+
+<h2>Bulutların arkasındaki değişim nasıl görüldü?</h2>
+
+<p>NISAR, optik bir fotoğraf makinesi gibi yalnız görünür ışığa bağlı değil. Sentetik açıklıklı radar sistemi, yeryüzüne mikrodalga darbeleri gönderip yüzeyden dönen sinyalleri ölçüyor. Bu sayede gece veya bulutlu hava gibi koşullarda da yüzey değişimleri izlenebiliyor. Görüntülerde yeni ve pürüzlü lav alanı, çevredeki kar ya da çıplak zeminden daha parlak görünüyor.</p>
+
+<p>Uydu ilk görüntüyü 25 Aralık 2025’te, yörünge sonrası kontrollerini tamamlarken aldı. Ardından her 12 günde iki kez, farklı geçiş yönlerinde aynı bölgeyi taradı. Ağustos ortasına kadar seçilen 17 kare; lavın önce küçük iç kalderayı doldurmasını, daha geniş kratere taşmasını ve doğuya doğru yelpaze biçiminde yayılmasını gösteriyor.</p>
+
+<h2>On metrelik karelerle tehlike takibi</h2>
+
+<p>Bu zaman dizisindeki her piksel, yüzeyde yaklaşık 10’a 10 metrelik bir alanı temsil ediyor. Düzenli tekrar ve yüksek çözünürlük, uzak bölgelerdeki volkan, heyelan, deprem kaynaklı deformasyon veya buz hareketi gibi olayların gelişimini karşılaştırmalı olarak incelemeyi kolaylaştırıyor. JPL, NISAR’ın deniz seviyesinin üzerindeki yaklaşık 1.300 aktif volkan için geniş kapsamlı veri üretebileceğini belirtiyor.</p>
+
+<p>Görüntüler doğrudan bir tahliye kararı ya da tek başına erken uyarı sistemi değildir. Yer sensörleri, sismik ölçümler ve yerel kurumların değerlendirmeleriyle birlikte kullanıldığında bilimsel izleme ve olası acil durum müdahalesine destek sağlayabilir. Dünya gözlem uydularının başka bir kullanımını görmek için <a href="/haber/nasa-aqua-uydusu-a81-d33b-buzdaglari">A81 ve D33B buzdağlarının izlenmesine</a> de bakabilirsin.</p>
+
+<h2>İki radarın tamamlayıcı gücü</h2>
+
+<p>NISAR, serbest uçan bir uzay görevinde iki farklı radar dalga boyunu birlikte taşıyan ilk uydu. NASA’nın sağladığı L-band radar, uzun dalga boyu sayesinde bitki örtüsünün altındaki zemini gözlemleyebilir. ISRO’nun sağladığı S-band ise bitki örtüsü ve yüzey yapısı hakkında tamamlayıcı veri topluyor. On iki metre genişliğindeki ağ reflektör, NASA’nın uzaya gönderdiği en büyük radar anteni olma özelliğini taşıyor.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA JPL’nin 24 Eylül 2026 tarihli <a href="https://www.jpl.nasa.gov/news/us-india-satellite-captures-time-lapse-video-of-volcanic-eruption/" target="_blank" rel="noopener noreferrer">NISAR volkan gözlemi açıklamasından</a> derlenmiştir. Kapak, Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek NISAR görüntüsünü, uydunun birebir tasarımını veya güncel saha koşullarını göstermez.</p>
+    `,
+  }),
+  editorial({
     slug: "iss-yapay-zeka-destekli-ultrason-deneyi",
     title: "ISS’de Yapay Zekâ Destekli Ultrason: Doktor Uzakken Muayene Nasıl Yapılacak?",
     excerpt: "NASA’nın EchoFinder-2 çalışması, artırılmış gerçeklik ve yapay zekâ yardımıyla astronotların uzayda ultrason taraması yapabilmesini araştırıyor.",
