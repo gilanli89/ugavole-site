@@ -43,6 +43,96 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "arktik-deniz-buzu-2026-minimumu",
+    title: "Arktik Deniz Buzu 2026 Minimumuna İndi: Son 20 Yılın Ortak İşareti",
+    excerpt: "NASA ve NSIDC ölçümlerine göre Arktik deniz buzu 12 Eylül’de 4,60 milyon kilometrekareye gerileyerek uydu kayıtlarının en düşük onuncu seviyesini paylaştı.",
+    category: "Bilim & Uzay",
+    published_at: "2026-09-27T09:12:00+03:00",
+    cover_image: "/editorial/2026-09-27/arktik-deniz-buzu-minimumu.webp",
+    original_source_url: "https://science.nasa.gov/science-research/earth-science/climate-science/sea-ice/arctic-sea-ice-2026-min/",
+    content: `
+<p>Arktik Okyanusu’ndaki deniz buzu, yaz erime döneminin sonunda 12 Eylül 2026’da yaklaşık 4,60 milyon kilometrekareye geriledi. NASA ile Colorado Boulder Üniversitesi bünyesindeki Ulusal Kar ve Buz Veri Merkezi’nin (NSIDC) ölçümü, 2026’yı uydu kayıtlarında 2008, 2010 ve 2025 ile birlikte en düşük onuncu minimum seviyeye yerleştiriyor.</p>
+
+<h2>“Onuncu en düşük” neden rahatlatıcı değil?</h2>
+
+<p>Tek bir yılın sıralaması, uzun dönemli değişimi tek başına anlatmıyor. Sürekli uydu gözlemlerinin başladığı 1978 sonundan bu yana en düşük 20 Arktik minimumunun tamamı 2007–2026 döneminde görüldü. NSIDC, 2026 değerinin 1980’ler, 1990’lar ve 2000’lerin başındaki seviyelerden belirgin biçimde daha düşük olduğunu vurguluyor.</p>
+
+<p>Deniz buzu sonbahar ve kışın büyüyor, ilkbahar ile yaz boyunca eriyor ve genellikle eylülde yıllık en küçük alanına ulaşıyor. Rüzgâr, bulutluluk ve yaz sıcaklıkları her yılın sonucunu etkileyebiliyor. NASA’ya göre son on yıldaki artan bulut örtüsü bazı yazlarda güneş ışınımının erimeyi daha fazla hızlandırmasını sınırladı. Bu durum eylül alanında görece bir plato oluşturdu; ancak plato tarihsel olarak düşük bir düzeyde.</p>
+
+<h2>Ölçüm alanı neyi ifade ediyor?</h2>
+
+<p>“Deniz buzu alanı”, buzun tamamen kapladığı yüzeyi saymakla aynı şey değil. Uydu verilerinde belirli oranda buz içeren okyanus hücreleri birlikte değerlendirilerek buzun yayıldığı alan hesaplanıyor. Bu nedenle buzun kalınlığı, yaşı ve parçalı yapısı aynı büyüklükteki iki yılda farklı olabilir. NSIDC ayrıca rüzgârın buzları sıkıştırmasının minimum değeri küçük ölçüde değiştirebileceğini, sayının henüz ön değerlendirme olduğunu belirtiyor.</p>
+
+<p>Antarktika’da ise deniz buzu yıllık maksimumuna yaklaşırken ağustosta kısa süreli ve sıra dışı bir gerileme görüldü. Güney kutbundaki buz, kara tarafından çevrelenmediği için rüzgâr ve hava koşullarına daha serbest yanıt veriyor; bilim insanları bu nedenle tek yıllık dalgalanmaları uzun dönemli eğilim olarak yorumlarken temkinli davranıyor.</p>
+
+<p>Uyduların buz değişimini nasıl izlediğine başka bir örnek için <a href="/haber/nasa-aqua-uydusu-a81-d33b-buzdaglari">Aqua uydusunun iki büyük buzdağını aynı karede görüntülediği haberi</a> de okunabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA’nın 23 Eylül 2026 tarihli <a href="https://science.nasa.gov/science-research/earth-science/climate-science/sea-ice/arctic-sea-ice-2026-min/" target="_blank" rel="noopener noreferrer">Arktik deniz buzu değerlendirmesi</a> ile NSIDC’nin aynı tarihli <a href="https://nsidc.org/news-analyses/news-stories/arctic-sea-ice-has-reached-minimum-extent-2026-antarctic-sea-ice-maximum-most-likely-reached-well" target="_blank" rel="noopener noreferrer">bağımsız ölçüm açıklaması</a> karşılaştırılarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek uydu görüntüsü veya 2026 ölçüm haritası değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "swift-gozlemevi-gama-isini-takibine-dondu",
+    title: "Swift Gözlemevi Gama Işını Takibine Döndü, Ancak Zamanı Daralıyor",
+    excerpt: "NASA’nın Swift gözlemevi üçüncü bilim aracını yeniden çalıştırdı ve ani gama ışını patlamalarına otomatik yönelme yeteneğini geri kazandı.",
+    category: "Bilim & Uzay",
+    published_at: "2026-09-27T09:11:00+03:00",
+    cover_image: "/editorial/2026-09-27/swift-gama-isini-takibi.webp",
+    original_source_url: "https://science.nasa.gov/blogs/swift/2026/09/25/nasas-swift-powers-on-third-instrument-restarts-automated-slewing/",
+    content: `
+<p>NASA’nın Neil Gehrels Swift Gözlemevi, yüksek enerjili gökyüzünü izleyen üçüncü bilim aracını yeniden devreye aldı. Burst Alert Telescope adı verilen teleskop, 18 Eylül’de kalibrasyonun tamamlanmasının ardından gama ışınlarını yeniden algılamaya başladı. Görev ekibi 21 Eylül’de, uydunun ani parlamalara otomatik olarak yönelme yeteneğini de yeniden açtı.</p>
+
+<h2>Swift neden hızla dönmek zorunda?</h2>
+
+<p>Gama ışını patlamaları, evrendeki en güçlü ve en kısa süreli olaylar arasında. Burst Alert Telescope tek seferde gökyüzünün yaklaşık yüzde 16’sını izliyor. Yeni bir parlama algıladığında günlük gözlem planını keserek uydunun morötesi/optik ve X-ışını teleskoplarını aynı bölgeye yönlendiriyor. Böylece patlamanın farklı dalga boylarındaki hızla değişen izi, olay solmadan kaydedilebiliyor.</p>
+
+<p>Bu otomatik yönelme şubat ayında durdurulmuştu. Swift’in alçalan yörüngesinde atmosferik sürüklenmeyi azaltmak için bilim hedefleri, güneş panellerinin daha elverişli konumda kalacağı gökyüzü noktalarıyla değiştirilmişti. Burst Alert Telescope da enerji tüketimini azaltmak amacıyla nisanda kapatıldı. Plan, ticari bir uzay aracıyla Swift’i daha yüksek yörüngeye taşımaktı; ancak bu görev küçültülünce gözlemevi ağustosta yeniden bilim verisi toplamaya başladı.</p>
+
+<h2>Bilim dönüşü ile yörünge riski aynı anda ilerliyor</h2>
+
+<p>Swift şu anda Dünya’nın yaklaşık 325 kilometre üzerinde bulunuyor. NASA, yükseklik 300 kilometrenin altına indiğinde uzay aracı operasyonlarının zorlaşacağını ve bilim gözlemlerinin büyük olasılıkla sona ereceğini belirtiyor. Mevcut tahmin, bu eşiğin ekimin ilk yarısında ya da ortasında aşılabileceği yönünde. Bu bir kesin kapanış tarihi değil; yörünge koşulları ve görev ekibinin sonraki kararları sonucu değiştirebilir.</p>
+
+<p>2004’te fırlatılan Swift, gama ışını patlamalarını görünür, morötesi, X-ışını ve gama ışını bantlarında birlikte incelemek için tasarlandı. Yeniden çalışan üçlü sistem, kalan sürede yeni patlamalara hızlı yanıt verme fırsatını artırıyor. Uzak evreni farklı dalga boylarında araştıracak bir başka görev için <a href="/haber/prima-uzay-teleskobu-evrenin-soguk-yuzunu-arayacak">PRIMA uzak kızılötesi teleskobu haberine</a> de göz atabilirsin.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA’nın 25 Eylül 2026 tarihli <a href="https://science.nasa.gov/blogs/swift/2026/09/25/nasas-swift-powers-on-third-instrument-restarts-automated-slewing/" target="_blank" rel="noopener noreferrer">Swift görev güncellemesinden</a> ve NASA’nın <a href="https://science.nasa.gov/mission/swift/" target="_blank" rel="noopener noreferrer">görev sayfasından</a> derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek Swift görüntüsü veya gerçek bir gama ışını patlaması fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "okullarda-ruh-sagligi-icin-ogretmen-rehberi",
+    title: "Okullarda Ruh Sağlığı İçin Öğretmenin Rolü Nerede Başlayıp Bitiyor?",
+    excerpt: "UNESCO, UNICEF ve DSÖ’nün yeni rehberi; güvenli sınıf ortamı, erken sıkıntı belirtileri, yönlendirme ve öğretmenlerin kendi iyilik hâli için uygulanabilir adımlar sunuyor.",
+    category: "Yaşam",
+    published_at: "2026-09-27T09:10:00+03:00",
+    cover_image: "/editorial/2026-09-27/okul-ruh-sagligi-ogretmen-rehberi.webp",
+    original_source_url: "https://www.unesco.org/en/articles/teaching-care-practical-guide-teachers-support-mental-health-and-well-being-schools",
+    content: `
+<p>Bir öğrencinin zorlandığını ilk fark eden yetişkinlerden biri öğretmeni olabilir. Ancak fark etmek, tanı koymak veya terapi uygulamak anlamına gelmiyor. UNESCO, UNICEF ve Dünya Sağlık Örgütü’nün ortak hazırladığı “Teaching with Care” rehberi, öğretmenin sınıftaki destekleyici rolünü somutlaştırırken bu sınırı özellikle koruyor.</p>
+
+<h2>Güvenli sınıf ortamı günlük davranışlarla kuruluyor</h2>
+
+<p>25 Eylül’de UNESCO tarafından duyurulan rehber; öğrencilerin kendini güvende, dahil ve saygı görmüş hissettiği bir sınıf ortamı kurmayı başlangıç noktası olarak ele alıyor. Olumlu ilişkiler, açık sınıf kuralları, akranlar arasında yardım davranışı ve sosyal-duygusal beceriler ayrı bir uzmanlık seansı yerine günlük ders akışına dahil edilebilecek alanlar olarak sunuluyor.</p>
+
+<p>Kuruluşlara göre dünyada yaklaşık her yedi ergenden biri bir ruh sağlığı sorunu yaşıyor. Stres, dışlanma ve güç yaşam koşulları da öğrencinin derse katılımını ve öğrenmesini etkileyebiliyor. Bu oran, tek tek öğrenciler için tanı anlamına gelmiyor; okulun önleyici ve kapsayıcı bir ortam kurmasının neden önemli olduğunu gösteren küresel bir çerçeve sağlıyor.</p>
+
+<h2>Öğretmen uzman desteğinin yerini almıyor</h2>
+
+<p>Rehberin en kritik mesajı rol sınırı. Öğretmenden ruh sağlığı durumunu teşhis etmesi veya özel tedavi vermesi beklenmiyor. Beklenen; davranıştaki kalıcı değişimleri, belirgin geri çekilmeyi ya da sıkıntı işaretlerini gözlemlemek, öğrenciyi damgalamadan dinlemek ve okulun belirlenmiş destek sistemine yönlendirmek. Acil risk veya güvenlik kaygısı bulunduğunda kurumun koruma prosedürleri ile sağlık ve sosyal hizmet kanalları devreye girmeli.</p>
+
+<p>Aileler, okul yönetimi, psikolojik danışmanlar ve yerel hizmetler arasındaki bağlantı da bu yaklaşımın parçası. Destek yalnız bir öğretmenin omzuna bırakıldığında hem öğrenci hem eğitimci için sürdürülebilir olmuyor. Rehber bu nedenle öğretmenlerin kendi iyilik hâlini, meslektaş desteğini ve gerektiğinde yardım istemesini de sınıf sağlığının bileşeni sayıyor.</p>
+
+<h2>Rehber nasıl okunmalı?</h2>
+
+<p>Belge küresel kullanım için hazırlandığından, her okulun mevzuatı, sevk zinciri ve mevcut uzman kapasitesi farklı olabilir. Uygulama yerel kurumların politikalarıyla uyarlanmalı; metin kişisel tıbbi öneri yerine eğitim ortamları için genel bir çerçeve sunuyor. Öğrenci yaşamına daha geniş bir açıdan bakmak için <a href="/haber/adada-ogrenci-olmanin-12-kisa-yolu">adada öğrenci olmanın kısa yolları rehberini</a> de okuyabilirsin.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNESCO’nun 25 Eylül 2026 tarihli <a href="https://www.unesco.org/en/articles/teaching-care-practical-guide-teachers-support-mental-health-and-well-being-schools" target="_blank" rel="noopener noreferrer">“Teaching with Care” duyurusu</a> ve DSÖ’nün <a href="https://www.who.int/publications/i/item/9789240124912" target="_blank" rel="noopener noreferrer">resmî yayın sayfasıyla</a> karşılaştırılarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal illüstrasyondur; gerçek öğrenci, öğretmen veya okul ortamını belgelememektedir.</p>
+    `,
+  }),
+  editorial({
     slug: "dunya-yeni-pandemilere-hazirlik-taahhudunu-yeniledi",
     title: "Dünya Yeni Pandemilere Nasıl Hazırlanacak? Liderlerden Ortak Taahhüt",
     excerpt: "BM ve DSÖ, gelecekteki salgınlara hazırlık için erken uyarı, adil aşı erişimi, dayanıklı sağlık sistemleri ve sürdürülebilir finansman başlıklarını öne çıkardı.",
