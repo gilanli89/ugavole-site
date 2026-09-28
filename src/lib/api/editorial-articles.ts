@@ -43,6 +43,90 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "gronland-buzunun-altindaki-vadi-agi",
+    title: "Grönland Buzunun Altında 1.943 Vadilik Ağ Haritalandı",
+    excerpt: "NASA öncülüğündeki çalışma, buz yüzeyindeki küçük dalgalardan yararlanarak Grönland buz tabakasının altındaki 1.943 vadiyi birbirine bağlayan yeni bir harita oluşturdu.",
+    category: "Bilim & Uzay",
+    published_at: "2026-09-28T09:12:00+03:00",
+    cover_image: "/editorial/2026-09-28/gronland-buz-alti-vadileri.webp",
+    original_source_url: "https://science.nasa.gov/earth/earth-observatory/uncovering-the-valleys-hidden-below-greenlands-ice/",
+    content: `
+<p>Grönland’ın 1,7 milyon kilometrekarelik buz tabakasının altında, insan gözünün doğrudan görmediği geniş bir vadi ağı bulunuyor. NASA öncülüğündeki yeni haritalama çalışması, 1.943 buzulaltı vadisini bir araya getirdi. Vadilerin yaklaşık üçte biri önceki yaygın haritada görünmüyordu; bilinenlerin yaklaşık yarısının ise iç kesimlere daha uzun uzandığı anlaşıldı. Sonuç, kıtanın buz öncesi coğrafyasını daha bütünlüklü biçimde okumaya yardım ediyor.</p>
+
+<h2>Buzun altı yüzeyden nasıl okunuyor?</h2>
+
+<p>Araştırmacılar “Buz Akışı Bozulma Analizi” adlı yöntemi kullandı. Buz, alttaki bir sırtın veya vadinin üzerinden ilerlerken yüzeyde çok küçük yükselti ve akış değişimleri bırakıyor. ICESat-2 gibi uydu gözlemleri ve yüzey hız haritaları bu ince işaretleri kaydediyor; yöntem de görünmeyen ana kayanın olası biçimini hesaplıyor.</p>
+
+<p>Çalışmanın yazarları yeni sonucu radar ölçümlerinin yerine geçen doğrudan bir görüntü olarak sunmuyor. Mevcut BedMachine Greenland verisiyle yeni hesapları birleştiriyor ve radar bulunan bölgelerde doğrulama yapıyorlar. Araştırma makalesine göre mevcut 150 metre çözünürlüklü haritanın buzla kaplı hücrelerinin yalnız yüzde 4,4’ünde radar gözlemi bulunuyor. Bu nedenle yüzey izlerinden çıkarım, özellikle yavaş akan ve seyrek ölçülmüş iç bölgelerdeki boşlukları azaltabiliyor.</p>
+
+<h2>Vadiler neden önemli?</h2>
+
+<p>Alt yüzeyin şekli buzun hangi yöne ve ne hızla akabileceğini, buz altındaki suyun nerelerde toplanıp ilerleyebileceğini etkiliyor. Yeni harita, büyük çıkış buzullarının çoğuna bağlı vadilerin iç kesimlere önceki tahminlerden daha fazla uzandığını gösteriyor. Bu bilgi, buz tabakasının geçmişini açıklamanın yanında gelecekteki değişim modellerini de iyileştirebilir; ancak tek başına yeni bir deniz seviyesi tahmini üretmiyor.</p>
+
+<p>Güney ve doğudaki yüksek arazilerden başlayan bazı vadi desenleri, buz tabakasının oluşum tarihine dair mevcut görüşle uyumlu. Batı-orta bölgede güneybatı-kuzeydoğu doğrultusunda uzanan düz vadiler ise olası tektonik etkiler konusunda yeni sorular doğuruyor. Arktik değişimini üst yüzeyden izleyen başka bir ölçüm için <a href="/haber/arktik-deniz-buzu-2026-minimumu">2026 Arktik deniz buzu minimumu haberine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA Earth Observatory’nin 28 Eylül 2026 tarihli <a href="https://science.nasa.gov/earth/earth-observatory/uncovering-the-valleys-hidden-below-greenlands-ice/" target="_blank" rel="noopener noreferrer">değerlendirmesi</a> ve Geophysical Research Letters’ta yayımlanan <a href="https://doi.org/10.1029/2026GL122028" target="_blank" rel="noopener noreferrer">hakemli araştırma</a> karşılaştırılarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir kesit görselidir; gerçek radar görüntüsü veya ölçüm haritası değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "2027-guney-yarimkure-grip-asisi-bilesimi",
+    title: "2027 Güney Yarımküre Grip Aşısının İçeriği Nasıl Belirlendi?",
+    excerpt: "DSÖ, 2027 Güney Yarımküre grip sezonu için önerilen virüs bileşimini açıkladı; karar küresel laboratuvar gözetimi ve dolaşımdaki türlerin karşılaştırılmasına dayanıyor.",
+    category: "Yaşam",
+    published_at: "2026-09-28T09:11:00+03:00",
+    cover_image: "/editorial/2026-09-28/grip-asisi-kuresel-gozetim.webp",
+    original_source_url: "https://www.who.int/news/item/25-09-2026-recommendations-announced-for-influenza-vaccine-composition-for-the-2027-southern-hemisphere-influenza-season",
+    content: `
+<p>Dünya Sağlık Örgütü, 2027 Güney Yarımküre grip sezonunda kullanılacak aşılar için önerdiği virüs bileşimini açıkladı. Bu duyuru, aşının bir ülkeye ulaştığı veya herkes için aynı tarihte uygulanacağı anlamına gelmiyor. Öneri; üreticilerin, ulusal düzenleyici kurumların ve aşılama programlarının aylar süren hazırlığına bilimsel bir başlangıç sağlıyor.</p>
+
+<h2>Neden bileşim her yıl yeniden değerlendiriliyor?</h2>
+
+<p>Grip virüsleri zaman içinde değişiyor. DSÖ, Küresel Grip Gözetim ve Müdahale Sistemi aracılığıyla farklı ülkelerdeki laboratuvarların paylaştığı örnekleri, genetik verileri ve dolaşım örüntülerini yılda iki kez inceliyor. Şubat-ağustos 2026 döneminde A(H1N1)pdm09, A(H3N2) ve B virüsleri bütün bölgelerde farklı oranlarda görüldü. Çoğu bölgede influenza A baskınken Kuzey ve Batı Afrika, Kuzey Amerika ve Doğu Asya’da influenza B daha yaygındı.</p>
+
+<p>2027 Güney Yarımküre sezonu için yumurtada üretilen üç bileşenli aşılarda A/Missouri/11/2025 benzeri H1N1, A/Darwin/1454/2025 benzeri H3N2 ve B/Tokyo/EIS13-175/2025 benzeri Victoria soyu öneriliyor. Hücre kültürü, rekombinant protein veya nükleik asit temelli üretimde ise H1N1 aynı kalırken H3N2 için A/Darwin/1415/2025, B için B/Pennsylvania/14/2025 benzeri virüsler seçildi.</p>
+
+<h2>Farklı üretim yöntemleri neden farklı adaylar kullanıyor?</h2>
+
+<p>Bir referans virüsün üretim ortamındaki davranışı, yumurta ve hücre temelli süreçlerde aynı olmayabilir. Bu nedenle uzmanlar dolaşımdaki virüslere mümkün olduğunca yakın bağışıklık yanıtı hedeflerken her üretim platformu için uygun adayları ayrı değerlendirebiliyor. Öneri listesi bir tedavi reçetesi değil; belirli bir kişinin aşı zamanı ve uygunluğu kendi ülkesinin sağlık otoritesi ile sağlık uzmanlarının güncel yönlendirmesine bağlı.</p>
+
+<p>Uzmanlar toplantıda hayvanlardan insanlara geçen grip virüslerini de gözden geçirdi ve olası pandemi durumunda üretimi hızlandırabilecek aday aşı virüslerini değerlendirdi. Küresel salgın hazırlığının daha geniş çerçevesi için <a href="/haber/dunya-yeni-pandemilere-hazirlik-taahhudunu-yeniledi">ülkelerin pandemi hazırlığı taahhüdü haberine</a> de göz atılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ’nün 25 Eylül 2026 tarihli <a href="https://www.who.int/news/item/25-09-2026-recommendations-announced-for-influenza-vaccine-composition-for-the-2027-southern-hemisphere-influenza-season" target="_blank" rel="noopener noreferrer">aşı bileşimi açıklaması</a> ve <a href="https://www.who.int/teams/global-influenza-programme/influenza-seasonal" target="_blank" rel="noopener noreferrer">Küresel Grip Programı sayfası</a> karşılaştırılarak derlenmiştir. Kapak temsili bir editoryal görseldir; gerçek virüs görüntüsü veya belirli bir aşı ürünü değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "dso-tibbi-cihaz-on-yeterlilik-programi-genisledi",
+    title: "DSÖ, Tıbbi Cihaz Kalite Programını Yapay Zekâya Kadar Genişletti",
+    excerpt: "DSÖ’nün genişleyen ön yeterlilik programı, doğum kontrol araçlarının yanında tüberküloz taramasında kullanılan bilgisayar destekli görüntüleme yazılımlarını da kapsayacak.",
+    category: "Teknoloji",
+    published_at: "2026-09-28T09:10:00+03:00",
+    cover_image: "/editorial/2026-09-28/tibbi-cihaz-kalite-programi.webp",
+    original_source_url: "https://www.who.int/news/item/25-09-2026-who-announces-expansion-of-prequalification-programme-for-medical-devices",
+    content: `
+<p>Dünya Sağlık Örgütü, temel tıbbi cihazlar için yürüttüğü ön yeterlilik programının kapsamını genişletti. Yeni çerçeve; kadın ve erkek kondomları, rahim içi araçlar, tıbbi erkek sünnet cihazları ve tüberküloz taramasında kullanılan bilgisayar destekli saptama yazılımlarını ortak bir kalite değerlendirme yapısına taşıyor. Değişim, dijital araçların küresel sağlık alımlarındaki yerini daha görünür kılıyor.</p>
+
+<h2>“Ön yeterlilik” ne işe yarıyor?</h2>
+
+<p>DSÖ’nün süreci, bir ürünün kalite, güvenlik ve performans belgelerini bağımsız ve standart bir yöntemle inceliyor. Şartları karşılayan ürünler ön yeterlilik listesine ekleniyor. Birleşmiş Milletler kuruluşları, bağışçılar, satın alma kurumları ve ulusal yetkililer bu listeyi özellikle düzenleme kapasitesinin sınırlı olduğu yerlerde güvenilir bir başvuru noktası olarak kullanabiliyor.</p>
+
+<p>Bu liste, bütün ülkelerde otomatik satış izni anlamına gelmiyor. Ulusal ruhsat, tedarik kararı, yerel kullanım kılavuzu ve sağlık programlarının kapsamı ayrı süreçlerle belirleniyor. DSÖ açıklamasına göre ülkelerin yaklaşık yüzde 70’i ilaçlar ve aşılar için yetersiz veya zayıf düzenleyici sistem bildirmiş durumda; diğer sağlık ürünlerinde güçlük daha da büyük olabiliyor. Genişlemenin hedefi, ortak bir teknik eşik sağlayarak satın alma kararındaki belirsizliği azaltmak.</p>
+
+<h2>Yapay zekâ programda nerede duruyor?</h2>
+
+<p>Kapsama alınan CAD-TB yazılımları, dijital akciğer röntgenlerini analiz ederek tüberküloz ihtimali bulunan kişileri daha ileri test için işaretliyor. Yazılımın çıktısı kesin tanı değil; doğrulayıcı test ve klinik değerlendirme gerekiyor. Yüksek tüberküloz yüküne sahip bölgelerde güvenilir tarama, daha fazla kişiyi tanı sürecine erken yönlendirebilir. Programın yazılımı da fiziksel cihazlar gibi kalite ve performans incelemesine alması, sağlık teknolojisi değerlendirmesinin artık yalnız donanımla sınırlı olmadığını gösteriyor.</p>
+
+<p>Kondom ve rahim içi araçların değerlendirmesi Birleşmiş Milletler Nüfus Fonu’ndan DSÖ’ye aktarılıyor. Erkek sünnet cihazları da daha önceki ayrı kanaldan geniş tıbbi cihaz çerçevesine geçiyor. Uzak ortamda görüntülemeyi kolaylaştıran farklı bir sağlık teknolojisi örneği için <a href="/haber/iss-yapay-zeka-destekli-ultrason-deneyi">ISS’de yapay zekâ destekli ultrason çalışmasına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ’nün 25 Eylül 2026 tarihli <a href="https://www.who.int/news/item/25-09-2026-who-announces-expansion-of-prequalification-programme-for-medical-devices" target="_blank" rel="noopener noreferrer">program genişletme açıklaması</a>, kurumun <a href="https://extranet.who.int/prequal/news/who-announces-expansion-prequalification-programme-medical-devices" target="_blank" rel="noopener noreferrer">ön yeterlilik duyurusu</a> ve <a href="https://www.who.int/health-topics/medical-devices" target="_blank" rel="noopener noreferrer">tıbbi cihazlar sayfasıyla</a> karşılaştırılarak derlenmiştir. Kapak temsili bir editoryal görseldir; gerçek değerlendirme tesisi veya ürün markalarını göstermemektedir.</p>
+    `,
+  }),
+  editorial({
     slug: "arktik-deniz-buzu-2026-minimumu",
     title: "Arktik Deniz Buzu 2026 Minimumuna İndi: Son 20 Yılın Ortak İşareti",
     excerpt: "NASA ve NSIDC ölçümlerine göre Arktik deniz buzu 12 Eylül’de 4,60 milyon kilometrekareye gerileyerek uydu kayıtlarının en düşük onuncu seviyesini paylaştı.",
