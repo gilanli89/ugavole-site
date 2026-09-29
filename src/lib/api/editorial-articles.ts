@@ -43,6 +43,96 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "juice-dunya-yercekimiyle-jupiter-yolunda-hiz-kazandi",
+    title: "JUICE, Dünya’nın Yerçekimiyle Jüpiter Yolunda Hız Kazandı",
+    excerpt: "ESA’nın JUICE uzay aracı, Dünya’ya yakın geçişte rotasını 20 derece değiştirdi ve hızını saniyede 3,5 kilometre artırarak Jüpiter yolculuğunda kritik bir adımı tamamladı.",
+    category: "Bilim & Uzay",
+    published_at: "2026-09-29T09:18:00+03:00",
+    cover_image: "/editorial/2026-09-29/juice-dunya-yercekimi-manevrasi.webp",
+    original_source_url: "https://www.esa.int/Science_Exploration/Space_Science/Juice/Successful_Earth_flyby_improves_Juice_s_course_to_Jupiter",
+    content: `
+<p>Avrupa Uzay Ajansı’nın (ESA) Jüpiter Buzlu Uydular Kâşifi JUICE, 28 Eylül’de Dünya’nın çok yakınından geçerek Jüpiter yolculuğundaki kritik manevralardan birini tamamladı. Uzay aracı, Dünya’nın çekiminden yararlanarak uçuş yönünü önceki rotasına göre 20 derece değiştirdi ve hızına saniyede 3,5 kilometre ekledi. Böylece aynı değişim için motorlarını uzun süre çalıştırmak yerine gezegenin yerçekimini kullandı.</p>
+
+<h2>Yakın geçiş ne kadar hassastı?</h2>
+
+<p>JUICE, 28 Eylül saat 11.45 UTC’de Hint Okyanusu’nun yaklaşık 8.640 kilometre üzerinden geçti. ESA ekipleri manevra öncesindeki dört haftada altı olası düzeltme penceresi ayırmıştı; hesaplanan yaklaşma koridoruna girmek için yalnızca bir küçük itki gerekti. Araç 17 Ağustos’tan beri daha sık izleniyor ve yakın geçiş sonrası yörünge ölçümleri 10 Ekim’e kadar sürecek.</p>
+
+<p>Yerçekimi desteği uzay aracına bedelsiz enerji vermiyor. JUICE, Dünya’nın Güneş çevresindeki hareketinden çok küçük bir pay alarak hızını ve yönünü değiştiriyor; Dünya üzerindeki etkisi ise ölçülemeyecek kadar küçük kalıyor. Kazanılan yakıt, Jüpiter sisteminde yapılacak bilimsel gözlemler ve yörünge düzenlemeleri için korunabiliyor.</p>
+
+<h2>Dünya aynı zamanda bir test alanı oldu</h2>
+
+<p>Yakın geçiş yalnızca rota düzeltmesi değildi. JUICE’ın 10 bilim aracından bazıları, özellikleri iyi bilinen Dünya ve Ay üzerinde yeniden sınandı. Araç ayrıca günler boyunca Dünya’nın Güneş’in ters yönüne uzanan manyetik kuyruğundan geçti. ESA-Çin ortak yapımı SMILE görevi kutup ışıkları ile Dünya’ya yakın parçacıkları izlerken JUICE daha uzaktaki manyetik alanı ölçtü. İki gözlem, manyetik kuyruğun kutuplardaki etkilerle ilişkilendirilmesi için birlikte değerlendirilecek.</p>
+
+<p>Bilimsel kamera JANUS’un yüksek çözünürlüklü Dünya ve Ay görüntüleri, veri aktarımı ve ekip incelemesinin ardından yayımlanacak. Bu nedenle ESA’nın ilk duyurusu, henüz bütün bilim sonuçlarının hazır olduğu anlamına gelmiyor.</p>
+
+<p>JUICE Ocak 2029’da Dünya’ya son kez yaklaşacak, 2031’de Jüpiter’e ulaşacak ve Europa, Callisto ile Ganymede çevresinde toplam 35 yakın geçiş yapacak. Uzak evreni farklı dalga boylarında inceleyecek başka bir görev için <a href="/haber/prima-uzay-teleskobu-evrenin-soguk-yuzunu-arayacak">PRIMA uzay teleskobu haberine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler ESA’nın 28 Eylül 2026 tarihli <a href="https://www.esa.int/Science_Exploration/Space_Science/Juice/Successful_Earth_flyby_improves_Juice_s_course_to_Jupiter" target="_blank" rel="noopener noreferrer">yakın geçiş açıklaması</a> ve kurumun <a href="https://www.esa.int/Science_Exploration/Space_Science/Juice" target="_blank" rel="noopener noreferrer">JUICE görev sayfası</a> karşılaştırılarak derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek görev fotoğrafı veya rota haritası değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "letonya-alkol-satis-kisitlamalari-ilk-sonuclar",
+    title: "Letonya’nın Alkol Satış Kısıtlamalarında İlk Beş Ayda Ne Değişti?",
+    excerpt: "DSÖ Avrupa’nın erken değerlendirmesine göre Letonya’da satış saatleri, hızlı teslimat ve promosyonlara getirilen sınırların ardından tamamen alkole bağlı ölümler ilk beş ayda yüzde 27 azaldı.",
+    category: "Yaşam",
+    published_at: "2026-09-29T09:17:00+03:00",
+    cover_image: "/editorial/2026-09-29/letonya-alkol-politikasi.webp",
+    original_source_url: "https://www.who.int/europe/news/item/28-09-2026-new-alcohol-policy-measures-in-latvia-produce-rapid-public-health-gains",
+    content: `
+<p>Letonya’da alkollü içeceklere erişimi azaltan yeni kuralların ardından, tamamen alkole bağlanan nedenlerden ölümler ilk beş ayda yüzde 27 düştü. Dünya Sağlık Örgütü Avrupa Bölgesi’nin Letonya Sağlık Bakanlığının talebiyle yaptığı erken değerlendirme, 1 Ağustos–31 Aralık 2025 döneminde 60’tan fazla ölümün önlenmiş olabileceğini hesaplıyor.</p>
+
+<h2>Hangi kurallar değişti?</h2>
+
+<p>Parlamentonun Ocak 2025’te kabul ettiği düzenlemelerin temel bölümü 1 Ağustos’ta yürürlüğe girdi. Perakende satış saatleri kısaltıldı; internetten veya uygulamadan alınan içeceklerin anında teslim edilmesi engellendi. Kumar mekânlarındaki satışlara, küçük ambalajlara, fiyat ve indirim reklamlarına ve promosyon kampanyalarına da sınırlar getirildi. Amaç, özellikle gece saatlerindeki ve plansız satın almaları azaltmaktı.</p>
+
+<p>DSÖ değerlendirmesi; alkol zehirlenmesi, alkole bağlı karaciğer hastalığı ve alkolün yol açtığı akut pankreatit gibi ölüm nedenlerine odaklandı. Bunlar “tamamen alkole atfedilebilir” başlığı altında izleniyor. Dış nedenler, kalp-damar hastalıkları ve kendine zarar verme gibi alkolün payının daha karmaşık olduğu göstergeler için daha uzun takip gerektiği belirtiliyor.</p>
+
+<h2>Yüzde 27 ne kadar kesin bir sonuç?</h2>
+
+<p>Sonuç dikkat çekici olsa da henüz son söz değil. İnceleme yalnızca beş aylık reform sonrası veriye dayanıyor ve bulgular bağımsız hakem değerlendirmesine sunuldu. Mevsimsel değişimler, kayıt biçimi ve başka sağlık politikaları gibi etkenlerin ayrıştırılması için daha uzun zaman dizileri gerekiyor. Bu nedenle sayı, kuralların bütün etkisini kanıtlayan kesin bir neden-sonuç hesabı olarak değil, izlenmesi gereken güçlü bir erken işaret olarak okunmalı.</p>
+
+<p>Letonya’nın yetişkin başına yıllık toplam alkol tüketimi 14,2 litreyle dünya çapında yüksek seviyelerde. DSÖ Avrupa Bölgesi genelinde ise alkol kullanımının yılda yaklaşık 800 bin ölümle bağlantılı olduğu tahmin ediliyor. Kurum, fiziksel erişimi azaltmayı, vergileri kullanmayı ve pazarlamayı sınırlamayı bulaşıcı olmayan hastalıkları önlemede maliyet etkili araçlar arasında sayıyor.</p>
+
+<p>Kalite standartlarının sağlık politikasındaki başka bir örneği için <a href="/haber/dso-tibbi-cihaz-on-yeterlilik-programi-genisledi">DSÖ’nün tıbbi cihaz ön yeterlilik programı haberine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ Avrupa’nın 28 Eylül 2026 tarihli <a href="https://www.who.int/europe/news/item/28-09-2026-new-alcohol-policy-measures-in-latvia-produce-rapid-public-health-gains" target="_blank" rel="noopener noreferrer">Letonya değerlendirmesi</a> ve kurumun <a href="https://www.who.int/europe/health-topics/alcohol" target="_blank" rel="noopener noreferrer">alkol kullanımı konu sayfası</a> temel alınarak derlenmiştir. Kapak temsili bir editoryal görseldir; belirli bir mağazayı veya gerçek istatistik grafiğini göstermemektedir.</p>
+    `,
+  }),
+  editorial({
+    slug: "dijital-cagda-bilgiye-erisim-ve-bilgi-butunlugu",
+    title: "Bilgi Kirliliği Çağında “Bilgiye Erişim” Neden Tek Başına Yetmiyor?",
+    excerpt: "UNESCO’nun 2026 gündemi, kamunun bilgiye erişim hakkını; doğrulanabilir resmî veri, şeffaflık, medya okuryazarlığı ve yapay zekâ kaynaklı içeriklerle mücadeleyle birlikte ele alıyor.",
+    category: "Teknoloji",
+    published_at: "2026-09-29T09:16:00+03:00",
+    cover_image: "/editorial/2026-09-29/bilgi-butunlugu-dijital-cag.webp",
+    original_source_url: "https://www.unesco.org/en/articles/integrity-dividend-value-knowing",
+    content: `
+<p>Dijital ortamda bilgiye ulaşmak hiç olmadığı kadar kolay; fakat erişilen içeriğin doğru, güncel ve hangi kuruma dayandığının anlaşılması aynı hızda kolaylaşmadı. UNESCO’nun 2026 Uluslararası Bilgiye Evrensel Erişim Günü için seçtiği tema bu farkı merkeze alıyor: bilgiye erişim hakkı, dijital çağda “bilgi bütünlüğünü” korumaya nasıl yardımcı olabilir?</p>
+
+<h2>Erişim ile güvenilirlik arasındaki fark</h2>
+
+<p>Bir belgenin internette bulunması tek başına şeffaflık sağlamıyor. Dosyanın güncel sürümünün yayımlanması, kararın kim tarafından ve hangi verilerle alındığının açıklanması, arşivlerin aranabilir olması ve bilgilerin farklı dil ve erişilebilirlik ihtiyaçlarına uygun sunulması gerekiyor. Proaktif açıklama, vatandaşın yalnızca talepte bulunmasını beklemek yerine kamu yararı taşıyan verilerin düzenli biçimde yayımlanması anlamına geliyor.</p>
+
+<p>UNESCO’nun 2025 izleme çalışmasına göre 141 ülkede bilgiye erişim için yasal güvenceler bulunuyor. Buna rağmen parçalanmış izleyici grupları, platformlara bağımlılık, kurumlara duyulan güvenin azalması ve yapay zekâyla üretilen ikna edici sahte içerikler yasal hakkın uygulamadaki etkisini zayıflatabiliyor. Bu nedenle açık veri, bağımsız medya, denetim kurumları ve medya okuryazarlığı birbirinin yerine geçen çözümler değil; aynı güven zincirinin farklı halkaları.</p>
+
+<h2>2026 toplantılarında hangi sorular öne çıkıyor?</h2>
+
+<p>Sierra Leone’de 28–30 Eylül’de düzenlenen küresel konferans, bilgi komiserlerini, kamu kurumlarını ve sivil toplumu bir araya getiriyor. Bangkok’ta 29 Eylül’de yapılan Güneydoğu Asya paneli ise yanlış bilgi, dezenformasyon ve nefret söylemi karşısında kamu kayıtlarına erişimin nasıl güçlendirilebileceğini tartışıyor. UNESCO, 2000’den bu yana 100’den fazla ülkenin anayasal, yasal veya politika düzeyinde erişim güvencesi benimsediğini belirtiyor.</p>
+
+<p>Buradaki amaç, resmî kaynağı otomatik olarak hatasız kabul etmek değil. Tarih, yöntem, veri kaynağı ve düzeltme geçmişi görünür olduğunda gazeteciler, araştırmacılar ve vatandaşlar iddiaları karşılaştırabilir. Kurumların yanlış bilgiyi yalnızca kaldırmaya odaklanması da yeterli değil; zamanında ve doğrulanabilir bilgi boşluğu doldurulmazsa söylentiler daha hızlı yayılabiliyor.</p>
+
+<p>Yapay zekânın bilgi üretimindeki rolünü farklı bir açıdan incelemek için <a href="/haber/yapay-zeka-bilim-kulturunun-yerini-alabilir-mi">bilim kültürü ve yapay zekâ haberine</a> de göz atılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNESCO’nun 28 Eylül 2026 tarihli <a href="https://www.unesco.org/en/articles/integrity-dividend-value-knowing" target="_blank" rel="noopener noreferrer">bilgi bütünlüğü değerlendirmesi</a>, 29 Eylül tarihli <a href="https://www.unesco.org/en/articles/access-information-and-information-integrity-digital-age-lessons-and-challenges-south-east-asia" target="_blank" rel="noopener noreferrer">bölgesel etkinlik sayfası</a> ve <a href="https://www.unesco.org/en/days/universal-access-information" target="_blank" rel="noopener noreferrer">uluslararası gün kaydı</a> karşılaştırılarak derlenmiştir. Kapak temsili bir editoryal görseldir.</p>
+    `,
+  }),
+  editorial({
     slug: "gronland-buzunun-altindaki-vadi-agi",
     title: "Grönland Buzunun Altında 1.943 Vadilik Ağ Haritalandı",
     excerpt: "NASA öncülüğündeki çalışma, buz yüzeyindeki küçük dalgalardan yararlanarak Grönland buz tabakasının altındaki 1.943 vadiyi birbirine bağlayan yeni bir harita oluşturdu.",
