@@ -43,6 +43,90 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "montana-yangin-bulutunda-nadir-pileus-gozlemi",
+    title: "Montana’daki Yangın Bulutunun Üzerinde Nadir Bir “Şapka” Görüldü",
+    excerpt: "NASA’nın araştırma uçağı, Sand Creek yangınının oluşturduğu pirokümülüsün üzerinde yalnızca birkaç dakika yaşayan pileus bulutunu 50 tayfsal bantta görüntüledi.",
+    category: "Bilim & Uzay",
+    published_at: "2026-09-30T09:13:00+03:00",
+    cover_image: "/editorial/2026-09-30/montana-yangin-bulutu-pileus.webp",
+    original_source_url: "https://science.nasa.gov/earth/earth-observatory/fire-cloud-with-a-pileus-on-top/",
+    content: `
+<p>Montana’daki Sand Creek orman yangınının üzerinde yükselen dumanlı pirokümülüs bulutu, 11 Ağustos’ta çok kısa ömürlü başka bir bulutla örtüldü. NASA’nın ER-2 araştırma uçağındaki MASTER aygıtı, pirokümülüsün tepesinde ince ve düzgün bir tabaka gibi duran pileus bulutunu görüntüledi. “Şapka” anlamına gelen Latince kökten adını alan bu bulut türü biliniyor; ancak bir yangın bulutuyla etkileşiminin bu ayrıntıda kaydedilmesi nadir.</p>
+
+<h2>Bulutun üzerinde bulut nasıl oluştu?</h2>
+
+<p>Yangının ısıttığı hava çok hızlı yükselerek üstündeki daha nemli yatay hava katmanını yukarı itti. Yükselen hava soğuyunca içerdiği su buharı yoğunlaştı ve pirokümülüsün üzerinde pürüzsüz pileus tabakası oluştu. Süreç, nemli havanın bir dağın üzerinden geçerken yükselip bulut oluşturmasına benziyor; burada geçici “dağ” görevini büyüyen yangın bulutu üstlendi.</p>
+
+<p>Pileus bulutları çoğu zaman birkaç dakika içinde alttaki güçlü konveksiyon tarafından yutuluyor. Araştırmacılar uçuş sırasında duman sütununu yaklaşık 30 dakikada bir görüntüledi; pileus yalnızca tek sahnede açıkça seçilebildi. Bu kısa pencere, yangın dumanı içindeki son derece güçlü yukarı hava hareketlerinin doğrudan işareti sayılıyor.</p>
+
+<h2>Tek kare neden 50 farklı ölçüm içeriyor?</h2>
+
+<p>MASTER görünür ışıktan kızılötesine uzanan 50 tayfsal bantta veri topluyor. Doğal renkli görüntü duman, su ve bulut biçimini gösterirken kısa dalga kızılötesi bantlar yanmış alanı ve çevredeki etkin yangın noktalarını ayırabiliyor. Aynı anda uçağın aşağı bakan radarları da bulutun iç yapısını inceledi. Böylece ekip, yüzeydeki yangının davranışını yükselen duman sütunu ve bulut süreçleriyle birlikte haritalayabildi.</p>
+
+<p>Gözlem 17.40’ta, yangın Mount Comet’in batı yamacında rüzgâr ve arazi kanallarıyla hızlanırken yapıldı. Tek başına pileus görüntüsü yangının gelecekte nasıl ilerleyeceğini göstermiyor; fakat NASA’nın INSPYRE kampanyası için yüzey yangını ile üst atmosferdeki süreçleri aynı anda ölçmenin neden değerli olduğunu ortaya koyuyor. Farklı bir doğal olayı uzaydan izleyen çalışma için <a href="/haber/nisar-kamcatka-volkanini-uzaydan-adim-adim-izledi">NISAR’ın Kamçatka volkanı gözlemi</a> de okunabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA Earth Observatory’nin 29 Eylül 2026 tarihli <a href="https://science.nasa.gov/earth/earth-observatory/fire-cloud-with-a-pileus-on-top/" target="_blank" rel="noopener noreferrer">gözlem yazısı</a> ve NASA’nın <a href="https://espo.nasa.gov/inspyre" target="_blank" rel="noopener noreferrer">INSPYRE görev sayfası</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek yangın veya uçuş fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "tuberkuloz-ve-hiv-bakiminda-entegre-model-cagrisi",
+    title: "Tüberküloz ve HIV Bakımında Aynı Kapıya Çıkan Sistem Neden Gerekli?",
+    excerpt: "DSÖ Avrupa ve Sınır Tanımayan Doktorlar, Doğu Avrupa ile Orta Asya’da tüberküloz ve HIV hizmetlerini tek bakım zincirinde buluşturmak için işbirliği başlattı.",
+    category: "Dünya",
+    published_at: "2026-09-30T09:12:00+03:00",
+    cover_image: "/editorial/2026-09-30/tb-hiv-entegre-bakim.webp",
+    original_source_url: "https://www.who.int/belarus/news/item/29-09-2026-who-europe-and-msf-join-forces-to-improve-tb-and-hiv-care-across-eastern-europe-and-central-asia",
+    content: `
+<p>Doğu Avrupa ve Orta Asya’da tüberküloz, ilaca dirençli tüberküloz ve HIV aynı kişileri ve toplulukları sıkça etkiliyor. Dünya Sağlık Örgütü Avrupa Bölge Ofisi ile Sınır Tanımayan Doktorlar (MSF), hastaların ayrı kurumlar arasında kaybolmasını azaltmak için tanı, tedavi ve sosyal desteği tek bakım zincirinde birleştiren modeller üzerinde çalışacaklarını açıkladı.</p>
+
+<h2>Rakamlar hangi boşluğu gösteriyor?</h2>
+
+<p>DSÖ’nün tahminine göre Avrupa Bölgesi’nde 2024’te yaklaşık 204 bin kişi tüberküloza yakalandı; 161 bin 569 yeni veya tekrarlayan vaka bildirildi. Bu fark, hastalanan yaklaşık her beş kişiden birinin teşhis edilmediğini ya da kayıtlara girmediğini gösteriyor. Ortak DSÖ-ECDC gözetim raporu ayrıca yeni vakaların yüzde 23’ünde çok ilaca direnç bulunduğunu; küresel oranın yüzde 3,2 olduğunu belirtiyor.</p>
+
+<p>Bölge 2015–2024 arasında tüberküloz görülme sıklığını yüzde 39 azaltarak önemli ilerleme kaydetti. Yine de 2025 için belirlenen yüzde 50 azalma hedefinin gerisinde kaldı. HIV bağışıklık sistemini zayıflattığı için tüberküloza yakalanma ve hastalığın ağır seyretme riskini artırıyor; tüberküloz da HIV ile yaşayan kişilerde önde gelen ölüm nedenlerinden biri olmayı sürdürüyor.</p>
+
+<h2>Entegre bakım neyi değiştirebilir?</h2>
+
+<p>Ayrı hizmetler hastanın farklı günlerde farklı merkezlere gitmesine, test sonuçlarının parçalanmasına ve tedavi takibinin kesilmesine yol açabiliyor. Entegre model; tüberküloz ve HIV testlerini, ilaç tedavilerini, ruh sağlığı ve sosyal desteği aynı ekip içinde koordine etmeyi amaçlıyor. Hızlı tanı ve ilaç duyarlılık testleri uygun tedaviyi erkenden seçmeye, daha kısa ve ağızdan alınan rejimler ise takibi kolaylaştırmaya yardımcı olabilir.</p>
+
+<p>Taşkent’te 29–30 Eylül’de yapılan buluşma, DSÖ, MSF ve Özbekistan Sağlık Bakanlığını bölgedeki uygulayıcılarla bir araya getiriyor. Duyuru tek başına hizmetlerin bütün ülkelerde hemen değiştiği anlamına gelmiyor; etkisi, geliştirilen modelin yerel sağlık sistemlerine aktarılması ve tanı ile tedavi sonuçlarının şeffaf biçimde izlenmesiyle ölçülebilecek. Sağlık sistemlerinin daha geniş hazırlık gündemi için <a href="/haber/dunya-yeni-pandemilere-hazirlik-taahhudunu-yeniledi">küresel pandemi hazırlığı taahhüdü</a> de incelenebilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ Avrupa’nın 29 Eylül 2026 tarihli <a href="https://www.who.int/belarus/news/item/29-09-2026-who-europe-and-msf-join-forces-to-improve-tb-and-hiv-care-across-eastern-europe-and-central-asia" target="_blank" rel="noopener noreferrer">işbirliği açıklaması</a> ile ECDC ve DSÖ’nün <a href="https://www.ecdc.europa.eu/en/publications-data/tuberculosis-surveillance-and-monitoring-europe-2026-2024-data" target="_blank" rel="noopener noreferrer">2026 gözetim raporu</a> karşılaştırılarak derlenmiştir. Bu bir tıbbi tavsiye değildir. Kapak temsili bir editoryal görseldir; gerçek hasta veya klinik göstermemektedir.</p>
+    `,
+  }),
+  editorial({
+    slug: "dil-haklari-ve-ceviri-teknolojilerinde-kimin-sesi-var",
+    title: "Çeviri Teknolojilerinde Kimin Sesi Var? Dil Hakkı Neden Veriyle Başlıyor?",
+    excerpt: "UNESCO’nun Uluslararası Çeviri Günü buluşması, düşük kaynaklı ve Yerli dillerin dijital araçlarda görünmesi için teknoloji kadar topluluk onayı ve veri yönetimini de öne çıkarıyor.",
+    category: "Kültür",
+    published_at: "2026-09-30T09:11:00+03:00",
+    cover_image: "/editorial/2026-09-30/dil-haklari-ceviri-teknolojileri.webp",
+    original_source_url: "https://www.unesco.org/en/articles/linguistic-diversity-and-language-rights-power-being-understood",
+    content: `
+<p>Bir dili konuşabilmek, kişinin kamu hizmetinde, eğitimde veya internette anlaşılacağı anlamına gelmiyor. UNESCO ve Translation Commons’ın 30 Eylül Uluslararası Çeviri Günü kapsamında düzenlediği 2026 buluşması, dil çeşitliliğini kültürel bir zenginliğin ötesinde bilgiye erişim ve katılım hakkı olarak ele alıyor. Gündemin merkezinde Yerli diller, çeviri teknolojileri ve dil verisinin kim tarafından yönetildiği bulunuyor.</p>
+
+<h2>Dijital araçlar neden her dili eşit görmüyor?</h2>
+
+<p>Otomatik çeviri, konuşma tanıma ve metin üretme sistemleri çok miktarda dijital örneğe dayanıyor. İnternette az temsil edilen bir dil için yazılı ve sesli veri sınırlıysa sistem daha fazla hata yapabiliyor veya o dili hiç desteklemeyebiliyor. Yazı sistemi, lehçe farklılıkları ve yerel anlamlar da yalnızca kelime eşleştirmeyle çözülemiyor. Bu durum eğitim materyalinden acil durum duyurusuna kadar birçok alanda eşitsizlik yaratabiliyor.</p>
+
+<p>Daha çok veri toplamak tek başına çözüm değil. Dil kayıtlarının kimden alındığı, topluluğun kullanım için onay verip vermediği, veriye kimin eriştiği ve ticari ürünlerde nasıl kullanıldığı açık olmalı. Özellikle Yerli dillerde arşivleme ile açık erişim hedefleri, toplulukların kültürel bilgi üzerindeki hakları ve bazı ifadelerin bağlama özel kalması gereğiyle birlikte düşünülüyor.</p>
+
+<h2>İnsan çevirmenin rolü küçülüyor mu?</h2>
+
+<p>Yapay zekâ araçları taslak üretimini hızlandırabilir; fakat hukuk, sağlık, diplomasi ve kültürel miras gibi alanlarda anlam kayması ciddi sonuçlar doğurabilir. İnsan çevirmen yalnızca cümleyi dönüştürmez; bağlamı, hedef kitleyi, terminolojiyi ve olası yanlış anlamayı değerlendirir. UNESCO’nun yaklaşımı, teknoloji geliştirenlerle dil uzmanlarını ve toplulukları aynı karar masasına çağırıyor.</p>
+
+<p>Birleşmiş Milletler Genel Kurulu 2017’de 30 Eylül’ü Uluslararası Çeviri Günü ilan etti. Gün, dil uzmanlarının uluslararası diyalog ve işbirliğindeki rolünü hatırlatıyor. 2026 tartışması ise bu görevin dijital çağda veri yönetişimi, erişilebilir tasarım ve dil haklarıyla genişlediğini gösteriyor. Görsel dillerde erişimin farklı boyutu için <a href="/haber/isaret-dilleri-gunu-ulusal-isaret-dilleri-erisim">ulusal işaret dilleri haberine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNESCO’nun 30 Eylül 2026 tarihli <a href="https://www.unesco.org/en/articles/linguistic-diversity-and-language-rights-power-being-understood" target="_blank" rel="noopener noreferrer">dil çeşitliliği buluşması</a>, kurumun <a href="https://www.unesco.org/en/articles/unesco-shapes-inclusive-multilingual-and-human-centered-digital-futures-wsis-forum-2026" target="_blank" rel="noopener noreferrer">dijital çok dillilik çalışması</a> ve BM’nin <a href="https://www.un.org/en/observances/international-translation-day" target="_blank" rel="noopener noreferrer">Uluslararası Çeviri Günü sayfası</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir illüstrasyondur; gerçek kişileri veya belirli bir dil sistemini göstermemektedir.</p>
+    `,
+  }),
+  editorial({
     slug: "juice-dunya-yercekimiyle-jupiter-yolunda-hiz-kazandi",
     title: "JUICE, Dünya’nın Yerçekimiyle Jüpiter Yolunda Hız Kazandı",
     excerpt: "ESA’nın JUICE uzay aracı, Dünya’ya yakın geçişte rotasını 20 derece değiştirdi ve hızını saniyede 3,5 kilometre artırarak Jüpiter yolculuğunda kritik bir adımı tamamladı.",
