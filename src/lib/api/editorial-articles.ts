@@ -43,6 +43,96 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "kalabalik-etkinliklerde-asiri-sicak-rehberi",
+    title: "Kalabalık Etkinliklerde Aşırı Sıcağa Karşı Yeni DSÖ Rehberi Ne Öneriyor?",
+    excerpt: "DSÖ’nün yeni rehberi, spor karşılaşmaları, festivaller ve kitlesel buluşmalarda sıcak riskinin su, gölge, program ve sağlık hizmetleri birlikte planlanarak azaltılabileceğini vurguluyor.",
+    category: "Yaşam",
+    published_at: "2026-10-01T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-01/kalabalik-etkinlik-asiri-sicak.webp",
+    original_source_url: "https://www.who.int/hongkongchina/news/detail-global/30-09-2026-who-releases-new-guidance-to-prevent-heat-related-illness-at-mass-gatherings",
+    content: `
+<p>Açık hava konseri, spor karşılaşması, hac yolculuğu veya büyük bir kültür festivali; sıcak hava ile yoğun kalabalık birleştiğinde yalnız katılımcıları değil çalışanları, gönüllüleri ve yerel sağlık sistemini de zorlayabiliyor. Dünya Sağlık Örgütü’nün 30 Eylül’de yayımladığı yeni paket, sıcak riskini etkinlik planının yan başlığı değil, temel güvenlik ve operasyon konusu olarak ele alıyor.</p>
+
+<h2>Tek çözüm “daha çok su içmek” değil</h2>
+
+<p>DSÖ’nün 1980–2025 arasındaki çalışmaları inceleyen kanıt derlemesi, kitlesel etkinliklerde yaklaşık yarım milyon tıbbi başvuru ve 22 binden fazla sıcakla ilişkili hastalık kaydı saptadı. Buna karşılık iyi örgütlenmiş saha sağlık sistemi bulunan etkinliklerde hastaların yüzde 90’dan fazlası mekânda tedavi edilebildi. Bu oran, hazırlığın ambulans ve hastane yükünü de azaltabileceğine işaret ediyor.</p>
+
+<p>Rehber tek bir önleme dayanmıyor. Güvenli içme suyu ve tuvaletlere kolay erişim, gölgeli veya serinleme alanları, günün en sıcak saatlerine göre program değişikliği, kalabalık akışının düzenlenmesi, çalışanlar için dinlenme planı, açık risk iletişimi ve gerçek zamanlı sağlık izlemi birlikte ele alınıyor. Mekân tasarımı, ulaşım ve güvenlik ekipleri de sağlık planının parçası sayılıyor.</p>
+
+<p>Yaşlılar, çocuklar, hamileler, kronik hastalığı bulunanlar ve sıcak ortamda uzun süre çalışan görevliler için ek koruma gerekebiliyor. Bu grupların serin alanlara ve sağlık desteğine erişimi önceden planlanmalı.</p>
+
+<h2>Risk etkinlik başlamadan ölçülmeli</h2>
+
+<p>Yeni paket; uygulama rehberi, sistematik incelemeler, iletişim kaynakları ve ayrı bir risk değerlendirme aracı içeriyor. Değerlendirmenin yalnız hava sıcaklığına bakmaması gerekiyor. Nem, güneş altında kalma süresi, fiziksel efor, kalabalık yoğunluğu, suya erişim ve yerel sağlık kapasitesi birlikte değerlendiriliyor. Hazırlık, etkileri azaltma ve etkinlik sonrası değerlendirme aşamalarının tamamında aynı yaklaşımın sürdürülmesi öneriliyor.</p>
+
+<p>Rehber, belirli bir etkinliğin otomatik olarak güvenli olduğu anlamına gelmiyor ve ulusal kuralların yerine geçmiyor. Organizatörlerin yerel hava uyarıları, iş sağlığı yükümlülükleri ve acil durum planlarıyla birlikte kullanacağı bir çerçeve sunuyor. Dünya çapındaki daha geniş sağlık hazırlığı yaklaşımı için <a href="/haber/dunya-yeni-pandemilere-hazirlik-taahhudunu-yeniledi">küresel pandemi hazırlığı taahhüdü</a> de incelenebilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ’nün 30 Eylül 2026 tarihli <a href="https://www.who.int/hongkongchina/news/detail-global/30-09-2026-who-releases-new-guidance-to-prevent-heat-related-illness-at-mass-gatherings" target="_blank" rel="noopener noreferrer">haber duyurusu</a> ile kurumun 120 sayfalık <a href="https://www.who.int/publications/i/item/9789240124332" target="_blank" rel="noopener noreferrer">uygulama rehberi</a> karşılaştırılarak derlenmiştir. Bu yazı tıbbi tavsiye değildir. Kapak temsili bir editoryal görseldir; gerçek bir etkinliği göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "roman-ilk-koronagraf-isigi-ve-hassas-yonelim",
+    title: "Roman Uzay Teleskobu İlk Koronagraf Işığını Aldı: Test Ne Kanıtladı?",
+    excerpt: "NASA’nın Roman teleskobu hassas yönelim testlerini geçti; koronagrafı da ilk kez kozmik ışık alarak odaklanmış görüntü üretebildiğini gösterdi.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-01T09:04:00+03:00",
+    cover_image: "/editorial/2026-10-01/roman-koronagraf-ilk-isik.webp",
+    original_source_url: "https://science.nasa.gov/blogs/roman/2026/09/30/nasa-checks-roman-guidance-system-takes-first-coronagraph-observation/",
+    content: `
+<p>NASA’nın Nancy Grace Roman Uzay Teleskobu, bilim gözlemlerine hazırlanırken iki önemli devreye alma adımını tamamladı. Teleskobun hassas yönelim sistemi 15–21 Eylül arasında yapılan testleri geçti; Koronagraf Aygıtı ise 22 Eylül’de ilk kez uzaydan gelen ışığı aldı. Sonuç, sistemlerin çalıştığını gösteren erken bir mühendislik kilometre taşı olsa da henüz yeni bir ötegezegen keşfi anlamına gelmiyor.</p>
+
+<h2>Teleskop hedefte nasıl sabit kalıyor?</h2>
+
+<p>Roman’ın ana kamerası Geniş Alan Aygıtı’ndaki 18 dedektörün küçük bir bölümü, konumu iyi bilinen ayrı kılavuz yıldızları hızla izlemek için kullanılıyor. Yönelim kontrol sistemi teleskobu hedefe çevirdikten sonra hassas kılavuz sistemi yıldızların konumunu saniyede yaklaşık dört kez bildiriyor. Uzay aracı da olası kaymayı çok küçük hareketlerle düzeltiyor.</p>
+
+<p>NASA’ya göre testler, teleskobun Geniş Alan Aygıtı gözlemlerinde yarım saat; daha uzun süren koronagraf gözlemlerinde sekiz saat boyunca derecenin yüz binde birinden daha iyi kararlılıkla hedefte kalabildiğini gösterdi. Bu hassasiyet, dakikalar veya saatler boyunca toplanan ışığın bulanıklaşmaması için gerekli.</p>
+
+<h2>İlk koronagraf görüntüsü ne anlattı?</h2>
+
+<p>İlk adımda aygıt, Büyük Macellan Bulutu’ndaki sönük bir yıldızı görüntüledi. Dedektörler kirleticilerin yüzeye yapışmasını önlemek için nihai çalışma sıcaklığından daha sıcak tutulduğundan görüntüde beklenen gürültü vardı. Daha sonra dedektörler soğutuldu ve ekip, gökyüzünün seçilen başka bir bölümünde beklediği çok sayıda yıldızı gördü. NASA bu aşamayı, ışığın sistemden geçtiğini ve aygıtın odaklanmış görüntü üretebildiğini doğrulayan sınırlı test olarak tanımlıyor.</p>
+
+<p>Koronagrafın asıl amacı, parlak yıldız ışığını maskeler ve biçimi değiştirilebilen aynalarla bastırarak yanındaki çok daha sönük gezegenleri ve toz disklerini doğrudan görüntülemeyi denemek. Bunun için giderek karmaşıklaşan kalibrasyonlar tamamlanacak. Evreni farklı dalga boylarında inceleyecek başka bir görev için <a href="/haber/prima-uzay-teleskobu-evrenin-soguk-yuzunu-arayacak">PRIMA uzay teleskobu haberine</a> de bakılabilir.</p>
+
+<p>Önümüzdeki testler, yıldız ışığını bastıran optik bileşenlerin uzay ortamında birlikte ne kadar kararlı çalıştığını sınayacak. Bilimsel performans ancak bu kalibrasyonların ardından değerlendirilebilecek.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA’nın 30 Eylül 2026 tarihli <a href="https://science.nasa.gov/blogs/roman/2026/09/30/nasa-checks-roman-guidance-system-takes-first-coronagraph-observation/" target="_blank" rel="noopener noreferrer">devreye alma güncellemesi</a> ve kurumun <a href="https://science.nasa.gov/mission/roman-space-telescope/coronagraph/" target="_blank" rel="noopener noreferrer">Roman Koronagrafı tanıtımı</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek teleskop fotoğrafı veya bilimsel görüntü değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "kirsal-okullarda-yapay-zeka-ogretmen-yetkinligi",
+    title: "Kırsal Okullarda Yapay Zekâ: Donanımdan Önce Öğretmen Yetkinliği",
+    excerpt: "UNESCO’nun Çin ve Güneydoğu Asya’dan eğitimcileri buluşturan programı, kırsal okullarda yapay zekâ ve STEM dönüşümünün öğretmen eğitimiyle birlikte ilerlemesi gerektiğini vurguluyor.",
+    category: "Teknoloji",
+    published_at: "2026-10-01T09:03:00+03:00",
+    cover_image: "/editorial/2026-10-01/kirsal-okul-ai-ogretmen.webp",
+    original_source_url: "https://www.unesco.org/en/articles/china-southeast-asia-programme-strengthens-teacher-capacity-ai-and-stem-education-rural-communities",
+    content: `
+<p>Kırsal bir okula bilgisayar veya yapay zekâ aracı götürmek, tek başına eğitimde dijital dönüşüm sağlamıyor. UNESCO’nun 30 Eylül’de duyurduğu Çin–Güneydoğu Asya kapasite programı, altyapı yatırımı ile öğretmenlerin teknoloji, etik ve pedagojik kullanım becerilerinin birlikte geliştirilmesi gerektiğini öne çıkarıyor.</p>
+
+<p>17–23 Ağustos’ta Pekin’de düzenlenen programa Çin ve Güneydoğu Asya’dan 100’den fazla eğitim politikacısı, okul yöneticisi, öğretmen ve uzman katıldı. Çalışmalar; yapay zekâ okuryazarlığı, STEM eğitimi, dijital eşitlik ve kırsal ya da yeterince hizmet alamayan topluluklarda teknolojinin kullanımı üzerine deneyim paylaşımına odaklandı. Katılımcılar okulları, eğitim kurumlarını ve teknoloji paydaşlarını da ziyaret etti.</p>
+
+<h2>Öğretmenin rolü neden merkezde?</h2>
+
+<p>Bir aracın sınıfta bulunması, öğrencinin ne öğrendiğini veya bilginin güvenilir biçimde kullanıldığını garanti etmiyor. Öğretmen; aracın ders hedefiyle ilişkisini kuruyor, hatalı çıktıları sorgulatıyor, öğrencilerin kişisel verilerini koruyor ve erişim farklılıklarının yeni bir eşitsizliğe dönüşmesini önlemeye çalışıyor. Programın ortak mesajı da teknolojinin eğitime katkı sağlayabileceği, ancak anlamlı ve kapsayıcı öğrenmeyi öğretmenin mümkün kıldığı yönünde.</p>
+
+<h2>Yapay zekâ yetkinliği hangi becerileri içeriyor?</h2>
+
+<p>UNESCO’nun öğretmenler için yapay zekâ yetkinlik çerçevesi 15 beceriyi beş alanda topluyor: insan merkezli yaklaşım, yapay zekâ etiği, temel bilgiler ve uygulamalar, yapay zekâ pedagojisi ve mesleki öğrenme. “Edinme, derinleştirme ve üretme” aşamaları, tek seferlik bir araç tanıtımı yerine sürekli mesleki gelişim öngörüyor.</p>
+
+<p>Programın düzenlenmiş olması, katılımcı ülkelerde kırsal okulların altyapı veya öğretmen açığının çözüldüğünü kanıtlamıyor. Sınıf sonuçlarını değerlendirmek için eğitimin yerel müfredata nasıl aktarıldığı, öğretmenlere uzun vadeli destek verilip verilmediği ve öğrenciler arasındaki erişim farklarının ölçülmesi gerekiyor. Yapay zekânın bilgi üretimindeki daha geniş etkisi için <a href="/haber/yapay-zeka-bilim-kulturunun-yerini-alabilir-mi">bilim kültürü ve yapay zekâ haberine</a> de göz atılabilir.</p>
+
+<p>İnternet bağlantısı, cihaz bakımı, yerel dilde içerik ve teknik destek sürekliliği de öğretmenin öğrendiğini sınıfta uygulayabilmesini doğrudan etkiliyor. Bu nedenle başarı yalnız dağıtılan cihaz sayısıyla ölçülemez.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNESCO’nun 30 Eylül 2026 tarihli <a href="https://www.unesco.org/en/articles/china-southeast-asia-programme-strengthens-teacher-capacity-ai-and-stem-education-rural-communities" target="_blank" rel="noopener noreferrer">program duyurusu</a> ve kurumun <a href="https://www.unesco.org/en/articles/ai-competency-framework-teachers" target="_blank" rel="noopener noreferrer">öğretmenler için yapay zekâ yetkinlik çerçevesi</a> temel alınarak derlenmiştir. Kapak temsili bir editoryal görseldir; gerçek bir okul veya program katılımcısını göstermemektedir.</p>
+    `,
+  }),
+  editorial({
     slug: "montana-yangin-bulutunda-nadir-pileus-gozlemi",
     title: "Montana’daki Yangın Bulutunun Üzerinde Nadir Bir “Şapka” Görüldü",
     excerpt: "NASA’nın araştırma uçağı, Sand Creek yangınının oluşturduğu pirokümülüsün üzerinde yalnızca birkaç dakika yaşayan pileus bulutunu 50 tayfsal bantta görüntüledi.",
