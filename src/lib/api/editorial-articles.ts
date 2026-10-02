@@ -43,6 +43,90 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "webb-gezegen-carpismalarinin-toz-izlerini-okudu",
+    title: "Webb, Gezegen Çarpışmalarının Toz İzlerini Nasıl Okudu?",
+    excerpt: "James Webb Uzay Teleskobu, 21 aşırı enkaz diskindeki mineralleri inceleyerek Mars ve Ay büyüklüğündeki cisimlerin çarpışmalarını birbirinden ayıran izler buldu.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-02T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-02/webb-gezegen-carpismalari.webp",
+    original_source_url: "https://science.nasa.gov/missions/webb/nasas-webb-provides-crash-course-on-planet-shattering-collisions/",
+    content: `
+<p>Genç yıldızların çevresindeki sıcak toz halkaları, gözle görülmeyen gezegen oluşum süreçlerinin enkazını taşıyor. NASA’nın 1 Ekim’de duyurduğu çalışmada James Webb Uzay Teleskobu ve arşivdeki Spitzer verileri kullanılarak 21 “aşırı enkaz diski” incelendi. Bulgular, tozun mineral bileşiminin çarpışmanın ölçeği hakkında ipucu verebildiğini gösteriyor; ancak araştırmacılar uzaktaki tek tek gezegenleri doğrudan görüntülemedi.</p>
+
+<h2>Aşırı enkaz diski ne anlatıyor?</h2>
+
+<p>Bir yıldız sistemi gençken gaz ve tozla dolu gezegen oluşum diskiyle çevrili oluyor. Gaz azaldıkça geride çarpışan küçük cisimlerin ürettiği daha seyrek enkaz kalıyor. Aşırı enkaz diskleri ise kayalık gezegenlerin bulunduğu bölgelere benzer uzaklıklarda alışılmadık miktarda sıcak toz içeriyor. NASA’ya göre eldeki gözlemler, genç yıldızların yaklaşık yüzde 1’inde bu evrenin görünür izlerine rastlandığını düşündürüyor.</p>
+
+<p>Ekip, Webb’in orta kızılötesi tayflarıyla toz tanelerinin boyutunu ve mineral yapısını karşılaştırdı. Orta kızılötesi gözlemler, görünür ışıkta seçilemeyen mineral izlerini ayırarak doğrudan görüntülenemeyecek kadar küçük gezegen embriyolarının geçmişini dolaylı biçimde okumaya imkân veriyor. Örneklemin yaklaşık üçte biri silika bakımından zengindi. Araştırmacılar bunu, Mars büyüklüğündeki cisimlerin yüksek enerjili çarpışmalarında kayanın önemli bölümünün buharlaşmasıyla ilişkilendiriyor. Silikası daha düşük diskler ise Ay büyüklüğündeki cisimlerin daha düşük enerjili veya sıyıran çarpışmalarından doğmuş olabilir.</p>
+
+<h2>Bizim Güneş Sistemimizle bağlantı nerede?</h2>
+
+<p>Silika zengini disklerin 300 milyon yıldan genç yıldızlarda görülmesi, kayalık gezegenlerin ilk birkaç yüz milyon yılda şekillenebileceğini öngören modellerle uyumlu. Dünya ile Mars büyüklüğündeki varsayımsal Theia’nın çarpışmasının Ay’ı oluşturduğu düşüncesi de benzer bir döneme yerleşiyor. Bu benzerlik, incelenen sistemlerin Güneş Sistemimizin geçmişine bire bir kopya olduğu anlamına gelmiyor.</p>
+
+<p>Örneklem sınırlı: yaşlı yıldız ölçütlerine uyan yalnız üç disk bulunuyor. Bu nedenle silika ile yaş arasındaki bağın yeni gözlemlerle sınanması gerekiyor. Roman teleskobunun başka bir doğrudan görüntüleme adımı için <a href="/haber/roman-ilk-koronagraf-isigi-ve-hassas-yonelim">ilk koronagraf ışığı haberine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA’nın 1 Ekim 2026 tarihli <a href="https://science.nasa.gov/missions/webb/nasas-webb-provides-crash-course-on-planet-shattering-collisions/" target="_blank" rel="noopener noreferrer">Webb bilim duyurusu</a> ile <a href="https://doi.org/10.3847/1538-4357/ae88fe" target="_blank" rel="noopener noreferrer">The Astrophysical Journal makalesi</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek bir çarpışma veya teleskop fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "earthcare-volkanik-kulu-ucus-guvenligi-icin-izledi",
+    title: "EarthCARE, Volkanik Külün Uçuş Seviyesindeki Katmanlarını Ölçtü",
+    excerpt: "ESA’nın EarthCARE uydusu, Anak Krakatau püskürmesindeki kül, sülfat ve bulut katmanlarını dikey olarak ayırarak havacılık tahminlerinin doğrulanmasına katkı sağladı.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-02T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-02/earthcare-volkanik-kul.webp",
+    original_source_url: "https://www.esa.int/Applications/Observing_the_Earth/FutureEO/EarthCARE/EarthCARE_s_view_of_volcanic_plume_boosts_air_safety",
+    content: `
+<p>Volkanik bir bulutun uydu görüntüsünde nerede olduğu kadar, hangi yükseklikte bulunduğu da uçuş güvenliği için önemli. Avrupa Uzay Ajansı’nın 1 Ekim tarihli açıklamasına göre EarthCARE uydusu, eylülde faaliyeti artan Endonezya’daki Anak Krakatau’nun bulutunu dikey katmanlarıyla ölçtü. Veriler, Darwin Volkanik Kül Danışma Merkezi’nin üst atmosferde batıya ilerleyen bileşenin yüksekliğini sınamasına yardımcı oldu.</p>
+
+<h2>Lidar ve radar aynı buluta farklı bakıyor</h2>
+
+<p>EarthCARE dört aygıt taşıyor. ATLID adlı atmosferik lidar, morötesi lazer darbelerinin parçacıklardan geri saçılmasını ölçerek aerosol katmanlarının yüksekliği ve yoğunluğu hakkında profil çıkarıyor. Bulut profilleme radarı ise daha uzun dalga boyu nedeniyle daha büyük parçacıklara duyarlı. Çok tayflı görüntüleyici ve geniş bant radyometre de bulutların, aerosollerin ve Dünya’nın enerji dengesinin birlikte incelenmesini sağlıyor.</p>
+
+<p>5 Eylül tarihli geçişte araçlar; ince ve kalın sülfat katmanları, ince kül ve daha iri kül olabileceği düşünülen ayrı bir yapı saptadı. Dikey profil, yalnız üstten çekilmiş bir görüntünün ayıramadığı katmanların yolcu uçaklarının kullandığı irtifalarla nerede kesiştiğini görmeyi kolaylaştırıyor. Radar, kaynaktan yaklaşık 200 kilometre uzakta yüzeyden 6 kilometre yüksekliğe kadar uzanan büyük parçacık işareti gördü. Araştırmacılar bunun iri kül kümeleri olduğu yorumunun henüz doğrulanması gerektiğini özellikle belirtiyor.</p>
+
+<h2>Uçuş tahminine katkısı ne oldu?</h2>
+
+<p>Volkanik kül motorlara zarar verebilir, kokpit camını aşındırarak görüşü azaltabilir; kükürt dioksit gibi gazlar da kabin havası açısından risk oluşturabilir. Bu nedenle dünyadaki dokuz Volkanik Kül Danışma Merkezi, uçuş ekiplerine bölgesel uyarılar hazırlıyor. EarthCARE’nin lidar verisi, bulutun yaklaşık 15 kilometredeki üst bileşeninin tahmin edilen yönde ilerlediğini doğrulamaya destek verdi.</p>
+
+<p>Tek bir uydu geçişi bulutun bütün zaman içindeki davranışını göstermiyor ve güvenli rota kararının tek kaynağı değil. Meteorolojik modeller, başka uydular ve saha gözlemleri birlikte kullanılıyor. Farklı bir volkanı radar görüntüleriyle izleyen çalışma için <a href="/haber/nisar-kamcatka-volkanini-uzaydan-adim-adim-izledi">NISAR’ın Kamçatka gözlemine</a> de göz atılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler ESA’nın 1 Ekim 2026 tarihli <a href="https://www.esa.int/Applications/Observing_the_Earth/FutureEO/EarthCARE/EarthCARE_s_view_of_volcanic_plume_boosts_air_safety" target="_blank" rel="noopener noreferrer">volkanik bulut incelemesi</a> ve kurumun <a href="https://www.esa.int/Applications/Observing_the_Earth/FutureEO/EarthCARE" target="_blank" rel="noopener noreferrer">EarthCARE görev sayfası</a> temel alınarak derlenmiştir. Kapak temsili bir editoryal görseldir; gerçek Anak Krakatau görüntüsü veya uçuş rotası değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "saglikli-yaslanma-raporu-bakim-ve-veri-acigi",
+    title: "Sağlıklı Yaşlanmada İlerleme Var; Bakım, Finansman ve Veri Açığı Sürüyor",
+    excerpt: "BM Sağlıklı Yaşlanma On Yılı ara raporu, yaş ayrımcılığı yasaları ve uzun süreli bakım politikalarında ilerleme saptarken finansman ve izleme açıklarına dikkat çekiyor.",
+    category: "Yaşam",
+    published_at: "2026-10-02T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-02/saglikli-yaslanma-raporu.webp",
+    original_source_url: "https://www.who.int/philippines/news/detail-global/01-10-2026-un-decade-of-healthy-ageing-midpoint-report-finds-progress--calls-for-greater-investment",
+    content: `
+<p>Dünya Sağlık Örgütü’nün koordinasyonuyla hazırlanan BM Sağlıklı Yaşlanma On Yılı ara raporu, ülkelerin yaş ayrımcılığı, uzun süreli bakım ve yaş dostu çevrelerde ilerlediğini; buna karşılık kaynak ve veri açıklarının 2030 hedeflerini yavaşlattığını gösteriyor. Rapor 28 Eylül’de BM Genel Kuruluna iletildi, DSÖ ise temel bulguları 1 Ekim’de yayımladı.</p>
+
+<h2>Hangi alanlarda ilerleme ölçüldü?</h2>
+
+<p>Yaşa dayalı ayrımcılığa karşı mevzuatı bulunan ülkelerin oranı 2018’de yüzde 44,5 iken son değerlendirmede yüzde 57,7’ye çıktı. Ulusal uzun süreli bakım politikası bildirenlerin oranı da 2023’teki yüzde 49’dan yüzde 56,7’ye yükseldi. Ülkelerin yüzde 54,6’sı yaş dostu çevre programları ve aynı oranda ülke yaşlılara yönelik kapsamlı sağlık ve sosyal değerlendirmeler bildirdi.</p>
+
+<p>Bu göstergeler, bir yasanın veya politikanın her bölgede aynı kalitede uygulandığını kanıtlamıyor. Rapora göre yaşlanma konusunda aktif çok paydaşlı platform bildiren ülkelerin oranı 2020’de yüzde 53,1 iken yüzde 43,3’e geriledi. Üçte birden fazla ülke, uzun süreli bakım geliştirmek için çok az ya da hiç özel kaynak ayırmadığını belirtti.</p>
+
+<h2>Veri açığı neden günlük hayatı etkiliyor?</h2>
+
+<p>Ülkelerin yalnız yüzde 22,7’si yaşlıların sağlık durumunu zaman içinde izleyebiliyor. İşitme cihazı, gözlük veya yürüteç gibi yardımcı ürünlere erişimi güvence altına alan mevzuatın bulunduğu ülkelerin oranı ise yüzde 45,4. Sağlık, gelir, barınma ve bakım ihtiyacı düzenli ölçülmediğinde aynı yaştaki herkesin aynı gereksinime sahip olduğu varsayımıyla plan yapılabiliyor.</p>
+
+<p>Dünya genelinde 60 yaş ve üzerindeki nüfus 2020’de 1 milyarı geçti; 2050’de 2,1 milyara ulaşması bekleniyor. Daha uzun yaşam, tek başına sağlıklı ve bağımsız geçirilen yılların arttığı anlamına gelmiyor. Bu nedenle rapor, hizmetlerin yaşlıların kendi deneyimleriyle birlikte tasarlanmasını, ulusal bütçe ve izleme sistemlerinin güçlendirilmesini istiyor. Entegre sağlık hizmetlerinin başka bir örneği için <a href="/haber/tuberkuloz-ve-hiv-bakiminda-entegre-model-cagrisi">tüberküloz ve HIV bakım modeli haberine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ’nün 1 Ekim 2026 tarihli <a href="https://www.who.int/philippines/news/detail-global/01-10-2026-un-decade-of-healthy-ageing-midpoint-report-finds-progress--calls-for-greater-investment" target="_blank" rel="noopener noreferrer">ara rapor özeti</a> ve kurumun <a href="https://www.who.int/initiatives/decade-of-healthy-ageing" target="_blank" rel="noopener noreferrer">Sağlıklı Yaşlanma On Yılı sayfası</a> temel alınarak derlenmiştir. Bu yazı tıbbi tavsiye değildir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek rapor katılımcılarını göstermemektedir.</p>
+    `,
+  }),
+  editorial({
     slug: "kalabalik-etkinliklerde-asiri-sicak-rehberi",
     title: "Kalabalık Etkinliklerde Aşırı Sıcağa Karşı Yeni DSÖ Rehberi Ne Öneriyor?",
     excerpt: "DSÖ’nün yeni rehberi, spor karşılaşmaları, festivaller ve kitlesel buluşmalarda sıcak riskinin su, gölge, program ve sağlık hizmetleri birlikte planlanarak azaltılabileceğini vurguluyor.",
