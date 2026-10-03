@@ -43,6 +43,90 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "dso-kuresel-saglik-tahminleri-2023",
+    title: "DSÖ Verileri: Dünya Daha Uzun Yaşıyor, Sağlıklı Yıllar Aynı Hızda Artmıyor",
+    excerpt: "DSÖ’nün 2000–2023 dönemini kapsayan yeni tahminleri, yaşam beklentisinin pandemi öncesine yaklaştığını; kronik hastalıklar ve ruh sağlığı yükünün büyüdüğünü gösteriyor.",
+    category: "Yaşam",
+    published_at: "2026-10-03T11:08:00+03:00",
+    cover_image: "/editorial/2026-10-03/dso-kuresel-saglik-tahminleri.webp",
+    original_source_url: "https://www.who.int/naoero/news/detail-global/02-10-2026-new-who-estimates-show-changing-global-health-landscape",
+    content: `
+<p>Dünya Sağlık Örgütü’nün 2 Ekim’de yayımladığı Küresel Sağlık Tahminleri, yaşam süresinin COVID-19 dönemindeki düşüşten sonra toparlandığını, ancak sağlıklı geçirilen yılların aynı hızda geri dönmediğini gösteriyor. 2000–2023 dönemini kapsayan veri seti; ölüm nedenlerini, hastalık yükünü ve yaşam beklentisini ülke, bölge, yaş ve cinsiyet kırılımlarında karşılaştırıyor.</p>
+
+<h2>Yaşam beklentisi toparlandı, sağlıklı süre geride kaldı</h2>
+
+<p>Küresel yaşam beklentisi 2023’te 73,3 yıla ulaştı; bu değer 2019’daki 73,4 yıla çok yakın. Sağlıklı yaşam beklentisi ise 62,8 yılda kaldı ve pandemi öncesi düzeyin 0,4 yıl altında ölçüldü. İki gösterge arasındaki fark, yalnız ne kadar yaşandığını değil, bu sürenin ne kadarının hastalık veya engellilikle geçirildiğini de izlemek gerektiğini ortaya koyuyor. Bölgesel ve gelir düzeyine göre ayrılmış sonuçlar, küresel ortalamanın gerisindeki eşitsizlikleri de görünür kılıyor.</p>
+
+<p>Bulaşıcı olmayan hastalıklar 2023’te dünya genelindeki ölümlerin yüzde 74’ünü oluşturdu; 2000’de bu oran yüzde 58’di. En sık on ölüm nedeninin sekizi bu grupta yer aldı. İskemik kalp hastalığı yaklaşık 9,5 milyon ölüm ve 210 milyon sağlıklı yaşam yılı kaybıyla başlıca yük olmaya devam etti.</p>
+
+<h2>Diyabet, demans ve ruh sağlığı verileri ne söylüyor?</h2>
+
+<p>Diyabete bağlı ölüm riski özellikle Güneydoğu Asya’da yükseldi. Alzheimer hastalığı ve diğer demanslar 2000’de 19’uncu sıradayken 2023’te küresel ölüm nedenleri arasında beşinci sıraya çıktı; demansa bağlı ölümler bu dönemde üç katına ulaştı. 2019–2023 arasında yaşa göre standartlaştırılmış sağlıklı yaşam yılı kaybı oranı depresyonda yaklaşık yüzde 20, kaygı bozukluklarında ise yaklaşık yüzde 45 arttı.</p>
+
+<p>Bunlar doğrudan sayımlardan ibaret değil; ulusal ölüm kayıtları, DSÖ programları, BM ortakları ve bilimsel çalışmalardan üretilen karşılaştırılabilir tahminler. Bu nedenle ülke verilerinin kalitesi ve belirsizlik aralıkları sonuçları yorumlarken önem taşıyor. Yaşlanan nüfusa yönelik politika görünümü için <a href="/haber/saglikli-yaslanma-raporu-bakim-ve-veri-acigi">Sağlıklı Yaşlanma On Yılı ara raporuna</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ’nün 2 Ekim 2026 tarihli <a href="https://www.who.int/naoero/news/detail-global/02-10-2026-new-who-estimates-show-changing-global-health-landscape" target="_blank" rel="noopener noreferrer">küresel sağlık güncellemesi</a> ile kurumun <a href="https://www.who.int/data/global-health-estimates" target="_blank" rel="noopener noreferrer">Küresel Sağlık Tahminleri veri ve yöntem sayfası</a> karşılaştırılarak derlenmiştir. Bu yazı tıbbi tavsiye değildir. Kapak temsili bir editoryal görseldir; gerçek hasta veya veri ekranı göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "jammertest-gps-spoofing-ve-sinyal-dogrulama",
+    title: "GPS Noktası Neden Yanlış Yere Sıçrayabilir? Jammertest Ne Gösterdi?",
+    excerpt: "Norveç’teki Jammertest, uydu navigasyon alıcılarını kontrollü karıştırma ve sahte sinyallerle sınadı; Galileo’nun yeni doğrulama hizmeti gerçek koşullarda denendi.",
+    category: "Teknoloji",
+    published_at: "2026-10-03T11:07:00+03:00",
+    cover_image: "/editorial/2026-10-03/jammertest-uydu-navigasyonu.webp",
+    original_source_url: "https://www.esa.int/Applications/Satellite_navigation/Jammertest_pumps_up_the_jam_in_Norway",
+    content: `
+<p>Telefondaki mavi nokta kaybolduğunda sorun her zaman harita uygulamasında olmayabilir. Norveç’in Andøya adasında yapılan Jammertest, uydu navigasyon alıcılarını kontrollü karıştırma ve sahte sinyal senaryolarına sokarak hangi sistemlerin konumunu koruyabildiğini sınadı. ESA’nın 2 Ekim’de yayımladığı değerlendirme, günlük cihazlardan kritik altyapıya kadar geniş bir alanda aynı temel riskin bulunduğunu gösteriyor.</p>
+
+<h2>Karıştırma ile sahte konum aynı şey değil</h2>
+
+<p>“Jamming” güçlü bir yayınla gerçek uydu sinyalini bastırıyor; alıcı konum hesaplayamadığı için nokta kaybolabiliyor. “Spoofing” ise alıcıya sahte sinyal vererek var görünen konumu yanlış yere taşıyor. “Meaconing” adı verilen yöntemde gerçek uydu sinyali yakalanıp başka yerde yeniden yayımlanıyor; cihazın saat veya konum hesabı böylece sapabiliyor.</p>
+
+<p>Bu etkiler yalnız rota tarifini bozmuyor. Uydu navigasyonu havacılıkta, elektrik şebekelerinde, finansal zaman damgalarında ve acil yardım hizmetlerinde konumla birlikte hassas zaman bilgisi sağlıyor. Bu nedenle testte basit telefon ve spor saatlerinin yanı sıra özel antenler, izleme istasyonları, telekom altyapısı ve yeni uydu sinyalleri değerlendirildi. Kontrollü saha, geliştiricilerin laboratuvarda üretmesi zor olan farklı sinyal güçlerini, hareketli hedefleri ve değişen arazi koşullarını aynı hafta içinde karşılaştırmasına olanak sağladı.</p>
+
+<h2>Galileo’nun yeni hizmeti neyi sınadı?</h2>
+
+<p>16 Eylül’de beş Galileo uydusu iki saat boyunca yeni şifreli test sinyali yayımladı. Andøya’daki ve Hollanda’daki ESA laboratuvarındaki alıcılar, parazitli koşullarda bu sinyallerle konum hesapladı. ESA bunu yaklaşan Signal Authentication Service’in gerçek ortamda kurduğu ilk sivil doğrulanmış konum olarak tanımlıyor. Hizmet, mevcut navigasyon mesajı doğrulamasıyla birlikte alıcının sinyalin kaynağını kontrol etmesine yardım etmeyi amaçlıyor.</p>
+
+<p>Bir saha başarısı, bütün cihazların her saldırıya karşı hazır olduğu anlamına gelmiyor. ESA onlarca terabayt verinin hâlâ işleneceğini ve farklı alıcıların sonuçlarının programlara aktarılacağını belirtiyor. Uydu verisinin güvenlikte başka bir kullanımı için <a href="/haber/earthcare-volkanik-kulu-ucus-guvenligi-icin-izledi">EarthCARE’nin uçuş güvenliği gözlemine</a> de göz atılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler ESA’nın 2 Ekim 2026 tarihli <a href="https://www.esa.int/Applications/Satellite_navigation/Jammertest_pumps_up_the_jam_in_Norway" target="_blank" rel="noopener noreferrer">Jammertest değerlendirmesi</a> ve 17 Eylül tarihli <a href="https://www.esa.int/Applications/Satellite_navigation/Galileo/Galileo_s_first_civil_authenticated_position_fix_under_spoofing_conditions" target="_blank" rel="noopener noreferrer">Galileo sinyal doğrulama açıklaması</a> temel alınarak derlenmiştir. Kapak temsili bir editoryal görseldir; gerçek test sahası veya sinyal haritası değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "davinci-venus-sicaklik-testi",
+    title: "DAVINCI, Venüs Sıcaklığına Karşı Altı Tur Testi Geçti",
+    excerpt: "NASA’nın DAVINCI iniş sondasının mühendislik modeli, yaklaşık 465 dereceye çıkan altı ısı döngüsünde iç donanımı koruyabildiğini gösterdi.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-03T11:06:00+03:00",
+    cover_image: "/editorial/2026-10-03/davinci-venus-isi-testi.webp",
+    original_source_url: "https://www.nasa.gov/image-article/nasas-davinci-probe-can-stand-the-heat/",
+    content: `
+<p>NASA’nın DAVINCI görevi için geliştirilen iniş sondasının mühendislik modeli, Venüs yüzeyine yaklaşırken karşılaşacağı hızlı ısınmayı taklit eden testlerden geçti. NASA 2 Ekim’de sonucu yeniden öne çıkardı; deneylerin kendisi 28 Ağustos–10 Eylül arasında yapıldı. Bu tarih ayrımı önemli: yeni duyuru, yeni bir Venüs inişi veya yüzey ölçümü anlamına gelmiyor.</p>
+
+<h2>Fırın testi nasıl kuruldu?</h2>
+
+<p>Yaklaşık bir pilates topu büyüklüğündeki model, seramik kaplı bir test odasına yerleştirildi. Sıcaklık yaklaşık bir saat içinde 465 santigrat dereceye çıkarıldı; bu hız, sondanın Venüs atmosferinden yüzeye doğru 55–60 dakikalık inişinde beklenen ısınmayı taklit etti. Ekip aynı döngüyü toplam altı kez tekrarladı.</p>
+
+<p>Modelin içine gerçek bilim araçları yerine onları temsil eden donanım yerleştirildi ve 100’den fazla termal sensörle izlendi. Her döngüde dış kabuk çok yüksek sıcaklığa maruz kalırken iç bölümün hassas sistemleri koruyup koruyamadığı ölçüldü. NASA, modelin altı çevrimi de hasarsız tamamladığını belirtiyor. Deney, yalnız dış kabuğun ayakta kalmasını değil; bağlantı noktaları, yalıtım ve iç sıcaklık dağılımının iniş süresince birlikte çalışmasını sınadı. Bu ölçümler, uçuş tasarımındaki güvenlik paylarının gözden geçirilmesine de veri sağlayacak.</p>
+
+<h2>Sonda Venüs’te neyi araştıracak?</h2>
+
+<p>DAVINCI’nin titanyum gövdesi hem güçlü ve hafif olmalı hem de aşındırıcı atmosfer koşullarına dayanmalı. Özel giriş portları, sıcak gazların ölçüm aygıtlarına kontrollü biçimde ulaşmasını sağlayacak. Araç atmosferdeki asal gazları ve başka molekülleri inceleyerek Venüs’ün kökeni, evrimi ve geçmişte su barındırıp barındırmadığı sorularına veri toplayacak.</p>
+
+<p>Kameralar iniş sırasında yüzeyin yüksek çözünürlüklü görüntülerini elde etmeyi, radyo sistemi ise verileri yaklaşık 9 bin kilometre yukarıdaki taşıyıcı uzay aracına göndermeyi hedefliyor. Isı testi önemli bir mühendislik doğrulaması olsa da uçuş donanımının tamamlandığı veya görevin nihai onayı aldığı anlamına gelmiyor. Başka bir gezegen sistemi çalışması için <a href="/haber/webb-gezegen-carpismalarinin-toz-izlerini-okudu">Webb’in gezegen çarpışmaları araştırmasına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA’nın 2 Ekim 2026 tarihli <a href="https://www.nasa.gov/image-article/nasas-davinci-probe-can-stand-the-heat/" target="_blank" rel="noopener noreferrer">güncel görsel duyurusu</a> ile 24 Eylül tarihli <a href="https://science.nasa.gov/blogs/davinci/2026/09/24/nasas-davinci-beats-heat-in-preparation-for-blistering-venus-descent/" target="_blank" rel="noopener noreferrer">ayrıntılı test raporu</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek test fotoğrafı veya Venüs görüntüsü değildir.</p>
+    `,
+  }),
+  editorial({
     slug: "webb-gezegen-carpismalarinin-toz-izlerini-okudu",
     title: "Webb, Gezegen Çarpışmalarının Toz İzlerini Nasıl Okudu?",
     excerpt: "James Webb Uzay Teleskobu, 21 aşırı enkaz diskindeki mineralleri inceleyerek Mars ve Ay büyüklüğündeki cisimlerin çarpışmalarını birbirinden ayıran izler buldu.",
