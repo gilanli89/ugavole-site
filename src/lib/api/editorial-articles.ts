@@ -43,6 +43,90 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "saturn-karsi-konum-4-ekim-2026-gozlem-rehberi",
+    title: "Satürn Karşı Konumda: 4 Ekim Gecesi Nasıl İzlenir?",
+    excerpt: "Satürn 4 Ekim'de karşı konuma geliyor; gün batımına yakın doğup gecenin büyük bölümünde gökyüzünde kalacağı için yılın en elverişli gözlem dönemlerinden biri başlıyor.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-04T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-04/saturn-karsi-konum.webp",
+    original_source_url: "https://www.jpl.nasa.gov/videos/whats-up-october-2026-skywatching-tips-from-nasa/",
+    content: `
+<p>Satürn, 4 Ekim 2026'da “karşı konum”a geliyor. Bu ifade gezegenin Dünya'dan bakıldığında Güneş'in karşı tarafında görünmesini anlatıyor: Dünya, Güneş ile Satürn'ün arasından geçiyor. NASA'nın Jet Propulsion Laboratory birimi, bu hizalanma sayesinde halkalı gezegenin gün batımına yakın doğacağını ve gecenin büyük bölümünde gökyüzünde kalacağını belirtiyor.</p>
+
+<h2>Gözlem için ne yapmak gerekiyor?</h2>
+
+<p>Satürn çıplak gözle parlak, sarımsı bir nokta gibi seçilebilir; halkaları görmek içinse sabitlenmiş küçük bir teleskop gerekir. Karanlık bir yerde gözlerin çevreye alışması için en az 20 dakika beklemek, telefon ekranının parlaklığını azaltmak ve açık bir ufuk seçmek gözlemi kolaylaştırır. Dürbün gezegeni bulmaya yardımcı olabilir, ancak halkaları belirgin biçimde ayırmak için genellikle yeterli büyütme sağlamaz.</p>
+
+<p>“Karşı konum” tek gecelik dar bir pencere değildir. Bulut, ışık kirliliği veya başka bir engel varsa Satürn sonraki haftalarda da akşam göğünde uzun süre görülebilir. Açık alanda gözlem yaparken araç trafiğinden uzak, güvenli ve izinli bir nokta seçmek; gece dönüşü için aydınlatma bulundurmak gerekir. Gözlem saatini ve yönünü bulunduğunuz konuma göre bir gökyüzü uygulamasıyla kontrol etmek en sağlıklı yöntemdir. Teleskopla bakarken yüksek büyütmeye hemen geçmek yerine düşük büyütmeyle gezegeni bulup görüntüyü ortalamak daha pratiktir.</p>
+
+<h2>Ekim göğünde başka neler var?</h2>
+
+<p>JPL'nin 1 Ekim'de yayımladığı aylık gökyüzü rehberine göre ince hilal 6 Ekim sabahı Jüpiter'e yakın görünecek. Orionid meteor yağmuru 21–22 Ekim gecesi zirve yapacak; parlak Ay sönük meteorları bastırabileceği için en iyi fırsat Ay battıktan sonraki şafak öncesi saatlerde olabilir. 27–28 Ekim gecesinde ise Ay, Ülker yıldız kümesinin yakınından geçecek.</p>
+
+<p>Satürn gözlemi, bir uzay aracının çektiği yakın plan görüntüyle aynı ayrıntıyı sunmaz; amaç, gezegeni gerçek zamanlı gökyüzünde bulmaktır. Venüs'e gönderilecek bir aracın zorlu koşullara nasıl hazırlandığını merak edenler <a href="/haber/davinci-venus-sicaklik-testi">DAVINCI ısı testi yazısına</a> da göz atabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA JPL'nin 1 Ekim 2026 tarihli <a href="https://www.jpl.nasa.gov/videos/whats-up-october-2026-skywatching-tips-from-nasa/" target="_blank" rel="noopener noreferrer">Ekim gökyüzü rehberi</a> ve NASA'nın <a href="https://science.nasa.gov/saturn/" target="_blank" rel="noopener noreferrer">Satürn bilgi sayfası</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; teleskop fotoğrafı veya gerçek bir uzay görüntüsü değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "nairobi-elektrikli-motosiklet-ve-otobus-donusumu",
+    title: "Nairobi'de Elektrikli Ulaşımı Ne Hızlandırıyor?",
+    excerpt: "Elektrikli motosikletler ve otobüsler Nairobi'de işletme maliyetini ve hava kirliliğini azaltma potansiyeli taşıyor; batarya değişimi ile kiralama modelleri ilk yatırım engelini aşmaya çalışıyor.",
+    category: "Dünya",
+    published_at: "2026-10-04T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-04/nairobi-elektrikli-ulasim.webp",
+    original_source_url: "https://www.unep.org/news-and-stories/story/could-electric-vehicles-help-african-capital-clean-its-air-and-fight-climate",
+    content: `
+<p>Nairobi'de elektrikli ulaşımın en görünür yüzü özel otomobiller değil, her gün yolcu ve yük taşıyan motosiklet taksiler. Birleşmiş Milletler Çevre Programı'nın 2 Ekim'de yayımladığı saha anlatısı, elektrikli motosiklete geçen sürücülerin enerji giderinin benzin maliyetinin yarısından az olabildiğini aktarıyor. Bu fark, günde 100–150 kilometre yol yapan ve aracını gelir aracı olarak kullanan sürücüler için doğrudan kazanca dönüşebiliyor.</p>
+
+<h2>Hava kalitesi ve elektrik karışımı neden önemli?</h2>
+
+<p>UNEP'in aktardığı verilere göre karayolu taşımacılığı, Nairobi'deki ince parçacık kirliliğinin yaklaşık yüzde 40'ını oluşturuyor. Kenya elektrik şebekesinin yaklaşık yüzde 90'ının yenilenebilir kaynaklara dayanması, egzozdan kaynaklanan yerel kirliliğin yanında toplam sera gazı etkisini azaltma ihtimalini de güçlendiriyor. Ancak bu sonuç her ülkede aynı olmaz; elektrik üretim karışımı ve araçların kullanım yoğunluğu birlikte değerlendirilmeli.</p>
+
+<p>Yeni kaydedilen motosikletlerin yaklaşık yüzde 15'inin elektrikli olduğu belirtiliyor. Yüksek satın alma bedeli hâlâ temel engellerden biri. Bazı şirketler bu sorunu bataryayı araçtan ayıran modelle çözmeye çalışıyor: sürücü daha düşük bedelle motosikleti alıyor, boş bataryayı istasyonda dolusuyla değiştiriyor ve kullanım için ücret ödüyor. Hızlı değişim, taksi ve teslimat işinde şarj bekleme süresini de azaltıyor.</p>
+
+<h2>Otobüslerde model nasıl çalışıyor?</h2>
+
+<p>Nairobi'de toplu ulaşımın büyük bölümü otobüslere dayanıyor. UNEP'e göre kentte yaklaşık 20 bin dizel otobüs bulunuyor. Yerel üreticilerden biri elektrikli otobüsleri operatörlere şarj ve bakım dahil kullanım başına ödeme modeliyle kiralıyor. Böylece ilk yatırım yükü azalırken yakıt gideri daha öngörülebilir hale geliyor. Kenya ve Ruanda'daki mevcut filo büyüyor, fakat ek elektrik üretimi, şarj altyapısı, finansman ve istikrarlı kamu politikası olmadan ölçeklenme sınırlı kalabilir.</p>
+
+<p>Nairobi örneği, elektrikli ulaşımın yalnız araç teknolojisiyle değil; batarya, finansman, şebeke ve iş modeliyle birlikte ilerlediğini gösteriyor. Kentsel çevre baskısının başka bir boyutu için <a href="/haber/arktik-deniz-buzu-2026-minimumu">2026 Arktik deniz buzu değerlendirmesine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNEP'in 2 Ekim 2026 tarihli <a href="https://www.unep.org/news-and-stories/story/could-electric-vehicles-help-african-capital-clean-its-air-and-fight-climate" target="_blank" rel="noopener noreferrer">Nairobi elektrikli ulaşım dosyası</a> ile bağlantılı resmî kurum verileri temel alınarak derlenmiştir. Kapak temsili bir editoryal görseldir; belirli bir sürücüyü, şirketi veya gerçek trafik sahnesini göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "larnaka-aqtivate-yuksek-basarimli-hesaplama-kuantum",
+    title: "Larnaka'da AQTIVATE: Süper Bilgisayar, Yapay Zekâ ve Kuantum Aynı Masada",
+    excerpt: "AQTIVATE konferansı, yüksek başarımlı hesaplama, makine öğrenmesi ve kuantum algoritmalarını fizik, mühendislik ve biyoloji problemleri çevresinde Larnaka'da buluşturdu.",
+    category: "Teknoloji",
+    published_at: "2026-10-04T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-04/larnaka-aqtivate-hesaplama.webp",
+    original_source_url: "https://aqtivate.ucy.ac.cy/news/aqtivate-conference-held-in-cyprus/",
+    content: `
+<p>Larnaka, 28 Eylül–2 Ekim 2026 arasında yüksek başarımlı hesaplama, makine öğrenmesi ve kuantum algoritmalarını aynı programda buluşturan AQTIVATE konferansına ev sahipliği yaptı. Kıbrıs Üniversitesi bağlantılı projenin 2 Ekim tarihli duyurusuna göre doktora araştırmacıları, danışmanlar ve uzmanlar fizik, mühendislik ve biyolojideki hesaplama problemlerini birlikte ele aldı.</p>
+
+<h2>“Exascale” ve kuantum başlıkları ne anlama geliyor?</h2>
+
+<p>Programda çok büyük hesaplama sistemleri için modelleme ve ölçeklenebilir algoritmalar, makine öğrenmesi yöntemleri, kuantum algoritmaları ve tensör ağları öne çıktı. Uygulama alanları arasında kafes kuantum kromodinamiği, hesaplamalı akışkanlar dinamiği ve hesaplamalı biyoloji bulunuyor. Bu başlıkların ortak noktası, geleneksel yöntemlerle çözümü çok uzun sürebilen veya çok fazla bellek isteyen problemlere daha verimli yaklaşım araması.</p>
+
+<p>Konferans duyurusu belirli bir bilimsel atılım ilan etmiyor; tamamlanan araştırmaların ve yöntemlerin paylaşıldığı bir buluşmayı kayda geçiriyor. Bu ayrım önemli çünkü kuantum hesaplama oturumunun varlığı, bugün kullanılan süper bilgisayarların yerini hemen kuantum makinelerin alacağı anlamına gelmiyor. AQTIVATE'ın yaklaşımı, yüksek başarımlı hesaplama, veri odaklı yöntemler ve kuantum araştırmasını birbirini tamamlayan araçlar olarak ele alıyor.</p>
+
+<h2>Projenin eğitim boyutu</h2>
+
+<p>AQTIVATE, Avrupa Birliği'nin Marie Skłodowska-Curie Doktora Ağları kapsamında desteklenen ortak bir eğitim ve araştırma programı. Proje özetine göre 15 doktora araştırmacısını kapsıyor; dokuz derece veren kurum, dört büyük araştırma merkezi ve Kıbrıs, Almanya, İtalya ile İsveç'teki dört ulusal süper bilgisayar merkezi ağda yer alıyor. Araştırmacıların sanayi veya süper bilgisayar merkezinde çalışma dönemi geçirmesi ve birden fazla kurumun ortak derece vermesi hedefleniyor.</p>
+
+<p>Larnaka toplantısı bu ağın farklı alanlardan gelen çalışmalarını yüz yüze karşılaştırdığı bir ara durak oldu. Yerel ölçekte Kıbrıs'ın yalnız etkinliğe ev sahipliği yapmasını değil, hesaplama altyapısı ve araştırmacı eğitimi üzerinden Avrupa araştırma ağına katılımını da görünür kılıyor. Eğitimde yapay zekânın başka bir boyutu için <a href="/haber/kirsal-okullarda-yapay-zeka-ogretmen-yetkinligi">öğretmen yetkinliği yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler AQTIVATE'ın 2 Ekim 2026 tarihli <a href="https://aqtivate.ucy.ac.cy/news/aqtivate-conference-held-in-cyprus/" target="_blank" rel="noopener noreferrer">konferans duyurusu</a> ve kurumun <a href="https://aqtivate.ucy.ac.cy/research-summary/" target="_blank" rel="noopener noreferrer">araştırma özeti</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek konferans salonu veya bilimsel veri görselleştirmesi değildir.</p>
+    `,
+  }),
+  editorial({
     slug: "dso-kuresel-saglik-tahminleri-2023",
     title: "DSÖ Verileri: Dünya Daha Uzun Yaşıyor, Sağlıklı Yıllar Aynı Hızda Artmıyor",
     excerpt: "DSÖ’nün 2000–2023 dönemini kapsayan yeni tahminleri, yaşam beklentisinin pandemi öncesine yaklaştığını; kronik hastalıklar ve ruh sağlığı yükünün büyüdüğünü gösteriyor.",
