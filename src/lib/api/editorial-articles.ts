@@ -43,6 +43,90 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "unesco-2030-ogretmen-acigi-50-milyon",
+    title: "Dünyanın 2030'a Kadar 50 Milyon Yeni Öğretmene İhtiyacı Var",
+    excerpt: "UNESCO'nun yeni verileri, evrensel okul öncesi, ilkokul ve ortaöğretim için 2030'a kadar 50 milyon ek öğretmen gerektiğini; ihtiyacın büyük bölümünün meslekten ayrılanların yerini dolduracağını gösteriyor.",
+    category: "Dünya",
+    published_at: "2026-10-06T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-06/unesco-ogretmen-acigi.webp",
+    original_source_url: "https://www.unesco.org/en/articles/new-unesco-data-every-two-teachers-world-needs-one-more",
+    content: `
+<p>Dünyada bugün yaklaşık 107 milyon öğretmen görev yapıyor; ancak okul öncesinden ortaöğretimin sonuna kadar evrensel erişim için 2030'a dek 50 milyon öğretmene daha ihtiyaç var. UNESCO'nun 5 Ekim Dünya Öğretmenler Günü'nde açıkladığı yeni veri, mevcut her iki öğretmene karşılık yaklaşık bir yeni öğretmen gerektiği anlamına geliyor.</p>
+
+<h2>Açığın çoğu yeni sınıflardan değil, meslekten ayrılmalardan geliyor</h2>
+
+<p>İhtiyacın tamamı öğrenci sayısındaki artıştan kaynaklanmıyor. UNESCO'ya göre 2030'a kadar gereken öğretmenlerin yüzde 58'i, meslekten ayrılanların yerini doldurmak için işe alınacak. Yıllık ayrılma oranı okul öncesinde yüzde 7,2; ortaöğretimde yüzde 5,4 ve ilkokulda yüzde 4,7 olarak veriliyor. Bu nedenle yalnız daha fazla aday yetiştirmek, çalışma koşulları ve meslekte kalma sorunu çözülmeden kalıcı sonuç üretmeyebilir.</p>
+
+<p>Mesleğin toplumdaki değeri de ayrılma niyetini etkiliyor. OECD'nin TALIS 2024 araştırmasına katılan ülkelerin dörtte üçünde öğretmenlerin yüzde 40'ından azı mesleklerinin toplum tarafından değerli görüldüğünü düşünüyor. Değer gördüğünü hisseden öğretmenlerin, beş yıl içinde mesleği bırakmayı düşünme olasılığı yüzde 10'dan fazla daha düşük.</p>
+
+<h2>Maaş ile görünmeyen iş yükü birlikte ele alınmalı</h2>
+
+<p>UNESCO'nun derlediği verilere göre incelenen 68 ülkenin beşte ikisinde öğretmen maaşları, tüm eğitim düzeylerinde benzer nitelik isteyen mesleklerin altında kalıyor. Haftada ortalama 19 saat sınıfta ders verilmesine karşılık toplam çalışma süresi hazırlık, değerlendirme ve idari görevlerle yaklaşık 60 saate ulaşıyor. İlkokulda eğitimli öğretmen başına düşen öğrenci sayısı küresel ölçekte 28.</p>
+
+<p>Öneriler; öğretmenleri politika tasarımına katmayı, açık meslek standartları ve kariyer yolları kurmayı, ücretleri rekabetçi hale getirmeyi, personel bulmanın zor olduğu okullara hedefli teşvikler vermeyi ve gereksiz iş yükünü azaltmayı içeriyor. Sayısal hedef, eğitim niteliği ve öğretmenin meslekte kalmasıyla birlikte izlenmeli. Teknolojinin öğretmen ihtiyacını nasıl destekleyebileceğine dair ayrı bir bakış için <a href="/haber/kirsal-okullarda-yapay-zeka-ogretmen-yetkinligi">kırsal okullarda yapay zekâ ve öğretmen yetkinliği yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNESCO'nun 5 Ekim 2026 tarihli <a href="https://www.unesco.org/en/articles/new-unesco-data-every-two-teachers-world-needs-one-more" target="_blank" rel="noopener noreferrer">yeni öğretmen verileri açıklaması</a> ve <a href="https://www.unesco.org/en/days/teachers" target="_blank" rel="noopener noreferrer">Dünya Öğretmenler Günü sayfası</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek bir sınıfı, öğretmeni veya öğrenciyi göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "dso-2025-su-sanitasyon-hijyen-raporu",
+    title: "Temiz Su ve Sanitasyon Açığı Neden Bir Sağlık Krizi?",
+    excerpt: "DSÖ'nün 2025 WASH raporu, milyarlarca insanın güvenli su, sanitasyon ve hijyen hizmetlerinden yoksun kaldığını; sağlık tesislerindeki temel su eksikliğinin de sürdüğünü gösteriyor.",
+    category: "Yaşam",
+    published_at: "2026-10-06T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-06/dso-wash-su-sanitasyon.webp",
+    original_source_url: "https://www.who.int/publications/i/item/B09880",
+    content: `
+<p>Temiz su, güvenli tuvalet ve el yıkama olanağı yalnız konfor değil, hastalıkları önleyen temel sağlık altyapısı. Dünya Sağlık Örgütü'nün 5 Ekim'de yayımladığı 2025 su, sanitasyon ve hijyen raporu, 2015'ten bu yana ilerleme kaydedilmesine rağmen dünyanın Sürdürülebilir Kalkınma Amacı 6 rotasının hâlâ gerisinde olduğunu belirtiyor.</p>
+
+<h2>Sağlık tesislerinde bile temel su eksikliği var</h2>
+
+<p>Rapora göre milyarlarca insan güvenli biçimde yönetilen içme suyu, sanitasyon veya hijyen hizmetlerinden yoksun. Bir milyardan fazla kişi, temel su hizmeti dahi bulunmayan sağlık tesislerinde bakım alıyor. DSÖ, yetersiz su, sanitasyon ve hijyen koşullarının her yıl tahmini 1,4 milyon ölüme katkıda bulunduğunu; kolera, çatışma ve iklim kaynaklı şokların kırılganlığı artırdığını bildiriyor.</p>
+
+<p>Kurumun 2026–2035 stratejisindeki küresel tahminler açığın boyutunu ayrıntılandırıyor: 2,1 milyar kişi güvenli yönetilen içme suyuna, 3,4 milyar kişi güvenli yönetilen sanitasyona erişemiyor. Yaklaşık 106 milyon kişi doğrudan arıtılmamış yüzey suyunu kullanırken 354 milyon kişi açık alanda dışkılama yapmak zorunda kalıyor. Bu sayılar tek bir ülkenin altyapı durumunu anlatmıyor; dünya ölçeğindeki hizmet basamaklarını karşılaştıran tahminler.</p>
+
+<h2>DSÖ'nün rolü altyapı inşa etmekten farklı</h2>
+
+<p>DSÖ doğrudan su hattı veya arıtma tesisi kurmuyor. Sağlık risklerini standartlara, izleme araçlarına, düzenleyici çerçevelere ve ülkelerin kullanabileceği teknik rehberlere dönüştürüyor. Yeni strateji, hizmet sayısını artırmanın yanında güvenlik, eşitlik, iklim dayanıklılığı ve sürdürülebilirliği birlikte ölçmeyi hedefliyor. Çünkü bir su bağlantısının bulunması, kaynağın her zaman temiz, erişilebilir veya kesintilere dayanıklı olduğunu tek başına kanıtlamıyor. Düzenli kalite kontrolü ve bakım da erişimin parçası sayılıyor.</p>
+
+<p>Yerel altyapı kararlarının nasıl parçalı projelere dönüştüğünü görmek için <a href="/haber/girnede-yagmur-suyu-altyapisi-icin-uc-noktali-plan">Girne'deki yağmur suyu altyapısı planına</a> da göz atılabilir. Yağmur suyu yönetimi ile içme suyu güvenliği farklı sistemler olsa da iklim baskısına dayanıklı kent altyapısı ihtiyacında buluşuyor.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ'nün 5 Ekim 2026 tarihli <a href="https://www.who.int/publications/i/item/B09880" target="_blank" rel="noopener noreferrer">2025 WASH yıllık raporu</a> ile kurumun <a href="https://www.who.int/publications/i/item/B09661" target="_blank" rel="noopener noreferrer">2026–2035 su, sanitasyon, hijyen ve atık stratejisi</a> karşılaştırılarak derlenmiştir. Bu yazı tıbbi tavsiye değildir. Kapak temsili bir editoryal görseldir; gerçek bir sağlık tesisi veya topluluğu göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "hubble-beyaz-cuce-ikinci-nesil-gezegen-adayi",
+    title: "Ölen Bir Yıldızın Çevresinde Yeni Gezegen Oluşmuş Olabilir",
+    excerpt: "Hubble arşivindeki niyobyum izleri ile TESS ışık değişimleri, HS 0209+0832 adlı beyaz cücenin çevresinde yıldızın attığı maddeden oluşmuş ikinci nesil bir gezegen adayı bulunabileceğine işaret ediyor.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-06T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-06/hubble-ikinci-nesil-gezegen.webp",
+    original_source_url: "https://science.nasa.gov/missions/hubble/suspected-second-generation-planet-solves-nasa-hubble-cold-case/",
+    content: `
+<p>Bir yıldızın ölümü, çevresindeki gezegen öyküsünün de sonu olmayabilir. NASA'nın 5 Ekim'de duyurduğu çalışma, HS 0209+0832 adlı beyaz cücenin çevresinde “ikinci nesil” bir gezegen adayı bulunabileceğini gösteriyor. Buradaki gezegen doğrudan görüntülenmiş değil; kimyasal izler ve düzenli parlaklık değişimleri, en olası açıklamalardan birini oluşturuyor.</p>
+
+<h2>1999 verisindeki çözülemeyen çizgiler yeniden okundu</h2>
+
+<p>Beyaz cüce, yakıtını tüketip dış katmanlarını uzaya bırakan düşük kütleli bir yıldızın sıcak çekirdeği. Hubble 1999'da bu yıldızı gözlediğinde tayfta yaklaşık 100 kimyasal özellik tanımlanamamıştı. Araştırmacılar güncellenmiş atom verileriyle arşivi yeniden inceledi ve gizemli çizgilerin çoğunu niyobyumla eşleştirdi. Demirden ağır bu element, ölmekte olan yıldızların kısa süreli ve aşırı koşullarında üretilebiliyor.</p>
+
+<p>Ekip, yıldızın attığı niyobyum bakımından zengin maddenin bir bölümünün birleşerek gaz devi oluşturmuş olabileceğini düşünüyor. NASA'nın emekliye ayrılan FUSE teleskobunun verileri de güçlü niyobyum işaretini doğruladı. TESS ise beyaz cüceyi dört ay izledi ve yaklaşık 6 milyon kilometre uzaklıkta dolanan bir cisme işaret eden periyodik parlaklık değişimleri kaydetti.</p>
+
+<h2>Aday gezegen neden maddesini kaybediyor?</h2>
+
+<p>Tahmine göre cisim Jüpiter büyüklüğünde bir gaz devi. Genç ve çok sıcak beyaz cücenin yoğun enerjisi gezegenin atmosferini aşındırıyor olabilir. Kopan gaz, kuyruk benzeri bir yapı ve yıldız çevresinde disk oluşturup yeniden beyaz cücenin yüzeyine düşerse Hubble'ın ölçtüğü niyobyumu açıklayabilir.</p>
+
+<p>Bu senaryo henüz kesin bir gezegen doğrulaması değil. Oluşum mekanizmasının ne kadar yaygın olduğu, cismin kütlesi ve uzun vadeli yörüngesi için daha fazla gözlem gerekiyor. Araştırma ekibi önümüzdeki yıllarda benzer beyaz cüce sistemlerini Hubble ile karşılaştırmayı planlıyor. Sonuç, eski uzay verilerinin yeni atom veritabanları ve başka teleskoplarla birleştirildiğinde yıllar sonra yeni sorular açabildiğini gösteriyor. Gezegen sistemlerindeki yıkıcı süreçlerin başka bir örneği için <a href="/haber/webb-gezegen-carpismalarinin-toz-izlerini-okudu">Webb'in çarpışma tozlarını izlediği çalışmaya</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA'nın 5 Ekim 2026 tarihli <a href="https://science.nasa.gov/missions/hubble/suspected-second-generation-planet-solves-nasa-hubble-cold-case/" target="_blank" rel="noopener noreferrer">Hubble bilim duyurusu</a> ve bağlantılı <a href="https://www.nature.com/articles/s41550-026-03009-y" target="_blank" rel="noopener noreferrer">Nature Astronomy çalışması</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek teleskop görüntüsü veya doğrulanmış gezegen fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
     slug: "saturn-karsi-konum-4-ekim-2026-gozlem-rehberi",
     title: "Satürn Karşı Konumda: 4 Ekim Gecesi Nasıl İzlenir?",
     excerpt: "Satürn 4 Ekim'de karşı konuma geliyor; gün batımına yakın doğup gecenin büyük bölümünde gökyüzünde kalacağı için yılın en elverişli gözlem dönemlerinden biri başlıyor.",
