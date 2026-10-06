@@ -123,7 +123,7 @@ export const EDITORIAL_ARTICLES: Article[] = [
 
 <h2>Kaynak ve görsel notu</h2>
 
-<p>Bilgiler NASA'nın 5 Ekim 2026 tarihli <a href="https://science.nasa.gov/missions/hubble/suspected-second-generation-planet-solves-nasa-hubble-cold-case/" target="_blank" rel="noopener noreferrer">Hubble bilim duyurusu</a> ve bağlantılı <a href="https://www.nature.com/articles/s41550-026-03009-y" target="_blank" rel="noopener noreferrer">Nature Astronomy çalışması</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek teleskop görüntüsü veya doğrulanmış gezegen fotoğrafı değildir.</p>
+<p>Bilgiler NASA'nın 5 Ekim 2026 tarihli <a href="https://science.nasa.gov/missions/hubble/suspected-second-generation-planet-solves-nasa-hubble-cold-case/" target="_blank" rel="noopener noreferrer">Hubble bilim duyurusu</a> ve bağlantılı <a href="https://www.nature.com/articles/s41550-026-02983-7" target="_blank" rel="noopener noreferrer">Nature Astronomy çalışması</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek teleskop görüntüsü veya doğrulanmış gezegen fotoğrafı değildir.</p>
     `,
   }),
   editorial({
