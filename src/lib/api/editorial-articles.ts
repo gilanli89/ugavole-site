@@ -43,6 +43,102 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "dag-yolu-30-kasima-kadar-kucuk-araclara-kapali",
+    title: "Dağ Yolu 30 Kasım'a Kadar Küçük Araçlara Kapalı",
+    excerpt: "Karayolları Dairesi, Lefkoşa-Gazimağusa ile Değirmenlik-Girne-Esentepe dağ yolu güzergâhının yol çalışmaları nedeniyle otomobil ve motosikletlere 30 Kasım'a kadar kapatıldığını duyurdu.",
+    category: "Gündem",
+    published_at: "2026-10-07T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-07/dag-yolu-kapanisi.webp",
+    original_source_url: "https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14990",
+    content: `
+<p>Karayolları Dairesi, Lefkoşa-Gazimağusa ile Değirmenlik-Girne-Esentepe dağ yolu güzergâhındaki devam eden çalışmalar nedeniyle yolu otomobil ve motosiklet türü küçük araçlara kapattı. 6 Ekim'de yayımlanan duyuruya göre kapanış 30 Kasım 2026'ya kadar sürecek.</p>
+
+<h2>Kapanış hangi araçları ve güzergâhı kapsıyor?</h2>
+
+<p>Resmî açıklama, özellikle otomobil ve motosikletleri kapsıyor. Duyuruda “dağ yolu” ifadesi Lefkoşa-Gazimağusa, Değirmenlik-Girne-Esentepe güzergâhıyla birlikte veriliyor. Çalışmanın hangi kilometreleri kapsadığı, ağır araçlar için ayrıntılı geçiş düzeni ve sabit bir alternatif rota paylaşılmadı. Bu yüzden sürücülerin yalnız harita uygulamasının önerisine güvenmek yerine yola çıkmadan hemen önce güncel resmî duyuruyu kontrol etmesi gerekiyor.</p>
+
+<p>Karayolları Dairesi, çalışma bölgesini kullanacak sürücülerden ikinci bir duyuruya kadar dikkatli ve yavaş seyretmelerini, trafik işaretleri ile sahadaki görevlilerin yönlendirmelerine uymalarını istedi. Bir yolun haritada açık görünmesi, sahadaki geçici bariyer veya araç sınıfı kısıtlamasının kalktığı anlamına gelmeyebilir.</p>
+
+<p>Kapanış duyurusu bir yol güvenliği önlemi; güzergâhın bütünüyle bütün araç trafiğine kapatıldığı biçiminde yorumlanmamalı. Açıklamada sayılan araç sınıfları otomobil ve motosikletler. Kamyon, otobüs veya servis araçlarıyla ilgili özel düzenlemeyi öğrenmek isteyen sürücü ve işletmelerin Karayolları Dairesi'nin güncel yönlendirmesine başvurması gerekiyor. Sahadaki levhalar, yayımlanmış metinden daha yeni bir durumu gösterebilir.</p>
+
+<h2>Yola çıkmadan önce kısa kontrol</h2>
+
+<p>Girne, Esentepe, Değirmenlik veya Lefkoşa yönünde bu bağlantıyı kullanmayı planlayanların hareket saatine pay bırakması; yakıt durumunu, hava koşullarını ve seçilecek güzergâhın araçlarına uygunluğunu kontrol etmesi yararlı olur. Navigasyon uygulamalarında görünen kestirmeler dar, bakımsız veya geçişe uygun olmayan yollar olabilir. İşaretlenmemiş tali yollara girmek yerine görevli yönlendirmesi izlenmeli.</p>
+
+<p>Kapanış için belirtilen 30 Kasım tarihi mevcut planı gösteriyor; yolun daha erken açılması ya da çalışmanın uzaması yeni bir açıklamaya bağlı. Karpaz ve doğu yönündeki uzun sürüşler için genel hazırlık notlarını <a href="/haber/karpaz-yolculugu-yola-cikmadan-bilmeniz-gerekenler">Karpaz yolculuğu rehberinde</a> bulabilirsiniz.</p>
+
+<p>Toplu taşıma, okul servisi veya ticari teslimat planlayanların da hareket saatini tek bir güzergâha göre sabitlememesi önemli. Yolculuk öncesinde sürücüyle rotayı teyit etmek, özellikle yoğun saatlerde gecikme riskini azaltabilir. Duyuruda alternatif yol adı verilmediği için bu yazı belirli bir sapak önermiyor.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler Karayolları Dairesi'nin duyurusunu aktaran Radyo Güven'in 6 Ekim 2026 tarihli <a href="https://radyoguven.gov.ct.tr/Sayfa/HaberDetay/14990" target="_blank" rel="noopener noreferrer">yol kapanışı haberinden</a> derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek çalışma noktasını veya güncel trafik durumunu göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "dso-agiz-sagligi-izleme-modulu",
+    title: "Ağız Sağlığı Verileri Ülkeler İçin Nasıl Karşılaştırılabilir Olacak?",
+    excerpt: "DSÖ'nün güncellediği STEPS ağız sağlığı modülü, kısa bir anket ile basitleştirilmiş klinik değerlendirmeyi birleştirerek ülkelerin karşılaştırılabilir nüfus verisi üretmesini hedefliyor.",
+    category: "Yaşam",
+    published_at: "2026-10-07T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-07/dso-agiz-sagligi-izleme.webp",
+    original_source_url: "https://www.who.int/news/item/06-10-2026-who-reinforces-oral-disease-surveillance-with-an-updated-ncd-steps-module",
+    content: `
+<p>Diş çürüğü, diş eti hastalıkları ve bakıma erişim gibi sorunları karşılaştırmak için yalnız tedavi kayıtları yeterli değil. Dünya Sağlık Örgütü'nün 6 Ekim'de tanıttığı güncellenmiş STEPS ağız sağlığı modülü, ülkelerin temsili nüfus örneklerinden daha düzenli ve politika açısından kullanılabilir veri toplamasını amaçlıyor.</p>
+
+<h2>STEPS yaklaşımı neyi değiştiriyor?</h2>
+
+<p>STEPS, bulaşıcı olmayan hastalıkların davranışsal ve biyolojik risk etkenlerini standart biçimde izlemek için kullanılan bir DSÖ çerçevesi. Ağız sağlığı bölümü 2024'te yenilendi; yeni bilimsel makale ise bu sürümün nasıl uygulanabileceğini ayrıntılandırıyor. Temel fikir, ağız hastalıklarını ayrı ve pahalı bir araştırma olarak ele almak yerine mevcut nüfus taramalarına eklemek.</p>
+
+<p>Güncellenen modül iki veri türünü bir araya getiriyor: kişilerin ağız sağlığı ve hizmete erişim deneyimlerini bildirdiği kısa bir anket ile eğitilmiş saha personelinin yapabildiği basitleştirilmiş klinik değerlendirme. DSÖ, değerlendirmenin yalnız ağız sağlığı uzmanları tarafından yapılmak zorunda olmamasını uygulanabilirliği artıran başlıca özelliklerden biri olarak gösteriyor.</p>
+
+<h2>Toplanan veri ne işe yarayabilir?</h2>
+
+<p>Ortak sorular ve ölçüm adımları, bölgeler ile yıllar arasındaki değişimi izlemeyi kolaylaştırabilir. Böylece hangi grupların bakıma ulaşamadığı, önleme programlarının nerede güçlendirilmesi gerektiği ve ulusal politikaların sonuç üretip üretmediği daha görünür hale gelebilir. Modül ayrıca DSÖ'nün 2023–2030 Küresel Ağız Sağlığı Eylem Planı göstergeleriyle uyumlu olacak biçimde tasarlandı.</p>
+
+<p>Güncellenmiş anket, politika kararlarıyla bağlantılı ağız sağlığı ve bakıma erişim göstergelerine odaklanıyor. Kısa klinik bölüm ise uzman olsun veya olmasın uygun biçimde eğitilmiş sağlık personelinin uygulayabileceği şekilde sadeleştirildi. Bu tasarım, ölçüm standardını korurken saha ekiplerinin ve bütçenin sınırlı olduğu ülkelerde veri toplama eşiğini düşürmeyi hedefliyor.</p>
+
+<p>Öz bildirim ile gözlemin birlikte kullanılması da önemli. Bir kişinin ağrı veya hizmete erişim deneyimi, klinik bulguyla aynı şeyi ölçmüyor; iki kaynak yan yana geldiğinde hastalık yükü ile karşılanmayan bakım ihtiyacı daha ayrıntılı incelenebiliyor. Temsili örneklem kurulmadığında ise sonuçlar bütün nüfusa genellenemez.</p>
+
+<p>Bu araç tek başına tedavi sağlamıyor ve bir kişinin diş muayenesinin yerini tutmuyor. Değeri, anonim nüfus verisini karar süreçlerine taşımasında. Halk sağlığı altyapısında standart verinin başka bir örneği için <a href="/haber/dso-2025-su-sanitasyon-hijyen-raporu">su, sanitasyon ve hijyen raporu yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ'nün 6 Ekim 2026 tarihli <a href="https://www.who.int/news/item/06-10-2026-who-reinforces-oral-disease-surveillance-with-an-updated-ncd-steps-module" target="_blank" rel="noopener noreferrer">STEPS ağız sağlığı modülü açıklaması</a> ve bağlantılı Bulletin makalesi temel alınarak derlenmiştir. Bu yazı tıbbi tavsiye değildir. Kapak temsili bir editoryal görseldir; gerçek bir araştırmayı veya hastayı göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "esa-mars-gezgini-tabernas-colu-testi",
+    title: "Avrupa'nın Mars Gezgini İspanya Çölünde 220 Metrelik Prova Yaptı",
+    excerpt: "Rosalind Franklin görevi için kullanılan Charlie prototipi, Tabernas Çölü'nde sekiz günde 220 metre ilerledi; ekip uzaktan bilim planlaması ve otonom sürüş süreçlerini sınadı.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-07T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-07/esa-mars-gezgini-col-testi.webp",
+    original_source_url: "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/European_rover_trains_for_Mars_in_the_desert",
+    content: `
+<p>Avrupa Uzay Ajansı'nın Mars çalışmaları, Kızıl Gezegen'e gitmeden önce İspanya'da zorlu bir saha provasından geçti. Charlie adlı gezgin prototipi, Tabernas Çölü'nde sekiz gün boyunca toplam 220 metre ilerlerken yaklaşık 100 bilim insanı ve mühendis aracı 1.200 kilometre uzaktaki merkezden yönetti.</p>
+
+<h2>Neden bir Dünya çölü kullanıldı?</h2>
+
+<p>Güneydoğu İspanya'daki kurak ve kayalık alan, jeolojisi ile engebeli yüzeyi nedeniyle Mars'ta karşılaşılabilecek karar sorunlarını canlandırmaya elverişli. Deneme, 2030'da Mars'a inmesi planlanan ExoMars Rosalind Franklin gezgininin günlük bilim operasyonlarına hazırlık niteliği taşıyor. Prototip, hedefe giderken tehlikelerden kaçınmasını sağlayacak gerçek görev yazılımıyla çalıştı.</p>
+
+<p>Torino'daki Gezgin Operasyonları Kontrol Merkezi ekibi, yalnız aracın gönderdiği görüntüler, yeraltı radarı ve tayf ölçümlerini kullanarak araştırılacak noktaları seçti. Bir eğimin verilerde gerçekte olduğundan daha dik görünmesi, uzak ekiplerin temkinli bir rota belirlemesine yol açtı. Sayısal yükseklik haritası incelendiğinde eğimin güvenli olduğu anlaşıldı. Yağmurun çalışmayı kesmesi ise planın beklenmedik koşullara göre yeniden kurulmasını gerektirdi.</p>
+
+<p>Testte geniş ve dar açılı kameraların yanında yakın plan görüntüleme sistemi, tayfölçer ve yeraltına nüfuz eden radarın prototipleri kullanıldı. Bu araçların birlikte değerlendirilmesi, yüzeyde ilginç görünen bir hedefin altında veya mineral yapısında araştırmaya değer bir işaret bulunup bulunmadığını anlamaya yardım ediyor. Bilim ekibi her günün verisini işleyip ertesi gün gönderilecek komutları ortak bir plana dönüştürdü.</p>
+
+<h2>Otonom sürüş denemesi ne gösterdi?</h2>
+
+<p>ESA'ya göre Charlie altıncı gün operatör direksiyonda olmadan 60 metreden fazla yol aldı ve konumlama hatası yüzde 1'in altında kaldı. Bu sonuç, Mars ile Dünya arasındaki iletişim gecikmesi nedeniyle her hareketin gerçek zamanlı kullanılamadığı görevlerde önemli. Yine de saha testi, 2030 görev başarısının garantisi değil; ekiplerin yazılımı, araçları ve karar zincirini geliştirmesi için kontrollü bir prova.</p>
+
+<p>2027 yazındaki sonraki testte Mars yörüngesindeki Trace Gas Orbiter'ın da canlandırmaya katılması planlanıyor. Mars kayaçlarından geçmiş su izlerinin nasıl okunduğunu görmek için <a href="/haber/perseverance-marsta-uc-ayri-su-etkilesimi">Perseverance bulguları yazısına</a> da göz atılabilir.</p>
+
+<p>Rosalind Franklin'in ana bilim hedefi, Mars'taki eski mikrobiyal etkinliğe ilişkin izleri araştırmak. Bunun için yalnız aracın sağlam çalışması değil, sınırlı görev süresi içinde doğru hedeflerin seçilmesi de gerekiyor. Çöl provası bu nedenle bir sürüş gösterisinden çok, araç ile uzaktaki bilim ekibinin aynı karar zincirinde çalışmasını sınayan operasyon denemesi niteliği taşıyor.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler ESA'nın 6 Ekim 2026 tarihli <a href="https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/European_rover_trains_for_Mars_in_the_desert" target="_blank" rel="noopener noreferrer">Avrupa gezgini saha testi açıklamasından</a> derlenmiştir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; ESA fotoğrafı, Mars yüzeyi veya gerçek test anı değildir.</p>
+    `,
+  }),
+  editorial({
     slug: "unesco-2030-ogretmen-acigi-50-milyon",
     title: "Dünyanın 2030'a Kadar 50 Milyon Yeni Öğretmene İhtiyacı Var",
     excerpt: "UNESCO'nun yeni verileri, evrensel okul öncesi, ilkokul ve ortaöğretim için 2030'a kadar 50 milyon ek öğretmen gerektiğini; ihtiyacın büyük bölümünün meslekten ayrılanların yerini dolduracağını gösteriyor.",
