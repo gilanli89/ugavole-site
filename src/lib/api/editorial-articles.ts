@@ -43,6 +43,90 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "dso-cocuk-ergen-obezite-rehberi",
+    title: "DSÖ'den Çocuk ve Ergen Obezitesinde İlk Küresel Bakım Rehberi",
+    excerpt: "DSÖ'nün ilk küresel çocuk ve ergen obezitesi rehberi, aileyi sürece katan uzun vadeli yaşam tarzı desteğini merkeze alıyor; ilaç ve cerrahi için sıkı sınırlar çiziyor.",
+    category: "Yaşam",
+    published_at: "2026-10-08T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-08/dso-cocuk-ergen-obezite-rehberi.webp",
+    original_source_url: "https://www.who.int/news/item/07-10-2026-who-issues-first-global-guidelines-on-child-and-adolescent-obesity",
+    content: `
+<p>Dünya Sağlık Örgütü, çocuk ve ergenlerde obezitenin bakımına ilişkin ilk küresel rehberini 7 Ekim'de yayımladı. Kurumun tahminine göre 2024'te 5–19 yaş grubunda 170 milyon çocuk ve ergen obeziteyle yaşıyordu; bu yaş grubundaki yaygınlık 1990'dan bu yana yüzde 2'den yüzde 8'e çıktı.</p>
+
+<h2>Bakımın merkezinde ne var?</h2>
+
+<p>Rehber, beslenme, fiziksel hareket ve davranış desteğini bir araya getiren yapılandırılmış programları güçlü biçimde öneriyor. Müdahalenin tek bir alana odaklanması da mümkün; ancak yaklaşımın yaşa uygun, kişi merkezli ve mümkün olduğunda aile veya bakım verenin katıldığı bir planla yürütülmesi isteniyor. Ruh sağlığının değerlendirilmesi, damgalayıcı dilden kaçınılması ve uzun vadeli izlem de bakımın parçası.</p>
+
+<p>Dijital araçlarla yürütülen programlar, bakım veren gözetimi olduğunda koşullu olarak öneriliyor. Bu, bir uygulamanın tek başına tedavi olduğu anlamına gelmiyor. DSÖ, bakım planının çocuk ve ailesinin koşullarına göre sağlık profesyonellerince kurulmasını; güvenilir büyüme ölçümleri ile düzenli takibin birlikte yürütülmesini vurguluyor.</p>
+
+<h2>İlaç ve cerrahi için hangi sınırlar çizildi?</h2>
+
+<p>Rehber, 0–9 yaş grubunda kilo kaybı amacıyla ilaç, obezite cerrahisi veya cihaz kullanımını önermiyor. 10–19 yaş grubunda onaylı bir ilacın değerlendirilmesi ise ancak sağlık profesyonelinin gözetimindeki kapsamlı yaşam tarzı programı yeterli sonuç vermediğinde gündeme gelebiliyor. Cerrahi seçenek yalnız ağır obezite için, sıkı ölçütler ve uzman ekip değerlendirmesi altında ele alınıyor.</p>
+
+<p>Bu çerçeve her çocuk için aynı reçeteyi sunmuyor. Büyüme dönemi, eşlik eden sağlık sorunları, psikolojik iyilik hâli ve aile koşulları kararın parçası. Rehber ayrıca bakımın yalnız kilo ölçümüne indirgenmemesini; çocuğun günlük yaşamı, katılımı ve genel sağlığındaki gelişmelerin de izlenmesini istiyor. Küresel sağlık verilerinin nasıl karşılaştırıldığına ilişkin başka bir örnek için <a href="/haber/dso-kuresel-saglik-tahminleri-2023">DSÖ'nün küresel sağlık tahminleri yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ'nün 7 Ekim 2026 tarihli <a href="https://www.who.int/news/item/07-10-2026-who-issues-first-global-guidelines-on-child-and-adolescent-obesity" target="_blank" rel="noopener noreferrer">rehber duyurusu</a>, <a href="https://www.who.int/publications/i/item/9789240123397" target="_blank" rel="noopener noreferrer">çocuklar</a> ve <a href="https://www.who.int/publications/i/item/9789240123878" target="_blank" rel="noopener noreferrer">ergenler için yayımlanan rehber sayfaları</a> temel alınarak derlenmiştir. Bu yazı tıbbi tavsiye değildir; kişisel değerlendirme için yetkili sağlık profesyoneline başvurulmalıdır. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; gerçek bir hasta, aile veya klinik görüşmesini göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "unep-dusuk-enerjili-bina-serinletme",
+    title: "Binaları Daha Az Enerjiyle Serinletmenin Beş Yolu",
+    excerpt: "UNEP, serin çatıdan dış gölgelendirmeye kadar beş düşük enerjili yöntemin iklime göre bir arada kullanıldığında iç mekân sıcaklığını önemli ölçüde düşürebileceğini belirtiyor.",
+    category: "Dünya",
+    published_at: "2026-10-08T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-08/dusuk-enerjili-bina-serinletme.webp",
+    original_source_url: "https://www.unep.org/news-and-stories/story/air-conditioning-may-cool-room-it-also-heats-world-here-are-five-more",
+    content: `
+<p>Kentler çevredeki kırsal alanlardan 10 dereceye kadar daha sıcak olabiliyor. Birleşmiş Milletler Çevre Programı'nın 7 Ekim'de yayımladığı değerlendirme, soğutma talebinin 2050'ye kadar üç katına çıkma yolunda olduğunu ve standart klima kullanımından kaynaklanan emisyonların neredeyse ikiye katlanabileceğini belirtiyor.</p>
+
+<h2>Serin çatı ve dış gölgelendirme</h2>
+
+<p>UNEP'in ilk önerisi güneş ışığını yansıtan açık renkli çatı ve duvar yüzeyleri. Serin çatılar yüzey sıcaklığını 20 dereceye kadar düşürebiliyor; Delhi'deki bir otobüs terminalinde iç mekânda 2–3 derecelik azalma ölçüldü. İkinci yöntem, güneş camdan içeri girmeden önce tente, panjur, saçak veya bitkiyle gölge oluşturmak. Dış gölgeleme, içerideki perdeye göre ısıyı daha erken kesiyor.</p>
+
+<p>Üçüncü yol doğal havalandırma. Karşılıklı açıklıklar, avlular ve sıcak havayı yukarı taşıyan bacalar doğru iklimde klima kullanımını yüzde 55'e kadar azaltabiliyor. Ancak dışarıdaki hava sıcak, nemli ya da kirliyse pencereleri açmak uygun olmayabilir; tasarım yerel hava koşullarına göre yapılmalı.</p>
+
+<h2>Yeşil alan, fan ve buharlaşmalı soğutma</h2>
+
+<p>Ağaçlar, yeşil çatılar ve su yüzeyleri gölge ile buharlaşmayı birleştirerek çevreyi serinletiyor. Beşinci başlıkta ise fanlar ve sıcak-kuru bölgelerde buharlaşmalı soğutucular yer alıyor. Fanlar hissedilen sıcaklığı 4 dereceye kadar azaltabilir. Buharlaşmalı sistemler uygun koşullarda standart klimaya göre yüzde 80–90 daha az elektrik kullanabilir; yüksek nemli bölgelerde aynı etkiyi sağlamaz.</p>
+
+<p>UNEP'e göre bu pasif ve düşük enerjili çözümler iklime bağlı olarak birlikte kullanıldığında binaları 6–9 derece serinletebilir. Yine de aşırı sıcak dalgalarında klima hayat kurtarıcı olabilir. Amaç onu her koşulda kaldırmak değil; binaya giren ısıyı azaltıp gereken mekanik soğutmayı daha verimli hale getirmek. Mevcut bir binada en uygun adım; yön, yalıtım, nem, hava kalitesi ve kullanıcıların sağlık ihtiyaçları birlikte incelendikten sonra seçilmeli. Kalabalık alanlarda sıcak riskini yönetmeye ilişkin tamamlayıcı bilgiler için <a href="/haber/kalabalik-etkinliklerde-asiri-sicak-rehberi">aşırı sıcak rehberine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNEP'in 7 Ekim 2026 tarihli <a href="https://www.unep.org/news-and-stories/story/air-conditioning-may-cool-room-it-also-heats-world-here-are-five-more" target="_blank" rel="noopener noreferrer">düşük enerjili soğutma değerlendirmesinden</a> derlenmiştir. Verilen aralıklar iklim, bina ve uygulama kalitesine göre değişebilir. Kapak Ugavole için üretilmiş temsili bir editoryal görseldir; belirli bir bina veya projeyi göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "mars-arsia-mons-uzun-bulut-buzlanma",
+    title: "Mars'ın 1.800 Kilometrelik Bulutu Nadir Bir Buzlanma Sürecini Gösteriyor",
+    excerpt: "ESA'nın yeni modellemesi, Arsia Mons yakınında her yıl oluşan dev su buzu bulutunun toz tanecikleri olmadan başlayan sıra dışı bir buzlanma süreciyle büyüyebileceğini gösteriyor.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-08T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-08/mars-arsia-mons-uzun-bulut.webp",
+    original_source_url: "https://www.esa.int/Science_Exploration/Space_Science/Mars_Express/Mars_s_oddest_cloud_may_be_even_odder_than_we_thought",
+    content: `
+<p>Mars'ın Arsia Mons yanardağının çevresinde beliren uzun beyaz bulut, gezegenin en sıra dışı mevsimlik olaylarından biri. Avrupa Uzay Ajansı'nın 7 Ekim'de aktardığı yeni çalışma, 1.800 kilometreye kadar uzayabilen bu su buzu bulutunun toz parçacıklarına ihtiyaç duymadan başlayan nadir bir buzlanma süreciyle oluşabileceğini gösteriyor.</p>
+
+<h2>Bulut neden her sabah yeniden oluşuyor?</h2>
+
+<p>Arsia Mons Elongated Cloud adı verilen yapı, Mars'ın güney yarımküresinde ilkbahar ve yaz aylarında, gezegenin tozlu döneminde ortaya çıkıyor. Yaklaşık 20 kilometre yüksekliğindeki yanardağın rüzgâr altı tarafında oluşuyor; sabah saatlerinde büyüyüp uzuyor ve gün içinde kayboluyor. Mars Express'in sabah gözlemi yapabilen VMC, HRSC ve OMEGA aygıtları bu günlük döngüyü yıllardır izliyor.</p>
+
+<p>Yeni atmosfer modeli, hava kütlelerinin yanardağın yamacında birkaç dakika içinde birkaç kilometre yükseldiğini; sıcaklığın 10 dakikada yaklaşık 30 derece düştüğünü gösteriyor. Böylece su buharı kısa süreliğine aşırı doygun hale geliyor. Araştırmacıların modelinde buhar, olağan biçimde bir toz taneciği üzerinde yoğunlaşmak yerine doğrudan buz parçacıklarına dönüşüyor. Buna homojen çekirdeklenme deniyor.</p>
+
+<h2>Dünya'dakinden neden bu kadar farklı?</h2>
+
+<p>Model, bağıl nemin günlük Dünya koşullarının 100 bin katından fazla olabildiğini öne sürüyor. Bu aşırı değer, Mars atmosferinin çok ince olması, Arsia Mons'un yüksekliği ve hızlı sıcaklık düşüşünün birleşiminden kaynaklanıyor. Dünya atmosferindeki bulutlarda buz kristalleri genellikle toz veya başka parçacıkların üzerinde başlıyor; modelin önerdiği süreç bu nedenle ender.</p>
+
+<p>Sonuç doğrudan ölçülmüş kesin bir mekanizma değil. ESA, modelin gözlemlerin bazı ayrıntılarını tam olarak yeniden üretemediğini de belirtiyor. Çalışma güçlü bir açıklama sunuyor ve gelecekteki gözlemlerin hangi sıcaklık, nem ve parçacık koşullarını araması gerektiğini gösteriyor. Bulutun günlük ritmi, Mars'ın su döngüsünü ve dağların ince atmosferi nasıl yönlendirdiğini anlamak için doğal bir laboratuvar sağlıyor. Arsia Mons'a ilişkin bu bulgu, <a href="/haber/esa-mars-gezgini-tabernas-colu-testi">Avrupa'nın Mars gezgini için yaptığı çöl provasının</a> ardından gezegen araştırmalarındaki ikinci güncel ESA başlığı.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler ESA'nın 7 Ekim 2026 tarihli <a href="https://www.esa.int/Science_Exploration/Space_Science/Mars_Express/Mars_s_oddest_cloud_may_be_even_odder_than_we_thought" target="_blank" rel="noopener noreferrer">Mars Express bilim açıklaması</a> ve bağlantılı Nature Geoscience araştırması temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bilimsel görselleştirmedir; Mars Express fotoğrafı veya gerçek renkli yüzey görüntüsü değildir.</p>
+    `,
+  }),
+  editorial({
     slug: "dag-yolu-30-kasima-kadar-kucuk-araclara-kapali",
     title: "Dağ Yolu 30 Kasım'a Kadar Küçük Araçlara Kapalı",
     excerpt: "Karayolları Dairesi, Lefkoşa-Gazimağusa ile Değirmenlik-Girne-Esentepe dağ yolu güzergâhının yol çalışmaları nedeniyle otomobil ve motosikletlere 30 Kasım'a kadar kapatıldığını duyurdu.",
