@@ -43,6 +43,92 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "gebelikte-yuksek-tansiyon-2035-yol-haritasi",
+    title: "Gebelikte Yüksek Tansiyona Karşı 2035 Yol Haritası Ne Değiştiriyor?",
+    excerpt: "DSÖ'nün yeni küresel yol haritası, gebelikte hipertansiyon ve preeklampsi kaynaklı önlenebilir kayıpları azaltmak için tanı, ilaç erişimi, sevk ve araştırmayı aynı planda topluyor.",
+    category: "Yaşam",
+    published_at: "2026-10-09T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-09/gebelikte-yuksek-tansiyon-yol-haritasi.webp",
+    original_source_url: "https://www.who.int/news/item/08-10-2026-new-global-roadmap-launched-to-tackle-hypertension-in-pregnancy-a-leading-cause-of-maternal-and-newborn-deaths",
+    content: `
+<p>Dünya Sağlık Örgütü ve ortakları, gebelikte hipertansif bozuklukların yol açtığı önlenebilir anne ve yenidoğan kayıplarını azaltmak için 2026–2035 dönemini kapsayan küresel bir yol haritası başlattı. 8 Ekim'de duyurulan plan, yalnız yeni tedavi araştırmalarına değil; erken tanı, temel ilaçlara erişim, eğitimli sağlık çalışanı ve zamanında sevk zincirine birlikte odaklanıyor.</p>
+
+<h2>Sorunun ölçeği ne?</h2>
+
+<p>DSÖ'ye göre hipertansif bozukluklar dünya genelindeki gebeliklerin yaklaşık yüzde 10–15'ini etkiliyor. Küresel anne ölümlerinin yaklaşık yüzde 16'sıyla ilişkilendiriliyor; yılda tahminen 42 bin anne ölümü ile 500 binden fazla ölü doğum ve yenidoğan ölümüne katkıda bulunuyor. Preeklampsi genellikle gebeliğin 20. haftasından sonra ortaya çıkan yüksek tansiyon ve başka organ etkileriyle seyrediyor; eklampsiye ilerlediğinde nöbetlere ve yaşamı tehdit eden komplikasyonlara yol açabiliyor.</p>
+
+<p>Risk her ülkede eşit değil. Kan basıncı ölçümü, idrarda protein testi, gerekli ilaçlar, uzman değerlendirmesi ve acil doğum hizmetlerine erişim zayıf olduğunda sonuçlar ağırlaşabiliyor. Yoksulluk, insani krizler ve coğrafi uzaklık da bakım gecikmesini artırıyor.</p>
+
+<h2>Yol haritası hangi alanları birleştiriyor?</h2>
+
+<p>Plan beş çalışma alanı tanımlıyor: araştırma ve yenilik, klinik standartlar, sağlık ürünlerine erişim, uygulama ile savunuculuk ve hesap verebilirlik. Mayıs 2026'daki küresel zirvede 140'tan fazla ortak, tanı ve tedaviyi geliştirmek için 20 öncelikli araştırma sorusu belirledi. DSÖ, tanı araçlarında ilerleme görülürken preeklampsiyi önlemek veya tedavi etmek üzere özel olarak geliştirilip onaylanmış ilaç sayısının sınırlı kaldığını vurguluyor.</p>
+
+<p>Bu yol haritası kişisel tedavi talimatı değil; ülkeler, araştırmacılar ve sağlık sistemleri için ortak yatırım ve uygulama çerçevesi. Gebelikte şiddetli baş ağrısı, görme değişikliği, üst karın ağrısı, ani şişlik veya yüksek tansiyon gibi belirtiler tıbbi değerlendirme gerektirir. Küresel sağlık politikalarının veriye nasıl çevrildiğine ilişkin başka bir örnek için <a href="/haber/dso-kuresel-saglik-tahminleri-2023">DSÖ sağlık tahminleri yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ'nün 8 Ekim 2026 tarihli <a href="https://www.who.int/news/item/08-10-2026-new-global-roadmap-launched-to-tackle-hypertension-in-pregnancy-a-leading-cause-of-maternal-and-newborn-deaths" target="_blank" rel="noopener noreferrer">yol haritası duyurusu</a>, 7 Ekim tarihli <a href="https://www.who.int/publications/i/item/9789240125483" target="_blank" rel="noopener noreferrer">küresel rapor</a> ve güncel <a href="https://www.who.int/news-room/fact-sheets/detail/pre-eclampsia" target="_blank" rel="noopener noreferrer">preeklampsi bilgi notu</a> karşılaştırılarak derlenmiştir. Bu yazı tıbbi tavsiye değildir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek bir hasta veya klinik görüşmesini göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "minamata-sozlesmesi-civa-kirliligi",
+    title: "Cıva Kirliliğine Karşı Minamata Sözleşmesi 13 Yılda Ne Sağladı?",
+    excerpt: "UNEP'in güncel değerlendirmesi, Minamata Sözleşmesi ile cıva ticareti ve kullanımındaki sınırlamaların ilerlediğini; madencilik ve ürünlerdeki risklerin ise sürdüğünü gösteriyor.",
+    category: "Dünya",
+    published_at: "2026-10-09T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-09/minamata-civa-kirliligi.webp",
+    original_source_url: "https://www.unep.org/news-and-stories/story/mercury-has-long-sickened-and-killed-could-tide-finally-be-turning",
+    content: `
+<p>Cıva doğal olarak bulunan bir element olsa da sinir sistemi için güçlü bir toksin. Birleşmiş Milletler Çevre Programı'nın 8 Ekim'de yayımladığı değerlendirme, 10 Ekim 2013'te kabul edilen Minamata Sözleşmesi'nin küresel cıva ticareti ve kullanımını sınırlamada ilerleme sağladığını, ancak riskin ortadan kalkmadığını anlatıyor.</p>
+
+<h2>Minamata neden bir dönüm noktası oldu?</h2>
+
+<p>1950'lerde Japonya'nın Minamata kentindeki bir kimya tesisinden denize bırakılan cıva, balıklarda birikti ve bu balıkları tüketen binlerce kişinin ciddi biçimde hastalanmasına yol açtı. Hareket kaybı, görme alanında daralma ve başka nörolojik etkilerle anılan Minamata hastalığı, endüstriyel kirliliğin gıda zinciri boyunca nasıl büyüyebildiğini gösteren en ağır örneklerden biri oldu.</p>
+
+<p>UNEP'in 2002 tarihli Küresel Cıva Değerlendirmesi, sanayi devriminden bu yana seviyelerin yükseldiğini ve elementin hava, su ve canlılar arasında dolaştığını ortaya koydu. Bu çalışma, hükümetler ve sivil toplumun katıldığı bir ortaklığa; ardından 2010'da başlayan bağlayıcı sözleşme görüşmelerine zemin hazırladı. Sözleşme 2017'de yürürlüğe girdi ve bugün 153'ten fazla ülke taraf.</p>
+
+<h2>İlerleme nerede, açık nerede?</h2>
+
+<p>UNEP'e göre cıva ticareti yavaşladı, cıva içeren bazı kozmetiklere yönelik yasak yürürlüğe girdi ve cıvalı floresan lambalar aşamalı olarak kullanımdan kaldırılıyor. Bazı küçük ölçekli altın madenleri de altını cevherden ayırmak için daha az toksik yöntemlere geçiyor. Bu adımlar, ürün standardı, ticaret kuralı ve yerel uygulama birlikte çalıştığında maruziyet kaynaklarının azaltılabileceğini gösteriyor.</p>
+
+<p>Buna karşılık cıva hâlâ küçük ölçekli altın madenciliğinde, bazı ürünlerde ve çevredeki eski kirlilik birikimlerinde bulunuyor. Bir yasağın kabul edilmesi, denetim, güvenli atık yönetimi ve çalışanların korunması olmadan maruziyetin bittiğini kanıtlamıyor. Cıvanın çevrede uzun süre dolaşabilmesi, kaynağı azaltmanın yanında kirlenmiş alanların izlenmesini ve balık tüketimine ilişkin yerel sağlık uyarılarının sürdürülmesini de gerekli kılıyor. Su ve sağlık altyapısının başka bir küresel boyutu için <a href="/haber/dso-2025-su-sanitasyon-hijyen-raporu">temiz su ve sanitasyon açığı yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNEP'in 8 Ekim 2026 tarihli <a href="https://www.unep.org/news-and-stories/story/mercury-has-long-sickened-and-killed-could-tide-finally-be-turning" target="_blank" rel="noopener noreferrer">Minamata Sözleşmesi değerlendirmesinden</a> derlenmiştir. Tarihsel olay ile güncel sözleşme ilerlemesi ayrı bağlamlarda aktarılmıştır. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek bir maden, ürün, kirlilik vakası veya laboratuvar fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "spherex-kahverengi-cuce-atmosferleri",
+    title: "SPHEREx Kahverengi Cücelerin Atmosferlerinde Dört Molekülü İzledi",
+    excerpt: "NASA'nın SPHEREx teleskobu, 37 yakın kahverengi cücenin tayfında su, karbondioksit, karbonmonoksit ve metan izlerini karşılaştırarak bulutlu atmosferlerin çeşitliliğini gösterdi.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-09T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-09/spherex-kahverengi-cuceler.webp",
+    original_source_url: "https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/",
+    content: `
+<p>Yıldız gibi oluşup yıldız kadar ağır olmayan kahverengi cüceler, gökbilimcilere dev gezegenlerle yıldızlar arasındaki sınırı inceleme fırsatı veriyor. NASA'nın 8 Ekim'de duyurduğu çalışma, SPHEREx uzay teleskobunun 37 yakın kahverengi cüceyi geniş bir sıcaklık aralığında inceleyerek atmosferlerindeki dört temel molekülün izini çıkardığını gösteriyor.</p>
+
+<h2>Kahverengi cüce nedir?</h2>
+
+<p>Bu cisimler yıldızlar gibi çöken gaz bulutlarından oluşuyor, ancak çekirdeklerinde sürekli hidrojen füzyonunu başlatacak kütleye ulaşamıyor. Çoğu bir yıldızın çevresinde dönmek yerine uzayda tek başına hareket ediyor ve içeriden kalan ısıyla parlıyor. Bu özellikleri onları hem yıldız oluşumunu hem de Jüpiter benzeri gaz dünyalarının atmosferlerini anlamak için değerli kılıyor.</p>
+
+<p>Araştırma ekibi, yaklaşık 2.200 dereceden eksi 20 santigrat dereceye uzanan sıcaklıklardaki 37 cismi karşılaştırdı. SPHEREx görünür kırmızının en uç bölümünden kızılötesine kadar 102 farklı renk bandında parlaklık ölçüyor. Oluşan tayflarda su, karbondioksit, karbonmonoksit ve metan moleküllerinin ışığı emdiği karakteristik desenler görüldü.</p>
+
+<h2>Neden uzaydan bakmak gerekiyor?</h2>
+
+<p>Dünya atmosferindeki su buharı, araştırmacıların ihtiyaç duyduğu bazı kızılötesi dalga boylarını yer teleskopları için kapatıyor. SPHEREx yörüngeden bu aralığı görebildiği için çok sayıda kahverengi cüceyi aynı ölçüm sistemiyle tarayabiliyor. İncelenen ilk 37 cisim, görevin çözümlemekte olduğu binlerce adayın küçük bir bölümü.</p>
+
+<p>Veriler genel kimyasal eğilimlerle modellerin uyuştuğunu, ancak bulutların inceldiği ve atmosferlerin metan ağırlıklı hâle geçtiği geçişlerde açıklamanın zorlaştığını gösteriyor. Aynı sıcaklıktaki iki kahverengi cücenin tayfı bile belirgin biçimde farklı olabiliyor. Bu nedenle çalışma tek bir “standart atmosfer” ilan etmiyor; çeşitliliğin daha büyük örneklemle sınanmasını istiyor.</p>
+
+<p>SPHEREx her gün yaklaşık 3.600 görüntü üreterek tüm gökyüzü haritalarını oluşturuyor; kahverengi cüceler görevin geniş veri setinden çıkan yan araştırmalardan biri. Ölen yıldızların çevresindeki sıra dışı sistemleri merak edenler <a href="/haber/hubble-beyaz-cuce-ikinci-nesil-gezegen-adayi">Hubble'ın ikinci nesil gezegen adayı yazısına</a> da bakabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA'nın 8 Ekim 2026 tarihli <a href="https://www.nasa.gov/missions/spherex/nasas-spherex-telescope-sees-menagerie-of-brown-dwarfs/" target="_blank" rel="noopener noreferrer">SPHEREx bilim açıklaması</a> ve bağlantılı The Astrophysical Journal çalışması temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bilimsel görselleştirmedir; gerçek teleskop görüntüsü veya kahverengi cücelerin ölçekli karşılaştırması değildir.</p>
+    `,
+  }),
+  editorial({
     slug: "dso-cocuk-ergen-obezite-rehberi",
     title: "DSÖ'den Çocuk ve Ergen Obezitesinde İlk Küresel Bakım Rehberi",
     excerpt: "DSÖ'nün ilk küresel çocuk ve ergen obezitesi rehberi, aileyi sürece katan uzun vadeli yaşam tarzı desteğini merkeze alıyor; ilaç ve cerrahi için sıkı sınırlar çiziyor.",
