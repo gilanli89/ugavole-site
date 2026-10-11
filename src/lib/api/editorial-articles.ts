@@ -43,6 +43,94 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "dso-toplum-temelli-ruh-sagligi",
+    title: "DSÖ Ruh Sağlığı Bakımında Toplum Temelli Modele Geçiş İstiyor",
+    excerpt: "DSÖ'nün yeni rehberi, uzun süreli psikiyatri hastanesi yatışlarına dayanan modelden; barınma, sosyal destek ve süreklilik içeren toplum temelli bakıma geçiş için somut adımlar sunuyor.",
+    category: "Yaşam",
+    published_at: "2026-10-10T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-10/toplum-temelli-ruh-sagligi.webp",
+    original_source_url: "https://www.who.int/news/item/09-10-2026-who-urges-shift-from-institutional-to-community-based-mental-health-care",
+    content: `
+<p>Dünya Sağlık Örgütü, 9 Ekim'de yayımladığı yeni rehberle ruh sağlığı bakımının uzun süreli kurum yatışlarından toplum içinde, kişinin haklarını ve tercihlerini koruyan hizmetlere kaydırılmasını istedi. Rehber özellikle psikiyatri hastanelerinde altı ay veya daha uzun kalan yetişkinlerin güvenli biçimde topluma dönmesini ele alıyor.</p>
+
+<h2>Neden yalnız hastane yatağını azaltmak yetmiyor?</h2>
+
+<p>DSÖ'ye göre bildirilen ülkelerin yalnız yüzde 9'u toplum temelli ruh sağlığı bakımına tam geçiş yapmış durumda; yüzde 53'ü reformun erken aşamasında. Psikiyatri hastanelerine kabul edilen kişilerin yüzde 28'inden fazlası altı aydan uzun kalıyor. Kurumdan çıkarma süreci yalnız yatak sayısını azaltır, fakat barınma, sağlık hizmeti, gelir desteği ve sosyal bağlar kurulmazsa kişi başka bir güvensizlik döngüsüne girebilir.</p>
+
+<p>Yeni çerçeve bu nedenle politikayı, finansmanı ve hizmet tasarımını birlikte ele alıyor. Hastane başvurularını ve uzun yatışları azaltmak; kurum içindeki uygulamaları hak temelli hale getirmek; taburculuk sonrası bakımın kesilmemesini sağlamak üç ana çalışma alanı. Uygulama ise planlama, hazırlık ve hizmet sunumu aşamalarına ayrılıyor.</p>
+
+<h2>Toplum temelli bakım neyi kapsıyor?</h2>
+
+<p>Model, kişinin yalnız klinik randevuya ulaşmasını değil; uygun barınma, genel sağlık hizmeti, eğitim ve istihdam fırsatları, aile desteği ve günlük yaşama katılımı da kapsıyor. Hastaneler, yerel yönetimler, sosyal hizmetler, çalışanlar, aileler ve ruh sağlığı hizmetini bizzat deneyimlemiş kişiler arasında koordinasyon gerekiyor. DSÖ, bu kişilerin hizmet tasarımında danışılan değil karar süreçlerine katılan ortaklar olması gerektiğini vurguluyor.</p>
+
+<p>Rehber, her ülkede aynı takvimin uygulanacağını söylemiyor. Mevzuat, bütçe, insan kaynağı ve yerel destek ağı farklı olduğu için geçişin kademeli, izlenebilir ve kişi güvenliğini koruyacak biçimde yürütülmesi gerekiyor. Başarı yalnız taburcu edilen kişi sayısıyla değil; yeniden yatış, barınma sürekliliği, hizmete erişim ve kişinin toplumsal yaşama katılımıyla birlikte ölçülmeli. Okul ortamında erken destek ve rol sınırlarını ele alan tamamlayıcı bir örnek için <a href="/haber/okullarda-ruh-sagligi-icin-ogretmen-rehberi">öğretmenler için ruh sağlığı rehberi yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ'nün 9 Ekim 2026 tarihli <a href="https://www.who.int/news/item/09-10-2026-who-urges-shift-from-institutional-to-community-based-mental-health-care" target="_blank" rel="noopener noreferrer">duyurusu</a> ve aynı gün yayımlanan <a href="https://www.who.int/publications/i/item/9789240124134" target="_blank" rel="noopener noreferrer">146 sayfalık uygulama rehberi</a> karşılaştırılarak derlenmiştir. Bu yazı kişisel tıbbi tavsiye değildir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek bir hasta, bakım ekibi veya sağlık kuruluşunu göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "nairobi-sozlesmesi-cop12-okyanus-kararlari",
+    title: "Nairobi Sözleşmesi COP12'de Okyanuslar İçin 15 Karar Aldı",
+    excerpt: "Batı Hint Okyanusu'na kıyısı olan taraflar, COP12'de plastik kirliliği, kritik habitatlar, deniz planlaması ve mavi finansman için 15 bölgesel karar üzerinde uzlaştı.",
+    category: "Dünya",
+    published_at: "2026-10-10T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-10/nairobi-sozlesmesi-cop12.webp",
+    original_source_url: "https://www.unep.org/news-and-stories/press-release/nairobi-convention-marks-40-years-cop12-charts-future-ocean",
+    content: `
+<p>Batı Hint Okyanusu'nun korunmasına yönelik Nairobi Sözleşmesi'nin 12. Taraflar Konferansı, 9 Ekim'de Darüsselam'da 15 kararla sona erdi. Birleşmiş Milletler Çevre Programı'nın duyurusuna göre toplantı, sözleşmenin 40. yılında deniz biyolojik çeşitliliği, kirlilik, okyanus yönetimi ve mavi ekonomi başlıklarını aynı bölgesel çerçevede topladı.</p>
+
+<h2>Masada hangi ülkeler vardı?</h2>
+
+<p>Sözleşmenin on tarafı Komorlar, Fransa, Kenya, Madagaskar, Mauritius, Mozambik, Seyşeller, Somali, Güney Afrika ve Tanzanya. Konferansa kamu kurumlarının yanında araştırmacılar, sivil toplum, yerel topluluklar, gençler ve özel sektör temsilcileri de katıldı. UNEP, 2024'teki önceki konferansta yaklaşık 200 olan katılımcı sayısının bu kez 1.600'ü aştığını bildiriyor.</p>
+
+<p>Taraflar 2025–2035 Entegre Çalışma Programı'nı ilerletme; ekosistem izlemesini, bilim-politika bağını ve bilgi sistemlerini güçlendirme kararı aldı. Deniz mekânsal planlaması, ülkelerin balıkçılık, ulaşım, enerji ve koruma alanları gibi farklı kullanımları aynı harita ve kurallar içinde değerlendirmesine yardım ediyor.</p>
+
+<h2>15 kararın somut başlıkları neler?</h2>
+
+<p>Paket, plastik kirliliğine karşı bölgesel strateji; mangrov, deniz çayırı ve mercan resiflerinin korunması; büyük deniz kirliliği olayları için ortak acil durum planı ve karadan denize taşınan kirliliğin azaltılması gibi alanları kapsıyor. Taraflar ayrıca ulusal yetki alanlarının dışındaki biyolojik çeşitliliği düzenleyen BBNJ Anlaşması'nın uygulanmasına bölgesel hazırlık çağrısı yaptı.</p>
+
+<p>Ekonomik tarafta okyanus muhasebesi, mavi finansman ve kadınlar ile gençleri kapsayan yatırımlar öne çıkıyor. Okyanus muhasebesi, deniz ve kıyı ekosistemlerinin ekonomik faaliyetlerle ilişkisini ortak göstergelerle izlemeyi amaçlıyor. Mavi finansman ise koruma, iklim direnci ve sürdürülebilir geçim projelerine kaynak sağlamaya odaklanıyor.</p>
+
+<p>Karar sayısı tek başına deniz sağlığındaki iyileşmeyi göstermiyor. Uygulama bütçesi, ortak ölçüm yöntemleri, düzenli veri paylaşımı ve kıyı topluluklarının kazancı izlenmeden sonuç değerlendirmesi yapılamaz. Bölgesel anlaşmanın gücü, ülkeler arasında dolaşan kirlilik ve paylaşılan ekosistemler için aynı hedefleri kurabilmesinde; zorluğu ise kararları ulusal uygulamaya dönüştürmesinde. Denizlerdeki uzun dönemli değişimi uydu verileriyle ele alan başka bir örnek için <a href="/haber/arktik-deniz-buzu-2026-minimumu">2026 Arktik deniz buzu yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNEP'in 9 Ekim 2026 tarihli <a href="https://www.unep.org/news-and-stories/press-release/nairobi-convention-marks-40-years-cop12-charts-future-ocean" target="_blank" rel="noopener noreferrer">COP12 sonuç duyurusu</a> ve <a href="https://www.unep.org/events/conference/twelfth-conference-parties-nairobi-convention-cop-12" target="_blank" rel="noopener noreferrer">konferans belgeleri</a> karşılaştırılarak derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek toplantı fotoğrafı veya bilimsel harita değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "nasa-sspicy-otonom-uydu-inceleme",
+    title: "NASA'nın SSPICY Görevi Çalışmayan Uyduları Yakından İnceleyecek",
+    excerpt: "Çamaşır makinesi büyüklüğündeki Otter aracı, 2027 başında dört kullanım dışı uzay nesnesine otonom yaklaşarak gelecekteki yörünge onarım ve enkaz azaltma görevleri için teknoloji sınayacak.",
+    category: "Teknoloji",
+    published_at: "2026-10-10T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-10/sspicy-uydu-inceleme.webp",
+    original_source_url: "https://www.nasa.gov/centers-and-facilities/ames/nasas-sspicy-mission-to-demonstrate-in-space-inspection-technologies/",
+    content: `
+<p>NASA destekli SSPICY teknoloji gösterimi, kullanım dışı uydulara ve roket gövdelerine otonom biçimde yaklaşarak gelecekteki yörünge bakım görevleri için veri toplayacak. Görevin Otter adlı uzay aracı 1 Ekim'de Kaliforniya'daki Vandenberg Uzay Kuvvetleri Üssü'nden fırlatıldı; yakın incelemelerin 2027'nin başında başlaması planlanıyor.</p>
+
+<h2>Otter neyi sınayacak?</h2>
+
+<p>Açılımı Küçük Uzay Aracı İtki ve İnceleme Yeteneği olan SSPICY, alçak Dünya yörüngesindeki ABD kökenli dört kullanım dışı nesneye kadar yaklaşacak. Yaklaşma sırasında yer kontrolünden sınırlı komut alacak; bilgisayarlı görü, sensörler ve otonom yönlendirme yazılımı aracın hedefe göre gerçek zamanlı rota kararları vermesini sağlayacak.</p>
+
+<p>Çamaşır makinesi büyüklüğündeki araç, her hedefin dönüş hızını, yönelimini ve yüzey durumunu gözlemleyecek. Elektrikli itki sistemi farklı yörüngeler arasında ilerlemeye yardım edecek. Eklemli robotik kol ise iticilerin hassas manevra için farklı yönlere çevrilmesini sınayacak. NASA, bu bileşenlerin ilk kez aynı entegre sistem içinde deneneceğini belirtiyor.</p>
+
+<h2>Bu bir enkaz toplama görevi mi?</h2>
+
+<p>Hayır. Otter bu gösterimde uydulara dokunmayacak veya kenetlenmeyecek. Amaç, ileride arızalı bir uzay aracını incelemek, onarmak ya da güvenli biçimde atmosfere yönlendirmek için gereken yaklaşma teknolojilerini doğrulamak. Yörüngedeki roket gövdeleri ve hizmet dışı uydular çarpışabilir veya parçalanabilir; oluşan yeni parçalar başka görevler için riski büyütebilir.</p>
+
+<p>Tek bir teknoloji gösterimi uzay enkazı sorununu çözmez. Yeni enkaz oluşumunu önleyen tasarım ve işletme kuralları, çarpışmadan kaçınma manevraları, güvenilir yörünge takibi ve görev sonunda bertaraf planları da gerekli. Yakın uçuşta hedefin dönüşünün doğru ölçülmesi özellikle önemli; kontrolsüz dönen bir nesneye güvenli yaklaşmak, çalışan ve yönelimini koruyan bir uyduya yaklaşmaktan daha karmaşık.</p>
+
+<p>SSPICY'nin katkısı, hedefin durumunu yakından ve az yer müdahalesiyle ölçmenin mümkün olup olmadığını göstermesi. Deneme başarılı olursa elde edilen yöntemler gelecekte farklı üreticilerin servis araçlarına aktarılabilir; ancak NASA duyurusu bu aşamada onarım veya enkaz kaldırma hizmetinin hazır olduğunu söylemiyor. Uydu sinyallerinin sahada nasıl sınandığına ilişkin başka bir teknoloji örneği için <a href="/haber/jammertest-gps-spoofing-ve-sinyal-dogrulama">Jammertest ve Galileo yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA'nın 8 Ekim'de yayımlayıp 9 Ekim 2026'da güncellediği <a href="https://www.nasa.gov/centers-and-facilities/ames/nasas-sspicy-mission-to-demonstrate-in-space-inspection-technologies/" target="_blank" rel="noopener noreferrer">SSPICY görev açıklaması</a> ve NASA'nın <a href="https://orbitaldebris.jsc.nasa.gov/mitigation/" target="_blank" rel="noopener noreferrer">yörünge enkazını azaltma bilgi sayfası</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili bilimsel görselleştirmedir; gerçek uzay aracı, hedef uydu veya görev fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
     slug: "gebelikte-yuksek-tansiyon-2035-yol-haritasi",
     title: "Gebelikte Yüksek Tansiyona Karşı 2035 Yol Haritası Ne Değiştiriyor?",
     excerpt: "DSÖ'nün yeni küresel yol haritası, gebelikte hipertansiyon ve preeklampsi kaynaklı önlenebilir kayıpları azaltmak için tanı, ilaç erişimi, sevk ve araştırmayı aynı planda topluyor.",
