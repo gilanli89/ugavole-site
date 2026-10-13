@@ -43,6 +43,94 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "dso-pandemi-24-saat-hedefi",
+    title: "DSÖ Yeni Salgınları 24 Saat İçinde Saptama Hedefi Koydu",
+    excerpt: "DSÖ Pandemi Merkezi'nin 2030 stratejisi, ülkelerin yeni sağlık tehditlerini ortaya çıktıktan sonra 24 saat içinde saptayıp anlamasını ortak hedef olarak belirliyor.",
+    category: "Dünya",
+    published_at: "2026-10-13T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-13/dso-pandemi-24-saat-hedefi.webp",
+    original_source_url: "https://www.who.int/news/item/12-10-2026-who-pandemic-hub-sets-ambitious-goal-to-detect-new-outbreaks-within-24-hours",
+    content: `
+<p>Dünya Sağlık Örgütü, Pandemi ve Salgın İstihbaratı Merkezi için 2026–2030 stratejisini 12 Ekim'de Berlin'de açıkladı. Planın en dikkat çekici hedefi, her ülkenin yeni ortaya çıkan sağlık tehditlerini 2030'a kadar ilk 24 saat içinde saptayıp anlamlandırabilecek kapasiteye ulaşması. Buradaki 24 saat, bir salgının tamamen kontrol altına alınacağı süre değil; ilk sinyalin güvenilir biçimde tanınması ve karar verecek kurumlara aktarılması için belirlenen ortak bir yön.</p>
+
+<h2>Sinyal nasıl bulunacak?</h2>
+
+<p>Strateji, açık kaynaklardan salgın istihbaratı, genom dizileme, veri modelleme ve ülkeler arası gözetim ağlarını birlikte ele alıyor. EIOS adlı sistem her gün kamuya açık binlerce kaynağı tarıyor; DSÖ'ye göre bu ağ 125'ten fazla üye devlet ve 30 bölgesel ya da uluslararası kuruluş tarafından kullanılıyor. Uluslararası Patojen Gözetim Ağı ise yeni etkenleri tanımlamak için genomik ve biyoinformatik kapasitesini güçlendirmeyi amaçlıyor.</p>
+
+<p>Merkezin 2021'den bu yana 160 üye devlet ve 190 ortak kuruluşla çalıştığı belirtiliyor. Yeni dönemde yalnız daha fazla veri toplamak hedeflenmiyor. Verinin güvenli biçimde paylaşılması, farklı kaynakların aynı tablo içinde değerlendirilmesi ve analizlerin sahadaki karara dönüşmesi de stratejinin parçası. Modellemede çalışan iki binden fazla uzmanın gerektiğinde hızla bir araya getirilebildiği Collaboratory ağı bu bağlantıyı destekliyor.</p>
+
+<h2>Hız tek başına neden yetmez?</h2>
+
+<p>Erken uyarı, test kapasitesi, yerel laboratuvar, eğitimli insan kaynağı ve açık iletişim olmadan etkili bir müdahaleye dönüşemez. Yapay zekâ çok sayıda sinyali ayıklamaya yardımcı olabilir; fakat yanlış alarm, veri kalitesi, mahremiyet ve ülkeler arasındaki kapasite farkları insan denetimini zorunlu kılıyor. DSÖ de hedefin sürdürülebilir yatırım, güvenilir ortaklıklar ve sektörler arası işbirliği gerektirdiğini vurguluyor.</p>
+
+<p>Bu strateji yeni bir hastalık duyurusu ya da kişisel sağlık uyarısı değil; kamu sağlığı kurumlarının hazırlık kapasitesi için beş yıllık çalışma çerçevesi. Benzer küresel hazırlık kararlarının siyasi boyutu için <a href="/haber/dunya-yeni-pandemilere-hazirlik-taahhudunu-yeniledi">pandemi hazırlık taahhüdü yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ'nün 12 Ekim 2026 tarihli <a href="https://www.who.int/news/item/12-10-2026-who-pandemic-hub-sets-ambitious-goal-to-detect-new-outbreaks-within-24-hours" target="_blank" rel="noopener noreferrer">duyurusu</a> ve 10 Ekim tarihli <a href="https://www.who.int/publications/i/item/B09930" target="_blank" rel="noopener noreferrer">2026–2030 strateji belgesi</a> karşılaştırılarak derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek bir salgın merkezi, vaka haritası veya erken uyarı ekranını göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "antarktika-deniz-buzu-2026-maksimumu",
+    title: "Antarktika Deniz Buzu 2026'da Üçüncü En Düşük Maksimuma Ulaştı",
+    excerpt: "NASA ve NSIDC ölçümleri, Antarktika çevresindeki deniz buzunun 14 Eylül'de 17,59 milyon kilometrekareyle uydu kayıtlarının üçüncü en düşük kış maksimumuna ulaştığını gösteriyor.",
+    category: "Dünya",
+    published_at: "2026-10-13T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-13/antarktika-deniz-buzu-maksimumu.webp",
+    original_source_url: "https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/",
+    content: `
+<p>Antarktika çevresindeki deniz buzu, 2026 kışındaki en geniş alanına 14 Eylül'de ulaştı. NASA Earth Observatory'nin 12 Ekim'de yayımladığı değerlendirmeye göre buzun kapladığı alan 17,59 milyon kilometrekare olarak ölçüldü. Bu değer, 1978 sonunda başlayan kesintisiz uydu kaydındaki üçüncü en düşük yıllık maksimum.</p>
+
+<h2>Maksimum neyi anlatıyor?</h2>
+
+<p>Güney Yarımküre'de deniz buzu genellikle kış sonunda, eylül çevresinde en geniş alanına ulaşıyor; şubat yakınlarında ise yıllık minimumuna çekiliyor. Antarktika bir okyanusla çevrili kıta olduğu için buz kuzeye doğru geniş bir alana yayılabiliyor. Buna karşılık daha sıcak enlemlere uzanan ince dış kesimler rüzgâr ve hava koşullarına hızla tepki veriyor.</p>
+
+<p>Bilim insanları “deniz buzu alanı” hesabında buz yoğunluğunun en az yüzde 15 olduğu bölgeleri sayıyor. Pasif mikrodalga sensörleri, Dünya'nın doğal olarak yaydığı mikrodalga enerjisini ölçüyor; deniz buzu açık sudan farklı bir sinyal verdiği için bulutların arasından da düzenli izleme yapılabiliyor. 2025'ten beri bu kayıt dizisinde Japonya'nın GCOM-W uydusundaki AMSR2 aygıtının verileri kullanılıyor.</p>
+
+<h2>Tek bir yıl uzun dönemli sonucu belirler mi?</h2>
+
+<p>Hayır. Antarktika deniz buzu yıldan yıla güçlü dalgalanmalar gösterebiliyor. 1979–2014 arasında toplam kapsam yaklaşık on yılda yüzde 1 arttı; 2012–2014 döneminde art arda rekor yüksek kış maksimumları görüldü. 2016'dan sonra belirgin düşüşler başladı ve son yıllarda bazı küçük toparlanmalar olsa da buz kapsamı genel olarak normalin altında kaldı. Hem en düşük minimum hem de en düşük maksimum 2023'te kaydedildi.</p>
+
+<p>Bu nedenle 2026 sonucu tek başına kalıcı bir eğilimin kanıtı sayılmıyor. Ancak üçüncü en düşük maksimum olması, ölçüm dizisinin ve bölgesel rüzgâr, sıcaklık ve okyanus koşullarının yakından izlenmesini gerektiriyor. Kuzey kutbundaki aynı yıllık döngünün diğer ucu için <a href="/haber/arktik-deniz-buzu-2026-minimumu">2026 Arktik deniz buzu minimumu yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA Earth Observatory'nin 12 Ekim 2026 tarihli <a href="https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/" target="_blank" rel="noopener noreferrer">güncel değerlendirmesi</a> ve Ulusal Kar ve Buz Veri Merkezi'nin <a href="https://nsidc.org/news-analyses/news-stories/arctic-sea-ice-has-reached-minimum-extent-2026-antarctic-sea-ice-maximum-most-likely-reached-well" target="_blank" rel="noopener noreferrer">17,59 milyon kilometrekarelik ölçüm duyurusu</a> karşılaştırılarak derlenmiştir. Kapak temsili bir editoryal görseldir; gerçek uydu ölçümü, harita veya bilimsel veri ürünü değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "iss-crs35-saglik-arastirmalari",
+    title: "ISS'ye Beyin Modelleri, Bitkiler ve Dirençli Bakteri Deneyleri Gidiyor",
+    excerpt: "NASA'nın SpaceX CRS-35 kargo görevi, insan beyni modellerinden hastalıklı bitkilere ve antibiyotik dirençli bakterilere uzanan dört biyoloji araştırmasını uzay istasyonuna taşıyacak.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-13T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-13/iss-crs35-saglik-arastirmalari.webp",
+    original_source_url: "https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/",
+    content: `
+<p>SpaceX'in NASA için düzenlediği 35'inci ticari ikmal görevi, Uluslararası Uzay İstasyonu'na dört yeni biyoloji araştırması taşıyacak. NASA'nın 12 Ekim'de açıkladığı paket; laboratuvarda yetiştirilen küçük insan beyni modellerini, hastalık bulaştırılmış bitkileri, hızlı biyobelirteç ölçüm cihazını ve antibiyotik dirençli bakterileri inceleyen deneyleri bir araya getiriyor.</p>
+
+<h2>Küçük beyin modelleri neyi sınayacak?</h2>
+
+<p>Laboratuvarda hücrelerden geliştirilen üç boyutlu beyin dokusu modelleri istasyonda beş hafta kalacak. Araştırmacılar uzaya giden örnekleri Dünya'da tutulan eş örneklerle karşılaştırarak kısa süreli mikro yerçekiminin hücresel düzeyde hangi değişikliklerle ilişkili olduğunu inceleyecek. Bunlar tam bir insan beynini taklit etmiyor ve deney henüz bir tedavi sonucu sunmuyor; amaç, uzun görevlerde beyin sağlığına yönelik riskleri daha iyi tanımlayacak veri üretmek.</p>
+
+<h2>Bitkiler ve hızlı analiz cihazı</h2>
+
+<p>Başka bir deney, hastalık yapan bir mantarın bitkilerde mikro yerçekimi altında daha hızlı veya daha ağır ilerleyip ilerlemediğini araştıracak. Uzayda ve Dünya'da yetiştirilen örneklerin moleküler ve yapısal değişimleri karşılaştırılacak. Elde edilecek sonuçlar hem gelecekteki uzay tarımı hem de Dünya'da hastalığa daha dayanıklı ürünlerin geliştirilmesi için yeni sorular oluşturabilir.</p>
+
+<p>Paket ayrıca kompakt bir mikroplaka okuyucusunun ilk istasyon testini içeriyor. Cihaz antikor, antijen ve protein gibi biyobelirteçleri yörüngede ölçebilirse numunelerin Dünya'ya dönmesini beklemeden hızlı analiz yapılabilecek. Bu, ikmalin daha zor olduğu uzak görevlerde enfeksiyon ve başka sağlık sorunlarına erken yanıt için teknik bir adım olabilir.</p>
+
+<h2>Dirençli bakteriler neden izleniyor?</h2>
+
+<p>GEARS araştırması istasyon yüzeylerinden düzenli örnek alarak antibiyotik dirençli mikroorganizmaların mikro yerçekiminde nasıl hayatta kaldığını ve değiştiğini izliyor. Dördüncü ve planlanan son istasyon dönemi, önceki örneklerle daha uzun karşılaştırma yapmayı hedefliyor. Bulguların astronot güvenliğine katkı sunması ve Dünya'daki direnç araştırmalarına ipucu vermesi bekleniyor; ancak sonuç çıkmadan sağlık etkisi ilan edilemez.</p>
+
+<p>Uzayda tanı araçlarının başka bir örneği için <a href="/haber/iss-yapay-zeka-destekli-ultrason-deneyi">yapay zekâ destekli ultrason deneyine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA'nın 12 Ekim 2026 tarihli <a href="https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/" target="_blank" rel="noopener noreferrer">CRS-35 araştırma özeti</a>, kurumun <a href="https://science.nasa.gov/biological-physical/precision-health/" target="_blank" rel="noopener noreferrer">Precision Health programı</a> ve <a href="https://science.nasa.gov/biological-physical/investigations/gears-genomic-enumeration-of-antibiotic-resistance-in-space/" target="_blank" rel="noopener noreferrer">GEARS deney sayfası</a> karşılaştırılarak derlenmiştir. Kapak temsili bilimsel görselleştirmedir; gerçek istasyon içi, deney donanımı veya görev fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
     slug: "dso-toplum-temelli-ruh-sagligi",
     title: "DSÖ Ruh Sağlığı Bakımında Toplum Temelli Modele Geçiş İstiyor",
     excerpt: "DSÖ'nün yeni rehberi, uzun süreli psikiyatri hastanesi yatışlarına dayanan modelden; barınma, sosyal destek ve süreklilik içeren toplum temelli bakıma geçiş için somut adımlar sunuyor.",
