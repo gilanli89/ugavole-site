@@ -105,7 +105,7 @@ export const EDITORIAL_ARTICLES: Article[] = [
     category: "Dünya",
     published_at: "2026-10-14T09:05:00+03:00",
     cover_image: "/editorial/2026-10-14/afetlere-direncli-konutlar.webp",
-    original_source_url: "https://iddrr.undrr.org/news/un-calls-greater-investment-housing-resilience-homes-account-43-reported-disaster-losses",
+    original_source_url: "https://transcripts.un.org/en/briefing/geneva/2026-10-13",
     content: `
 <p>Birleşmiş Milletler Afet Riskini Azaltma Ofisi'nin 13 Ekim'de açıkladığı verilere göre konutlar, ülkelerin Sendai Çerçevesi İzleme Sistemi'ne bildirdiği doğrudan ekonomik afet kayıplarının yüzde 43'ünü oluşturuyor. Küresel risk modellemesi ise siklon, sel, tsunami ve depremler nedeniyle konutlarda beklenen yıllık ortalama kaybı yaklaşık 228 milyar dolar olarak hesaplıyor.</p>
 
@@ -125,7 +125,7 @@ export const EDITORIAL_ARTICLES: Article[] = [
 
 <h2>Kaynak ve görsel notu</h2>
 
-<p>Bilgiler UNDRR'nin 13 Ekim 2026 tarihli <a href="https://iddrr.undrr.org/news/un-calls-greater-investment-housing-resilience-homes-account-43-reported-disaster-losses" target="_blank" rel="noopener noreferrer">basın duyurusu</a> ve aynı gün yayımlanan <a href="https://iddrr.undrr.org/implementing-sendai-framework/housing-accounts-for-more-than-half-of-expected-annual-building-losses" target="_blank" rel="noopener noreferrer">veri açıklaması</a> karşılaştırılarak derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek bir afet bölgesi, konut projesi veya mühendislik planını göstermez.</p>
+<p>Bilgiler, UNDRR temsilcisinin 13 Ekim 2026 tarihli <a href="https://transcripts.un.org/en/briefing/geneva/2026-10-13" target="_blank" rel="noopener noreferrer">Birleşmiş Milletler Cenevre basın bilgilendirmesinde</a> paylaştığı ülke kayıtları ve küresel risk modellemesi temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek bir afet bölgesi, konut projesi veya mühendislik planını göstermez.</p>
     `,
   }),
   editorial({
