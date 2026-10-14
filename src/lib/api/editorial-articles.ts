@@ -43,6 +43,92 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "avustralya-orumcek-krateri-landsat-9",
+    title: "Avustralya'daki Örümcek Krateri Uzaydan Yeniden Görüntülendi",
+    excerpt: "Landsat 9'un görüntülediği 13'e 11 kilometrelik Örümcek Krateri, yüz milyonlarca yıllık aşınmaya rağmen meteor çarpmasının izlerini koruyor.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-14T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-14/avustralya-orumcek-krateri.webp",
+    original_source_url: "https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/",
+    content: `
+<p>Batı Avustralya'nın Kimberley bölgesindeki Örümcek Krateri, NASA ve ABD Jeolojik Araştırmalar Kurumu'nun Landsat 9 uydusuyla yeniden görüntülendi. Operational Land Imager aygıtının 20 Eylül 2026'da kaydettiği görüntü, 13 Ekim'de NASA Earth Observatory tarafından yayımlandı. Yukarıdan bakıldığında açık renkli kaya sırtlarının merkezden bacaklar gibi yayılması, yapıya İngilizce “Spider” adını veriyor.</p>
+
+<h2>Kraterin ölçüsü ne?</h2>
+
+<p>Tam çarpma yapısı yaklaşık 13 kilometreye 11 kilometre boyutunda oval bir alan kaplıyor. Örümceği andıran orta bölümün çapı ise yaklaşık 4 kilometre. Bu şekil ilk bakışta yüzeyde yeni açılmış bir çukuru düşündürse de bugün görülen manzara, meteor çarpmasının ardından yüz milyonlarca yıl süren aşınmanın sonucu.</p>
+
+<p>Jeologlar merkezdeki kabarık bölümün, çarpma anındaki aşırı basıncın ardından krater tabanının geri sıçramasıyla oluşan “merkezî yükselim” kalıntısı olduğunu düşünüyor. Açık renkli kollar, çevredeki daha dayanıksız kaya katmanları aşınırken ayakta kalan kumtaşı sırtları. Yapının yaşı kesin değil; bölgedeki kayalara dayanan tahminler çarpmanın yaklaşık 900 milyon ile 600 milyon yıl önce, Prekambriyen'in sonlarına doğru gerçekleştiğini gösteriyor.</p>
+
+<h2>Meteor kökeni nasıl doğrulandı?</h2>
+
+<p>Yapı keşfedildikten sonra bir süre volkanik köken ihtimali de tartışıldı. Sahada bulunan “şok konileri” bu yorumu değiştirdi. Yelpaze biçimli bu kırıklar, kayaların çok güçlü şok dalgalarına maruz kaldığını gösteriyor. Kumtaşındaki şoklanmış kuvars ve zirkon kristalleri üzerinde yapılan laboratuvar çalışmaları da çarpmanın yönünü ve deformasyonu anlamaya yardımcı oluyor.</p>
+
+<p>Landsat görüntüsü yaş tayini yapan bir ölçüm değil; yüzey biçimini güncel ve geniş ölçekli olarak belgeliyor. Kesin tarih için kaya örnekleri, jeolojik haritalama ve laboratuvar analizleri birlikte değerlendiriliyor. Uydu gözlemi, ulaşılması güç ve çok geniş jeolojik alanların aynı ölçüm yöntemiyle zaman içinde karşılaştırılmasını da kolaylaştırıyor. Böylece sahada ayrıntılı incelenecek kaya sırtları ve aşınma izleri daha hedefli biçimde seçilebiliyor. Dünya gözleminin başka bir güncel örneği için <a href="/haber/antarktika-deniz-buzu-2026-maksimumu">Antarktika deniz buzunun 2026 maksimumu yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA Earth Observatory'nin 13 Ekim 2026 tarihli <a href="https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/" target="_blank" rel="noopener noreferrer">Örümcek Krateri incelemesi</a> ve sayfada özetlenen bilimsel çalışmalar temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek Landsat görüntüsü, bilimsel harita veya ölçekli arazi modeli değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "gebelikte-tuberkuloz-arastirma-arac-seti",
+    title: "DSÖ Gebelikte Tüberküloz Araştırmaları İçin Yeni Araç Seti Yayımladı",
+    excerpt: "Yeni DSÖ araç seti, gebe ve emziren kadınların tüberküloz ilaç ve aşı çalışmalarına daha erken, güvenli ve sistemli biçimde katılmasını destekliyor.",
+    category: "Yaşam",
+    published_at: "2026-10-14T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-14/gebelikte-tuberkuloz-arastirma.webp",
+    original_source_url: "https://www.who.int/news/item/13-10-2026-who-launches-tb-in-pregnancy-and-lactation-research-toolkit",
+    content: `
+<p>Dünya Sağlık Örgütü, gebe ve emziren kadınların tüberküloz ilaç ve aşı araştırmalarına daha erken ve güvenli biçimde katılmasını destekleyen çevrim içi bir araç setini 13 Ekim'de kullanıma açtı. Kaynak; araştırmacılar, çalışma sponsorları, etik kurullar ve düzenleyici kurumlar için klinik araştırmanın tasarımından izlemine kadar ortak bir çerçeve sunuyor.</p>
+
+<h2>Neden ayrı bir araç seti gerekiyor?</h2>
+
+<p>Gebe ve emziren kadınlar geçmişte tüberküloz araştırmalarının dışında bırakıldı. Bunun sonucu olarak ilaçların gebelikteki güvenliği, uygun dozu, vücutta nasıl işlendiği ve anne sütüne ne ölçüde geçtiği konusunda önemli veri açıkları oluştu. DSÖ'nün bilgi portalı, her yıl yaklaşık 336 bin 900 gebe ve doğum sonrası dönemdeki kadının tüberkülozdan etkilendiğini belirtiyor. Doğuştan tüberküloz nadir olsa da annede hastalık; anne ve bebek ölümü, erken doğum ve düşük doğum ağırlığı gibi olumsuz sonuçlarla ilişkilendiriliyor.</p>
+
+<p>Bu rakamlar her gebelikte aynı riskin bulunduğu anlamına gelmiyor. Erken ve etkili tedavi sonuçları iyileştirebiliyor; kişisel tanı veya ilaç kararı ise sağlık profesyoneli tarafından verilmek zorunda. Yeni araç seti bir tedavi rehberi değil, daha güvenilir kanıt üretmek için araştırma planlama kaynağı.</p>
+
+<h2>Araç setinde neler var?</h2>
+
+<p>İçerik; etik konular ve toplum katılımı, klinik öncesi çalışmalar, gebelik ve doğum sonrası dönemde farmakokinetik, araştırma tasarımı, örneklem büyüklüğü, katılımcı bulma ve izleme, düzenleyici süreçler, aşı çalışmaları, sürveyans ve kayıt sistemlerini kapsıyor. Tamamlanmış ve süren çalışmalardan vaka örnekleri de araştırma ekiplerine uygulama modeli sağlıyor.</p>
+
+<p>Araç seti, 2024 ve 2025 boyunca bütün DSÖ bölgelerinden uzmanların katıldığı çalışma gruplarıyla yürütülen uzlaşma sürecinin devamı. Ağustos 2025'te yayımlanan uzlaşma bildirisi, bu grupların araştırmalara uygun koşullarda daha erken dâhil edilmesini öncelik olarak belirlemişti. Hedef, katılımı otomatikleştirmek değil; bilimsel gereklilik, bilgilendirilmiş onam ve güvenlik izlemi birlikte sağlandığında dışlamayı varsayılan yaklaşım olmaktan çıkarmak. Gebelik sağlığı araştırmalarındaki başka bir güncel çerçeve için <a href="/haber/gebelikte-yuksek-tansiyon-2035-yol-haritasi">gebelikte yüksek tansiyon yol haritası yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ'nün 13 Ekim 2026 tarihli <a href="https://www.who.int/news/item/13-10-2026-who-launches-tb-in-pregnancy-and-lactation-research-toolkit" target="_blank" rel="noopener noreferrer">duyurusu</a> ve aynı gün açılan <a href="https://www.who.int/tools/knowledge-portal-for-inclusion-of-pregnant-and-lactating-women-in-clinical-trials/tuberculosis/introduction" target="_blank" rel="noopener noreferrer">tüberküloz araştırma portalı</a> karşılaştırılarak derlenmiştir. Yazı tıbbi tavsiye değildir. Kapak temsili editoryal görseldir; gerçek bir hasta, klinik çalışma veya sağlık kuruluşunu göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "afetlerde-konut-kaybi-228-milyar-dolar",
+    title: "Afetlerde Konut Kayıplarının Yıllık Maliyeti 228 Milyar Dolar",
+    excerpt: "UNDRR'nin güncel verileri, siklon, sel, tsunami ve depremler nedeniyle konutlarda beklenen yıllık ortalama kaybın 228 milyar dolara ulaştığını gösteriyor.",
+    category: "Dünya",
+    published_at: "2026-10-14T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-14/afetlere-direncli-konutlar.webp",
+    original_source_url: "https://iddrr.undrr.org/news/un-calls-greater-investment-housing-resilience-homes-account-43-reported-disaster-losses",
+    content: `
+<p>Birleşmiş Milletler Afet Riskini Azaltma Ofisi'nin 13 Ekim'de açıkladığı verilere göre konutlar, ülkelerin Sendai Çerçevesi İzleme Sistemi'ne bildirdiği doğrudan ekonomik afet kayıplarının yüzde 43'ünü oluşturuyor. Küresel risk modellemesi ise siklon, sel, tsunami ve depremler nedeniyle konutlarda beklenen yıllık ortalama kaybı yaklaşık 228 milyar dolar olarak hesaplıyor.</p>
+
+<h2>228 milyar dolar neyi ölçüyor?</h2>
+
+<p>Bu tutar tek bir yılda kayda geçen fatura değil. Afete Dayanıklı Altyapı Koalisyonu'nun Küresel Altyapı Risk Modeli ve Dayanıklılık Endeksi, mevcut iklim koşullarında dört tehlike türünün binalarda yol açabileceği uzun dönemli ortalama yıllık kaybı modelliyor. Bütün bina stokunda hesaplanan yaklaşık 426 milyar dolarlık yıllık kaybın yüzde 53'ü, yani 228 milyar doları konutlarla ilişkili.</p>
+
+<p>Ülkelerin bildirdiği geçmiş kayıplar ile modelin geleceğe dönük ortalama tahmini aynı veri değil. Birincisi gerçekleşmiş olay kayıtlarına, ikincisi tehlike, maruziyet ve kırılganlık varsayımlarına dayanıyor. İki gösterge de evlerin afet ekonomisindeki ağırlığını farklı açılardan görünür kılıyor.</p>
+
+<h2>Dayanıklılık evde nasıl başlıyor?</h2>
+
+<p>UNDRR, riskin yalnız acil durum çantası hazırlamakla azaltılamayacağını vurguluyor. Konutun nerede inşa edildiği, yapı standardı, drenaj ve altyapı, erken uyarının anlaşılır biçimde ulaşması, sigorta ve sosyal koruma seçenekleri ile afet sonrası onarım finansmanı birlikte ele alınmalı. Ülke verilerinde afetlerden etkilendiği bildirilen insanların yaklaşık yarısının evinin hasar gördüğü veya yıkıldığı belirtiliyor.</p>
+
+<p>2015'te kabul edilen Sendai Çerçevesi'nden bu yana afet kaynaklı ölüm oranlarını azaltmada ilerleme kaydedildi; ancak etkilenen kişi sayısı ve ekonomik maliyet aynı ölçüde düşmedi. Bu nedenle kamu yatırımlarının yalnız afet sonrası yeniden yapım yerine riskli yapı stokunun önceden güçlendirilmesine yönelmesi isteniyor.</p>
+
+<p>228 milyar dolarlık tahmin her ülkenin payını ya da tek tek hanelerin karşılaşacağı zararı göstermiyor. Yerel tehlike haritaları, bina yaşı, gelir ve kamu hizmetlerine erişim gerçek riski değiştiriyor. İklim gözlemlerinin risk değerlendirmesine nasıl veri sağladığına ilişkin başka bir örnek için <a href="/haber/antarktika-deniz-buzu-2026-maksimumu">Antarktika deniz buzu değerlendirmesine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNDRR'nin 13 Ekim 2026 tarihli <a href="https://iddrr.undrr.org/news/un-calls-greater-investment-housing-resilience-homes-account-43-reported-disaster-losses" target="_blank" rel="noopener noreferrer">basın duyurusu</a> ve aynı gün yayımlanan <a href="https://iddrr.undrr.org/implementing-sendai-framework/housing-accounts-for-more-than-half-of-expected-annual-building-losses" target="_blank" rel="noopener noreferrer">veri açıklaması</a> karşılaştırılarak derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek bir afet bölgesi, konut projesi veya mühendislik planını göstermez.</p>
+    `,
+  }),
+  editorial({
     slug: "dso-pandemi-24-saat-hedefi",
     title: "DSÖ Yeni Salgınları 24 Saat İçinde Saptama Hedefi Koydu",
     excerpt: "DSÖ Pandemi Merkezi'nin 2030 stratejisi, ülkelerin yeni sağlık tehditlerini ortaya çıktıktan sonra 24 saat içinde saptayıp anlamasını ortak hedef olarak belirliyor.",
