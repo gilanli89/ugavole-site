@@ -43,6 +43,92 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "nasa-spears-ay-bataryalari",
+    title: "NASA Ay'ın Aşırı Sıcaklıkları İçin Katı Hâl Bataryası Geliştiriyor",
+    excerpt: "NASA'nın SPEARS projesi, Ay'ın sert sıcaklık değişimlerinde daha az ısıtma ve yalıtım desteğiyle çalışabilecek katı hâl bataryalarını sınamaya başladı.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-15T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-15/nasa-spears-ay-bataryalari.webp",
+    original_source_url: "https://www.nasa.gov/centers-and-facilities/langley/nasa-develops-batteries-to-power-humanitys-return-to-moon/",
+    content: `
+<p>NASA, Ay'ın güney kutbundaki aşırı sıcaklık değişimlerine dayanabilecek katı hâl bataryaları geliştirmek için SPEARS adlı erken aşama bir araştırma yürütüyor. Ay gecesinde sıcaklık yaklaşık eksi 200 dereceye inerken güneş alan yüzeylerde artı 100 dereceye yaklaşabiliyor. Bugünkü uzay bataryaları bu koşullarda kalın yalıtım ve ayrı ısıtma sistemlerine ihtiyaç duyuyor; bunlar da görev aracının kütlesini ve enerji tüketimini artırıyor.</p>
+
+<h2>Katı elektrolit neyi değiştiriyor?</h2>
+
+<p>Geleneksel lityum iyon bataryalarda iyonları taşıyan sıvı bir elektrolit bulunuyor. “Solid Power for Extreme Environment Adaptability and Resilience in Space” adının kısaltması olan SPEARS ise seramik veya polimer tabanlı katı elektrolitleri inceliyor. Katı yapı; sızıntı ve yanıcı sıvı riskini azaltırken hücrenin daha geniş bir sıcaklık aralığına dayanmasını sağlayabilir. NASA'nın amacı, bataryayı çevreleyen ısıtıcı ve koruma donanımını küçülterek araçlar ve bilimsel aygıtlar için daha fazla kütle payı açmak.</p>
+
+<p>İlk prototipler artı 80 ile eksi 60 derece arasında iyi çalıştı; eksi 80 dereceye kadar ise performans düşerek devam etti. Hücreler ayrıca artı 100 ile eksi 170 derece arasındaki çevresel sıcaklıklara maruz bırakıldı ve fiziksel hasar görmeden dayandı. Bu sonuç, bataryaların eksi 170 derecede enerji ürettiği anlamına gelmiyor. NASA, hücrelerin soğukta zarar görmeden bekleyip yeniden ısıtıldıktan sonra kullanılabilmesini hedefliyor.</p>
+
+<h2>Ay görevlerinde nerede kullanılabilir?</h2>
+
+<p>Teknoloji olgunlaşırsa yüzey araçlarında, astronotların el aletlerinde, acil durum güç paketlerinde ve uzun süreli bilim istasyonlarında değerlendirilebilir. Ancak proje 2026'da başladı ve henüz uçuşa hazır bir ürün değil. Sonraki aşamalarda daha büyük hücrelerin, tekrarlanan sıcaklık döngülerinin, vakumun ve görev yüklerinin sınanması gerekiyor. NASA Ames ekibinin ileride uçuş donanımı geliştirmesi ve ticari ortaklarla çalışması öngörülüyor.</p>
+
+<p>Ay bataryalarının başarısı yalnız enerji yoğunluğuna bağlı olmayacak; güvenlik, şarj ömrü, radyasyon dayanımı ve görev boyunca sıcaklık yönetimi birlikte ölçülecek. Uzayda farklı bir donanım sınaması için <a href="/haber/iss-crs35-saglik-arastirmalari">ISS'ye taşınacak sağlık araştırmalarına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA'nın 14 Ekim 2026 tarihli <a href="https://www.nasa.gov/centers-and-facilities/langley/nasa-develops-batteries-to-power-humanitys-return-to-moon/" target="_blank" rel="noopener noreferrer">SPEARS proje duyurusu</a> temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek bir NASA görevi, Ay aracı veya batarya prototipini göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "dso-kursun-zehirlenmesini-onleme",
+    title: "DSÖ Kurşun Zehirlenmesine Karşı Küresel Eylemi Hızlandırıyor",
+    excerpt: "DSÖ, güvenli maruziyet düzeyi bulunmayan kurşuna karşı boya, tüketici ürünleri, geri dönüşüm ve çevresel kirlenme alanlarında daha güçlü önlem çağrısı yaptı.",
+    category: "Yaşam",
+    published_at: "2026-10-15T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-15/dso-kursun-zehirlenmesi.webp",
+    original_source_url: "https://www.who.int/news/item/15-10-2026-countries-move-to-accelerate-action-against-lead-poisoning",
+    content: `
+<p>Dünya Sağlık Örgütü, kurşun zehirlenmesini önlemek için ülkelerin bağlayıcı kuralları, ürün denetimini ve sağlık izlemini hızlandırması çağrısında bulundu. DSÖ'nün 15 Ekim'de paylaştığı değerlendirmeye göre kurşun maruziyeti 2023'te dünya genelinde 3,5 milyondan fazla ölümle ilişkilendirildi; yükün büyük bölümü kalp ve damar hastalıklarından kaynaklanıyor. Yüz milyonlarca çocuk da gelişimlerini etkileyebilecek düzeyde kurşuna maruz kalıyor.</p>
+
+<h2>Kurşun günlük yaşama nasıl giriyor?</h2>
+
+<p>Risk yalnız eski endüstri bölgeleriyle sınırlı değil. Kurşun içeren boya ve toz, bazı seramik kaplar, kozmetik ürünler, baharatlar, su tesisatı, kayıt dışı akü geri dönüşümü ve kirlenmiş toprak başlıca kaynaklar arasında. Maruziyet solunumla veya ağız yoluyla gerçekleşebiliyor. Küçük çocukların elini ve oyuncaklarını ağzına götürmesi, kirli tozun etkisini artırabiliyor.</p>
+
+<p>DSÖ, sağlık üzerinde etkisi olmadığı bilinen güvenli bir kurşun düzeyi bulunmadığını vurguluyor. Çocuklarda beyin ve sinir sistemi gelişimi özellikle hassas; maruziyet öğrenme, dikkat ve davranış sorunlarıyla ilişkilendiriliyor. Yetişkinlerde böbrekler ve kalp-damar sistemi etkilenebiliyor, gebelikte anne ve bebek için ek riskler oluşabiliyor. Belirti görülmemesi maruziyet olmadığı anlamına gelmiyor; kişisel değerlendirme ve kan testi kararı sağlık uzmanı tarafından verilmeli.</p>
+
+<h2>Ülkelerden hangi adımlar bekleniyor?</h2>
+
+<p>DSÖ'nün son değerlendirmesinde ülkelerin yarısından azının kurşunlu boyayı sınırlayan doğrulanmış ve yasal olarak bağlayıcı kontrollere sahip olduğu belirtiliyor. Üye devletler, 2027 Dünya Sağlık Asamblesi'ne sunulmak üzere küresel bir kurşun azaltma eylem planı hazırlanmasını istedi. DSÖ ayrıca politika, izleme, sağlık hizmeti ve risk iletişimini bir araya getiren PREVENT adlı teknik paketi 2027'de yayımlamayı planlıyor.</p>
+
+<p>Evlerde güvenli tadilat, çocukların boya döküntülerinden uzak tutulması ve geri dönüşümün denetimli tesislerde yapılması yararlı olsa da sorunun yükü yalnız bireylere bırakılamaz. Ürün standartları, ithalat denetimi, işyeri güvenliği, çevre temizliği ve erişilebilir test hizmetleri birlikte gerekiyor. Ağır metal kirliliğine ilişkin başka bir küresel çerçeve için <a href="/haber/minamata-sozlesmesi-civa-kirliligi">Minamata Sözleşmesi ve cıva kirliliği yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ'nün 15 Ekim 2026 tarihli <a href="https://www.who.int/news/item/15-10-2026-countries-move-to-accelerate-action-against-lead-poisoning" target="_blank" rel="noopener noreferrer">küresel eylem duyurusu</a> ile 10 Haziran 2026'da güncellenen <a href="https://www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health" target="_blank" rel="noopener noreferrer">kurşun zehirlenmesi bilgi notu</a> karşılaştırılarak derlenmiştir. Yazı tıbbi tavsiye değildir. Kapak temsili görseldir; gerçek bir aile, ev veya test işlemini göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "banglades-yapay-zeka-hazirlik-raporu",
+    title: "Bangladeş'in Yapay Zekâ Hazırlığı Beş Boyutta Değerlendirildi",
+    excerpt: "UNESCO'nun Bangladeş için hazırladığı değerlendirme, yapay zekâ yönetişiminden dijital eşitsizliklere kadar beş alanda 15 uygulanabilir öneri sunuyor.",
+    category: "Dünya",
+    published_at: "2026-10-15T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-15/banglades-yapay-zeka.webp",
+    original_source_url: "https://www.unesco.org/en/articles/bangladesh-artificial-intelligence-readiness-assessment-report",
+    content: `
+<p>UNESCO, Bangladeş'in yapay zekâyı toplumsal yarar ve insan haklarıyla uyumlu biçimde kullanabilmesi için hazırlanan ülke değerlendirmesini 14 Ekim'de tanıttı. Çalışma, bir sıralama veya başarı puanı vermek yerine mevcut kurumları, düzenlemeleri, insan kaynağını ve teknik altyapıyı birlikte inceliyor. Sonuç bölümünde politika yapıcılar için 15 uygulanabilir öneri bulunuyor.</p>
+
+<h2>Hazırlık hangi alanlarda ölçülüyor?</h2>
+
+<p>UNESCO'nun Hazırlık Değerlendirme Metodolojisi beş boyuttan oluşuyor: hukuk ve düzenleme, sosyal ve kültürel etkiler, bilim ve eğitim, ekonomi, teknik altyapı. Masa başı araştırması; kamu kurumları, üniversiteler, sivil toplum ve özel sektörle yapılan görüşmelerle tamamlandı. Böylece yalnız veri merkezi veya yazılım yatırımı değil, ayrımcılık riski, hesap verebilirlik, eğitim fırsatları ve toplumun karar süreçlerine katılımı da değerlendirildi.</p>
+
+<p>Rapor belgesi 2025 tarihini taşıyor; UNESCO'nun güncel tanıtım sayfası ise 14 Ekim 2026'da yayımlandı. Bu tarih farkı, değerlendirmedeki bulguların veri toplandığı dönemi yansıttığını gösteriyor. Yeni yatırımlar veya mevzuat değişiklikleri, uygulama izleme çalışmalarında ayrıca ele alınmak zorunda.</p>
+
+<h2>15 öneri neye odaklanıyor?</h2>
+
+<p>Öneriler arasında yapay zekâ yönetişimi için kurumlar arası koordinasyon, açık sorumluluk kuralları, kişisel verilerin korunması, kamu kapasitesinin güçlendirilmesi ve bağımsız denetim mekanizmaları yer alıyor. Eğitim ve işgücü alanında temel dijital becerilerin yaygınlaştırılması, araştırma kapasitesinin geliştirilmesi ve kadınlar ile dezavantajlı grupların fırsatlara erişiminin artırılması isteniyor. Veri kalitesi, güvenilir altyapı ve ülke içindeki bağlantı farkları da ayrı çalışma alanları olarak belirleniyor.</p>
+
+<p>Değerlendirme UNESCO ile Bangladeş Bilgi ve İletişim Teknolojileri Bölümü, a2i programı ve Birleşmiş Milletler Kalkınma Programı işbirliğiyle yürütüldü; Avrupa Birliği de destek sağladı. Önerilerin yayımlanması, bunların otomatik olarak uygulandığı veya ülkenin yapay zekâya tamamen hazır olduğu anlamına gelmiyor. İlerleme; bütçe, takvim, sorumlu kurumlar ve kamuya açık göstergelerle izlenmeli.</p>
+
+<p>Teknolojinin araştırma kültürüne etkisini tamamlayan bir bakış için <a href="/haber/yapay-zeka-bilim-kulturunun-yerini-alabilir-mi">yapay zekâ ve bilim kültürü yazısına</a> da göz atılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNESCO'nun 14 Ekim 2026 tarihli <a href="https://www.unesco.org/en/articles/bangladesh-artificial-intelligence-readiness-assessment-report" target="_blank" rel="noopener noreferrer">Bangladeş yapay zekâ hazırlık değerlendirmesi tanıtımı</a> ve sayfada sunulan 2025 tarihli rapor temel alınarak derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek bir kamu sistemi, toplantı veya veri merkezi değildir.</p>
+    `,
+  }),
+  editorial({
     slug: "avustralya-orumcek-krateri-landsat-9",
     title: "Avustralya'daki Örümcek Krateri Uzaydan Yeniden Görüntülendi",
     excerpt: "Landsat 9'un görüntülediği 13'e 11 kilometrelik Örümcek Krateri, yüz milyonlarca yıllık aşınmaya rağmen meteor çarpmasının izlerini koruyor.",
