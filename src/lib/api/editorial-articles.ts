@@ -43,6 +43,96 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "beyin-organoidleri-braille-sinyalleri",
+    title: "Mini Beyin Organoidleri Braille Sinyallerini Ayırt Etti",
+    excerpt: "Bristol Üniversitesi araştırmacıları, dokunsal sensör verilerini laboratuvarda yetiştirilen üç beyin organoidinden geçirerek Braille harflerini yüzde 83 doğrulukla sınıflandırdı.",
+    category: "Teknoloji",
+    published_at: "2026-10-16T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-16/beyin-organoidleri-braille.webp",
+    original_source_url: "https://www.bristol.ac.uk/news/2026/october/mini-brain-organoids-reading-braille-marks-step-towards-biohybrid-computin.html",
+    content: `
+<p>Bristol Üniversitesi'ndeki araştırmacılar, bir dokunma sensöründen gelen Braille harfi örüntülerini laboratuvarda yetiştirilen beyin organoidlerine elektrik sinyali olarak iletti. Organoidlerin ürettiği sinirsel yanıtlar bilgisayarda çözümlendiğinde tek örnekle harflerin yaklaşık yüzde 61'i, üç organoidin yanıtı birleştirildiğinde ise yüzde 83'ü doğru sınıflandırıldı.</p>
+
+<h2>Deney nasıl çalıştı?</h2>
+
+<p>Araştırma ekibi önce dokunsal bir sensörle 26 harfin kabartma nokta düzenini kaydetti. Bu veriler elektriksel uyarım örüntülerine dönüştürüldü ve çok elektrotlu diziler üzerinde tutulan organoidlere verildi. Ardından destek vektör makinesi adı verilen görece basit bir sınıflandırma yöntemi, organoidlerin elektrik etkinliğinden hangi harfin gönderildiğini çıkarmaya çalıştı.</p>
+
+<p>Her organoid bir milimetreden küçük, yaklaşık 10 bin nöron ile destek hücreleri içeren üç boyutlu bir doku modeli. İnsan beyninin yapısını, duyularını veya bilişini taşımıyor. Çalışmada üç örneğin birlikte daha iyi sonuç vermesinin nedeni kesinleşmedi; araştırmacılar, gelişim ve bağlantı farklılıklarının birbirini tamamlayan sinyaller üretmiş olabileceğini düşünüyor.</p>
+
+<h2>Gürültülü sinyallerde ne oldu?</h2>
+
+<p>Ekip, Braille verilerine yapay gürültü ekleyerek sistemi yeniden sınadı. Organoid yanıtlarından yapılan sınıflandırma, gürültülü veriyi doğrudan çözen aynı makine öğrenmesi yönteminden daha dayanıklı çıktı. Bu bulgu, yaşayan sinir ağlarının bazı sinyal işleme görevlerinde elektronik sistemlerle birlikte kullanılabileceği fikrine deneysel destek veriyor.</p>
+
+<p>Ancak sonuç, organoidlerin Braille “okuduğunu”, öğrendiğini veya zaman içinde uyum sağladığını göstermiyor. Uyarılar sabit bir kodlama düzeniyle verildi ve yalnız basit bir elektrik etkinliği ölçüldü. Bu ayrım, deneyin sınırlarını doğru yorumlamak açısından önemli. Sonraki çalışmaların doku, kenar ve farklı dokunma biçimlerini; ardından geri bildirimli kapalı döngü görevlerini sınaması planlanıyor.</p>
+
+<p>Biohibrit hesaplama henüz laboratuvar ölçeğinde. Tekrarlanabilir organoid üretimi, uzun süreli bakım, standartlaştırma, etik denetim ve klasik donanımla enerji karşılaştırması yapılmadan pratik bir bilgisayar teknolojisinden söz edilemez. Organoidlerin başka bir araştırma bağlamı için <a href="/haber/iss-crs35-saglik-arastirmalari">ISS'ye gönderilen beyin modeli deneylerine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler Bristol Üniversitesi'nin 16 Ekim 2026 tarihli <a href="https://www.bristol.ac.uk/news/2026/october/mini-brain-organoids-reading-braille-marks-step-towards-biohybrid-computin.html" target="_blank" rel="noopener noreferrer">araştırma duyurusu</a> ve <em>Frontiers in Artificial Intelligence</em> dergisindeki <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1800219/full" target="_blank" rel="noopener noreferrer">açık erişimli makale</a> temel alınarak derlenmiştir. Kapak temsili bilimsel görselleştirmedir; gerçek organoid, cihaz veya deney fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "gronland-buzulalti-golu-erime-suyu",
+    title: "Grönland Altındaki Gizli Göl Erime Suyunu Aylarca Tutuyor",
+    excerpt: "Uydu ölçümleri, Flade Isblink Buz Örtüsü'nün altındaki daha önce belgelenmemiş gölün erime suyunun büyük bölümünü depolayıp çıkışını geciktirdiğini gösterdi.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-16T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-16/gronland-buzulalti-golu.webp",
+    original_source_url: "https://eo4society.esa.int/2026/10/15/reshaping-greenlands-meltwater-pathways/",
+    content: `
+<p>Kuzeydoğu Grönland'daki Flade Isblink Buz Örtüsü'nün altında daha önce belgelenmemiş, düzenli dolup boşalan bir göl saptandı. ESA'nın ARCTEX projesi kapsamında yürütülen çalışma, “Lake B” adı verilen rezervuarın yüzeyde oluşan erime suyunun önemli bölümünü birkaç ay boyunca buz altında tutabildiğini gösteriyor.</p>
+
+<h2>Görünmeyen göl nasıl bulundu?</h2>
+
+<p>Araştırmacılar gölü uzaydan doğrudan görmedi. ICESat-2 lazer yükseklik ölçümleri, Sentinel-1 radar interferometrisi, ArcticDEM yükseklik modelleri ve bölgesel iklim modelini birlikte kullandılar. Ekim 2018 ile Aralık 2024 arasındaki kayıtlarda buz yüzeyinin erime mevsiminde yükseldiği, göl boşalırken sonbahar başında hızla alçaldığı tekrar eden bir örüntü görüldü.</p>
+
+<p>Göl, Flade Isblink'in batısında deniz seviyesinin yaklaşık 600 metre altına inen bir ana kaya çukurunda bulunuyor. En dolu dönemde üzerindeki buz yüzeyi yaklaşık 10 metre yükseldi. Boşalma sırasında yüzeyin günde 34 santimetreye varan hızla alçaldığı hesaplandı. En düşük yüzey erimesinin yaşandığı 2022'de aynı boşalma görülmedi; bu da süreci başlatmak için belirli bir su girişi eşiği olabileceğini düşündürüyor.</p>
+
+<h2>Ne kadar su depoluyor?</h2>
+
+<p>Çalışmaya göre göl 0,37 artı veya eksi 0,11 milyar metreküp su tutabiliyor. Bu miktar, beslenme havzasında bir yılda oluşan akışın yaklaşık yüzde 63'üne karşılık geliyor; belirsizlik aralığı yüzde 23. Su çoğu yıl eylül ve ekimde boşalıyor. Böylece en yoğun yüzey erimesi ile aşağı havzadaki tatlı su artışı arasında iki ila üç aylık gecikme oluşuyor.</p>
+
+<p>Yakındaki Romer Sø gölünün hacmindeki artışın da bu boşalma dönemlerini izlemesi, buz altından çıkan suyun aşağı havzayı etkilediğine işaret ediyor. Bulgular, bütün yüzey erime suyunun hızla okyanusa ulaştığını varsayan modellerin bazı bölgelerde bu geçici depolamayı hesaba katması gerektiğini gösteriyor. Çalışma tek başına yeni bir deniz seviyesi tahmini üretmiyor.</p>
+
+<p>Grönland'ın buz altı coğrafyasına ilişkin tamamlayıcı bir çalışma için <a href="/haber/gronland-buzunun-altindaki-vadi-agi">1.943 vadilik yeni harita yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler ESA'nın 15 Ekim 2026 tarihli <a href="https://eo4society.esa.int/2026/10/15/reshaping-greenlands-meltwater-pathways/" target="_blank" rel="noopener noreferrer">ARCTEX araştırma özeti</a> ve <em>Scientific Reports</em> dergisindeki <a href="https://www.nature.com/articles/s41598-026-60541-7" target="_blank" rel="noopener noreferrer">hakemli çalışma</a> karşılaştırılarak derlenmiştir. Kapak temsili bir kesit görseldir; gerçek uydu ölçümü, harita veya arazi fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "mercan-turleri-yok-olma-riski",
+    title: "Resif Oluşturan Mercan Türlerinin Yüzde 44'ü Tehdit Altında",
+    excerpt: "IUCN'nin 892 resif mercanı türünü kapsayan küresel güncellemesi, yeterli veri bulunan türlerin yüzde 44'ünü tehdit altındaki kategorilerde sınıflandırdı.",
+    category: "Dünya",
+    published_at: "2026-10-16T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-16/mercan-turleri-risk.webp",
+    original_source_url: "https://iucn.org/press-release/202610/nearly-half-reef-building-coral-species-face-elevated-relative-risk-extinction",
+    content: `
+<p>Resif oluşturan mercanlara ilişkin yeni küresel değerlendirme, yeterli veri bulunan türlerin yüzde 44'ünün yok olma tehdidi altındaki kategorilerde yer aldığını gösteriyor. Uluslararası Doğayı Koruma Birliği uzmanları 892 türü gözden geçirdi; 118'i veri yetersiz sayıldığı için oran 774 değerlendirilebilir tür üzerinden hesaplandı.</p>
+
+<h2>Hangi türler en yüksek riskte?</h2>
+
+<p>Değerlendirilen 774 türün 340'ı tehdit altında sınıflandırıldı. Bunların 33'ü Kritik Tehlikede, 251'i Tehlikede ve 56'sı Hassas kategorisinde. Bölgesel oranlar aynı değil: Hint-Pasifik'te değerlendirilen türlerin yüzde 43'ü, Atlantik'te ise yüzde 50'si tehdit altında bulundu. Resiflerin üç boyutlu yapısına büyük katkı veren bazı dallanan ve tabakalı mercan gruplarında risk daha da yüksek.</p>
+
+<p>IUCN Kırmızı Liste kategorileri bir türün göreli yok olma riskini ortak ölçütlerle karşılaştırıyor. Çalışma, her türün bütün dünyadaki bireylerini doğrudan saymadı. Mercan örtüsündeki uzun dönemli değişimler, gelecekteki şiddetli ağarma olasılığı, yayılış alanı ve türe özgü hassasiyet özellikleri birlikte modellendi. Bu nedenle yüzde 44, hassasiyet ve mevcut verilerle oluşturulmuş küresel bir risk değerlendirmesi.</p>
+
+<h2>Isınma neden başlıca etken?</h2>
+
+<p>En yüksek risk grubundaki türlerin büyük çoğunluğunun durumunu belirleyen ana baskı, deniz sıcaklıklarının yükselmesi ve tekrarlanan ağarma olayları. Uzun süreli ısı stresi, mercanın dokularında yaşayan ve enerji sağlayan alglerle ilişkinin bozulmasına yol açıyor. Kirlilik, hastalık, aşırı avlanma ve kıyı gelişimi de resiflerin toparlanma kapasitesini azaltabiliyor.</p>
+
+<p>Değerlendirmede kullanılan veriler 2020'ye kadar uzanıyor. Bu nedenle 2023–2025 küresel ağarma olayı ve 2026'da güçlenen El Niño dönemi son sınıflandırmalara tam olarak yansımıyor. Uzmanlar güncel riskin daha yüksek olabileceğini belirtiyor; ancak yeni saha verileri olmadan kesin bir oran vermiyor.</p>
+
+<p>Sonuç bütün mercan resiflerinin kaybedildiği anlamına gelmiyor. Sera gazı salımlarını azaltmak, dayanıklı resifleri korumak, yerel kirliliği sınırlamak ve tür düzeyinde düzenli izleme yapmak kaybı yavaşlatabilir. Bölgesel deniz koruma kararlarının başka bir örneği için <a href="/haber/nairobi-sozlesmesi-cop12-okyanus-kararlari">Nairobi Sözleşmesi COP12 yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler IUCN'nin 15 Ekim 2026 tarihli <a href="https://iucn.org/press-release/202610/nearly-half-reef-building-coral-species-face-elevated-relative-risk-extinction" target="_blank" rel="noopener noreferrer">küresel değerlendirme duyurusu</a> ve <em>Nature</em> dergisindeki <a href="https://www.nature.com/articles/s41586-026-11263-3" target="_blank" rel="noopener noreferrer">hakemli makale</a> temel alınarak derlenmiştir. Kapak temsili editoryal görseldir; belirli bir resifin gerçek durumu veya bilimsel veri ürünü değildir.</p>
+    `,
+  }),
+  editorial({
     slug: "nasa-spears-ay-bataryalari",
     title: "NASA Ay'ın Aşırı Sıcaklıkları İçin Katı Hâl Bataryası Geliştiriyor",
     excerpt: "NASA'nın SPEARS projesi, Ay'ın sert sıcaklık değişimlerinde daha az ısıtma ve yalıtım desteğiyle çalışabilecek katı hâl bataryalarını sınamaya başladı.",
