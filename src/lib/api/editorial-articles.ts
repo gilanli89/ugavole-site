@@ -75,7 +75,7 @@ export const EDITORIAL_ARTICLES: Article[] = [
     `,
   }),
   editorial({
-    slug: "satseabio-deniz-biyoceşitlilik-izleme",
+    slug: "satseabio-deniz-biyocesitlilik-izleme",
     title: "SatSeaBio Deniz Yaşamını Aylar Boyunca İzlemeyi Hedefliyor",
     excerpt: "ESA destekli SatSeaBio, açık deniz rüzgâr çiftliklerindeki canlıları su altı kameraları ve uydu bağlantısıyla uzun süre izlemeye hazırlanıyor.",
     category: "Teknoloji",
