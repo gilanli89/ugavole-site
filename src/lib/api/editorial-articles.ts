@@ -43,6 +43,98 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "hubble-ngc-1827-galaksi-kenari",
+    title: "Hubble, NGC 1827 Galaksisini Kenarından Görüntüledi",
+    excerpt: "Hubble'ın yeni görüntüsü, 37 milyon ışık yılı uzaktaki NGC 1827'nin toz şeritlerini ve yıldız oluşum bölgelerini görünür kılıyor.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-17T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-17/hubble-ngc-1827.webp",
+    original_source_url: "https://science.nasa.gov/missions/hubble/nasas-hubble-spies-spirals-edge/",
+    content: `
+<p>NASA, Hubble Uzay Teleskobu'nun NGC 1827 adlı sarmal galaksiyi neredeyse tam kenarından gösteren yeni görüntüsünü 16 Ekim'de yayımladı. Güvercin takımyıldızı yönünde, Dünya'dan yaklaşık 37 milyon ışık yılı uzakta bulunan galaksi; ince diski boyunca uzanan pas kahverengisi toz şeritleri ve mavi yıldız oluşum bölgeleriyle görülüyor.</p>
+
+<h2>Görüntüde hangi ayrıntılar var?</h2>
+
+<p>Bir sarmal galaksiye karşıdan bakıldığında kolların kıvrımları daha kolay seçilir. NGC 1827'de ise görüş açısı diski yandan gösteriyor. Bu açı, yıldızlararası tozun galaksinin parlak merkezini ve diskini nasıl böldüğünü belirginleştiriyor. Disk üzerindeki parlak mavi bölgeler, görece genç ve sıcak yıldızların bulunduğu alanlara işaret ediyor.</p>
+
+<p>Galaksinin merkezinin hemen solundaki parlak yıldız NGC 1827'nin parçası değil; Dünya ile galaksi arasında yer alan bir ön plan yıldızı. Görüntüdeki dört sivri ışık izi de yıldızın gerçek biçimini göstermiyor. Bunlar, ışığın Hubble'ın ikincil aynasını tutan iç desteklerin çevresinde kırılmasıyla oluşan optik bir etki.</p>
+
+<h2>Tek bir güzel görüntüden daha fazlası</h2>
+
+<p>NGC 1827, Hubble'ın Samanyolu'na benzeyen 22 ana galaksinin çevresindeki 260 uydu galaksiyi inceleyen programının parçası. NASA'ya göre teleskop bu örneklerin 111'ini gözlemledi. Kalan 149 galaksi için her birine bir Hubble yörüngesi ayrılması planlanıyor.</p>
+
+<p>Düşük kütleli uydu galaksiler, kozmoloji modellerini küçük ölçeklerde sınamak için değerli. Büyük ölçekli evreni açıklayan modeller, küçük galaksilerin sayısı, dağılımı ve özellikleri söz konusu olduğunda gözlemlerle her zaman tam örtüşmüyor. Aynı yöntemle hazırlanmış geniş bir örnek, araştırmacıların hangi farkların gerçek, hangilerinin gözlem sınırlarından kaynaklandığını ayırmasına yardım edebilir.</p>
+
+<p>Yeni paylaşım tek başına yeni bir kozmoloji sonucu açıklamıyor; programın veri toplama aşamasındaki hedeflerden birini ve görüntü kalitesini gösteriyor. Kahverengi cücelerin atmosferlerini inceleyen farklı bir gökyüzü taraması için <a href="/haber/spherex-kahverengi-cuce-atmosferleri">SPHEREx gözlemleri yazısına</a> da bakılabilir.</p>
+
+<p>Galaksinin kenardan görünmesi aynı zamanda toz tabakasının kalınlığını, yıldız oluşumunun disk boyunca dağılımını ve merkezdeki yıldız yoğunluğunu karşılaştırmayı kolaylaştırıyor. Araştırmacılar tek bir görüntüye bakarak sonuç çıkarmak yerine, aynı programla ve benzer ölçüm koşullarıyla toplanan bütün örneği birlikte değerlendirecek.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA'nın 16 Ekim 2026 tarihli <a href="https://science.nasa.gov/missions/hubble/nasas-hubble-spies-spirals-edge/" target="_blank" rel="noopener noreferrer">Hubble duyurusundan</a> derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek Hubble görüntüsü veya bilimsel veri ürünü değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "satseabio-deniz-biyoceşitlilik-izleme",
+    title: "SatSeaBio Deniz Yaşamını Aylar Boyunca İzlemeyi Hedefliyor",
+    excerpt: "ESA destekli SatSeaBio, açık deniz rüzgâr çiftliklerindeki canlıları su altı kameraları ve uydu bağlantısıyla uzun süre izlemeye hazırlanıyor.",
+    category: "Teknoloji",
+    published_at: "2026-10-17T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-17/satseabio-deniz-izleme.webp",
+    original_source_url: "https://business.esa.int/projects/satseabio",
+    content: `
+<p>Avrupa Uzay Ajansı destekli SatSeaBio projesi, açık denizdeki rüzgâr türbinleri ve diğer yapıların çevresinde deniz yaşamının nasıl değiştiğini uzun süreli olarak izlemek için otonom bir sistem tasarladı. Güncellenen proje kaydı, su altı stereo kameralarıyla toplanan görüntülerin denizde işlenip yalnız ilgili bölümlerinin kıyıya gönderilmesini öngörüyor.</p>
+
+<h2>Kısa saha ziyaretlerinin açığını kapatmak</h2>
+
+<p>Mevcut deniz araştırmaları çoğu zaman tekneye, hava koşullarına ve kısa ölçüm kampanyalarına bağlı. Bu yöntemler mevsimsel değişimleri, gece-gündüz farkını, yavru balıkların alanı kullanımını veya türbin temellerini çevreleyen taş dolgunun habitat değerini eksik yakalayabiliyor. SatSeaBio, bir şamandıraya ya da uygun başka bir açık deniz platformuna yerleştirilen kamera paketiyle aynı noktayı daha uzun süre gözlemlemeyi amaçlıyor.</p>
+
+<p>Stereo kamera iki farklı açıdan kayıt alarak balıkların boyutu ve mesafesi hakkında tek kameradan daha fazla bilgi sağlayabilir. Kayıtlar yerel olarak saklanıyor; yerleşik yazılım ilgili canlıları veya olayları saptadığında seçilmiş video parçaları, üstveriler ve sistem durumu kıyıya gönderiliyor. Tam çözünürlüklü kayıtlar ise ayrıntılı inceleme için cihazda tutulabiliyor.</p>
+
+<h2>Uydu bağlantısı ne sağlıyor?</h2>
+
+<p>Mobil veya sabit iletişimin bulunmadığı alanlarda uydu bağlantısı seçilmiş gözlemlerin iletilmesini sağlıyor. Dünya gözlem verileri deniz yüzeyi sıcaklığı ve klorofil gibi çevresel bağlam sunarken GNSS konum ve zaman bilgisini destekliyor. ESA sayfasına göre iki veri azaltma testinde, tüm ham video yerine saptamaya dayalı kısa parçaların gönderilmesi uzaktan aktarılacak veri hacmini yüzde 99,8'den fazla azalttı.</p>
+
+<p>Proje ayrıca temsili bir istasyon için 12 aylık enerji modeli hazırladı. Aday bir platform denizde çalışıp bir su altı kamerasına güç verdi; Alman Kuzey Denizi'ndeki faal bir rüzgâr çiftliğinde üç istasyonlu gösterim fikri de oluşturuldu. Ancak tüm sistemin uzun süreli saha entegrasyonu henüz tamamlanmış değil. Bir sonraki aşama, donanımı ve veri hizmetini genişletilmiş açık deniz konuşlandırmasında birlikte doğrulamak.</p>
+
+<p>Teknoloji, türbinlerin çevreye yararlı olduğunu kendiliğinden kanıtlamıyor. Üreteceği zaman serileri, inşaat, işletme ve söküm kararlarında daha ayrıntılı ekolojik değerlendirme yapılmasına yardımcı olabilir. Deniz ekosistemlerindeki daha geniş risk için <a href="/haber/mercan-turleri-yok-olma-riski">mercan türlerinin küresel durumuna</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler 16 Ekim 2026'da güncellenen <a href="https://business.esa.int/projects/satseabio" target="_blank" rel="noopener noreferrer">ESA Space Solutions proje sayfasından</a> derlenmiştir. Kapak temsili editoryal görseldir; gerçek SatSeaBio donanımı, rüzgâr çiftliği veya saha fotoğrafı değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "who-interpol-saglik-guvenlik-anlasmasi",
+    title: "DSÖ ile INTERPOL Sağlık ve Güvenlik İçin İşbirliği Anlaşması İmzaladı",
+    excerpt: "Yeni çerçeve; sahte ilaçlardan sıra dışı biyolojik olaylara kadar sağlık ve kolluk kurumlarının birlikte çalışmasını güçlendirmeyi amaçlıyor.",
+    category: "Dünya",
+    published_at: "2026-10-17T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-17/who-interpol-saglik-guvenlik.webp",
+    original_source_url: "https://www.who.int/news/item/16-10-2026-interpol-and-who-sign-agreement-to-strengthen-global-health-and-security-protection",
+    content: `
+<p>Dünya Sağlık Örgütü ile INTERPOL, halk sağlığını etkileyen sınır ötesi suçlar ve olağan dışı olaylarda kurumlar arası koordinasyonu güçlendirmek için 16 Ekim'de bir işbirliği anlaşması imzaladı. Çerçeve, DSÖ'nün sağlık uzmanlığını INTERPOL'ün 196 üye ülkedeki kolluk işbirliği kapasitesiyle bir araya getirmeyi amaçlıyor.</p>
+
+<h2>Hangi durumlar kapsama giriyor?</h2>
+
+<p>Anlaşma, kimyasal veya radyoaktif maddelerin şüpheli biçimde kullanıldığı olaylar ile doğal, kazara ya da kasıtlı gelişebilecek olağan dışı biyolojik vakalarda ortak hazırlık ve müdahaleye odaklanıyor. Büyük uluslararası etkinlikler ve kitlesel buluşmalarda sağlık tehditlerinin önceden değerlendirilmesi de çalışma alanlarından biri.</p>
+
+<p>İkinci önemli başlık, insan ticaretinin organ çıkarma amacıyla yapılması ve insan organları, dokuları ile hücrelerin yasa dışı ticareti. Kurumlar ayrıca sahte veya standart altı ilaç, aşı ve tıbbi cihazlar; taklit kişisel koruyucu donanım; güvenli olmayan ya da yanlış etiketlenmiş yiyecek ve içecekler ile yasa dışı üretilen alkole karşı koordinasyonu geliştirmeyi planlıyor. DSÖ Tütün Kontrolü Çerçeve Sözleşmesi'nin uygulanmasına destek de anlaşmada yer alıyor.</p>
+
+<h2>Anlaşma neyi hemen değiştirmiyor?</h2>
+
+<p>İmzalanan metin, doğrudan yeni bir küresel polis gücü veya tek bir sağlık denetim sistemi kurmuyor. Ülkelerdeki yetkiler, veri paylaşımı kuralları, sağlık mevzuatı ve kolluk süreçleri kendi çerçeveleri içinde işlemeye devam edecek. Sonucun ölçülebilmesi için ortak eğitimler, uyarı mekanizmaları, vaka sevk süreçleri ve ülke düzeyindeki uygulamaların ayrıca geliştirilmesi gerekecek.</p>
+
+<p>İşbirliğinin kurumsal zemini yeni değil. INTERPOL Genel Kurulu, DSÖ ile taslak işbirliği anlaşmasının sonuçlandırılmasını Kasım 2024'te kabul etmişti. Bu haftaki imza, daha önce onaylanan yaklaşımı resmî bir çalışma çerçevesine dönüştürüyor. Duyurular herhangi bir operasyon sonucu, ele geçirme miktarı veya tutuklama sayısı bildirmiyor.</p>
+
+<p>Tüketiciler açısından sahte sağlık ürünleri konusunda yetkili sağlık kurumlarının uyarılarını izlemek, reçeteli ürünleri denetlenmeyen çevrim içi satıcılardan almamak ve şüpheli ürünü ilgili makama bildirmek önemini koruyor. Ürün güvenliğinin başka bir yönü için <a href="/haber/dso-kursun-zehirlenmesini-onleme">kurşun maruziyetine karşı küresel eylem yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ'nün <a href="https://www.who.int/news/item/16-10-2026-interpol-and-who-sign-agreement-to-strengthen-global-health-and-security-protection" target="_blank" rel="noopener noreferrer">ortak basın duyurusu</a> ve 2024 tarihli <a href="https://www.interpol.int/content/download/22200/file/GA-2024-92-RES-06-%2520Agreement%2520WHO.pdf" target="_blank" rel="noopener noreferrer">INTERPOL Genel Kurul kararı</a> karşılaştırılarak derlenmiştir. Kapak temsili editoryal görseldir; gerçek bir operasyon, laboratuvar veya kurum toplantısını göstermez.</p>
+    `,
+  }),
+  editorial({
     slug: "beyin-organoidleri-braille-sinyalleri",
     title: "Mini Beyin Organoidleri Braille Sinyallerini Ayırt Etti",
     excerpt: "Bristol Üniversitesi araştırmacıları, dokunsal sensör verilerini laboratuvarda yetiştirilen üç beyin organoidinden geçirerek Braille harflerini yüzde 83 doğrulukla sınıflandırdı.",
