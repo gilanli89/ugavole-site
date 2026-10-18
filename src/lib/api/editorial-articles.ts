@@ -43,6 +43,100 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "peru-ormanlari-ektomikorizal-mantarlar",
+    title: "Peru Ormanlarının Gizli Yaşamı Mantarlarla Araştırılacak",
+    excerpt: "Perulu araştırmacı Sheena Sangay, Amazon ve Yungas ekosistemlerinde insan faaliyetlerinin köklerle ortak yaşayan mantar topluluklarını nasıl etkilediğini inceleyecek.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-18T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-18/peru-orman-mantarlari.webp",
+    original_source_url: "https://www.unesco.org/es/articles/hongos-que-revelan-los-secretos-de-los-bosques-sheena-sangay-cientifica-peruana-reconocida-por?hub=66909",
+    content: `
+<p>Perulu araştırmacı Sheena Sangay, Amazon ve Yungas ormanlarında ağaç kökleriyle ortaklık kuran ektomikorizal mantarların insan faaliyetlerine nasıl tepki verdiğini araştıracak. UNESCO'nun 15 Ekim'de duyurduğu proje, tropikal ormanların çoğu zaman gözden kaçan yer altı biyolojik çeşitliliğini toprak özellikleriyle birlikte incelemeyi hedefliyor.</p>
+
+<h2>Köklerle mantarlar arasındaki ortaklık</h2>
+
+<p>Ektomikorizal mantarlar bitki köklerinin çevresinde ağlar oluşturuyor. Bu ilişki bitkinin suya ve bazı besinlere erişimini desteklerken mantara da bitkinin ürettiği karbon bileşiklerinden yararlanma olanağı veriyor. Proje, bu mantar topluluklarının insan müdahalesi görülen alanlarla daha az bozulmuş alanlarda nasıl değiştiğini karşılaştıracak.</p>
+
+<p>Araştırma üç bölgede yürütülecek: Loreto'daki Allpahuayo-Mishana Ulusal Koruma Alanı ile Pasco'daki Yanachaga-Chemillén Ulusal Parkı ve Posholl Özel Koruma Alanı. Sahalardan alınan örneklerde mantar çeşitliliği ve topluluk yapısı incelenecek; sonuçlar toprak koşullarıyla birlikte değerlendirilecek. Böylece yüzeyde benzer görünen orman parçalarının yer altında farklı ekolojik ilişkilere sahip olup olmadığı araştırılabilecek.</p>
+
+<p>Farklı koruma statülerine ve insan baskısı düzeylerine sahip üç alanın birlikte incelenmesi, tek bir sahaya özgü örüntülerle daha geniş çevresel işaretleri ayırmayı kolaylaştırabilir. Toprak kimyası, nem ve bitki örtüsü gibi değişkenlerin mantar topluluklarıyla aynı çerçevede değerlendirilmesi planlanıyor.</p>
+
+<h2>Henüz bir sonuç değil, araştırma planı</h2>
+
+<p>UNESCO duyurusu tamamlanmış bir saha çalışmasının sonuçlarını açıklamıyor. Sangay'ın projesi 2026 L'Oréal-UNESCO Bilimde Kadınlar bölgesel programında seçildi ve araştırmayı ilerletmek için 10 bin dolar destek alacak. Programda Peru, Kolombiya ve Ekvador'dan üç proje, 92 başvuru arasından uzmanlar ve büyük jüri değerlendirmesiyle belirlendi.</p>
+
+<p>Çalışmanın beklenen değeri, mantar topluluklarını insan baskısına karşı erken bir ekolojik gösterge olarak sınamasında yatıyor. Toprak altındaki değişimler, ağaçlarda veya orman örtüsünde belirgin kayıp görülmeden önce ortaya çıkabilir. Ancak hangi türlerin güvenilir gösterge olacağı ve bulguların farklı tropikal bölgelere ne ölçüde aktarılabileceği saha verileri tamamlanmadan söylenemez.</p>
+
+<p>Araştırma, koruma ve restorasyon planlarında yalnız ağaç sayısının değil toprağın ve türler arası ilişkilerin de izlenmesi gerektiğini hatırlatıyor. Başka bir ekosistemde tür düzeyindeki risk değerlendirmesi için <a href="/haber/mercan-turleri-yok-olma-riski">resif oluşturan mercanların durumuna</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNESCO Peru'nun 15 Ekim 2026 tarihli <a href="https://www.unesco.org/es/articles/hongos-que-revelan-los-secretos-de-los-bosques-sheena-sangay-cientifica-peruana-reconocida-por?hub=66909" target="_blank" rel="noopener noreferrer">proje ve ödül duyurusundan</a> derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek araştırma sahasını, mantar türlerini veya araştırmacıyı göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "erken-menopoz-arastirma-rehber-acigi",
+    title: "Erken Menopozda Araştırma ve Küresel Rehber Açığı",
+    excerpt: "DSÖ'nün yeni dosyası, erken yaşta menopoz yaşayan kişilerin tanı, uzun dönem izlem ve tedavi kararlarında neden daha güçlü kanıta ihtiyaç duyduğunu anlatıyor.",
+    category: "Yaşam",
+    published_at: "2026-10-18T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-18/erken-menopoz-rehber.webp",
+    original_source_url: "https://www.who.int/singapore/news/detail-global/16-10-2026-early-menopause--why-better-research-and-global-guidance-matter-for-women-s-health",
+    content: `
+<p>Dünya Sağlık Örgütü, erken menopoz konusunda araştırma ve klinik rehber eksikliğini 16 Ekim'de yayımladığı yeni bir dosyayla gündeme taşıdı. Dosya, ilk belirtilerini 26 yaşında yaşayan hekim ve bilim insanı Priya Satalkar-Götz'ün deneyimini merkeze alıyor; kişisel öyküyü genel bir tedavi önerisi olarak değil, tanı gecikmesi ve tutarsız bakım sorunlarını görünür kılmak için kullanıyor.</p>
+
+<h2>Erken menopoz neden ayrı değerlendiriliyor?</h2>
+
+<p>DSÖ bilgi notuna göre doğal menopoz çoğu kişide 45 ile 55 yaş arasında görülüyor. Menopozun 40 yaşından önce gerçekleşmesi “prematür menopoz” olarak tanımlanıyor; kromozomal farklılıklar, otoimmün hastalıklar veya bilinmeyen nedenlerle ilişkili olabiliyor. Cerrahi işlemler, radyoterapi ve kemoterapi de yumurtalık işlevini durdurarak menopoza yol açabiliyor.</p>
+
+<p>Belirtiler kişiden kişiye değişiyor. Ateş basması, gece terlemesi, uyku bozukluğu, döngü değişiklikleri, vajinal kuruluk ve ruh hâli değişimleri görülebiliyor. Daha genç yaşta östrojen düzeyinin uzun süre düşük kalması kemik sağlığı ve doğurganlık gibi alanlarda ek değerlendirme gerektirebiliyor. Belirtilerin strese veya yaşam tarzına bağlanması ise tanıyı geciktirebiliyor.</p>
+
+<h2>Yeni dosyanın asıl çağrısı</h2>
+
+<p>Satalkar-Götz, erken menopoz yaşayan grupları yıllarca izleyen, farklı müdahalelerin güvenlik ve etkisini karşılaştıran araştırmaların yetersizliğine dikkat çekiyor. Kanıt az olduğunda klinisyenler aynı durumda farklı yaklaşımlar benimseyebiliyor; hastalar da seçeneklerin yarar ve risklerini karşılaştırmakta zorlanıyor. Küresel bir rehber, mevcut kanıtın kalitesini açıkça gösterebilir, güçlü ve koşullu önerileri ayırabilir, araştırılması gereken soruları belirginleştirebilir.</p>
+
+<p>Dosya ayrıca desteğin klinik randevuyla sınırlı kalmadığını vurguluyor. Aile ve akran desteği, iş yerinde randevu veya belirtiler için esneklik ve güvenilir bilgiye erişim, kişinin sağlık kararlarına katılımını güçlendirebilir. Araştırmaların farklı nüfusları kapsaması da eşitsizliklerin nedenlerini anlamak için gerekli.</p>
+
+<p>Bu çağrı, herkes için tek bir tedavi şeması anlamına gelmiyor. Hormon tedavisi dahil seçenekler kişinin yaşı, belirtileri, tıbbi geçmişi, tercihleri ve riskleriyle birlikte sağlık profesyoneli tarafından değerlendirilir. DSÖ de sağlığı etkileyen belirtilerin bir sağlık hizmeti sağlayıcısıyla görüşülmesini öneriyor.</p>
+
+<p>Kadın sağlığı araştırmalarında ortak ölçüt ve uzun dönem izlem ihtiyacının başka bir örneği için <a href="/haber/gebelikte-yuksek-tansiyon-2035-yol-haritasi">gebelikte yüksek tansiyon yol haritasına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ'nün 16 Ekim 2026 tarihli <a href="https://www.who.int/singapore/news/detail-global/16-10-2026-early-menopause--why-better-research-and-global-guidance-matter-for-women-s-health" target="_blank" rel="noopener noreferrer">erken menopoz dosyası</a> ile kurumun <a href="https://www.who.int/news-room/fact-sheets/detail/menopause/" target="_blank" rel="noopener noreferrer">menopoz bilgi notu</a> karşılaştırılarak derlenmiştir. Kapak temsili editoryal görseldir; gerçek bir hasta, hekim veya tanı sürecini göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "2026-el-nino-uydu-gozlemleri",
+    title: "2026 El Niño'su Uydu Verilerinde Nasıl Görünüyor?",
+    excerpt: "NASA ve NOAA verileri, Pasifik'te deniz yüzeyi yüksekliği, sıcaklık ve okyanus rengindeki değişimlerle güçlenen 2026 El Niño'sunu izliyor.",
+    category: "Dünya",
+    published_at: "2026-10-18T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-18/2026-el-nino-uydu.webp",
+    original_source_url: "https://science.nasa.gov/earth/nasa-satellites-observe-historic-2026-el-nino/",
+    content: `
+<p>NASA'nın 15 Ekim'de yayımladığı uydu değerlendirmesi, güçlenen 2026 El Niño'sunu üç farklı işaret üzerinden gösteriyor: deniz yüzeyi yüksekliği, deniz sıcaklığı ve okyanus rengi. NOAA'nın 8 Ekim görünümüne göre olayın Ekim-Aralık döneminde 1950'den bu yana ölçülen en güçlü El Niño eşiğini aşma olasılığı yüzde 83. Bu bir kesinlik değil; olasılığa dayalı mevsimsel tahmin.</p>
+
+<h2>Sıcak su Pasifik boyunca nasıl ilerledi?</h2>
+
+<p>İlk güçlü işaretlerden biri, Ocak 2026'da batı Pasifik'te görülen Kelvin dalgasıydı. Binlerce kilometre uzanabilen bu sıcak su hareketi doğuya ilerledi ve nisan başında doğu Pasifik'e ulaştı. Isınan su genleştiği için bazı bölgelerde deniz yüzeyi normalin 30 ila 40 santimetre üzerine çıktı. Endonezya ve kuzey Avustralya çevresinde ise 15 ila 20 santimetre daha düşük seviyeler gözlendi.</p>
+
+<p>NASA, Sentinel-6 uydularının yükseklik ölçümlerini uydu radyometreleri, şamandıralar ve gemi sensörlerinden gelen sıcaklık verileriyle birleştiriyor. Doğu Pasifik'teki deniz yüzeyi sıcaklığı uzun dönem ortalamasının yaklaşık 1,7 derece üzerinde. NOAA'nın aylık değerlendirmesinde atmosfer ve okyanusun birlikte El Niño yönünde güçlendiği, yağışın orta ve doğu Pasifik'te arttığı belirtiliyor.</p>
+
+<p>El Niño doğal olarak yaklaşık iki ila yedi yılda bir gelişiyor. Bilim insanları deniz yüzeyi yüksekliğini 1993'ten beri kesintisiz uydu altimetrisiyle izliyor. Farklı sensörlerin aynı dönemi ölçmesi, yalnız sıcaklığa bakmak yerine okyanustaki ısı hareketini, rüzgârlarla bağlantısını ve biyolojik yanıtı birlikte değerlendirmeyi sağlıyor.</p>
+
+<h2>Okyanusun rengi neden değişti?</h2>
+
+<p>2024'te fırlatılan PACE uydusu ilk kez bir El Niño'yu hiperspektral okyanus rengiyle izliyor. Ekvator çevresindeki bazı sular son aylarda daha mavi göründü. Bunun nedeni, zayıflayan alize rüzgârlarının besince zengin derin suyun yüzeye çıkışını azaltması ve fitoplankton yoğunluğunun düşmesi. Fitoplankton deniz besin ağının tabanında bulunduğu için değişim, daha üst basamaklardaki canlıların beslenme alanlarını da etkileyebilir.</p>
+
+<p>El Niño küresel hava örüntülerini değiştirebilir, ancak belirli bir yerde sel, kuraklık veya yangın olacağını tek başına garanti etmez. Yerel etkiler için güncel bölgesel tahminler ve risk uyarıları izlenmeli. Deniz ekosistemlerindeki başka bir güncel baskı için <a href="/haber/mercan-turleri-yok-olma-riski">resif oluşturan mercanların küresel risk değerlendirmesine</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler NASA'nın 15 Ekim 2026 tarihli <a href="https://science.nasa.gov/earth/nasa-satellites-observe-historic-2026-el-nino/" target="_blank" rel="noopener noreferrer">uydu değerlendirmesi</a> ve NOAA İklim Tahmin Merkezi'nin 8 Ekim tarihli <a href="https://cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml" target="_blank" rel="noopener noreferrer">ENSO tanı tartışması</a> karşılaştırılarak derlenmiştir. Kapak temsili editoryal görselleştirmedir; gerçek uydu haritası veya bilimsel veri ürünü değildir.</p>
+    `,
+  }),
+  editorial({
     slug: "hubble-ngc-1827-galaksi-kenari",
     title: "Hubble, NGC 1827 Galaksisini Kenarından Görüntüledi",
     excerpt: "Hubble'ın yeni görüntüsü, 37 milyon ışık yılı uzaktaki NGC 1827'nin toz şeritlerini ve yıldız oluşum bölgelerini görünür kılıyor.",
