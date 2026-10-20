@@ -43,6 +43,96 @@ function editorial(input: EditorialArticle): Article {
 
 export const EDITORIAL_ARTICLES: Article[] = [
   editorial({
+    slug: "euclid-ilk-yeni-kuyruklu-yildiz-kesfi",
+    title: "Euclid Teleskobu İlk Kez Yeni Bir Kuyruklu Yıldız Keşfetti",
+    excerpt: "Uzak galaksileri haritalamak için tasarlanan Euclid, C/2026 S1 adlı daha önce bilinmeyen bir kuyruklu yıldızı 1,3 milyar kilometre uzakta yakaladı.",
+    category: "Bilim & Uzay",
+    published_at: "2026-10-20T09:07:00+03:00",
+    cover_image: "/editorial/2026-10-20/euclid-yeni-kuyruklu-yildiz.webp",
+    original_source_url: "https://www.esa.int/Science_Exploration/Space_Science/Euclid/Euclid_discovers_new_comet",
+    content: `
+<p>Avrupa Uzay Ajansı, Euclid uzay teleskobunun daha önce bilinmeyen bir kuyruklu yıldız keşfettiğini 19 Ekim'de açıkladı. C/2026 S1 (Euclid) adı verilen gök cismi, 16-24 Eylül arasında çekilen görüntülerde belirdi. Euclid'in ana görevi karanlık evreni araştırmak için uzak galaksileri haritalamak; bu nedenle hareketli ve görece yakın bir Güneş Sistemi cismini bulması, görev için beklenmedik bir yan kazanım.</p>
+
+<h2>Bir “iz” nasıl keşfe dönüştü?</h2>
+
+<p>Helsinki Üniversitesinden Mikko Pöntinen'in geliştirdiği hareketli cisim yazılımı, Euclid görüntülerinde yıldızların arasında uzanan bir iz işaretledi. Araştırmacılar cismin olası konumlarını hesaplayarak onu beş ayrı görüntü dizisinde buldu. Çevresindeki bulanık koma, cismin gaz ve toz salan etkin bir kuyruklu yıldız olabileceğini gösterdi.</p>
+
+<p>Bilinen küçük cisim kataloglarında eşleşme bulunmayınca gözlemler Uluslararası Astronomi Birliği'nin Küçük Gezegen Merkezine bildirildi. Yerdeki teleskoplarla yapılan takip gözlemleri de sürece katıldı ve merkez keşfi 8 Ekim'de doğruladı. Böylece cisim C/2026 S1 (Euclid) olarak kayda geçti.</p>
+
+<h2>Neden bulunması zordu?</h2>
+
+<p>Kuyruklu yıldız şu anda Dünya'dan yaklaşık 1,3 milyar kilometre uzakta; bu, Güneş ile Jüpiter ve Satürn yörüngeleri arasındaki mesafe ölçeğine denk geliyor. Yörüngesi gezegenlerin ortak düzleminin oldukça dışında ve Güneş Sistemi çevresindeki turunun binlerce yıl sürmesi bekleniyor.</p>
+
+<p>Euclid, hassas galaksi ölçümlerini bozabilecek toz parıltısından kaçınmak için göğün asteroid ve kuyruklu yıldız açısından zengin ana düzleminden uzak bölgelerini tarıyor. Üstelik “adım at ve bak” stratejisiyle bir alanı genellikle yalnız bir kez ziyaret ediyor. Bu koşullarda aynı cismin birden fazla görüntüde yakalanması, yörünge ile tarama programının nadir bir kesişimi oldu.</p>
+
+<p>ESA, bu kuyruklu yıldızın Comet Interceptor görevi için uygun hedef olmadığını belirtiyor. Yine de keşfin hızlı biçimde doğrulanması, Euclid'in gelecekte bulabileceği hareketli cisimlerin başka görev ve gözlemevlerine aktarılması için gerçek bir prova sağladı. Başka bir güncel uzay gözlemi için <a href="/haber/hubble-ngc-1827-galaksi-kenari">Hubble'ın NGC 1827 görüntüsüne</a> de bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler ESA'nın 19 Ekim 2026 tarihli <a href="https://www.esa.int/Science_Exploration/Space_Science/Euclid/Euclid_discovers_new_comet" target="_blank" rel="noopener noreferrer">Euclid keşif duyurusundan</a> derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal görseldir; gerçek Euclid görüntüsü, kuyruklu yıldız fotoğrafı veya bilimsel veri ürünü değildir.</p>
+    `,
+  }),
+  editorial({
+    slug: "zanzibar-taarab-muzigi-yasayan-miras",
+    title: "Zanzibar'ın Taarab Müziği Topluluklarla Birlikte Kayıt Altına Alınıyor",
+    excerpt: "UNESCO destekli çalışma, Taarab geleneğini yalnız ezgileriyle değil, onu kuşaktan kuşağa taşıyan icracıların bilgisi ve deneyimiyle belgelemeyi amaçlıyor.",
+    category: "Kültür",
+    published_at: "2026-10-20T09:06:00+03:00",
+    cover_image: "/editorial/2026-10-20/zanzibar-taarab-muzigi.webp",
+    original_source_url: "https://www.unesco.org/en/articles/unesco-and-tui-care-foundation-support-safeguarding-taarab-music-tanzania",
+    content: `
+<p>Zanzibar'ın kültürel kimliğinde önemli bir yere sahip Taarab müziği, topluluk temelli bir envanter çalışmasıyla belgeleniyor. UNESCO ile TUI Care Foundation'ın desteklediği çalışma 12-19 Ekim arasında kamu kurumlarını, kültür uzmanlarını, icracıları ve geleneği taşıyan topluluk üyelerini bir araya getirdi. Amaç, yaşayan mirası yalnız eser listelerine indirgemeden, onu sürdüren kişilerin bilgi ve deneyimini kayda geçirmek.</p>
+
+<h2>Taarab neden yaşayan miras sayılıyor?</h2>
+
+<p>Taarab; müzik bestelerini, şiirsel sözleri ve kendine özgü icra biçimlerini bir araya getiriyor. Geleneğin yapısında Zanzibar ve Svahili kıyısının yüzyıllar boyunca farklı toplumlarla kurduğu temasların izleri bulunuyor. Müzik, eğlencenin yanında hikâye anlatma, toplumsal yorum yapma ve ortak değerleri yeni kuşaklara aktarma işlevi de görüyor.</p>
+
+<p>Bu nedenle envanter, yalnız enstrümanların veya şarkı adlarının sıralandığı teknik bir dosya olarak tasarlanmıyor. Saha görüşmeleri ve topluluk buluşmalarıyla, icracıların geleneği nasıl öğrendiği, hangi ortamlarda yaşattığı ve geleceğe aktarım için neye ihtiyaç duyduğu anlaşılmaya çalışılıyor. UNESCO'nun yaklaşımında miras taşıyıcılarının kendi gelenekleriyle ilgili kararlarda merkezde olması özellikle vurgulanıyor.</p>
+
+<h2>Kültür ile turizm arasındaki hassas denge</h2>
+
+<p>Çalışma, “Sounds & Stories of Stone Town” adlı 24 aylık girişimin bir parçası. Program; kültürel etkinlikler, beceri geliştirme, gençlerin katılımı ve mirasa dayalı turizm deneyimleri üzerinden yerel toplulukların daha fazla pay almasını hedefliyor. Kadınlar ve gençler için yeni fırsatlar yaratılması da hedefler arasında.</p>
+
+<p>Ancak yaşayan bir geleneği turizm ürünü hâline getirmek, bağlamın kaybolması veya toplulukların karar sürecinden dışlanması riskini taşıyabilir. Projenin “sorumlu kültürel deneyim” vurgusu bu yüzden önemli. Başarının ölçüsü yalnız ziyaretçi sayısı değil; icracıların haklarının tanınması, aktarımın sürmesi ve ekonomik yararın yerel topluluklara ulaşması olacak.</p>
+
+<p>Envanterin tamamlanması Taarab'ın korunmasını tek başına garanti etmiyor. Sürekli icra, kuşaklar arası öğrenme ve toplulukların kendi koşullarıyla paylaşım yapabilmesi gerekiyor. Görsel arşivlerin kültürel hafızadaki başka bir rolü için <a href="/haber/fotografik-hafiza-50-yillik-portre-koleksiyonu">50 yıllık portre koleksiyonu yazısına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler UNESCO'nun 19 Ekim 2026 tarihli <a href="https://www.unesco.org/en/articles/unesco-and-tui-care-foundation-support-safeguarding-taarab-music-tanzania" target="_blank" rel="noopener noreferrer">Taarab envanteri duyurusundan</a> derlenmiştir. Kapak Ugavole için üretilmiş temsili editoryal illüstrasyondur; gerçek bir etkinliği, icracıyı veya Stone Town mekânını göstermez.</p>
+    `,
+  }),
+  editorial({
+    slug: "meme-kanseri-erken-bakim-egitim-rehberi",
+    title: "DSÖ Meme Kanseri Programları İçin Uygulamalı Eğitim Rehberi Yayımladı",
+    excerpt: "Yeni eğitim paketi, ülkelerin erken tespit, zamanında tanı ve kapsamlı tedavi hizmetlerini program düzeyinde güçlendirmesine yardımcı olmayı amaçlıyor.",
+    category: "Yaşam",
+    published_at: "2026-10-20T09:05:00+03:00",
+    cover_image: "/editorial/2026-10-20/meme-kanseri-egitim-rehberi.webp",
+    original_source_url: "https://www.who.int/news/item/19-10-2026-who-releases-training-manual-to-expand-access-to-early-breast-cancer-care",
+    content: `
+<p>Dünya Sağlık Örgütü, ülkelerin meme kanseri hizmetlerini kurmasına veya güçlendirmesine yardımcı olacak yeni bir eğitim kılavuzunu 19 Ekim'de yayımladı. Küresel Meme Kanseri Girişimi kapsamındaki paket, genel önerileri ulusal, bölgesel ve sağlık tesisi düzeyinde uygulanabilecek adımlara çevirmeyi amaçlıyor. Hedef kitlesi bireysel hastalar değil; program yöneticileri, sağlık çalışanları ve uygulama ortakları.</p>
+
+<h2>Bakım zincirinin tamamını ele alıyor</h2>
+
+<p>Kılavuz; korunma, erken tespit, tanı, tedavi yönetimi, sağlık ürünleri ve teknolojileri, çok disiplinli ekip çalışması ile hasta yönlendirmesini ayrı teknik modüllerde ele alıyor. Böylece yalnız bir tarama testi veya tek bir tedavi aşamasına odaklanmak yerine, şüpheli bulgunun değerlendirilmesinden uygun tedaviye ve izleme kadar hizmet zincirindeki kopuklukları belirlemeyi hedefliyor.</p>
+
+<p>DSÖ, yeni meme kanseri vakalarının en az yüzde 60'ının erken evrede tanı almasını ülkeler için öncelik olarak gösteriyor. Kuruma göre erken evrede uygulanan tedavi genellikle daha etkili, daha iyi tolere edilen ve daha düşük maliyetli olabiliyor. Bu oran bir kişinin bireysel riskini veya hangi tarama yöntemini ne zaman kullanması gerektiğini açıklamıyor; sağlık sistemlerinin program düzeyindeki performans hedefini ifade ediyor.</p>
+
+<h2>Yerel koşullara uyarlama neden önemli?</h2>
+
+<p>Aynı model her ülkede doğrudan uygulanamıyor. Personel sayısı, laboratuvar kapasitesi, ilaç ve cihaz erişimi, sevk süreleri ve coğrafi koşullar farklılık gösteriyor. Kılavuzun adım adım yapısı, ülkelerin mevcut kapasitesini değerlendirip öncelikleri kendi koşullarına göre sıralamasına yardımcı olmak için hazırlandı.</p>
+
+<p>DSÖ, Etiyopya, Esvatini ve Filipinler'deki ortakların materyalleri ulusal eğitim programlarına uyarlamak üzere çalışmaya başladığını belirtiyor. Bu aşamadaki duyuru, kılavuzun sonuçları iyileştirdiğini kanıtlayan bir değerlendirme sunmuyor. Etki; sağlık çalışanlarının eğitimi, tanı gecikmeleri, tedaviye erişim ve hasta sonuçları gibi ölçütler zaman içinde izlendiğinde görülebilecek.</p>
+
+<p>Kılavuz kişisel tıbbi tavsiye yerine sağlık programlarının planlanmasına yönelik. Belirti, tarama veya tedavi kararları kişinin yaşı, öyküsü ve yerel sağlık rehberleri dikkate alınarak bir sağlık profesyoneliyle değerlendirilmelidir. Kadın sağlığında araştırma ve rehber ihtiyacına başka bir örnek için <a href="/haber/erken-menopoz-arastirma-rehber-acigi">erken menopoz dosyasına</a> da bakılabilir.</p>
+
+<h2>Kaynak ve görsel notu</h2>
+
+<p>Bilgiler DSÖ'nün 19 Ekim 2026 tarihli <a href="https://www.who.int/news/item/19-10-2026-who-releases-training-manual-to-expand-access-to-early-breast-cancer-care" target="_blank" rel="noopener noreferrer">eğitim kılavuzu duyurusu</a> ile kurumun <a href="https://www.who.int/initiatives/global-breast-cancer-initiative" target="_blank" rel="noopener noreferrer">Küresel Meme Kanseri Girişimi sayfası</a> karşılaştırılarak derlenmiştir. Kapak temsili editoryal illüstrasyondur; gerçek hasta, hekim, tarama sonucu veya sağlık kuruluşunu göstermez.</p>
+    `,
+  }),
+  editorial({
     slug: "peru-ormanlari-ektomikorizal-mantarlar",
     title: "Peru Ormanlarının Gizli Yaşamı Mantarlarla Araştırılacak",
     excerpt: "Perulu araştırmacı Sheena Sangay, Amazon ve Yungas ekosistemlerinde insan faaliyetlerinin köklerle ortak yaşayan mantar topluluklarını nasıl etkilediğini inceleyecek.",
