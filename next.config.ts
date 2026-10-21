@@ -60,6 +60,11 @@ const CONTENT_SECURITY_POLICY = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  experimental: {
+    // Hostinger exposes the host CPU count, but caps available processes/threads.
+    // Bound prerender workers to avoid EAGAIN/SIGABRT during page data collection.
+    cpus: 2,
+  },
   turbopack: {
     root: process.cwd(),
   },
