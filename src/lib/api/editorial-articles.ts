@@ -54,7 +54,7 @@ export const EDITORIAL_ARTICLES: Article[] = [
 }),
   editorial({
     "slug": "galileo-yeni-sinyal-ureteci-test",
-    "title": "Galileo’nun Yeni Sinyal Üreteci Yörüngede Güncellenebilecek",
+    "title": "Galileo’nun Yeni Sinyal Üreteci Testleri Geçti",
     "excerpt": "İkinci nesil Galileo için geliştirilen ilk sinyal üretim modülü yer testlerini geçti. Yeniden programlanabilir tasarımın entegrasyon ve sistem testleri sürecek.",
     "category": "Teknoloji",
     "published_at": "2026-10-23T09:55:04+03:00",
