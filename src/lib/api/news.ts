@@ -12,6 +12,8 @@ export type Article = {
   slug?: string;
   content_type?: string;
   title: string;
+  seo_title?: string;
+  cover_alt?: string;
   excerpt: string;
   content?: string;
   content_blocks?: ContentBlock[];

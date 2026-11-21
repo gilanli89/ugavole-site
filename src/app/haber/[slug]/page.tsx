@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: "Haber bulunamadı" };
 
   return buildMetadata({
-    title: post.title,
+    title: post.seo_title || post.title,
     description: post.excerpt,
     path: `/haber/${slug}`,
     ogImage: post.cover_image,
@@ -149,7 +149,7 @@ export default async function HaberDetayPage({ params }: Props) {
             <div className="relative aspect-[16/9] w-full bg-ugavole-surface-2">
               <Image
                 src={post.cover_image}
-                alt={post.title}
+                alt={post.cover_alt || post.title}
                 fill
                 className="object-cover"
                 loading="eager"
