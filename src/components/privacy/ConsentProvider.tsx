@@ -18,7 +18,10 @@ declare global {
 }
 
 const EVENT_NAME = "ugavole-consent-change";
+// Google serves the shared tag by its GT ID. Configure only the Ugavole web stream.
+const GOOGLE_TAG_ID = "GT-T5MFBKQR";
 const GA_MEASUREMENT_ID = "G-X2NG67BW7Y";
+const OTHER_GA_DESTINATIONS = ["G-C0DE2ZY5WD", "G-TYKXS76TVB"];
 const ConsentContext = createContext<Consent>(null);
 
 function readConsent(): Consent {
@@ -63,7 +66,10 @@ function ConsentScripts({ consent }: { consent: Consent }) {
       {consent === "granted" && (
         <>
           <Script id="ugavole-ga4-config" strategy="afterInteractive">
-            {`window.dataLayer = window.dataLayer || [];
+            {`for (const destination of ${JSON.stringify(OTHER_GA_DESTINATIONS)}) {
+  window['ga-disable-' + destination] = true;
+}
+window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('consent', 'default', {
   analytics_storage: 'denied',
@@ -81,7 +87,7 @@ gtag('config', '${GA_MEASUREMENT_ID}', {
           <Script
             id="ugavole-ga4"
             strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
           />
         </>
       )}
