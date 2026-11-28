@@ -51,7 +51,7 @@ const CONTENT_SECURITY_POLICY = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
-  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://www.google-analytics.com https://*.google-analytics.com https://pagead2.googlesyndication.com https://fundingchoicesmessages.google.com",
+  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://pagead2.googlesyndication.com https://fundingchoicesmessages.google.com",
   "frame-src https://challenges.cloudflare.com https://*.doubleclick.net https://*.googlesyndication.com",
   "worker-src 'self' blob:",
   "manifest-src 'self'",

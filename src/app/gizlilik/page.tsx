@@ -64,14 +64,14 @@ export default function GizlilikPage() {
           <li><strong>Reklam çerezleri:</strong> Yalnız açık izin ve gerekli sertifikalı izin platformu hazır olduğunda etkinleştirilen reklam hizmetleri</li>
         </ul>
         <p>
-          Çerez tercihlerinizi tarayıcı ayarlarından yönetebilirsiniz. Detaylı bilgi için{" "}
+          Analitik çerez tercihinizi sayfanın altındaki Analitik çerez tercihleri düğmesinden değiştirebilirsiniz. Detaylı bilgi için{" "}
           <Link href="/cerez-politikasi">Çerez Politikamızı</Link> inceleyiniz.
         </p>
 
         <h2>5. Üçüncü Taraf Hizmetler</h2>
         <p>Sitemizde aşağıdaki üçüncü taraf hizmetler kullanılmaktadır:</p>
 
-        <h3>Google Tag Manager &amp; Google Analytics</h3>
+        <h3>Google Analytics</h3>
         <p>
           İzin verdiğinizde site trafiğini analiz etmek için Google Analytics kullanabiliriz. Google, toplanan verileri
           kendi gizlilik politikasına göre işler:{" "}

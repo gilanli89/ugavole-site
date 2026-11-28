@@ -42,14 +42,13 @@ export default function CerezPolitikasiPage() {
           <li><strong>Oturum çerezleri:</strong> Sayfa gezinme sırasında geçici veriler tutulur</li>
         </ul>
 
-        <h3>Analitik Çerezler (Google Analytics / GTM)</h3>
+        <h3>Analitik Çerezler (Google Analytics)</h3>
         <p>
           Sitemizi kaç kişinin ziyaret ettiğini, hangi sayfaların popüler olduğunu ve
           kullanıcıların sitede nasıl gezindiğini anlamak için kullanılır.
         </p>
         <ul>
           <li><strong>_ga, _ga_*:</strong> Google Analytics oturum ve kullanıcı takibi</li>
-          <li><strong>_gid:</strong> 24 saatlik oturum tanımlayıcısı</li>
         </ul>
         <p>
           Google Analytics verilerini işleme hakkında:{" "}

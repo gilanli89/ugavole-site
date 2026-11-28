@@ -18,6 +18,7 @@ declare global {
 }
 
 const EVENT_NAME = "ugavole-consent-change";
+const GA_MEASUREMENT_ID = "G-X2NG67BW7Y";
 const ConsentContext = createContext<Consent>(null);
 
 function readConsent(): Consent {
@@ -43,27 +44,46 @@ function saveConsent(value: Exclude<Consent, null>) {
 }
 
 function clearConsent() {
-  const hadMarketingConsent = readConsent() === "granted";
+  const hadAnalyticsConsent = readConsent() === "granted";
   const secure = location.protocol === "https:" ? "; Secure" : "";
   document.cookie = `ugavole_consent=; Max-Age=0; Path=/; SameSite=Lax${secure}`;
-  if (hadMarketingConsent) {
+  if (hadAnalyticsConsent) {
     location.reload();
     return;
   }
   window.dispatchEvent(new Event(EVENT_NAME));
 }
 
-function MarketingScripts({ consent }: { consent: Consent }) {
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+function ConsentScripts({ consent }: { consent: Consent }) {
   const adsClient = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID;
   const certifiedCmpReady = process.env.NEXT_PUBLIC_GOOGLE_CERTIFIED_CMP_READY === "true";
 
   return (
     <>
-      {gtmId && consent === "granted" && (
-        <Script id="ugavole-gtm" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`}
-        </Script>
+      {consent === "granted" && (
+        <>
+          <Script id="ugavole-ga4-config" strategy="afterInteractive">
+            {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied'
+});
+gtag('consent', 'update', { analytics_storage: 'granted' });
+gtag('js', new Date());
+gtag('config', '${GA_MEASUREMENT_ID}', {
+  allow_google_signals: false,
+  allow_ad_personalization_signals: false
+});`}
+          </Script>
+          <Script
+            id="ugavole-ga4"
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          />
+        </>
       )}
       {adsClient && certifiedCmpReady && (
         <Script
@@ -80,19 +100,17 @@ function MarketingScripts({ consent }: { consent: Consent }) {
 
 export function ConsentProvider({ children }: { children: React.ReactNode }) {
   const consent = useSyncExternalStore(subscribe, readConsent, () => null);
-  const certifiedCmpReady = process.env.NEXT_PUBLIC_GOOGLE_CERTIFIED_CMP_READY === "true";
-
   return (
     <ConsentContext.Provider value={consent}>
       {children}
-      <MarketingScripts consent={consent} />
-      {!certifiedCmpReady && consent === null && (
+      <ConsentScripts consent={consent} />
+      {consent === null && (
         <aside className="fixed inset-x-3 bottom-4 z-[100] mx-auto max-w-4xl rounded-[20px] border border-ugavole-border bg-ugavole-surface/95 p-3.5 shadow-[0_24px_70px_rgba(17,17,14,0.18)] backdrop-blur-xl sm:px-5" aria-label="Çerez tercihi">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <div className="flex-1">
               <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-ugavole-yellow-dark">Gizlilik tercihin</p>
               <p className="mt-1 text-xs font-medium leading-5 text-ugavole-body sm:text-[13px]">
-              Ölçüm ve reklam teknolojileri yalnız izninle yüklenir. Zorunlu çerezler siteyi çalıştırır.
+              Google Analytics, yalnız izninle site kullanımını ölçer. Zorunlu çerezler siteyi çalıştırır.
               Ayrıntılar <Link href="/cerez-politikasi" className="font-bold underline underline-offset-2">çerez politikasında</Link>.
               </p>
             </div>
@@ -118,12 +136,7 @@ export function useConsent(): Consent {
 export function ConsentSettingsButton() {
   const certifiedCmpReady = process.env.NEXT_PUBLIC_GOOGLE_CERTIFIED_CMP_READY === "true";
 
-  function openSettings() {
-    if (!certifiedCmpReady) {
-      clearConsent();
-      return;
-    }
-
+  function openAdSettings() {
     window.googlefc = window.googlefc ?? {};
     window.googlefc.callbackQueue = window.googlefc.callbackQueue ?? [];
     const show = () => window.googlefc?.showRevocationMessage?.();
@@ -131,13 +144,18 @@ export function ConsentSettingsButton() {
     show();
   }
 
+  const buttonClass = "text-sm text-gray-400 transition-colors hover:text-ugavole-yellow";
+
   return (
-    <button
-      type="button"
-      onClick={openSettings}
-      className="text-sm text-gray-400 transition-colors hover:text-ugavole-yellow"
-    >
-      Çerez tercihleri
-    </button>
+    <div className="flex flex-col items-start gap-2">
+      <button type="button" onClick={clearConsent} className={buttonClass}>
+        Analitik çerez tercihleri
+      </button>
+      {certifiedCmpReady && (
+        <button type="button" onClick={openAdSettings} className={buttonClass}>
+          Reklam çerez tercihleri
+        </button>
+      )}
+    </div>
   );
 }
